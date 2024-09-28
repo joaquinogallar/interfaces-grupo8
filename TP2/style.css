@@ -1,0 +1,217 @@
+.body {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Variables de colores y fuentes */
+:root {
+    --bg-dark: #161E27;
+    --bg-dark-2: #141A21;
+
+    /* Colores primarios */
+    --primario-300: #80AEE0;
+    --primario-400: #5E8CBE;
+    --primario-500: #4E79A7;
+    --primario-600: #335375;
+    --primario-700: #223952;
+
+    /* Colores secundarios  */
+    --secundario-300: #2F4155;
+    --secundario-400: #253649;
+    --secundario-500: #1E2E41;
+    --secundario-600: #1C2733;
+    --secundario-700: #161E27;
+
+    /* Colores acento  */
+    --acento-300: #FFA5A5;
+    --acento-400: #FF8484;
+    --acento-500: #FF6B6B;
+    --acento-600: #EC5454;
+    --acento-700: #CE4747;
+
+    /* Colores texto */
+    --text-dark: #141414;
+    --text-light: #FAFAFA;
+
+}
+
+
+/* ESTILO TEXTOS */
+.text-dark {
+  color: var(--text-dark);
+}
+
+.text-light {
+  color: var(--text-light);
+}
+
+.h1 {
+  /* Título H1 COPY PASTE DE FIGMA*/
+
+  /* Título-H1 */
+  font-family: 'Silkscreen';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 41px;
+  /* identical to box height */
+}
+
+.h1alt {
+  /* Título H1 ALTER*/
+
+  /* Titulo-H1 */
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 51px;
+}
+
+.h2 {
+  /* Título H2 COPY PASTE DE FIGMA, son todos copypaste*/
+
+  /* Título-H2 */
+  font-family: 'Silkscreen';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  border: green 1px solid;
+}
+
+.h3 {
+  /* Título H3 */
+
+  font-family: 'Silkscreen';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 31px;
+  /* identical to box height */
+}
+
+.h4 {
+  /* Título H4 */
+
+  font-family: 'Silkscreen';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  /* identical to box height */
+}
+
+.body0 {
+  /* Body 0 COPIADO FIGMA CSS*/
+
+  /* Body-0 */
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 35px;
+}
+
+.body1 {
+  /* Body-1 */
+
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 29px;
+  /* identical to box height */
+}
+
+.body2 {
+  /* Body-2 */
+
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  /* identical to box height */
+}
+
+.body3 {
+  /* Body-3 */
+  
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  /* identical to box height */
+}
+
+
+/* SIDEBAR POPOVER */
+#sidebar {
+    margin-top: 30px;
+    margin-left: 0;
+    background-color: var(--bg-dark-2);
+    padding: 20px;
+    border: none;
+}
+
+#sidebar a {
+  text-decoration: none;
+  opacity: 0.6;
+}
+
+#sidebar ul {
+  list-style-type: none; 
+  padding: 15px 0px;            
+}
+
+#sidebar li {
+  list-style-type: none; 
+  margin-bottom: 15px;            
+}
+
+
+/* HEADER  */
+header {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  max-height: 80px;
+  border: solid black 1px;
+  padding:10px;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+
+header div {
+
+  height: 40px;
+  
+}
+
+#head-div-a {
+  display: flex;
+  flex-direction: row;
+  max-height: 40px;
+}
+
+#head-div-a div{
+  display: flex;
+  flex-direction: row;
+  max-height: 40px;
+  border: solid violet 2px;
+}
+
+header p {
+  border: solid green 2px;
+}
+
+
+header button {
+  all: unset; 
+  display: inline-block; 
+  cursor: pointer; 
+}
