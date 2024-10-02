@@ -12,6 +12,7 @@ body {
 :root {
     --bg-dark: #161E27;
     --bg-dark-2: #141A21;
+    --bg-light: #F1F8FF;
 
     /* Colores primarios */
     --primario-300: #80AEE0;
@@ -48,6 +49,12 @@ body {
 
 .text-light {
   color: var(--text-light);
+}
+
+.silkscreen {
+  font-family: "Silkscreen", sans-serif;
+  font-style: normal;
+  font-weight: 500;
 }
 
 .h1 {
@@ -155,7 +162,7 @@ body {
 }
 
 .placeholder::placeholder {
-  all:unset;
+  color: var(--bg-dark);
   font-family: "Silkscreen", sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -163,6 +170,15 @@ body {
 }
 
 /* FIN ESTILO TEXTOS */
+
+/* MAIN */
+
+main {
+  height: 100vh;
+  background-color: var(--primario-700);
+}
+
+/* FIN MAIN */
 
 /* SIDEBAR POPOVER */
 #sidebar {
@@ -347,13 +363,6 @@ header div {
 
 /* FIN HEADER */
 
-/* MAIN */
-
-main {
-  height: 100vh;
-  background-color: var(--primario-700);
-}
-
 
 /* LOGIN */
 
@@ -377,7 +386,7 @@ main {
 .div-login {
   z-index: 10;
   background-color: #335375;
-  padding: 40px;
+  padding: 0 40px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -388,22 +397,49 @@ main {
 /* Título */
 .div-title-login {
   display: flex;
+  flex-direction: row;
+  padding: 50px 0;
+  justify-content: center;
 }
+
 
 /* Estilos del formulario */
 .formLogin {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .formLogin input {
   width: 100%;
-  padding: 10px;
+  display: flex;
+  padding: 10px 20px;
   border: 1px solid #ccc;
   border-radius: 25px;
   font-size: 16px;
+}
+
+.usuarioForm {
+  display: flex;
+  width: 100%;
+}
+
+.contraseñaForm {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.contraseñaForm button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  opacity: 0.4;
 }
 
 
@@ -411,25 +447,150 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
+
+
+/* ESTILO RECORDARME Y CHECKBOX */
 
 .recordarmeForm {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
+  display: block;
+  position: relative;
+  padding-left: 30px;
+
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-#recordarme {
-  width: 18px;
-  height: 18px;
+.recordarmeForm p {
+  color: var(--text-light);
+  opacity: 0.6;
+  margin: 0;
 }
+
+.recordarmeForm input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+} 
+
+.checkmark {
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  height: 15px;
+  width: 15px;
+  background-color: none;
+  border: solid 2px var(--bg-light);
+  opacity: 0.4;
+  border-radius: 5px;
+}
+
+.recordarmeForm:hover input ~ .checkmark {
+  background-color: none;
+}
+
+.recordarmeForm input:checked ~ .checkmark {
+  background-color: var(--primario-300);
+} 
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.recordarmeForm input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.recordarmeForm .checkmark:after {
+  left: 5px;
+  top: 3px;
+  width: 3px;
+  height: 6px;
+  border: solid var(--text-light  );
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* FIN RECORDARME Y CHECKBOX */
 
 .olvideContraseña {
-  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
   color: var(--acento-500);
   cursor: pointer;
   text-decoration: underline;
+  text-underline-offset: 3px; /* Ajusta el espacio entre el texto y el subrayado */
 }
+
+.btnSubmitLogin {
+  border: none;
+  background: none;
+  background-color: var(--secundario-500);
+  color: var(--text-light);
+  border-radius: 50px;
+  padding: 5px 0px;
+  width: 80%;
+  font-size: 18px;
+}
+
+.btns-login-redes {
+  display: flex;
+  flex-direction: row;
+
+  gap: 10px;
+  padding-top: 15px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.googleBtn {
+  background: none;
+  background-color: var(--bg-light);
+  border: solid black 1px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 50px;
+  height: 40px;
+  padding: 20px 10px;
+  width: 100%;
+}
+
+.facebookBtn {
+  background: none;
+  background-color: #3B5998;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 50px;
+  height: 40px;
+  padding: 20px 15px;
+  width: 100%;
+  gap: 5px;
+  color: #FFFFFF;
+}
+
+.googleBtn img {
+  height: 30px;
+}
+
+.facebookBtn img {
+  height: 20px;
+}
+
+
 
 

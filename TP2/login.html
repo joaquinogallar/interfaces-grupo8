@@ -9,6 +9,7 @@
 
     <!-- ICONOS https://fonts.google.com/icons -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
@@ -21,36 +22,45 @@
         <div class="div-login">
             
             <div class="div-title-login">
-                <img id="logo-header" src="assets/logo.jpg">
-                <h1 class="h1 text-light">GAME SPHERE</h1>
+                
+                    <img id="logo-header" src="assets/logo.jpg">
+                    <h1 class="h1 text-light">GAME SPHERE</h1>
+                
             </div>
         
             <form class="formLogin" action="">
                 <div class="usuarioForm">
-                    <input type="text" placeholder="Usuario" class="placeholder">
+                    <input type="text" placeholder="Usuario" class="placeholder silkscreen" required>
                 </div>
             
                 <div class="contraseñaForm">
-                    <input type="password" placeholder="Contraseña" class="placeholder">
+                    <input type="password" placeholder="Contraseña" class="placeholder silkscreen" required minlength="4">
+                    <button> <i class="material-icons">visibility</i> </button>
                 </div>
 
                 <div class="optionsRowLogin">
-                    <div class="recordarmeForm">
+                    <label class="recordarmeForm">
                         <input type="checkbox" id="recordarme">
-                        <label for="recordarme" class="body2">Recordarme</label>
-                    </div>
-                    <span class="olvideContraseña">Recuperar cuenta</span>
+                        <span class="checkmark"></span>
+                        <p class="body2">Recordarme</p>
+                    </label>
+                    
+                    <a class="olvideContraseña body2">Recuperar Cuenta</a>
                 </div>
 
-                <button class="btnSubmit" type="submit">Ingresar</button>
+                <button class="btnSubmitLogin body2" type="submit">Iniciar Sesión</button>
             </form>
 
-            <button class="facebookBtn">
-                <i class="fab fa-facebook-f"></i> Facebook
-            </button>
-            <button class="googleBtn">
-                <i class="fab fa-google"></i> Google
-            </button>
+            <div class="btns-login-redes"> 
+                <button class="googleBtn">
+                    <img src="assets/googleicon.png" class="googleicon" alt="googleicon"></img> <p class="body1">Google</p>
+                </button>
+
+                <button class="facebookBtn">
+                    <img src="assets/facebookicon.png" class="facebookicon" alt="facebookicon"></img> <p class="body1">Facebook</p>
+                </button>
+            </div>
+            
 
             <span class="noAccount">No tienes cuenta? <a href="#">Regístrate</a></span>
         </div>
