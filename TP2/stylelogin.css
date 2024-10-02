@@ -1,0 +1,191 @@
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #223952;
+    
+}
+
+.imgBack{
+    width: auto;
+    position: absolute;
+    z-index: 0;
+    opacity: 0.4;
+    
+}
+
+/* Contenedor principal */
+.contenedorPrincipal {
+    z-index: 1;
+    background-color: #335375;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Título */
+.titleContainer h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+.pageTitle{
+    font-family: "Silkscreen", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Estilos del formulario */
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.formLogin input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+
+.optionsRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recordarmeForm {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+#recordarme {
+    width: 18px;
+    height: 18px;
+}
+
+
+.olvideContraseña {
+    font-size: 14px;
+    color: rgba(255, 107, 107, 1) ;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.btnSubmit{
+    background-color: rgba(30, 46, 65, 1);
+    margin-top: 10px;
+    margin-bottom: 20px;
+width: 330px;
+}
+
+
+
+.facebookBtn {
+    margin-right: 15px;
+    background-color: #3b5998;
+}
+.facebookBtn:hover {
+    background-color: #2d4373;
+}
+
+/* Google Button */
+.googleBtn {
+    background-color: #db4437;
+}
+
+.googleBtn:hover {
+    background-color: #c33d2e;
+}
+
+
+.noAccount {
+    display: block;
+    margin-top: 20px;
+  color: rgba(168, 55, 55, 0.5) ;
+    font-size: 14px;
+}
+
+.noAccount a {
+    color: #004b9b;
+    text-decoration: none;
+}
+
+.noAccount a:hover {
+    text-decoration: underline;
+}
+
+::placeholder {
+    font-family:  "Silkscreen", sans-serif;;
+}
+/* COMIENZO DE ESTILO DEL FORM */
+.contenedorForm {
+    z-index: 1;
+    background-color: #335375;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+.formRegistro {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.formTitle{
+    font-family:  "Silkscreen", sans-serif;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+.formRegistro input[type="text"],
+.formRegistro input[type="number"],
+.formRegistro input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 25px; /* Bordes redondeados */
+    font-size: 16px;
+}
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
