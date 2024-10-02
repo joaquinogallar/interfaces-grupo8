@@ -67,7 +67,7 @@ body {
   /* Título H1 ALTER*/
 
   /* Titulo-H1 */
-  font-family: 'Baloo 2';
+  font-family: 'Baloo 2', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -124,7 +124,7 @@ body {
 .body1 {
   /* Body-1 */
 
-  font-family: 'Baloo 2';
+  font-family: 'Baloo 2', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -135,7 +135,7 @@ body {
 .body2 {
   /* Body-2 */
 
-  font-family: 'Baloo 2';
+  font-family: 'Baloo 2', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
@@ -146,12 +146,20 @@ body {
 .body3 {
   /* Body-3 */
   
-  font-family: 'Baloo 2';
+  font-family: 'Baloo 2', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 24px;
   /* identical to box height */
+}
+
+.placeholder::placeholder {
+  all:unset;
+  font-family: "Silkscreen", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  opacity: 0.4;
 }
 
 /* FIN ESTILO TEXTOS */
@@ -345,3 +353,83 @@ main {
   height: 100vh;
   background-color: var(--primario-700);
 }
+
+
+/* LOGIN */
+
+#section-login {
+  height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #223952;
+}
+
+.img-back-login{
+  width: auto;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.div-login {
+  z-index: 10;
+  background-color: #335375;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Título */
+.div-title-login {
+  display: flex;
+}
+
+/* Estilos del formulario */
+.formLogin {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+.formLogin input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 16px;
+}
+
+
+.optionsRowLogin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recordarmeForm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+#recordarme {
+  width: 18px;
+  height: 18px;
+}
+
+.olvideContraseña {
+  font-size: 14px;
+  color: var(--acento-500);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+

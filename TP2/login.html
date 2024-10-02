@@ -1,57 +1,60 @@
-
-</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Game Sphere</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="stylelogin.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
 
+    <!-- ICONOS https://fonts.google.com/icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Baloo+2' rel='stylesheet'>
+    
 </head>
 <body>
-    <img class="imgBack"    src="assets/patronhorizontal.png" alt="">
-    <div class="contenedorPrincipal">
-        
-        <div class="titleContainer">
-            <h1 class="pageTitle">GAME SPHERE</h1>
-        </div>
-    
-        <form class="formLogin" action="submit">
-            <div class="usuarioForm">
-                <input type="text" placeholder="Usuario">
+    <section id="section-login">
+        <img class="img-back-login" src="assets/patronhorizontal.png" alt=""/>
+        <div class="div-login">
+            
+            <div class="div-title-login">
+                <img id="logo-header" src="assets/logo.jpg">
+                <h1 class="h1 text-light">GAME SPHERE</h1>
             </div>
         
-            <div class="contraseñaForm">
-                <input type="password" placeholder="Contraseña">
-            </div>
-
-            <div class="optionsRow">
-                <div class="recordarmeForm">
-                    <input type="checkbox" id="recordarme">
-                    <label for="recordarme">Recordarme</label>
+            <form class="formLogin" action="">
+                <div class="usuarioForm">
+                    <input type="text" placeholder="Usuario" class="placeholder">
                 </div>
-                <span class="olvideContraseña">Olvidé mi contraseña</span>
-            </div>
+            
+                <div class="contraseñaForm">
+                    <input type="password" placeholder="Contraseña" class="placeholder">
+                </div>
 
-            <button class="btnSubmit" type="submit">Ingresar</button>
-        </form>
+                <div class="optionsRowLogin">
+                    <div class="recordarmeForm">
+                        <input type="checkbox" id="recordarme">
+                        <label for="recordarme" class="body2">Recordarme</label>
+                    </div>
+                    <span class="olvideContraseña">Recuperar cuenta</span>
+                </div>
 
-    <button class="facebookBtn">
-        <i class="fab fa-facebook-f"></i> Facebook
-    </button>
-    <button class="googleBtn">
-        <i class="fab fa-google"></i> Google
-    </button>
+                <button class="btnSubmit" type="submit">Ingresar</button>
+            </form>
 
+            <button class="facebookBtn">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </button>
+            <button class="googleBtn">
+                <i class="fab fa-google"></i> Google
+            </button>
 
-        <span class="noAccount">No tienes cuenta? <a href="#">Regístrate</a></span>
-    </div>
+            <span class="noAccount">No tienes cuenta? <a href="#">Regístrate</a></span>
+        </div>
+    </section>
 
 </body>
 </html>

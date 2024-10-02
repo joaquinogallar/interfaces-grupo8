@@ -15,6 +15,13 @@ switch ($params[0]) {
     case 'home':
         require_once "home.html";
         break;
+    case 'login':
+        require_once "login.html";
+        break;
+    case 'register':
+        require_once "register.html";
+        break;
+
     
     default: 
         echo "<p>404 Page Not Found</p> <a href='home'>Home</a>";
