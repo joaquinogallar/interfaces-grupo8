@@ -1,6 +1,10 @@
-.body {
+* {
   margin: 0;
   padding: 0;
+}
+
+body {
+  height: 100vh;
 }
 
 
@@ -50,12 +54,13 @@
   /* Título H1 COPY PASTE DE FIGMA*/
 
   /* Título-H1 */
-  font-family: 'Silkscreen';
+  font-family: "Silkscreen", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
   line-height: 41px;
   /* identical to box height */
+  margin: 0;
 }
 
 .h1alt {
@@ -73,34 +78,36 @@
   /* Título H2 COPY PASTE DE FIGMA, son todos copypaste*/
 
   /* Título-H2 */
-  font-family: 'Silkscreen';
+  font-family: "Silkscreen", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 28px;
   line-height: 36px;
-  border: green 1px solid;
+  margin: 0;
 }
 
 .h3 {
   /* Título H3 */
 
-  font-family: 'Silkscreen';
+  font-family: "Silkscreen", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 31px;
   /* identical to box height */
+  margin: 0;
 }
 
 .h4 {
   /* Título H4 */
 
-  font-family: 'Silkscreen';
+  font-family: "Silkscreen", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 26px;
   /* identical to box height */
+  margin: 0;
 }
 
 .body0 {
@@ -147,71 +154,194 @@
   /* identical to box height */
 }
 
+/* FIN ESTILO TEXTOS */
 
 /* SIDEBAR POPOVER */
 #sidebar {
-    margin-top: 30px;
-    margin-left: 0;
     background-color: var(--bg-dark-2);
-    padding: 20px;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 65px;
+    padding-top: 20px;
+    height: 100%;
     border: none;
+    width: 200px;
 }
 
 #sidebar a {
   text-decoration: none;
   opacity: 0.6;
+  margin-left: 10px;
+  text-align: justify;  
+  display: flex;   
+  align-items: center;
+}
+
+#sidebar i {
+  color: var(--text-light);
+  opacity: 0.6;
+  margin-right: 15px;
+  
 }
 
 #sidebar ul {
-  list-style-type: none; 
-  padding: 15px 0px;            
+  list-style-type: none;            
 }
 
 #sidebar li {
   list-style-type: none; 
-  margin-bottom: 15px;            
+  margin-bottom: 25px;
+  margin-left: 15px;    
 }
 
 
+
+/* FIN SIDEBAR POPOVER */
+
 /* HEADER  */
 header {
+  width: 100%;
+  position: fixed;
   margin: 0;
   display: flex;
   flex-direction: row;
-  max-height: 80px;
-  border: solid black 1px;
-  padding:10px;
+  height: 55px;
+  max-height: 55px;
+  padding-top: 10px;
   background-color: var(--bg-dark);
   color: var(--text-light);
+  border-bottom: solid 2px var(--bg-dark-2);
+
+  z-index: 1000;
 }
 
 
 header div {
-
-  height: 40px;
-  
+ /*border: solid red 1px;*/
+  height: 50px;
+  width: 100%;
 }
 
+/* DIV A */
 #head-div-a {
   display: flex;
   flex-direction: row;
   max-height: 40px;
+  width: 100%;
 }
 
 #head-div-a div{
   display: flex;
   flex-direction: row;
   max-height: 40px;
-  border: solid violet 2px;
+  padding: 0px 15px;
 }
 
-header p {
-  border: solid green 2px;
+#div-hamburguesa {
+  width: 30px;
+  
 }
 
-
-header button {
-  all: unset; 
-  display: inline-block; 
+#btn-hamburguesa {
+  background: none;
+  border: none; 
   cursor: pointer; 
+  opacity: 0.6;
+  color: var(--text-light);
+  margin: 0;
+}
+
+#logo-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  margin-top: 5px;  
+}
+
+#logo-header {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  cursor: pointer; /* SE PUEDE SACAR 8 */
+}
+
+/* FIN DIV A */
+
+/* DIV B */
+
+#head-div-b {
+  margin-left: 100px;
+}
+
+#div-buscar {
+  position: relative;
+  max-width: 400px;
+}
+
+#div-buscar input {
+  padding: 10px 15px; 
+  width: 96%;
+  border: none;
+  border-radius: 50px;
+  background-color: var(--primario-600);
+  outline: none;
+}
+
+#div-buscar input::placeholder {
+  all:unset;
+  color:var(--text-light);
+  opacity: 0.4;
+}
+
+#div-buscar input:focus {
+  border: 1px solid #007bff; /* Cambia el color y el grosor del borde al hacer clic */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Opcional: agrega una sombra */
+}
+
+#div-buscar button{
+  border: none;
+  background: none;
+  display: inline-block;
+  position: absolute;
+  right: 0%;
+  top: 15%;
+  opacity: 0.4;
+  color: var(--text-light);
+  cursor: pointer;
+}
+
+/* FIN DIV B */
+
+
+/* DIV C */
+
+#head-div-c {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+#div-iconos-header {
+  float:right;
+  max-width: 200px;
+  padding: 15px 20px ;
+}
+
+#div-iconos-header a {
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
+
+/* FIN DIV C */
+
+
+
+/* FIN HEADER */
+
+/* MAIN */
+
+main {
+  height: 100vh;
+  background-color: var(--primario-700);
 }
