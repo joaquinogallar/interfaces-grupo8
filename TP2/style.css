@@ -392,7 +392,9 @@ header div {
   width: 100%;
   max-width: 400px;
   text-align: center;
+  justify-content: center;
 }
+
 
 /* Título */
 .div-title-login {
@@ -590,6 +592,33 @@ header div {
 .facebookBtn img {
   height: 20px;
 }
+
+.noAccount {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px 0;
+  color: rgba(168, 55, 55, 0.5) ;
+  font-size: 14px;
+}
+
+.noAccount p {
+  color: var(--text-light);
+  opacity: 0.4;
+}
+
+.noAccount a {
+  color: var(--text-light);
+  text-decoration: none;
+  opacity: 1;
+  padding-left: 5px;
+}
+
+.noAccount a:hover {
+  text-decoration: underline;
+}
+
+/* FIN LOGIN */
 
 
 
