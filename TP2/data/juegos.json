@@ -28,7 +28,7 @@
     {
         "precio": 9.99,
         "nombre": "Candy Crush",
-        "enCarrito": false,
+        "enCarrito": true,
         "imagen": ""
     }
 ]

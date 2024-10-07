@@ -40,7 +40,14 @@ const cargarDestacados = async () => {
     titulo.classList.add("h1alt");
     titulo.innerText = juego.nombre;
     let boton = document.createElement("button");
-    boton.innerText = "Jugar";
+    if(juego.precio == 0) {
+      boton.innerText = "Jugar"
+    } else if(juego.enCarrito) {
+      boton.innerText = "En Carrito"
+    } else {
+      boton.innerText = "Agregar al Carrito"
+    }
+
     infoContainer.appendChild(titulo);
     infoContainer.appendChild(boton);
 
