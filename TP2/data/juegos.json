@@ -1,15 +1,34 @@
 [
     {
         "precio": 0,
-        "nombre": "Argentina vs Brasil"
+        "nombre": "Argentina vs Brasil",
+        "imagen": ""
     },
     {
         "precio": 0,
-        "nombre": "God of War"
+        "nombre": "God of War",
+        "imagen": ""
     },
     {
         "precio": 9.99,
         "nombre": "Candy Crush",
-        "enCarrito": false
+        "enCarrito": false,
+        "imagen": ""
+    },
+    {
+        "precio": 0,
+        "nombre": "Argentina vs Brasil",
+        "imagen": ""
+    },
+    {
+        "precio": 0,
+        "nombre": "God of War",
+        "imagen": ""
+    },
+    {
+        "precio": 9.99,
+        "nombre": "Candy Crush",
+        "enCarrito": false,
+        "imagen": ""
     }
 ]
