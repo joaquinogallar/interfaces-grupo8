@@ -2,33 +2,39 @@
     {
         "precio": 0,
         "nombre": "Argentina vs Brasil",
-        "imagen": ""
+        "imagen": "./../assets/juegos/ArgentinaVsBrasil.webp"
     },
     {
         "precio": 0,
         "nombre": "God of War",
-        "imagen": ""
+        "imagen": "./../assets/juegos/GodOfWar.webp"
+    },
+    {
+        "precio": 0,
+        "nombre": "The Binding of Isaac",
+        "imagen": "./../assets/juegos/TheBindingOfIsaac.webp"
+    },
+    {
+        "precio": 5.99,
+        "nombre": "Grand Theft Auto Vice City",
+        "enCarrito": true,
+        "imagen": "./../assets/juegos/GTAViceCity.webp"
+    },
+    {
+        "precio": 24.99,
+        "nombre": "Red Dead Redemption 2",
+        "enCarrito": true,
+        "imagen": "./../assets/juegos/RedDeadRedemption2.webp"
     },
     {
         "precio": 9.99,
         "nombre": "Candy Crush",
         "enCarrito": false,
-        "imagen": ""
+        "imagen": "./../assets/juegos/CandyCrush.webp"
     },
     {
-        "precio": 0,
-        "nombre": "Argentina vs Brasil",
-        "imagen": ""
-    },
-    {
-        "precio": 0,
-        "nombre": "God of War",
-        "imagen": ""
-    },
-    {
-        "precio": 9.99,
-        "nombre": "Candy Crush",
-        "enCarrito": true,
-        "imagen": ""
+        "precio": 54.99,
+        "nombre": "Wukong",
+        "imagen": "./../assets/juegos/Wukong.webp"
     }
 ]

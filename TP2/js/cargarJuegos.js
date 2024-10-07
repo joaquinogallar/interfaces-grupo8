@@ -20,32 +20,37 @@ const cargarDestacados = async () => {
     swiperSlide.classList.add("swiper-slide");
 
     let container = document.createElement("div");
-    container.classList.add("tarjeta-destacado-container");
+    container.classList.add("tarjeta-juego" ,"tarjeta-destacado-container");    
+    container.style.backgroundImage = `url(${juego.imagen})`;
 
     let precioContainer = document.createElement("div");
-    precioContainer.classList.add("destacado-precio-container");
+    precioContainer.classList.add("juego-precio-container");
     let precio = document.createElement("span");
     precio.classList.add("body0");
     if (juego.precio == 0) {
       precio.innerText = "";
     } else {
-      precio.innerText = juego.precio;
+      precio.innerText = `$${juego.precio}`;
     }
 
     precioContainer.appendChild(precio);
 
     let infoContainer = document.createElement("div");
-    infoContainer.classList.add("juego-destacado-container");
+    infoContainer.classList.add("juego-nombre-container");
     let titulo = document.createElement("h1");
-    titulo.classList.add("h1alt");
+    titulo.classList.add("h1alt", "titulo-destacado");
     titulo.innerText = juego.nombre;
     let boton = document.createElement("button");
+    boton.classList.add("boton-juego", "body1", "boton-destacado")
     if(juego.precio == 0) {
       boton.innerText = "Jugar"
-    } else if(juego.enCarrito) {
-      boton.innerText = "En Carrito"
-    } else {
-      boton.innerText = "Agregar al Carrito"
+    } else { 
+      boton.classList.add("color-boton-pago")
+      if(juego.enCarrito) {
+        boton.innerText = "En Carrito"
+      } else {
+        boton.innerText = "Agregar al Carrito"
+      }
     }
 
     infoContainer.appendChild(titulo);
@@ -69,5 +74,5 @@ const swiperDestacados = new Swiper("#swiper-destacados", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-  slidesPerView: 4.2,
+  slidesPerView: 4.5,
 });
