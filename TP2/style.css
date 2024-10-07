@@ -168,7 +168,9 @@ body {
 
 /* FIN ESTILO TEXTOS */
 
-/* MAIN */
+/* ===================== */
+/*        MAIN           */
+/* ===================== */
 
 main {
   height: 100vh;
@@ -221,7 +223,10 @@ main {
 
 /* FIN SIDEBAR POPOVER */
 
-/* HEADER  */
+/* ===================== */
+/*        HEADER         */
+/* ===================== */
+
 header {
   width: 100%;
   position: fixed;
@@ -356,9 +361,13 @@ header div {
 
 /* FIN HEADER */
 
-/* LOGIN */
 
-#section-login {
+/* ===================== */
+/*     LOGIN/REGISTER    */
+/* ===================== */
+
+#section-login,
+#section-register {
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -375,7 +384,8 @@ header div {
   opacity: 0.4;
 }
 
-.div-login {
+.div-login,
+.div-register  {
   z-index: 10;
   background-color: #335375;
   padding: 0 40px;
@@ -396,13 +406,39 @@ header div {
 }
 
 /* Estilos del formulario */
-.formLogin {
+.formLogin,
+.formRegister {
   display: flex;
   flex-direction: column;
   gap: 15px;
   justify-content: center;
   align-items: center;
 }
+
+/* REGISTER FORM */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.formGroup label{
+  color: var(--text-light);
+  opacity: 0.6;
+}
+
+.formRegister input {
+  width: 90%;
+  display: flex;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+}
+
+
+
+/* FIN REGISTER FORM */
 
 .formLogin input {
   width: 100%;
@@ -533,6 +569,7 @@ header div {
   padding: 5px 0px;
   width: 80%;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .btns-login-redes {
