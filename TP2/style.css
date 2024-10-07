@@ -7,40 +7,37 @@ body {
   height: 100vh;
 }
 
-
 /* Variables de colores y fuentes */
 :root {
-    --bg-dark: #161E27;
-    --bg-dark-2: #141A21;
-    --bg-light: #F1F8FF;
+  --bg-dark: #161e27;
+  --bg-dark-2: #141a21;
+  --bg-light: #f1f8ff;
 
-    /* Colores primarios */
-    --primario-300: #80AEE0;
-    --primario-400: #5E8CBE;
-    --primario-500: #4E79A7;
-    --primario-600: #335375;
-    --primario-700: #223952;
+  /* Colores primarios */
+  --primario-300: #80aee0;
+  --primario-400: #5e8cbe;
+  --primario-500: #4e79a7;
+  --primario-600: #335375;
+  --primario-700: #223952;
 
-    /* Colores secundarios  */
-    --secundario-300: #2F4155;
-    --secundario-400: #253649;
-    --secundario-500: #1E2E41;
-    --secundario-600: #1C2733;
-    --secundario-700: #161E27;
+  /* Colores secundarios  */
+  --secundario-300: #2f4155;
+  --secundario-400: #253649;
+  --secundario-500: #1e2e41;
+  --secundario-600: #1c2733;
+  --secundario-700: #161e27;
 
-    /* Colores acento  */
-    --acento-300: #FFA5A5;
-    --acento-400: #FF8484;
-    --acento-500: #FF6B6B;
-    --acento-600: #EC5454;
-    --acento-700: #CE4747;
+  /* Colores acento  */
+  --acento-300: #ffa5a5;
+  --acento-400: #ff8484;
+  --acento-500: #ff6b6b;
+  --acento-600: #ec5454;
+  --acento-700: #ce4747;
 
-    /* Colores texto */
-    --text-dark: #141414;
-    --text-light: #FAFAFA;
-
+  /* Colores texto */
+  --text-dark: #141414;
+  --text-light: #fafafa;
 }
-
 
 /* ESTILO TEXTOS */
 .text-dark {
@@ -74,7 +71,7 @@ body {
   /* Título H1 ALTER*/
 
   /* Titulo-H1 */
-  font-family: 'Baloo 2', sans-serif;
+  font-family: "Baloo 2", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -121,7 +118,7 @@ body {
   /* Body 0 COPIADO FIGMA CSS*/
 
   /* Body-0 */
-  font-family: 'Baloo 2';
+  font-family: "Baloo 2";
   font-style: normal;
   font-weight: 600;
   font-size: 22px;
@@ -131,7 +128,7 @@ body {
 .body1 {
   /* Body-1 */
 
-  font-family: 'Baloo 2', sans-serif;
+  font-family: "Baloo 2", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -142,7 +139,7 @@ body {
 .body2 {
   /* Body-2 */
 
-  font-family: 'Baloo 2', sans-serif;
+  font-family: "Baloo 2", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
@@ -152,8 +149,8 @@ body {
 
 .body3 {
   /* Body-3 */
-  
-  font-family: 'Baloo 2', sans-serif;
+
+  font-family: "Baloo 2", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -176,28 +173,31 @@ body {
 main {
   height: 100vh;
   background-color: var(--primario-700);
+
+  /* Evita que el contenido sea tapado por el header agregandole un padding del mismo height que el header */
+  padding-top: 67px;
 }
 
 /* FIN MAIN */
 
 /* SIDEBAR POPOVER */
 #sidebar {
-    background-color: var(--bg-dark-2);
-    padding: 0px;
-    margin: 0px;
-    margin-top: 65px;
-    padding-top: 20px;
-    height: 100%;
-    border: none;
-    width: 200px;
+  background-color: var(--bg-dark-2);
+  padding: 0px;
+  margin: 0px;
+  margin-top: 65px;
+  padding-top: 20px;
+  height: 100%;
+  border: none;
+  width: 200px;
 }
 
 #sidebar a {
   text-decoration: none;
   opacity: 0.6;
   margin-left: 10px;
-  text-align: justify;  
-  display: flex;   
+  text-align: justify;
+  display: flex;
   align-items: center;
 }
 
@@ -205,20 +205,17 @@ main {
   color: var(--text-light);
   opacity: 0.6;
   margin-right: 15px;
-  
 }
 
 #sidebar ul {
-  list-style-type: none;            
+  list-style-type: none;
 }
 
 #sidebar li {
-  list-style-type: none; 
+  list-style-type: none;
   margin-bottom: 25px;
-  margin-left: 15px;    
+  margin-left: 15px;
 }
-
-
 
 /* FIN SIDEBAR POPOVER */
 
@@ -239,9 +236,8 @@ header {
   z-index: 1000;
 }
 
-
 header div {
- /*border: solid red 1px;*/
+  /*border: solid red 1px;*/
   height: 50px;
   width: 100%;
 }
@@ -254,7 +250,7 @@ header div {
   width: 100%;
 }
 
-#head-div-a div{
+#head-div-a div {
   display: flex;
   flex-direction: row;
   max-height: 40px;
@@ -263,13 +259,12 @@ header div {
 
 #div-hamburguesa {
   width: 30px;
-  
 }
 
 #btn-hamburguesa {
   background: none;
-  border: none; 
-  cursor: pointer; 
+  border: none;
+  cursor: pointer;
   opacity: 0.6;
   color: var(--text-light);
   margin: 0;
@@ -279,7 +274,7 @@ header div {
   display: flex;
   flex-direction: row;
   margin: 0;
-  margin-top: 5px;  
+  margin-top: 5px;
 }
 
 #logo-header {
@@ -303,7 +298,7 @@ header div {
 }
 
 #div-buscar input {
-  padding: 10px 15px; 
+  padding: 10px 15px;
   width: 96%;
   border: none;
   border-radius: 50px;
@@ -312,8 +307,8 @@ header div {
 }
 
 #div-buscar input::placeholder {
-  all:unset;
-  color:var(--text-light);
+  all: unset;
+  color: var(--text-light);
   opacity: 0.4;
 }
 
@@ -322,7 +317,7 @@ header div {
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Opcional: agrega una sombra */
 }
 
-#div-buscar button{
+#div-buscar button {
   border: none;
   background: none;
   display: inline-block;
@@ -336,7 +331,6 @@ header div {
 
 /* FIN DIV B */
 
-
 /* DIV C */
 
 #head-div-c {
@@ -346,9 +340,9 @@ header div {
 }
 
 #div-iconos-header {
-  float:right;
+  float: right;
   max-width: 200px;
-  padding: 15px 20px ;
+  padding: 15px 20px;
 }
 
 #div-iconos-header a {
@@ -356,25 +350,21 @@ header div {
   cursor: pointer;
 }
 
-
 /* FIN DIV C */
 
-
-
 /* FIN HEADER */
-
 
 /* LOGIN */
 
 #section-login {
   height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #223952;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #223952;
 }
 
-.img-back-login{
+.img-back-login {
   width: auto;
   position: absolute;
   width: 100%;
@@ -395,7 +385,6 @@ header div {
   justify-content: center;
 }
 
-
 /* Título */
 .div-title-login {
   display: flex;
@@ -403,7 +392,6 @@ header div {
   padding: 50px 0;
   justify-content: center;
 }
-
 
 /* Estilos del formulario */
 .formLogin {
@@ -444,14 +432,12 @@ header div {
   opacity: 0.4;
 }
 
-
 .optionsRowLogin {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
-
 
 /* ESTILO RECORDARME Y CHECKBOX */
 
@@ -480,7 +466,7 @@ header div {
   cursor: pointer;
   height: 0;
   width: 0;
-} 
+}
 
 .checkmark {
   position: absolute;
@@ -500,7 +486,7 @@ header div {
 
 .recordarmeForm input:checked ~ .checkmark {
   background-color: var(--primario-300);
-} 
+}
 
 .checkmark:after {
   content: "";
@@ -517,7 +503,7 @@ header div {
   top: 3px;
   width: 3px;
   height: 6px;
-  border: solid var(--text-light  );
+  border: solid var(--text-light);
   border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -572,7 +558,7 @@ header div {
 
 .facebookBtn {
   background: none;
-  background-color: #3B5998;
+  background-color: #3b5998;
   border: none;
   display: flex;
   flex-direction: row;
@@ -582,7 +568,7 @@ header div {
   padding: 20px 15px;
   width: 100%;
   gap: 5px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .googleBtn img {
@@ -598,7 +584,7 @@ header div {
   flex-direction: row;
   justify-content: center;
   margin: 10px 0;
-  color: rgba(168, 55, 55, 0.5) ;
+  color: rgba(168, 55, 55, 0.5);
   font-size: 14px;
 }
 
@@ -620,6 +606,30 @@ header div {
 
 /* FIN LOGIN */
 
+/* INICIO CARRUCEL DESTACADOS */
+.swiper {
+  width: 600px;
+  height: 300px;
+}
 
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
+.tarjeta-destacado-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* FIN CARRUCEL DESTACADOS */

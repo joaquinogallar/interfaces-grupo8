@@ -1,0 +1,15 @@
+[
+    {
+        "precio": 0,
+        "nombre": "Argentina vs Brasil"
+    },
+    {
+        "precio": 0,
+        "nombre": "God of War"
+    },
+    {
+        "precio": 9.99,
+        "nombre": "Candy Crush",
+        "enCarrito": false
+    }
+]

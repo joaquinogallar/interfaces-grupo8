@@ -1,88 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game Sphere</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Icono de la página -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
 
     <!-- ICONOS https://fonts.google.com/icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Baloo+2' rel='stylesheet'>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Baloo+2"
+      rel="stylesheet"
+    />
 
-    
-</head>
-<body>
-    
+    <!-- Libreria para la creacion de carrucel (SwiperJS)[https://swiperjs.com/get-started#use-swiper-from-cdn] -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Inicialización de Swiper -->
+    <script type="module" src="./js/initSwiper.js"></script>
+  </head>
+  <body>
     <header id="header">
-        <div id="head-div-a">
-            <div id="div-hamburguesa">
-                <button popovertarget="sidebar" id="btn-hamburguesa"><i class="material-symbols-outlined">menu</i></button>
-            </div>
-
-            <div id="logo-container">
-                <img id="logo-header" src="assets/logo.jpg">
-                <h2 id="head-title" class="text-light h2">Game Sphere</h2>
-            </div>
+      <div id="head-div-a">
+        <div id="div-hamburguesa">
+          <button popovertarget="sidebar" id="btn-hamburguesa">
+            <i class="material-symbols-outlined">menu</i>
+          </button>
         </div>
 
-        <div id="head-div-b">
-            <div id="div-buscar">
-                <input type="text" placeholder="Buscar..." class="text-light body2">
-                <button><i class="material-symbols-outlined">search</i></button>
-            </div>
+        <div id="logo-container">
+          <img id="logo-header" src="assets/logo.jpg" />
+          <h2 id="head-title" class="text-light h2">Game Sphere</h2>
         </div>
+      </div>
 
-        <div id="head-div-c">
-            <div id="div-iconos-header">
-                <a><i class="material-symbols-outlined">favorite</i></a>
-                <a><i class="material-symbols-outlined">shopping_cart</i></a>
-                <a><span class="material-symbols-outlined">account_circle</span></a>
-            </div>
+      <div id="head-div-b">
+        <div id="div-buscar">
+          <input type="text" placeholder="Buscar..." class="text-light body2" />
+          <button><i class="material-symbols-outlined">search</i></button>
         </div>
-        
+      </div>
 
+      <div id="head-div-c">
+        <div id="div-iconos-header">
+          <a><i class="material-symbols-outlined">favorite</i></a>
+          <a><i class="material-symbols-outlined">shopping_cart</i></a>
+          <a><span class="material-symbols-outlined">account_circle</span></a>
+        </div>
+      </div>
     </header>
-    <div id="sidebar" popover>
-        <ul>
-            <li>  
-                <a href="#" >
-                    <!--<img>--><i class="material-symbols-outlined">home</i>
-                    <p class="text-light body2">Inicio</p>
-                </a>
-            </li>
-            <li>
-                <a href="#" >
-                    <!--<img>--><i class="material-symbols-outlined">schedule</i>
-                    <p class="text-light body2">Recientes</p>
-                </a>
-            </li>
-            <li>  
-                <a href="#" >
-                    <!--<img>--><i class="material-symbols-outlined">swords</i>
-                    <p class="text-light body2">Accion</p>
-                </a>
-            </li>
-            <li>
-                <a href="#" >
-                    <!--<img>--><i class="material-symbols-outlined">sports_esports</i>
-                    <p class="text-light body2">Mando</p>
-                </a>
-            </li>
+    <aside id="sidebar" popover>
+      <ul>
+        <li>
+          <a href="#">
+            <!--<img>--><i class="material-symbols-outlined">home</i>
+            <p class="text-light body2">Inicio</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <!--<img>--><i class="material-symbols-outlined">schedule</i>
+            <p class="text-light body2">Recientes</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <!--<img>--><i class="material-symbols-outlined">swords</i>
+            <p class="text-light body2">Accion</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <!--<img>--><i class="material-symbols-outlined">sports_esports</i>
+            <p class="text-light body2">Mando</p>
+          </a>
+        </li>
 
-            <li>
-                <a href="login" >
-                    <!--<img>--><i class="material-symbols-outlined">login</i>
-                    <p class="text-light body2">Iniciar Sesion</p>    
-                </a>
-            </li>
-        </ul>
-    </div>    
+        <li>
+          <a href="login">
+            <!--<img>--><i class="material-symbols-outlined">login</i>
+            <p class="text-light body2">Iniciar Sesion</p>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
     <main>
+      <section class="carrucel-destacados-container">
+        <div class="swiper" id="swiper-destacados">
+          <div class="swiper-wrapper text-light">
+            <!-- Inicio de las tarjetas de los juegos -->
 
+            <div class="swiper-slide">
+              <div class="tarjeta-destacado-container">
+                <div class="destacado-precio-container">
+                  <span class="body0">$9.99</span>
+                </div>
+                <div class="juego-destacado-container">
+                  <h1 class="h1alt">Candy Crush</h1>
+                  <button>Agregar al Carrito</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="tarjeta-destacado-container">
+                <div class="destacado-precio-container">
+                  <span class="body0">$9.99</span>
+                </div>
+                <div class="juego-destacado-container">
+                  <h1 class="h1alt">Candy Crush</h1>
+                  <button>Agregar al Carrito</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fin de las tarjetas de los juegos -->
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </section>
     </main>
-</body>
+  </body>
 </html>
