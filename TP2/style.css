@@ -648,12 +648,30 @@ header div {
   border-radius: 50px;
   min-width: 100px;
   height: 25px;
+  cursor: pointer;
   background: var(--primario-300);
   color: var(--text-light);
+  transition: background 100ms ease-in-out;
+}
+
+.boton-juego:hover {
+  background: var(--primario-500);
+}
+
+.boton-juego:active {
+  background: var(--primario-400);
 }
 
 .color-boton-pago {
   background: var(--acento-500);
+}
+
+.color-boton-pago:hover {
+  background: var(--acento-600);
+}
+
+.color-boton-pago:active {
+  background: var(--acento-400);
 }
 
 .juego-precio-container {
@@ -663,12 +681,30 @@ header div {
 }
 
 .tarjeta-juego {
+  position: relative;
   border-radius: 10px;
   background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
+}
+
+.tarjeta-destacado-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-dark);
+  opacity: .5;
+  z-index: 1;
+}
+
+.juego-nombre-container, .juego-precio-container {
+  z-index: 2; 
 }
 
 .juego-nombre-container {
