@@ -711,6 +711,10 @@ header div {
   margin-bottom: 15px;
 }
 
+.enCarrito {
+  opacity: .7;
+}
+
 /* INICIO CARRUCEL DESTACADOS */
 
 .boton-destacado {

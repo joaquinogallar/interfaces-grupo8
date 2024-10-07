@@ -48,6 +48,8 @@ const cargarDestacados = async () => {
       boton.classList.add("color-boton-pago")
       if(juego.enCarrito) {
         boton.innerText = "En Carrito"
+        precioContainer.classList.add("enCarrito");
+        infoContainer.classList.add("enCarrito")
       } else {
         boton.innerText = "Agregar al Carrito"
       }
