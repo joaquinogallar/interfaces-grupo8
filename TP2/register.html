@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Sphere</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+    <!-- ICONOS https://fonts.google.com/icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Baloo+2' rel='stylesheet'>
+
+</head>
+<body>
+    <section id="section-register">
+        <img class="img-back-login" src="assets/patronhorizontal.png" alt=""/>
+        <div class="div-register">
+
+            <div class="div-title-login"> 
+                <img id="logo-header" src="assets/logo.jpg">
+                <h1 class="h1 text-light">Crea Tu Cuenta</h1>
+            </div>
+
+            <form class="formRegister" action="submit">
+                <div class="formGroup">
+                    <label for="nombre" class="body1">Nombre</label>
+                    <input type="text" id="nombre" required placeholder="Juan" class="placeholder silkscreen">
+                </div>
+                <div class="formGroup">
+                    <label for="apellido" class="body1">Apellido</label>
+                    <input type="text" id="apellido"  required placeholder="Perez" class="placeholder silkscreen">
+                </div>
+                <div class="formGroup">
+                    <label for="nickname" class="body1">Nickname</label>
+                    <input type="text" id="nickname"  required placeholder="Juanceto01" class="placeholder silkscreen">
+                </div>
+                <div class="formGroup">
+                    <label for="edad" class="body1">Edad</label>
+                    <input type="number" id="edad" required placeholder="19" class="placeholder silkscreen">
+                </div>
+                <div class="formGroup">
+                    <label for="contraseña" class="body1">Contraseña</label>
+                    <div class="contraseñaForm">
+                        <input type="password" id="repetirContraseña"  required placeholder="********" class="placeholder silkscreen">
+                        <button> <i class="material-icons">visibility</i> </button>
+                    </div>
+                </div>
+                <div class="formGroup">
+                    <label for="repetirContraseña" class="body1">Repetir Contraseña</label>
+                    <div class="contraseñaForm">
+                        <input type="password" id="repetirContraseña"  required placeholder="********" class="placeholder silkscreen">
+                        <button> <i class="material-icons">visibility</i> </button>
+                    </div>
+                </div>
+                <button class = "btnSubmitLogin body2" type="submit">Crear Cuenta</button>
+            </form>
+
+            <div>
+                <span class="noAccount"><p class="body2">Ya tienes cuenta? </p> <a href="register" class="body2"> Ingresar</a></span>
+            </div>
+        </div>
+    </section>  
+</body>
+</html>
