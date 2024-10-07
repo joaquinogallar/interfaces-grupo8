@@ -168,7 +168,9 @@ body {
 
 /* FIN ESTILO TEXTOS */
 
-/* MAIN */
+/* ===================== */
+/*        MAIN           */
+/* ===================== */
 
 main {
   height: 100vh;
@@ -219,7 +221,10 @@ main {
 
 /* FIN SIDEBAR POPOVER */
 
-/* HEADER  */
+/* ===================== */
+/*        HEADER         */
+/* ===================== */
+
 header {
   width: 100%;
   position: fixed;
@@ -354,7 +359,10 @@ header div {
 
 /* FIN HEADER */
 
-/* LOGIN */
+
+/* ===================== */
+/*        LOGIN          */
+/* ===================== */
 
 #section-login {
   height: 100vh;
