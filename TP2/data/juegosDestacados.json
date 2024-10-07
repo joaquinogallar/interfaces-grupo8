@@ -32,16 +32,23 @@
         "imagen": "./../assets/juegos/RedDeadRedemption2.webp"
     },
     {
-        "id": 6,
-        "precio": 9.99,
-        "nombre": "Candy Crush",
-        "enCarrito": false,
-        "imagen": "./../assets/juegos/CandyCrush.webp"
+        "id": 8,
+        "precio": 2.99,
+        "nombre": "Lethal Company",
+        "enCarrito": true,
+        "imagen": "./../assets/juegos/LethalCompany.webp"
     },
     {
-        "id": 7,
-        "precio": 54.99,
-        "nombre": "Wukong",
-        "imagen": "./../assets/juegos/Wukong.webp"
+        "id": 9,
+        "precio": 17.99,
+        "nombre": "Grand Theft Auto San Andreas",
+        "enCarrito": true,
+        "imagen": "./../assets/juegos/GTASanAndreas.webp"
+    },
+    {
+        "id": 10,
+        "precio": 0,
+        "nombre": "League Of Legends",
+        "imagen": "./../assets/juegos/LeagueOfLegends.webp"
     }
 ]

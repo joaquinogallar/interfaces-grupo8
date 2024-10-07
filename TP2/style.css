@@ -648,6 +648,7 @@ header div {
   border-radius: 50px;
   min-width: 100px;
   height: 25px;
+  padding: 0 10px;
   cursor: pointer;
   background: var(--primario-300);
   color: var(--text-light);
@@ -689,9 +690,11 @@ header div {
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+  width: 220px;
+  height: 130px;
 }
 
-.tarjeta-destacado-container::before {
+.tarjeta-juego::before {
   content: "";
   position: absolute;
   top: 0;
@@ -753,3 +756,9 @@ header div {
   white-space: nowrap;}
 
 /* FIN CARRUCEL DESTACADOS */
+
+/* INICIO CARRUCEL RECOMENDADOS */
+.carrucel-recomendados-container {
+  margin-top: 80px;
+}
+/* FIN CARRUCEL RECOMENDADOS */
