@@ -62,6 +62,5 @@ const swiperDestacados = new Swiper("#swiper-destacados", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-  slidesPerView: 4,
-  spaceBetween: 10,
+  slidesPerView: 4.2,
 });

@@ -361,7 +361,6 @@ header div {
 
 /* FIN HEADER */
 
-
 /* ===================== */
 /*     LOGIN/REGISTER    */
 /* ===================== */
@@ -385,7 +384,7 @@ header div {
 }
 
 .div-login,
-.div-register  {
+.div-register {
   z-index: 10;
   background-color: #335375;
   padding: 0 40px;
@@ -423,7 +422,7 @@ header div {
   width: 100%;
 }
 
-.formGroup label{
+.formGroup label {
   color: var(--text-light);
   opacity: 0.6;
 }
@@ -435,8 +434,6 @@ header div {
   border: 1px solid #ccc;
   border-radius: 25px;
 }
-
-
 
 /* FIN REGISTER FORM */
 
@@ -646,12 +643,22 @@ header div {
 /* FIN LOGIN */
 
 /* INICIO CARRUCEL DESTACADOS */
+
+.carrucel-destacados-container {
+  margin-top: 60px;
+}
+
+.carrucel-destacados-container h2 {
+  margin-bottom: 10px;
+}
+
 .swiper-slide {
   text-align: center;
   font-size: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: fit-content;
 }
 
 .tarjeta-destacado-container {
