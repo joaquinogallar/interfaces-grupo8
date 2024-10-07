@@ -31,9 +31,6 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Inicialización de Swiper -->
-    <script type="module" src="./js/initSwiper.js"></script>
   </head>
   <body>
     <header id="header">
@@ -102,41 +99,29 @@
     </aside>
 
     <main>
-      <section class="carrucel-destacados-container">
+      <section class="carrucel-destacados-container text-light">
+        <h2 class="h2">Destacados</h2>
         <div class="swiper" id="swiper-destacados">
-          <div class="swiper-wrapper text-light">
-            <!-- Inicio de las tarjetas de los juegos -->
+          <div class="swiper-wrapper" id="carrucel-destacados">
+            <!-- CARGA DE JUEGOS DESTACADOS -->
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </section>
 
-            <div class="swiper-slide">
-              <div class="tarjeta-destacado-container">
-                <div class="destacado-precio-container">
-                  <span class="body0">$9.99</span>
-                </div>
-                <div class="juego-destacado-container">
-                  <h1 class="h1alt">Candy Crush</h1>
-                  <button>Agregar al Carrito</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="tarjeta-destacado-container">
-                <div class="destacado-precio-container">
-                  <span class="body0">$9.99</span>
-                </div>
-                <div class="juego-destacado-container">
-                  <h1 class="h1alt">Candy Crush</h1>
-                  <button>Agregar al Carrito</button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Fin de las tarjetas de los juegos -->
+      <section class="carrucel-recomendados-container text-light">
+        <h4 class="h4">Para Tí</h4>
+        <div class="swiper" id="swiper-recomendados">
+          <div class="swiper-wrapper" id="carrucel-recomendados">
+            <!-- CARGA DE JUEGOS RECOMENDADOS -->
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
         </div>
       </section>
     </main>
+
+    <script type="module" src="src/main.js"></script>
   </body>
 </html>
