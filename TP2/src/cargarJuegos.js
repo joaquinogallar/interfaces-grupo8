@@ -2,7 +2,6 @@ import { obtenerJuegos, obtenerJuegosRandom } from './obtenerJuegos.js';
 
 export const cargarJuegos = async (url, cantidadJuegos, carrucelId, claseContainer, esDestacado, swiperInstance) => {
   const data = await obtenerJuegosRandom(url, cantidadJuegos);
-  console.log(data);
   
   const carrucel = document.getElementById(carrucelId);
 
