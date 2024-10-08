@@ -1,7 +1,8 @@
-import { obtenerJuegos } from './obtenerJuegos.js';
+import { obtenerJuegos, obtenerJuegosRandom } from './obtenerJuegos.js';
 
-export const cargarJuegos = async (url, carrucelId, claseContainer, esDestacado, swiperInstance) => {
-  const data = await obtenerJuegos(url);
+export const cargarJuegos = async (url, cantidadJuegos, carrucelId, claseContainer, esDestacado, swiperInstance) => {
+  const data = await obtenerJuegosRandom(url, cantidadJuegos);
+  
   const carrucel = document.getElementById(carrucelId);
 
   for (let juego of data) {
