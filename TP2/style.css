@@ -774,3 +774,34 @@ header div {
   margin-top: 50px;
 }
 /* FIN CARRUCEL CATEGORIAS */
+
+.fatFooter{
+  background-color: #141A21 ;
+  width: 100%;
+  height: 270px;
+}
+
+.h2Footer{
+color: white;
+font-size: 22;
+padding: 5px;
+
+margin-inline: 50px;  
+}
+.listFooter{
+ display: flex;
+ flex-direction: column;
+ 
+  list-style: none;
+}
+.itemFooter{
+  font-size: 17px;
+  
+ margin-top: 27px;
+
+  color: white;
+}
+.containerFooter{
+display: flex;
+margin-left: 60px;
+}
