@@ -13,22 +13,19 @@ export const obtenerJuegos = async (url) => {
   }
 };
 
-export const obtenerJuegosRandom = async (cantidad, url) => {
+export const obtenerJuegosRandom = async (url, cantidad) => {
   try {
-    let juegos = await obtenerJuegos(url); // Obtener los juegos desde la URL
-    if (cantidad >= juegos.length) return juegos; // Si la cantidad es mayor o igual que el número de juegos, devolver todos
+    let juegos = await obtenerJuegos(url);
+    if (cantidad >= juegos.length) return juegos; // si la cantidad es mayor o igual que el número de juegos, devolver todos
 
     let juegosSeleccionados = [];
-    let idsSeleccionados = new Set(); // Set para almacenar los IDs seleccionados y evitar duplicados
+    let idsSeleccionados = new Set(); // set para evitar repetidos
 
-    // Buscar el juego con id 1 y agregarlo a la lista de seleccionados
     let juegoId1 = juegos.find(juego => juego.id === 1);
     if (juegoId1) {
       juegosSeleccionados.push(juegoId1);
       idsSeleccionados.add(juegoId1.id); // Añadir el id 1 al Set de seleccionados
     }
-
-    let cantidadRestante = cantidad - juegosSeleccionados.length;
 
     while (juegosSeleccionados.length < cantidad) {
       let indiceAleatorio = Math.floor(Math.random() * juegos.length);

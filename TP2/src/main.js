@@ -2,7 +2,7 @@ import { cargarJuegos } from "./cargarJuegos.js";
 import { initSwiper } from "./initSwiper.js";
 import { obtenerJuegosRandom } from "./obtenerJuegos.js";
 
-console.log(obtenerJuegosRandom());
+console.log(await obtenerJuegosRandom("https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/data/juegos.json", 10));
 
 
 const swiperDestacados = initSwiper("#swiper-destacados", 4.5);
@@ -16,6 +16,7 @@ cargarJuegos(
   true,
   swiperDestacados
 );
+
 cargarJuegos(
   "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/data/juegos.json",
   10,
