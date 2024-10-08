@@ -3,95 +3,102 @@
         "id": 1,
         "precio": 0,
         "nombre": "Argentina vs Brasil",
-        "imagen": "./../assets/juegos/ArgentinaVsBrasil.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/ArgentinaVsBrasil.webp"
     },
     {
         "id": 2,
         "precio": 0,
         "nombre": "God of War",
-        "imagen": "./../assets/juegos/GodOfWar.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/GodOfWar.webp"
     },
     {
         "id": 3,
         "precio": 0,
         "nombre": "The Binding of Isaac",
-        "imagen": "./../assets/juegos/TheBindingOfIsaac.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/TheBindingOfIsaac.webp"
     },
     {
         "id": 4,
         "precio": 5.99,
         "nombre": "Grand Theft Auto Vice City",
         "enCarrito": true,
-        "imagen": "./../assets/juegos/GTAViceCity.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/GTAViceCity.webp"
     },
     {
         "id": 5,
         "precio": 24.99,
         "nombre": "Red Dead Redemption 2",
         "enCarrito": true,
-        "imagen": "./../assets/juegos/RedDeadRedemption2.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/RedDeadRedemption2.webp"
     },
     {
         "id": 6,
         "precio": 9.99,
         "nombre": "Candy Crush",
         "enCarrito": false,
-        "imagen": "./../assets/juegos/CandyCrush.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/CandyCrush.webp"
     },
     {
         "id": 7,
         "precio": 54.99,
         "nombre": "Wukong",
         "enCarrito": false,
-        "imagen": "./../assets/juegos/Wukong.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/Wukong.webp"
     },
     {
         "id": 8,
         "precio": 2.99,
         "nombre": "Lethal Company",
         "enCarrito": true,
-        "imagen": "./../assets/juegos/LethalCompany.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/LethalCompany.webp"
     },
     {
         "id": 9,
         "precio": 17.99,
         "nombre": "Grand Theft Auto San Andreas",
         "enCarrito": true,
-        "imagen": "./../assets/juegos/GTASanAndreas.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/GTASanAndreas.webp"
     },
     {
         "id": 10,
         "precio": 0,
         "nombre": "League Of Legends",
-        "imagen": "./../assets/juegos/LeagueOfLegends.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/LeagueOfLegends.webp"
     },
     {
         "id": 11,
         "precio": 1.49,
         "nombre": "Risk Of Rain 2",
         "enCarrito": false,
-        "imagen": "./../assets/juegos/RiskOfRain2.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/RiskOfRain2.webp"
     },
     {
         "id": 12,
         "precio": 4.99,
         "nombre": "Terraria",
         "enCarrito": true,
-        "imagen": "./../assets/juegos/Terraria.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/Terraria.webp"
     },
     {
         "id": 13,
         "precio": 54.99,
         "nombre": "Fear & Hunger 2",
         "enCarrito": false,
-        "imagen": "./../assets/juegos/Fear&Hunger2.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/Fear%26Hunger2.webp"
     },
     {
         "id": 14,
         "precio": 39.99,
         "nombre": "Dark Souls 3",
         "enCarrito": false,
-        "imagen": "./../assets/juegos/DarkSouls3.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/DarkSouls3.webp"
+    },
+    {
+        "id": 15,
+        "precio": 0,
+        "nombre": "Duck Game",
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/DuckGame.webp"
     }
+    
     
 ]
