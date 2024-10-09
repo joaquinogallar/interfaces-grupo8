@@ -788,11 +788,13 @@ header div {
   margin-inline: 50px;
   margin-top: 30px;
 }
+
 .listFooter {
   display: flex;
   flex-direction: column;
   list-style: none;
 }
+
 .itemFooter {
   margin-left: 56px;
   font-family: "Baloo 2", sans-serif;
@@ -802,9 +804,17 @@ header div {
   color: white;
   opacity: 60%;
 }
+
 .containerFooter {
   display: flex;
+  flex-direction: row;
+  gap: 50px;
 }
+
+.containerFooter:first-child {
+  margin-left: 40px; /* Agrega un margen al primer div */
+}
+
 .textFooter {
   width: 96%;
   margin-top: 80px;
@@ -824,8 +834,10 @@ header div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 50px;
   margin-top: 60px;
+
+  margin-left: auto;  /* Mueve para la derecha */
+  margin-right: 100px;
 }
 
 .iconosContainer {
