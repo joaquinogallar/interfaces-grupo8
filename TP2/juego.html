@@ -36,7 +36,7 @@
     <header id="header">
       <div id="head-div-a">
         <div id="div-hamburguesa">
-          <button id="btn-hamburguesa">
+          <button popovertarget="sidebar" id="btn-hamburguesa">
             <i class="material-symbols-outlined">menu</i>
           </button>
         </div>
@@ -62,7 +62,7 @@
         </div>
       </div>
     </header>
-    <aside id="sidebar">
+    <aside id="sidebar" popover>
       <ul>
         <li>
           <a href="#">
@@ -97,52 +97,13 @@
         </li>
       </ul>
     </aside>
+    
     <main>
-      <section class="carrucel-destacados-container text-light">
-        <h2 class="h2">Destacados</h2>
-        <div class="swiper" id="swiper-destacados">
-          <div class="swiper-wrapper" id="carrucel-destacados">
-            <!-- CARGA DE JUEGOS DESTACADOS -->
-          </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
-      </section>
-
-      <section class="carrucel-recomendados-container text-light">
-        <h4 class="h4">Para Tí</h4>
-        <div class="swiper" id="swiper-recomendados1">
-          <div class="swiper-wrapper" id="carrucel-recomendados1">
-            <!-- CARGA DE JUEGOS RECOMENDADOS -->
-          </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
-        <div class="swiper" id="swiper-recomendados2">
-          <div class="swiper-wrapper" id="carrucel-recomendados2">
-            <!-- CARGA DE JUEGOS RECOMENDADOS -->
-          </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
-      </section>
-
-      <section class="carrucel-categorias-container text-light">
-        <div>
-          <h4 class="h4">Acción</h4>
-          <div class="swiper" id="swiper-categoria1">
-            <div class="swiper-wrapper" id="carrucel-categoria1">
-              <!-- CARGA DE JUEGOS RECOMENDADOS -->
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
-        </div>
-      </section>
+      
     </main>
 
     <footer class="fatFooter">
-      <div class="containerFooter">
+        <div class="containerFooter">
         <ul class="listFooter">
           <h2 class="h2Footer">Link</h2>
           <li class="itemFooter">Home</li>

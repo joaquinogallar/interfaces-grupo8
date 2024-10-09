@@ -41,3 +41,11 @@ cargarJuegos(
   false,
   swiperRecomendados1
 );
+
+// lógica sidebar
+const sidebar = document.getElementById("sidebar");
+const btnHamburguesa = document.getElementById("btn-hamburguesa");
+
+btnHamburguesa.addEventListener("click", () => {
+  sidebar.classList.toggle("desplegado");
+});

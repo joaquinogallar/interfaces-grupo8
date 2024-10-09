@@ -193,6 +193,14 @@ main {
   height: 100%;
   border: none;
   width: 200px;
+  position: fixed;
+  left: -200px;
+  z-index: 10;
+  transition: all 100ms ease-in-out;
+}
+
+.desplegado {
+  left: 0 !important;
 }
 
 #sidebar a {
@@ -643,6 +651,9 @@ header div {
 /* ESTILOS GENERALES DE LOS CARRUCELES */
 .swiper {
   margin: 10px 0;
+}
+
+.swiper-button-next {
 }
 
 .boton-juego {
