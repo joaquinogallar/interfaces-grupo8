@@ -773,6 +773,11 @@ header div {
 }
 /* FIN CARRUCEL CATEGORIAS */
 
+
+/* ===================== */
+/*     FOOTER            */
+/* ===================== */
+
 .fatFooter {
   background-color: #141a21;
   width: 100%;
@@ -866,3 +871,5 @@ header div {
   gap: 8px;
   margin-right: 200px;
 }
+
+/* FIN FOOTER */
