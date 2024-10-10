@@ -996,6 +996,19 @@ canvas {
   color: var(--acento-300);
 }
 
+.titulo-juego-span {
+  display: flex;
+  align-items: center;
+}
+
+.titulo-juego-span a {
+  height: 24px;
+  margin-left: 10px;
+  margin-top: 3px;
+  color: var(--acento-500);
+  cursor: pointer;
+}
+
 .info-juego {
   margin-top: 10px;
 }
