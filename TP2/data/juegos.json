@@ -4,21 +4,21 @@
         "precio": 0,
         "nombre": "Argentina vs Brasil",
         "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/ArgentinaVsBrasil.webp",
-        "descripcion": "Un emocionante simulador del clásico enfrentamiento de fútbol entre Argentina y Brasil. Juega con tus equipos favoritos."
+        "descripcion": "Argentina vs Brasil es un emocionante simulador de fútbol que te permite revivir uno de los clásicos más intensos de la historia del deporte. Controla a tu equipo favorito y enfréntate en un partido lleno de tensión y rivalidad. Con gráficos realistas y jugabilidad dinámica, experimentarás la pasión de un encuentro que ha marcado generaciones de aficionados."
     },
     {
         "id": 2,
         "precio": 0,
         "nombre": "God of War",
         "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/GodOfWar.webp",
-        "descripcion": "Sigue la épica historia de Kratos mientras lucha contra dioses y monstruos en un mundo mitológico lleno de acción."
+        "descripcion": "God of War es una épica aventura de acción que sigue la historia de Kratos, un semidiós espartano, que busca redención después de una vida de violencia y destrucción. Acompañado por su hijo Atreus, Kratos debe enfrentarse a poderosos dioses y criaturas mitológicas mientras viaja por un mundo nórdico inmersivo. Con un combate visceral y una narrativa profundamente emocional, God of War redefine lo que significa ser un héroe en busca de paz."
     },
     {
         "id": 3,
         "precio": 0,
         "nombre": "The Binding of Isaac",
         "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/TheBindingOfIsaac.webp",
-        "descripcion": "Un desafiante roguelike en el que Isaac debe enfrentarse a peligrosos monstruos mientras explora mazmorras generadas aleatoriamente."
+        "descripcion": "The Binding of Isaac es un juego de acción y exploración de mazmorras con elementos roguelike. Controla a Isaac, un niño que debe escapar de su madre y enfrentarse a horripilantes monstruos en mazmorras llenas de peligros. Cada partida es única gracias a los niveles generados aleatoriamente y la enorme cantidad de objetos que puedes recolectar para potenciar a Isaac. Con su estética sombría y su enfoque desafiante, es un juego que combina horror, humor y estrategia."
     },
     {
         "id": 4,
@@ -26,7 +26,7 @@
         "nombre": "Grand Theft Auto Vice City",
         "enCarrito": true,
         "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/GTAViceCity.webp",
-        "descripcion": "Explora una ciudad abierta inspirada en los años 80 mientras construyes un imperio criminal en esta icónica entrega de GTA."
+        "descripcion": "Grand Theft Auto: Vice City te transporta a los años 80, a una ciudad ficticia inspirada en Miami, donde el protagonista, Tommy Vercetti, busca hacerse un nombre en el mundo del crimen organizado. Con su ambientación retro, misiones variadas y un mundo abierto lleno de posibilidades, el juego ofrece una combinación única de acción, aventura y conducción. Explora una ciudad vibrante mientras construyes un imperio criminal en esta inolvidable entrega de la saga GTA."
     },
     {
         "id": 5,
@@ -34,7 +34,7 @@
         "nombre": "Red Dead Redemption 2",
         "enCarrito": true,
         "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/RedDeadRedemption2.webp",
-        "descripcion": "Sumérgete en el salvaje oeste en esta increíble aventura de mundo abierto con una historia profunda y un vasto entorno."
+        "descripcion": "Red Dead Redemption 2 es un vasto juego de mundo abierto ambientado en el lejano oeste a finales del siglo XIX. Sigue la historia de Arthur Morgan, un forajido que debe enfrentarse a la decadencia de su banda y a los cambios inevitables que trae la civilización moderna. Con un mundo extremadamente detallado, personajes complejos y una jugabilidad inmersiva, RDR2 es una de las experiencias más completas y cinematográficas de la historia de los videojuegos."
     },
     {
         "id": 6,
@@ -42,7 +42,7 @@
         "nombre": "Candy Crush",
         "enCarrito": false,
         "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/CandyCrush.webp",
-        "descripcion": "El popular juego de rompecabezas donde debes alinear caramelos para superar niveles cada vez más desafiantes."
+        "descripcion": "Candy Crush es el icónico juego de rompecabezas que ha conquistado a millones de jugadores en todo el mundo. El objetivo es alinear tres o más caramelos del mismo color para eliminarlos del tablero y avanzar a través de niveles cada vez más desafiantes. Con un diseño colorido y mecánicas sencillas pero adictivas, este juego te mantendrá entretenido durante horas mientras desbloqueas nuevos niveles y mejoras tus habilidades estratégicas."
     },
     {
         "id": 7,
@@ -50,7 +50,7 @@
         "nombre": "Wukong",
         "enCarrito": false,
         "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/Wukong.webp",
-        "descripcion": "Un impresionante juego de acción basado en la mitología china, donde controlas al poderoso Rey Mono en su aventura."
+        "descripcion": "Wukong es un impresionante juego de acción y aventura basado en la leyenda del Rey Mono de la mitología china. Los jugadores toman el control de Sun Wukong, un héroe con habilidades sobrenaturales, en su lucha contra dioses, demonios y criaturas fantásticas. Con un combate dinámico y visuales de última generación, este juego ofrece una experiencia inmersiva en un mundo de fantasía lleno de desafíos y secretos por descubrir."
     },
     {
         "id": 8,
@@ -58,7 +58,7 @@
         "nombre": "Lethal Company",
         "enCarrito": true,
         "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/LethalCompany.webp",
-        "descripcion": "Un juego cooperativo de terror en el que los jugadores deben sobrevivir a monstruos y desafíos en equipo."
+        "descripcion": "Lethal Company es un juego cooperativo de terror multijugador en el que los jugadores deben trabajar juntos para sobrevivir en un ambiente lleno de monstruos y trampas mortales. Cada nivel presenta nuevos desafíos, y la clave para avanzar es la cooperación y la estrategia. Con una atmósfera tensa y sustos inesperados, este juego pone a prueba tu valentía y tu capacidad de colaborar bajo presión."
     },
     {
         "id": 9,
@@ -66,14 +66,14 @@
         "nombre": "Grand Theft Auto San Andreas",
         "enCarrito": true,
         "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/GTASanAndreas.webp",
-        "descripcion": "Viaja a los años 90 en esta aventura de mundo abierto donde CJ lucha por controlar las calles y proteger a su familia."
+        "descripcion": "Grand Theft Auto: San Andreas sigue la historia de Carl 'CJ' Johnson, quien regresa a su hogar después de años de ausencia para encontrarse con una ciudad sumida en el caos. CJ debe recuperar el control de las calles mientras enfrenta a pandillas rivales, la policía corrupta y sus propios problemas familiares. Con una vasta ciudad para explorar y una gran cantidad de actividades, este juego es un clásico del género de mundo abierto."
     },
     {
         "id": 10,
         "precio": 0,
         "nombre": "League Of Legends",
         "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/LeagueOfLegends.webp",
-        "descripcion": "El famoso MOBA donde los jugadores luchan en equipos de cinco, combinando estrategia y habilidades en batallas intensas."
+        "descripcion": "League of Legends es uno de los juegos de estrategia competitiva más populares del mundo. Como jugador, controlarás a un campeón con habilidades únicas y formarás parte de un equipo de cinco jugadores que deben trabajar juntos para destruir la base del equipo enemigo. El juego combina estrategia, habilidad y trabajo en equipo, ofreciendo una experiencia intensa y dinámica que ha atraído a millones de jugadores a nivel global."
     },
     {
         "id": 11,
@@ -81,7 +81,7 @@
         "nombre": "Risk Of Rain 2",
         "enCarrito": false,
         "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/RiskOfRain2.webp",
-        "descripcion": "Un shooter roguelike en tercera persona donde deberás sobrevivir a hordas de enemigos en diferentes planetas."
+        "descripcion": "Risk of Rain 2 es un shooter roguelike en tercera persona donde los jugadores deben luchar contra hordas de enemigos y monstruos en diferentes planetas. Con cada partida, el desafío aumenta a medida que desbloqueas nuevos personajes, habilidades y objetos. La acción rápida y la aleatoriedad de los niveles garantizan que ninguna partida sea igual, ofreciendo una experiencia de rejugabilidad infinita."
     },
     {
         "id": 12,
@@ -89,28 +89,30 @@
         "nombre": "Terraria",
         "enCarrito": true,
         "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/Terraria.webp",
-        "descripcion": "Un sandbox de aventuras y supervivencia donde puedes construir, explorar y luchar en un vasto mundo 2D."
+        "descripcion": "Terraria es un juego de aventura y supervivencia en un mundo sandbox 2D. Los jugadores pueden construir estructuras, cavar en las profundidades de la tierra y luchar contra una gran variedad de enemigos mientras exploran un mundo lleno de recursos y secretos. Con una estética pixel art y una jugabilidad profunda, Terraria ofrece infinitas posibilidades para la creatividad y la aventura, ya sea solo o en modo cooperativo."
     },
     {
         "id": 13,
         "precio": 0,
-        "nombre": "Fear & Hunger 2",
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/Fear%26Hunger2.webp",
-        "descripcion": "Un oscuro y brutal RPG de supervivencia donde cada decisión puede significar la vida o la muerte para los personajes."
+        "nombre": "Fear & Hunger 2 Termina",
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/Fear&Hunger2Termina.webp",
+        "descripcion": "Fear & Hunger 2: Termina es un juego de horror y supervivencia que te sumerge en un mundo oscuro y perturbador. Los jugadores deben enfrentarse a criaturas grotescas y tomar decisiones difíciles mientras intentan escapar de un destino trágico. Con su atmósfera opresiva y su jugabilidad basada en la supervivencia, es una experiencia inquietante que pondrá a prueba tus nervios y tu ingenio."
     },
     {
         "id": 14,
-        "precio": 39.99,
-        "nombre": "Dark Souls 3",
+        "precio": 19.99,
+        "nombre": "Stray",
         "enCarrito": false,
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/DarkSouls3.webp",
-        "descripcion": "La tercera entrega del famoso RPG de acción, conocido por su dificultad y épicas batallas contra jefes."
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/Stray.webp",
+        "descripcion": "Stray es un encantador juego de aventuras en el que juegas como un gato callejero que se encuentra perdido en una ciudad ciberpunk habitada por robots. Tu misión es encontrar el camino a casa, mientras resuelves acertijos, te infiltras en áreas restringidas y haces amigos por el camino. Con una atmósfera única y una perspectiva felina, Stray ofrece una experiencia de juego refrescante y emotiva que captura la curiosidad y la libertad de ser un gato."
     },
     {
         "id": 15,
-        "precio": 0,
-        "nombre": "Duck Game",
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/DuckGame.webp",
-        "descripcion": "Un divertido y frenético juego de lucha multijugador donde patos armados se enfrentan en intensas batallas."
+        "precio": 14.99,
+        "nombre": "Dark Souls III",
+        "enCarrito": false,
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/DarkSouls3.webp",
+        "descripcion": "Dark Souls III es un desafiante juego de rol y acción que se desarrolla en un mundo oscuro y devastado. Los jugadores asumen el papel de un no-muerto que debe enfrentarse a enemigos brutales y jefes formidables mientras exploran ruinas antiguas y paisajes sombríos. Con una jugabilidad estratégica basada en el combate preciso y la gestión de recursos, Dark Souls III es conocido por su dificultad intensa y su capacidad de recompensa para aquellos dispuestos a perseverar."
     }
+    
 ]
