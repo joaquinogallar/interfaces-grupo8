@@ -98,47 +98,69 @@
       </ul>
     </aside>
     <main>
-      <section class="carrucel-destacados-container text-light">
-        <h2 class="h2">Destacados</h2>
-        <div class="swiper" id="swiper-destacados">
-          <div class="swiper-wrapper" id="carrucel-destacados">
-            <!-- CARGA DE JUEGOS DESTACADOS -->
-          </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
-      </section>
 
-      <section class="carrucel-recomendados-container text-light">
-        <h4 class="h4">Para Tí</h4>
-        <div class="swiper" id="swiper-recomendados1">
-          <div class="swiper-wrapper" id="carrucel-recomendados1">
-            <!-- CARGA DE JUEGOS RECOMENDADOS -->
-          </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+      <div id="loading-div">
+        <div id="superior">
+          <div id="supizq"></div>
+          <div id="supmid"></div>
+          <div id="supder"></div>
         </div>
-        <div class="swiper" id="swiper-recomendados2">
-          <div class="swiper-wrapper" id="carrucel-recomendados2">
-            <!-- CARGA DE JUEGOS RECOMENDADOS -->
-          </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+        <div id="medio">
+          <div id="midizq"></div>
+          <div id="midmid"></div>
+          <div id="midder"></div>
         </div>
-      </section>
+        <div id="inferior">
+          <div id="infizq"></div>
+          <div id="infmid"></div>
+          <div id="infder"></div>
+        </div>
+      </div>
+      
 
-      <section class="carrucel-categorias-container text-light">
-        <div>
-          <h4 class="h4">Acción</h4>
-          <div class="swiper" id="swiper-categoria1">
-            <div class="swiper-wrapper" id="carrucel-categoria1">
+      <div id="content">
+        <section class="carrucel-destacados-container text-light">
+          <h2 class="h2">Destacados</h2>
+          <div class="swiper" id="swiper-destacados">
+            <div class="swiper-wrapper" id="carrucel-destacados">
+              <!-- CARGA DE JUEGOS DESTACADOS -->
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </section>
+
+        <section class="carrucel-recomendados-container text-light">
+          <h4 class="h4">Para Tí</h4>
+          <div class="swiper" id="swiper-recomendados1">
+            <div class="swiper-wrapper" id="carrucel-recomendados1">
               <!-- CARGA DE JUEGOS RECOMENDADOS -->
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
           </div>
-        </div>
-      </section>
+          <div class="swiper" id="swiper-recomendados2">
+            <div class="swiper-wrapper" id="carrucel-recomendados2">
+              <!-- CARGA DE JUEGOS RECOMENDADOS -->
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </section>
+
+        <section class="carrucel-categorias-container text-light">
+          <div>
+            <h4 class="h4">Acción</h4>
+            <div class="swiper" id="swiper-categoria1">
+              <div class="swiper-wrapper" id="carrucel-categoria1">
+                <!-- CARGA DE JUEGOS RECOMENDADOS -->
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+          </div>
+        </section>
+      </div> <!-- Fin CONTENT-->
     </main>
 
     <footer class="fatFooter">
@@ -199,12 +221,14 @@
               <img class="iconesFooter" src="assets/twitter.png" alt="GitHub" />
           </div>
         </div>
-        
+
       </div>
 
       <p class="textFooter">
         © 2024 Game Sphere. Todos los derechos reservados. Este sitio web y su contenido, incluyendo juegos, gráficos y texto, están protegidos por leyes de derechos de autor y propiedad intelectual.  Queda prohibida la reproducción, distribución o modificación sin permiso previo por escrito de Game Sphere. Todas las marcas comerciales mencionadas son propiedad de sus respectivos dueños. Para solicitudes de uso de contenido, contáctanos a gamesphere@gmail.com.      </p>
     </footer>
     <script type="module" src="src/main.js"></script>
+
+    <script src="src/loading.js"></script>
   </body>
 </html>

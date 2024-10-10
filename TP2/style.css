@@ -3,8 +3,10 @@
   padding: 0;
 }
 
+/*
 body {
 }
+*/
 
 /* Variables de colores y fuentes */
 :root {
@@ -166,6 +168,110 @@ body {
 }
 
 /* FIN ESTILO TEXTOS */
+
+/* ===================== */ 
+/*        LOADING        */
+/* ===================== */
+
+#loading-div {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  
+  /*
+  animation-name: example;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;*/
+}
+
+
+#superior, #inferior, #medio {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex: 1; 
+}
+
+#superior div,
+#inferior div,
+#medio div {
+  margin: 2px;
+  width: 100%;
+  
+  opacity: 0.5;
+}
+
+
+
+#supizq {
+  border-radius: 30px 0px 0px  0px;
+  animation: example 3s infinite;   /* primero no delay */
+  animation-iteration-count: 3;
+}
+
+#midizq {
+  animation: example 3s infinite;
+  animation-delay: 0.5s; /* segundo delay */ 
+  animation-iteration-count: 3;
+}
+
+#infizq {
+  border-radius: 0px 0px 0px 30px;
+  animation: example 3s infinite;
+  animation-delay: 1s;   /* tercer delay */
+  animation-iteration-count: 3;
+}
+
+#infmid {
+  animation: example 3s infinite;
+  animation-delay: 1.5s; /* cuarto delay */ 
+  animation-iteration-count: 3;
+}
+
+#infder {
+  border-radius: 0px 0px 30px 0px;
+  animation: example 3s infinite;
+  animation-delay: 2s;  /* quinto delay */
+  animation-iteration-count: 3;
+}
+
+#midder {
+  animation: example 3s infinite;
+  animation-delay: 2.5s; /* sexto delay */ 
+  animation-iteration-count: 3;
+}
+
+#supder{
+  border-radius: 0px 15px 0px 0px;
+  animation: example 3s infinite;
+  animation-delay: 3s; /* septimo delay */
+  animation-iteration-count: 3;
+}
+
+#supmid {
+  animation: example 3s infinite;
+  animation-delay: 3.5s; /* septimo delay */
+  animation-iteration-count: 3;
+}
+
+#midmid {
+  animation: example 3s infinite;
+  animation-delay: 4s; /* septimo delay */
+  animation-iteration-count: 3;
+} 
+
+@keyframes example {
+  0%   { background-color: gray; }
+  50%  { background-color: rgb(49, 48, 48); } 
+  100% { background-color: gray; }
+}
+
 
 /* ===================== */
 /*        MAIN           */
@@ -826,7 +932,7 @@ header div {
 .containerFooter {
   display: flex;
   flex-direction: row;
-  gap: 50px;
+  gap: 80px;
 }
 
 .containerFooter:first-child {
@@ -855,7 +961,7 @@ header div {
   margin-top: 60px;
 
   margin-left: auto;  /* Mueve para la derecha */
-  margin-right: 100px;
+  margin-right: 150px;
 }
 
 .iconosContainer {
