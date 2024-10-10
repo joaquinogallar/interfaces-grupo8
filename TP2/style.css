@@ -285,6 +285,8 @@ main {
   padding-top: 67px;
   padding-left: 10%;
   padding-right: 10%;
+
+  overflow: hidden;
 }
 
 /* FIN MAIN */
@@ -895,9 +897,14 @@ header div {
 /* ===================== */
 /*        JUEGO          */
 /* ===================== */
+#seccion-juego-container {
+  margin-top: 40px;
+}
+
 .ubicacion {
   color: var(--acento-500);
   text-decoration: none;
+  padding: 20px 0;
 }
 
 .ubicacion a {
@@ -909,6 +916,7 @@ header div {
   width: 1000px;
   height: 600px;
   position: relative;
+  margin-top: 40px;
 }
 
 .inicio-juego {
@@ -953,6 +961,22 @@ canvas {
   width: 100px;
   height: 40px;
   margin-top: 10px;
+}
+
+.volver-home {
+  transition: color 100ms ease-in-out;
+}
+
+.volver-home:hover {
+  color: var(--acento-300);
+}
+
+.info-juego {
+  margin-top: 10px;
+}
+
+.info-juego p {
+  opacity: .4;
 }
 
 /* ===================== */

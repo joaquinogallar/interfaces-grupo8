@@ -3,102 +3,114 @@
         "id": 1,
         "precio": 0,
         "nombre": "Argentina vs Brasil",
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/ArgentinaVsBrasil.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/ArgentinaVsBrasil.webp",
+        "descripcion": "Un emocionante simulador del clásico enfrentamiento de fútbol entre Argentina y Brasil. Juega con tus equipos favoritos."
     },
     {
         "id": 2,
         "precio": 0,
         "nombre": "God of War",
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/GodOfWar.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/GodOfWar.webp",
+        "descripcion": "Sigue la épica historia de Kratos mientras lucha contra dioses y monstruos en un mundo mitológico lleno de acción."
     },
     {
         "id": 3,
         "precio": 0,
         "nombre": "The Binding of Isaac",
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/TheBindingOfIsaac.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/TheBindingOfIsaac.webp",
+        "descripcion": "Un desafiante roguelike en el que Isaac debe enfrentarse a peligrosos monstruos mientras explora mazmorras generadas aleatoriamente."
     },
     {
         "id": 4,
         "precio": 5.99,
         "nombre": "Grand Theft Auto Vice City",
         "enCarrito": true,
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/GTAViceCity.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/GTAViceCity.webp",
+        "descripcion": "Explora una ciudad abierta inspirada en los años 80 mientras construyes un imperio criminal en esta icónica entrega de GTA."
     },
     {
         "id": 5,
         "precio": 24.99,
         "nombre": "Red Dead Redemption 2",
         "enCarrito": true,
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/RedDeadRedemption2.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/RedDeadRedemption2.webp",
+        "descripcion": "Sumérgete en el salvaje oeste en esta increíble aventura de mundo abierto con una historia profunda y un vasto entorno."
     },
     {
         "id": 6,
         "precio": 9.99,
         "nombre": "Candy Crush",
         "enCarrito": false,
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/CandyCrush.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/CandyCrush.webp",
+        "descripcion": "El popular juego de rompecabezas donde debes alinear caramelos para superar niveles cada vez más desafiantes."
     },
     {
         "id": 7,
         "precio": 54.99,
         "nombre": "Wukong",
         "enCarrito": false,
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/Wukong.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/Wukong.webp",
+        "descripcion": "Un impresionante juego de acción basado en la mitología china, donde controlas al poderoso Rey Mono en su aventura."
     },
     {
         "id": 8,
         "precio": 2.99,
         "nombre": "Lethal Company",
         "enCarrito": true,
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/LethalCompany.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/LethalCompany.webp",
+        "descripcion": "Un juego cooperativo de terror en el que los jugadores deben sobrevivir a monstruos y desafíos en equipo."
     },
     {
         "id": 9,
         "precio": 17.99,
         "nombre": "Grand Theft Auto San Andreas",
         "enCarrito": true,
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/GTASanAndreas.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/GTASanAndreas.webp",
+        "descripcion": "Viaja a los años 90 en esta aventura de mundo abierto donde CJ lucha por controlar las calles y proteger a su familia."
     },
     {
         "id": 10,
         "precio": 0,
         "nombre": "League Of Legends",
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/LeagueOfLegends.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/LeagueOfLegends.webp",
+        "descripcion": "El famoso MOBA donde los jugadores luchan en equipos de cinco, combinando estrategia y habilidades en batallas intensas."
     },
     {
         "id": 11,
         "precio": 1.49,
         "nombre": "Risk Of Rain 2",
         "enCarrito": false,
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/RiskOfRain2.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/RiskOfRain2.webp",
+        "descripcion": "Un shooter roguelike en tercera persona donde deberás sobrevivir a hordas de enemigos en diferentes planetas."
     },
     {
         "id": 12,
         "precio": 4.99,
         "nombre": "Terraria",
         "enCarrito": true,
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/Terraria.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/Terraria.webp",
+        "descripcion": "Un sandbox de aventuras y supervivencia donde puedes construir, explorar y luchar en un vasto mundo 2D."
     },
     {
         "id": 13,
-        "precio": 54.99,
+        "precio": 0,
         "nombre": "Fear & Hunger 2",
-        "enCarrito": false,
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/Fear%26Hunger2.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/Fear%26Hunger2.webp",
+        "descripcion": "Un oscuro y brutal RPG de supervivencia donde cada decisión puede significar la vida o la muerte para los personajes."
     },
     {
         "id": 14,
         "precio": 39.99,
         "nombre": "Dark Souls 3",
         "enCarrito": false,
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/DarkSouls3.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/DarkSouls3.webp",
+        "descripcion": "La tercera entrega del famoso RPG de acción, conocido por su dificultad y épicas batallas contra jefes."
     },
     {
         "id": 15,
         "precio": 0,
         "nombre": "Duck Game",
-        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/DuckGame.webp"
+        "imagen": "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/assets/juegos/DuckGame.webp",
+        "descripcion": "Un divertido y frenético juego de lucha multijugador donde patos armados se enfrentan en intensas batallas."
     }
-    
-    
 ]
