@@ -267,9 +267,9 @@ body {
 } 
 
 @keyframes example {
-  0%   { background-color: gray; }
-  50%  { background-color: rgb(49, 48, 48); } 
-  100% { background-color: gray; }
+  0%   { background-color: var(--acento-300); }
+  50%  { background-color: var(--acento-700); } 
+  100% { background-color: var(--acento-300); }
 }
 
 
@@ -352,7 +352,7 @@ header {
   background-color: var(--bg-dark);
   color: var(--text-light);
   border-bottom: solid 2px var(--bg-dark-2);
-
+  overflow: hidden;
   z-index: 1000;
 }
 
@@ -901,6 +901,7 @@ header div {
   background-color: #141a21;
   width: 100%;
   height: 420px;
+  overflow: hidden;
 }
 
 .h2Footer {

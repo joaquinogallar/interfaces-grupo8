@@ -31,7 +31,7 @@ export const cargarJuegos = async (url, cantidadJuegos, carrucelId, claseContain
     titulo.innerText = juego.nombre;
 
     const boton = document.createElement("button");
-    boton.classList.add("boton-juego");
+    boton.classList.add("boton-juego", juego.id);
     if (esDestacado) boton.classList.add("boton-destacado", "body1");
     else boton.classList.add("body3")
 

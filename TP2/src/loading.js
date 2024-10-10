@@ -10,5 +10,4 @@ content.style.display = 'none';
 setTimeout(() => {
   loadingDiv.style.display = 'none'; 
   content.style.display = 'block'; 
-    console.log("asd");
   }, 8000);
