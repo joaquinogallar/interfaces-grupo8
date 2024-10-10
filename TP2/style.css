@@ -919,7 +919,7 @@ header div {
 
 .instrucciones-juego {
   position: relative;
-  width: 20%;
+  width: 30%;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -939,7 +939,7 @@ header div {
   z-index: -1;
 }
 .juego-container {
-  width: 1000px;
+  width: 70%;
   height: 600px;
   position: relative;
 }
