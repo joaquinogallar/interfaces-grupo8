@@ -9,7 +9,7 @@ const swiperCategoria1 = initSwiper("#swiper-categoria1", 6.5);
 cargarJuegos(
   "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/data/juegos.json",
   6,
-  "carrucel-destacados",
+  "carrusel-destacados",
   "tarjeta-destacado-container",
   true,
   swiperDestacados
@@ -18,7 +18,7 @@ cargarJuegos(
 cargarJuegos(
   "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/data/juegos.json",
   10,
-  "carrucel-recomendados1",
+  "carrusel-recomendados1",
   "tarjeta-recomendado-container",
   false,
   swiperRecomendados1
@@ -27,7 +27,7 @@ cargarJuegos(
 cargarJuegos(
   "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/data/juegos.json",
   10,
-  "carrucel-recomendados2",
+  "carrusel-recomendados2",
   "tarjeta-recomendado-container",
   false,
   swiperRecomendados2
@@ -36,10 +36,10 @@ cargarJuegos(
 cargarJuegos(
   "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/data/juegos.json",
   10,
-  "carrucel-categoria1",
+  "carrusel-categoria1",
   "tarjeta-recomendado-container",
   false,
-  swiperRecomendados1
+  swiperCategoria1
 );
 
 // lógica sidebar

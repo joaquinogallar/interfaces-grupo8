@@ -44,18 +44,19 @@ export const obtenerJuegosRandom = async (url, cantidad) => {
   }
 };
 
-export const obtenerJuegoPorId = async (url, id) => {
+export const obtenerJuegoPorId = async (id) => {
   try {
-    let juegos = await obtenerJuegos(url);
-
-    for(let juego of juegos) {
-      if(juego.id = id)
-        return juego
+    let juegos = await obtenerJuegos("https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/data/juegos.json");
+    
+    for (let juego of juegos) {
+      
+      if (juego.id == id) 
+        return juego;
     }
 
     return null;
   } catch (error) {
     console.error("Error al obtener los juegos aleatorios: ", error);
-    return null
+    return null;
   }
 }

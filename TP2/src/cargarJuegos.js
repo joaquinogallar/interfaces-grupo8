@@ -1,9 +1,9 @@
-import { obtenerJuegos, obtenerJuegosRandom } from './obtenerJuegos.js';
+import { obtenerJuegosRandom } from './obtenerJuegos.js';
 
-export const cargarJuegos = async (url, cantidadJuegos, carrucelId, claseContainer, esDestacado, swiperInstance) => {
+export const cargarJuegos = async (url, cantidadJuegos, carruselId, claseContainer, esDestacado, swiperInstance) => {
   const data = await obtenerJuegosRandom(url, cantidadJuegos);
   
-  const carrucel = document.getElementById(carrucelId);
+  const carrusel = document.getElementById(carruselId);
 
   for (let juego of data) {
     const swiperSlide = document.createElement("div");
@@ -31,12 +31,14 @@ export const cargarJuegos = async (url, cantidadJuegos, carrucelId, claseContain
     titulo.innerText = juego.nombre;
 
     const boton = document.createElement("button");
-    boton.classList.add("boton-juego", juego.id);
+    boton.classList.add("boton-juego");
+    boton.id = juego.id
     if (esDestacado) boton.classList.add("boton-destacado", "body1");
     else boton.classList.add("body3")
 
     if (juego.precio == 0) {
       boton.innerText = "Jugar";
+      boton.addEventListener("click", () => redireccion(juego.id))
     } else {
       boton.classList.add("color-boton-pago");
       boton.innerText = juego.enCarrito ? "En Carrito" : "Agregar al Carrito";
@@ -53,8 +55,12 @@ export const cargarJuegos = async (url, cantidadJuegos, carrucelId, claseContain
     container.appendChild(infoContainer);
 
     swiperSlide.appendChild(container);
-    carrucel.appendChild(swiperSlide);
+    carrusel.appendChild(swiperSlide);
   }
 
   if (swiperInstance) swiperInstance.update();
 };
+
+const redireccion = (id) => {
+  window.location.href = `./juego.html?id=${id}`
+}
