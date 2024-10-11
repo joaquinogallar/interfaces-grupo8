@@ -26,11 +26,11 @@
     />
 
     <!-- Libreria para la creacion de carrusel (SwiperJS)[https://swiperjs.com/get-started#use-swiper-from-cdn] -->
-    <link
+    <!--<link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    />-->
+
   </head>
   <body>
     <header id="header">
@@ -119,12 +119,15 @@
       
 
       <div id="content">
+
         <section class="carrusel-destacados-container text-light">
           <h2 class="h2">Destacados</h2>
           <div class="swiper" id="swiper-destacados">
-            <div class="swiper-wrapper" id="carrusel-destacados">
+
+            <div class="carrusel-destacados-div swiper-wrapper">
               <!-- CARGA DE JUEGOS DESTACADOS -->
             </div>
+
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
           </div>
@@ -132,17 +135,12 @@
 
         <section class="carrusel-recomendados-container text-light">
           <h4 class="h4">Para Tí</h4>
-          <div class="swiper" id="swiper-recomendados1">
-            <div class="swiper-wrapper" id="carrusel-recomendados1">
+          <div class="swiper" id="swiper-recomendados">
+
+            <div class="carrusel-recomendados-div swiper-wrapper">
               <!-- CARGA DE JUEGOS RECOMENDADOS -->
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
-          <div class="swiper" id="swiper-recomendados2">
-            <div class="swiper-wrapper" id="carrusel-recomendados2">
-              <!-- CARGA DE JUEGOS RECOMENDADOS -->
-            </div>
+
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
           </div>
@@ -152,14 +150,18 @@
           <div>
             <h4 class="h4">Acción</h4>
             <div class="swiper" id="swiper-categoria1">
-              <div class="swiper-wrapper" id="carrusel-categoria1">
-                <!-- CARGA DE JUEGOS RECOMENDADOS -->
+
+              <div class="carrusel-categoria1-div swiper-wrapper">
+                <!-- CARGA DE JUEGOS CATEGORIA1 -->
               </div>
+
               <div class="swiper-button-next"></div>
               <div class="swiper-button-prev"></div>
             </div>
           </div>
         </section>
+
+        
       </div> <!-- Fin CONTENT-->
     </main>
 
@@ -227,8 +229,12 @@
       <p class="textFooter">
         © 2024 Game Sphere. Todos los derechos reservados. Este sitio web y su contenido, incluyendo juegos, gráficos y texto, están protegidos por leyes de derechos de autor y propiedad intelectual.  Queda prohibida la reproducción, distribución o modificación sin permiso previo por escrito de Game Sphere. Todas las marcas comerciales mencionadas son propiedad de sus respectivos dueños. Para solicitudes de uso de contenido, contáctanos a gamesphere@gmail.com.      </p>
     </footer>
+
+    <script src="src/swiper.js"></script>
+
     <script type="module" src="src/main.js"></script>
 
     <script src="src/loading.js"></script>
+    
   </body>
 </html>

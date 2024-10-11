@@ -481,6 +481,11 @@ header div {
 /* FIN HEADER */
 
 /* ===================== */
+/*        CARRUCEL       */
+/* ===================== */
+
+
+/* ===================== */
 /*     LOGIN/REGISTER    */
 /* ===================== */
 
@@ -765,9 +770,75 @@ header div {
 /* ESTILOS GENERALES DE LOS CARRUSELES */
 .swiper {
   margin: 10px 0;
+
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+
+
+.swiper-wrapper {
+  display: flex;
+  transition: transform 0.8s cubic-bezier(0.37, 0, 0.63, 1);
+  /* transicion similar: transition: transform 0.8s cubic-bezier(0.37, 0, 0.63, 1); */
+  transform: translateX(0); 
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 0px 15px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    width: 40px; 
+    height: 40px; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    cursor: pointer; 
+    z-index: 10; 
+    transition: background-color 0.3s; 
 }
 
 .swiper-button-next {
+    right: 10px; 
+}
+
+.swiper-button-prev {
+    left: 10px; 
+}
+
+.swiper-button-next::before,
+.swiper-button-prev::before {
+    font-size: 20px; 
+}
+
+/* Btns prev next */
+.swiper-button-next::before {
+    content: '>'; 
+}
+
+.swiper-button-prev::before {
+    content: '<'; 
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(0, 0, 0, 0.7); 
 }
 
 .boton-juego {
@@ -889,11 +960,42 @@ header div {
 .carrusel-recomendados-container {
   margin-top: 80px;
 }
+
+.titulo-recomendado {
+  margin: auto;
+  width: 60%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 24px;
+}
+
+.boton-recomendado {
+  min-width: 120px;
+  height: 30px;
+  padding: 0 15px;
+}
+
 /* FIN CARRUsEL RECOMENDADOS */
 
 /* INICIO CARRUsEL CATEGORIAS */
 .carrusel-categorias-container {
   margin-top: 50px;
+}
+
+.titulo-categoria {
+  margin: auto;
+  width: 60%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 24px;
+}
+
+.boton-categoria {
+  min-width: 120px;
+  height: 30px;
+  padding: 0 15px;
 }
 /* FIN CARRUsEL CATEGORIAS */
 
