@@ -44,14 +44,19 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
         "</span> </div>";
 
       add += `
-      <div class=juego-nombre-container>
-        <h1 class="titulo-${titulo} h1alt">${juego.nombre}</h1>
-        <button class="boton-juego boton-${titulo} body1 ${tipoBoton}" id="${juego.id}">${textoBoton}</button>
-      `;
-
-      add += "</div></div>";
+        <div class="juego-nombre-container">
+          <h1 class="titulo-${titulo} h1alt">${juego.nombre}</h1>
+          <button class="boton-juego boton-${titulo} body1 ${tipoBoton} boton-juego" data-id="${juego.id}">${textoBoton}</button>
+        </div>`;
 
       carrusel.innerHTML += add;
+
+      carrusel.addEventListener("click", function (event) {
+        if (event.target.classList.contains("boton-juego")) {
+          const id = event.target.getAttribute("data-id");
+          window.location.href = `./juego.html?id=${id}`;
+        }
+      });
     }
 
     let slides = document.querySelectorAll(idCarrusel + " .swiper-slide");
