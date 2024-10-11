@@ -1,10 +1,46 @@
 import { cargarJuegos } from "./cargarJuegos.js";
 import { initSwiper } from "./initSwiper.js";
 
-const swiperDestacados = initSwiper("#swiper-destacados", 4.5);
-const swiperRecomendados1 = initSwiper("#swiper-recomendados1", 6.5);
-const swiperRecomendados2 = initSwiper("#swiper-recomendados2", 6.5);
-const swiperCategoria1 = initSwiper("#swiper-categoria1", 6.5);
+const swiperDestacados = initSwiper(
+  "#swiper-destacados",
+  4.5,
+  3.7,
+  3.2,
+  2.9,
+  2.5,
+  1.8,
+  1
+);
+const swiperRecomendados1 = initSwiper(
+  "#swiper-recomendados1",
+  6.5,
+  5.5,
+  4.5,
+  3.5,
+  3.2,
+  2.5,
+  1.2
+);
+const swiperRecomendados2 = initSwiper(
+  "#swiper-recomendados2",
+  6.5,
+  5.5,
+  4.5,
+  3.5,
+  3.2,
+  2.5,
+  1.2
+);
+const swiperCategoria1 = initSwiper(
+  "#swiper-categoria1",
+  6.5,
+  5.5,
+  4.5,
+  3.5,
+  3.2,
+  2.5,
+  1.2
+);
 
 cargarJuegos(
   "https://raw.githubusercontent.com/joaquinogallar/interfaces-grupo8/refs/heads/main/TP2/data/juegos.json",
