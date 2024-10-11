@@ -47,6 +47,8 @@ const swiperRecomendados1 = initSwiper("#swiper-recomendados1", 6.5);
 const swiperRecomendados2 = initSwiper("#swiper-recomendados2", 6.5);
 const swiperCategoria1 = initSwiper("#swiper-categoria1", 6.5);*/
 
+
+/* SE CREA UN SWIPER DE swiper.js CON LOS NOMBRES DE LAS CLASES  */
 await newSwiper(".carrusel-destacados-div","tarjeta-destacado-container","destacado");
 
 await newSwiper(".carrusel-recomendados-div","tarjeta-recomendado-container","recomendado");

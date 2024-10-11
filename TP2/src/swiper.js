@@ -24,7 +24,7 @@ async function newSwiper(idCarrusel, tarjeta,titulo) {
                 juego.precio = null;
             }
 
-            add += "<div class='juego-precio-container'><span class='body0'>" + (juego.precio != null ? juego.precio : "") +"</span> </div>"
+            add += "<div class='juego-precio-container precio-"+ titulo +"'><span class='body0'>" + (juego.precio != null ? juego.precio : "") +"</span> </div>"
 
             add += "<div class='juego-nombre-container'><h1 class='titulo-"+ titulo + " h1alt'>"+ juego.nombre +"</h1> <button class='boton-juego boton-"+ titulo + " body1' id='" + juego.id + "'>Jugar</button></div>";
 

@@ -976,6 +976,10 @@ header div {
   padding: 0 15px;
 }
 
+.precio-recomendado {
+  font-size: 10px; /* intente hacer mas chico pero no pude */
+}
+
 /* FIN CARRUsEL RECOMENDADOS */
 
 /* INICIO CARRUsEL CATEGORIAS */
@@ -997,6 +1001,11 @@ header div {
   height: 30px;
   padding: 0 15px;
 }
+
+.precio-categoria {
+  font-size: 10px; /* intente hacer mas chico pero no pude */
+}
+
 /* FIN CARRUsEL CATEGORIAS */
 
 /* ===================== */
