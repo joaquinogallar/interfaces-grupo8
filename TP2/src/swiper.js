@@ -1,3 +1,10 @@
+document.querySelectorAll('.likeBtn').forEach(function(button) {
+  button.addEventListener('click', function() {
+    this.classList.toggle('liked'); 
+  });
+});
+
+
 async function newSwiper(idCarrusel, tarjeta, titulo) {
   const carrusel = document.querySelector(idCarrusel);
 
@@ -100,7 +107,7 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
       }
     });
   }
-
+  
   console.log(juegos);
 }
 
