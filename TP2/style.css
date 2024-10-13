@@ -1393,9 +1393,7 @@ width: 1056px;
  height: 30px;
  width: 30px;
 }
-.nombreUsuario{
 
-}
 
 .infoUsuario{
   display: flex;
@@ -1405,46 +1403,3 @@ width: 1056px;
   display: flex;
 }
 
-.btn-comprar {
-  height: 40px;
-  width: 158px;
-  background-color:var(--color-acento);
-  border: 2px solid var(--color-acento-luz1);
-  color: #eee;
-  transition: .6s;
-  font-size: 15px;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.likeBtn span {
-  transform: translateX(10px);
-  transition: .5s ease-in-out;
-}
-
-.likeBtn svg {
-  transform: translateX(-300px);
-  transition: .6s ease-in-out;
-  z-index: 3;
-  height: 20px;
-}
-
-.btn-comprar:active {
-  width: 60px;
-  background-color: var(--color-acento-sombra1);
-  box-shadow: 20px 20px 96px #bebebe, -20px -20px 96px white;
-  cursor: pointer;
-}
-
-
-.likeBtn:active svg {
-  transform: translateX(-5px);
-}
-
-.likeBtn:active span {
-  transform: translateY(70px);
-  font-size: .1rem;
-}
