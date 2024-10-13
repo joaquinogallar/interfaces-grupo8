@@ -1261,3 +1261,116 @@ canvas {
 }
 
 /* FIN FOOTER */
+
+.btn-comprar {
+  height: 40px;
+  width: 158px;
+  background-color: #FF6B6B;
+  border: 2px solid var(--color-acento-luz1);
+  color: #eee;
+  transition: .6s;
+  font-size: 15px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.btn-comprar span {
+  transform: translateX(10px);
+  transition: .5s ease-in-out;
+}
+
+.btn-comprar svg {
+  transform: translateX(-300px);
+  transition: .6s ease-in-out;
+  z-index: 3;
+  height: 20px;
+}
+
+.btn-comprar.clicado {
+  width: 60px;
+  background-color: var(--color-acento-sombra1);
+  box-shadow: 20px 20px 96px #bebebe, -20px -20px 96px white;
+  transform: scale(1.2);
+}
+
+.btn-comprar.clicado svg {
+  transform: translateX(-5px);
+}
+
+.btn-comprar.clicado span {
+  transform: translateY(70px);
+  font-size: .1rem;
+}
+.subtituloJuego{
+  color: white ;
+  margin-bottom: 90px;
+  margin-left: 180px;
+  font-family: "Silkscreen", sans-serif;
+}
+.JuegosRecomendados {
+  height: 150px;
+  width: 100%;
+  background-color: var(--primario-700);
+}
+
+
+#comentario{
+  font-family: "Baloo 2", sans-serif;
+  font-size: 15px;
+  background-color: var(--primario-700);
+border: none;
+margin-right: 250px;
+width: 1056px;
+}
+.comentarios-container{
+  background-color: var(--primario-700);
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+}
+.boxComentarios{
+  display: flex;
+  flex-direction: column;
+}
+.enviarBtn{
+  
+    margin-left: 1030px;
+    margin-top: 15px;
+    background-color: var(--primario-700); 
+    color: var(--primario-300);
+    font-size: 14px;
+    padding: 8px 16px;
+    
+    border-radius: 18px; 
+    border: 2px solid var(--primario-300);
+    cursor: pointer;
+ 
+}
+
+
+
+.divComentario{
+  font-family: "Baloo 2", sans-serif;
+  color: rgb(224, 215, 215);
+  height: 180px;
+  width: 1220px;
+  margin-right: 90px;
+}
+
+.comentario-texto{
+  color: white;
+  font-family: "Baloo 2", sans-serif;
+  font-size: 15px;
+  opacity: 60%;
+}
+
+.horizontal-line-input{
+  width: 1100px;
+  height: 2px;
+  background-color: white; 
+  opacity: 60%;
+}
