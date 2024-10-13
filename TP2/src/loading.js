@@ -10,4 +10,4 @@ content.style.display = 'none';
 setTimeout(() => {
   loadingDiv.style.display = 'none'; 
   content.style.display = 'block'; 
-  }, 1000);
+  }, 1500);

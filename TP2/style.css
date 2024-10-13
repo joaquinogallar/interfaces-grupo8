@@ -1211,13 +1211,21 @@ canvas {
 }
 
 .itemFooter {
+  list-style: none;
   margin-left: 56px;
   font-family: "Baloo 2", sans-serif;
   font-style: normal;
   font-size: 15px;
   margin-top: 7px;
+  
+}
+
+.itemFooter a {
+  font-style: normal;
+  text-decoration: none;
   color: white;
   opacity: 60%;
+
 }
 
 .containerFooter {
@@ -1292,8 +1300,8 @@ canvas {
   font-family: "Silkscreen", sans-serif;
 }
 .JuegosRecomendados {
-  height: 150px;
-  width: 100%;
+  height: 450px;
+  
   background-color: var(--primario-700);
 }
 
@@ -1360,32 +1368,26 @@ width: 1056px;
 
 
 .likeBtn {
+  animation-name: btn-like;
   background-color: transparent;
   border: none;
   cursor: pointer;
- 
   transition: transform 0.2s ease-in-out;
 }
 
-.likeBtn img {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.3s ease, fill 0.3s ease;
-  filter: grayscale(100%); 
+
+
+.likeBtn :hover {
+  
 }
 
-.likeBtn:active{
-  transform: scale(1.2);
-}
+
+
 .likeBtn.liked img {
   
   filter: grayscale(0%); 
 }
 
-
-.likeBtn img {
-  transform: scale(1);
-}
 
 .avatar{
  padding: 2px;
@@ -1403,3 +1405,33 @@ width: 1056px;
   display: flex;
 }
 
+
+
+.btn-comprar {
+  height: 90px;
+  width: 1580px;
+  background-color: salmon;
+  border: 2px solid var(--color-acento-luz1);
+  color: #480101;
+  transition: .6s;
+  font-size: 15px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn-comprar span {
+  transform: translateX(10px);
+  transition: .5s ease-in-out;
+}
+
+
+
+.btn-comprar.clicked {
+  width: 60px;
+  
+  transform: scale(1.2);
+}

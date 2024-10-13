@@ -4,6 +4,21 @@ document.querySelectorAll('.likeBtn').forEach(function(button) {
   });
 });
 
+document.querySelectorAll('.btn-comprar').forEach(function(button) {
+  button.addEventListener('click', function() {
+      
+      this.classList.toggle('clicked');
+
+     
+      if (this.classList.contains('clicked')) {
+          this.innerHTML = '<img class"imagencs" src="/interfaces-grupo8/TP2/assets/facebookicon.png" alt="" >';
+           
+      } else {
+          this.innerHTML = 'Agregar al carrito';
+      }
+  });
+});
+
 
 async function newSwiper(idCarrusel, tarjeta, titulo) {
   const carrusel = document.querySelector(idCarrusel);
