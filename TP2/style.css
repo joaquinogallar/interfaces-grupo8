@@ -771,6 +771,10 @@ header div {
   margin-bottom: 40px;
 }
 
+#carrusel-enJuego {
+  padding: 0 10%;
+}
+
 .swiper {
   margin: 10px 0;
 
@@ -1319,7 +1323,7 @@ canvas {
   font-family: "Silkscreen", sans-serif;
 }
 .JuegosRecomendados {
-  height: 450px;
+  height: 400px;
 
   background-color: var(--primario-700);
 }
