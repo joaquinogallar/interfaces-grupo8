@@ -1,15 +1,21 @@
-document.querySelectorAll('.likeBtn').forEach(function(button) {
-  button.addEventListener('click', function() {
-    this.classList.toggle('liked'); 
-  });
+/*  funcion para botones */
+const likeButtons = document.querySelectorAll('.likeBtn');
+
+likeButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      
+        this.classList.toggle('active'); // Cambia la clase 'active' al hacer clic
+    });
 });
 
+
+/*funcion para botones */
 document.querySelectorAll('.btn-comprar').forEach(function(button) {
   button.addEventListener('click', function() {
       
       this.classList.toggle('clicked');
 
-     
+
       if (this.classList.contains('clicked')) {
           this.innerHTML = '<img class"imagencs" src="/interfaces-grupo8/TP2/assets/facebookicon.png" alt="" >';
            
@@ -18,6 +24,8 @@ document.querySelectorAll('.btn-comprar').forEach(function(button) {
       }
   });
 });
+
+
 
 
 async function newSwiper(idCarrusel, tarjeta, titulo) {

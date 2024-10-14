@@ -1175,7 +1175,7 @@ canvas {
   height: 25px;
 }
 .shareIcon{
-  
+  cursor: pointer;
  margin-left: 10px;
   border: none;
   background-color: var(--primario-700);
@@ -1367,8 +1367,9 @@ width: 1056px;
 
 
 
+
+/* Estilo base del botón */
 .likeBtn {
-  animation-name: btn-like;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -1376,17 +1377,29 @@ width: 1056px;
 }
 
 
-
-.likeBtn :hover {
-  
+@keyframes jumpAndRotate {
+  0% {
+    transform: translateY(0) rotate(0deg); 
+  }
+  50% {
+    transform: translateY(-30px) rotate(1080deg); 
+  }
+  100% {
+    transform: translateY(0) rotate(0deg); 
+  }
 }
 
 
-
-.likeBtn.liked img {
-  
-  filter: grayscale(0%); 
+.likeBtn.active {
+  animation: jumpAndRotate 0.7s ease-out; 
 }
+
+.likeBtn.active img {
+  content: url('./assets/nuevoLike.png'); 
+} 
+
+
+
 
 
 .avatar{
@@ -1407,11 +1420,13 @@ width: 1056px;
 
 
 
+
+
+
 .btn-comprar {
   height: 90px;
   width: 1580px;
   background-color: salmon;
-  border: 2px solid var(--color-acento-luz1);
   color: #480101;
   transition: .6s;
   font-size: 15px;
@@ -1433,5 +1448,8 @@ width: 1056px;
 .btn-comprar.clicked {
   width: 60px;
   
-  transform: scale(1.2);
+  transform: scale(1.4);
 }
+
+
+

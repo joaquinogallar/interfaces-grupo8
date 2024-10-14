@@ -24,3 +24,4 @@ const btnHamburguesa = document.getElementById("btn-hamburguesa");
 btnHamburguesa.addEventListener("click", () => {
   sidebar.classList.toggle("desplegado");
 });
+

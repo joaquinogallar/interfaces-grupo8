@@ -35,8 +35,11 @@ export const cargarJuegos = async (url, cantidadJuegos, carruselId, claseContain
     boton.id = juego.id
     if (esDestacado) boton.classList.add("boton-destacado", "body1");
     else boton.classList.add("body3")
+  
+    
 
     if (juego.precio == 0) {
+      
       boton.innerText = "Jugar";
       boton.addEventListener("click", () => redireccion(juego.id))
     } else {
