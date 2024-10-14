@@ -372,14 +372,12 @@ header div {
 #head-div-a {
   display: flex;
   flex-direction: row;
-  max-height: 40px;
   width: 100%;
 }
 
 #head-div-a div {
   display: flex;
   flex-direction: row;
-  max-height: 40px;
   padding: 0px 15px;
 }
 
@@ -463,6 +461,7 @@ header div {
   display: flex;
   justify-content: flex-end;
   text-align: right;
+  width: 50%;
 }
 
 #div-iconos-header {
@@ -767,6 +766,14 @@ header div {
 /* FIN LOGIN */
 
 /* ESTILOS GENERALES DE LOS CARRUSELES */
+#content {
+  margin-bottom: 40px;
+}
+
+#carrusel-enJuego {
+  padding: 0 10%;
+}
+
 .swiper {
   margin: 10px 0;
 
@@ -780,6 +787,7 @@ header div {
   transition: transform 0.8s cubic-bezier(0.37, 0, 0.63, 1);
   /* transicion similar: transition: transform 0.8s cubic-bezier(0.37, 0, 0.63, 1); */
   transform: translateX(0);
+  gap: 10px;
 }
 
 .swiper-slide {
@@ -789,7 +797,6 @@ header div {
   justify-content: center;
   align-items: center;
   width: fit-content;
-  padding: 0px 15px;
 }
 
 .swiper-button-next,
@@ -871,6 +878,10 @@ header div {
   left: -20%;
 }
 
+.boton-juego:active::before {
+  background-color: var(--primario-400);
+}
+
 .boton-juego:active {
   background: var(--primario-400);
 }
@@ -881,6 +892,11 @@ header div {
 
 .color-boton-pago::before {
   background-color: var(--acento-700);
+}
+
+.color-boton-pago:active::before,
+.color-boton-pago:active {
+  background-color: var(--acento-300);
 }
 
 .color-boton-pago:active {
@@ -932,7 +948,7 @@ header div {
  
 }
 
-/* INICIO CARRUsEL DESTACADOS */
+/* INICIO CARRUSEL DESTACADOS */
 
 .boton-destacado {
   min-width: 120px;
@@ -1307,7 +1323,7 @@ canvas {
   font-family: "Silkscreen", sans-serif;
 }
 .JuegosRecomendados {
-  height: 450px;
+  height: 400px;
 
   background-color: var(--primario-700);
 }
@@ -1459,4 +1475,30 @@ canvas {
   }
 
   
+}
+
+/* Reponsive */
+@media (max-width: 1125px) {
+  #head-div-b {
+    display: none;
+  }
+}
+
+@media (max-width: 525px) {
+  #head-title {
+    display: none;
+  }
+  #head-div-a {
+    width: fit-content;
+  }
+  #div-iconos-header {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  header {
+    justify-content: space-between;
+  }
 }
