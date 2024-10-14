@@ -1,32 +1,25 @@
 /*  funcion para botones */
-const likeButtons = document.querySelectorAll('.likeBtn');
+const likeButtons = document.querySelectorAll(".likeBtn");
 
-likeButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      
-        this.classList.toggle('active'); // Cambia la clase 'active' al hacer clic
-    });
-});
-
-
-/*funcion para botones */
-document.querySelectorAll('.btn-comprar').forEach(function(button) {
-  button.addEventListener('click', function() {
-      
-      this.classList.toggle('clicked');
-
-
-      if (this.classList.contains('clicked')) {
-          this.innerHTML = '<img class"imagencs" src="/interfaces-grupo8/TP2/assets/facebookicon.png" alt="" >';
-           
-      } else {
-          this.innerHTML = 'Agregar al carrito';
-      }
+likeButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    this.classList.toggle("active"); // Cambia la clase 'active' al hacer clic
   });
 });
 
+/*funcion para botones */
+document.querySelectorAll(".btn-comprar").forEach(function (button) {
+  button.addEventListener("click", function () {
+    this.classList.toggle("clicked");
 
-
+    if (this.classList.contains("clicked")) {
+      this.innerHTML =
+        '<img class"imagencs" src="/interfaces-grupo8/TP2/assets/facebookicon.png" alt="" >';
+    } else {
+      this.innerHTML = "Agregar al carrito";
+    }
+  });
+});
 
 async function newSwiper(idCarrusel, tarjeta, titulo) {
   const carrusel = document.querySelector(idCarrusel);
@@ -82,9 +75,16 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
       carrusel.innerHTML += add;
 
       carrusel.addEventListener("click", function (event) {
-        if (event.target.classList.contains("boton-juego")) {
-          const id = event.target.getAttribute("data-id");
-          window.location.href = `./juego.html?id=${id}`;
+        if (juego.precio == null) {
+          carrusel.addEventListener("click", function (event) {
+            if (
+              event.target.classList.contains("boton-juego") &&
+              event.target.getAttribute("data-id") == juego.id
+            ) {
+              const id = event.target.getAttribute("data-id");
+              window.location.href = `./juego.html?id=${id}`;
+            }
+          });
         }
       });
     }
@@ -130,7 +130,7 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
       }
     });
   }
-  
+
   console.log(juegos);
 }
 

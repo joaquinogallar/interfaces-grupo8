@@ -1,8 +1,15 @@
-import { obtenerJuegosRandom } from './obtenerJuegos.js';
+import { obtenerJuegosRandom } from "./obtenerJuegos.js";
 
-export const cargarJuegos = async (url, cantidadJuegos, carruselId, claseContainer, esDestacado, swiperInstance) => {
+export const cargarJuegos = async (
+  url,
+  cantidadJuegos,
+  carruselId,
+  claseContainer,
+  esDestacado,
+  swiperInstance
+) => {
   const data = await obtenerJuegosRandom(url, cantidadJuegos);
-  
+
   const carrusel = document.getElementById(carruselId);
 
   for (let juego of data) {
@@ -10,7 +17,7 @@ export const cargarJuegos = async (url, cantidadJuegos, carruselId, claseContain
     swiperSlide.classList.add("swiper-slide");
 
     const container = document.createElement("div");
-    container.classList.add("tarjeta-juego", claseContainer);    
+    container.classList.add("tarjeta-juego", claseContainer);
     container.style.backgroundImage = `url(${juego.imagen})`;
 
     const precioContainer = document.createElement("div");
@@ -27,21 +34,19 @@ export const cargarJuegos = async (url, cantidadJuegos, carruselId, claseContain
     const titulo = document.createElement("h1");
     titulo.classList.add();
     if (esDestacado) titulo.classList.add("titulo-destacado", "h1alt");
-    else titulo.classList.add("body1")
+    else titulo.classList.add("body1");
     titulo.innerText = juego.nombre;
 
     const boton = document.createElement("button");
     boton.classList.add("boton-juego");
-    boton.id = juego.id
+    boton.id = juego.id;
+
     if (esDestacado) boton.classList.add("boton-destacado", "body1");
-    else boton.classList.add("body3")
-  
-    
+    else boton.classList.add("body3");
 
     if (juego.precio == 0) {
-      
       boton.innerText = "Jugar";
-      boton.addEventListener("click", () => redireccion(juego.id))
+      boton.addEventListener("click", () => redireccion(juego.id));
     } else {
       boton.classList.add("color-boton-pago");
       boton.innerText = juego.enCarrito ? "En Carrito" : "Agregar al Carrito";
@@ -65,5 +70,5 @@ export const cargarJuegos = async (url, cantidadJuegos, carruselId, claseContain
 };
 
 const redireccion = (id) => {
-  window.location.href = `./juego.html?id=${id}`
-}
+  window.location.href = `./juego.html?id=${id}`;
+};
