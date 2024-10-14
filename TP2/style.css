@@ -1428,7 +1428,7 @@ canvas {
 .input-and-profile-pic-container {
   display: flex;
 }
-
+/*Responsive*/
 
 @media (max-width: 768px) {
   .fatFooter {
