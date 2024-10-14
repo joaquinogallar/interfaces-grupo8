@@ -372,14 +372,12 @@ header div {
 #head-div-a {
   display: flex;
   flex-direction: row;
-  max-height: 40px;
   width: 100%;
 }
 
 #head-div-a div {
   display: flex;
   flex-direction: row;
-  max-height: 40px;
   padding: 0px 15px;
 }
 
@@ -463,6 +461,7 @@ header div {
   display: flex;
   justify-content: flex-end;
   text-align: right;
+  width: 50%;
 }
 
 #div-iconos-header {
@@ -948,7 +947,7 @@ header div {
   opacity: 0.7;
 }
 
-/* INICIO CARRUsEL DESTACADOS */
+/* INICIO CARRUSEL DESTACADOS */
 
 .boton-destacado {
   min-width: 120px;
@@ -1453,4 +1452,30 @@ canvas {
   width: 60px;
 
   transform: scale(1.4);
+}
+
+/* Reponsive */
+@media (max-width: 1125px) {
+  #head-div-b {
+    display: none;
+  }
+}
+
+@media (max-width: 525px) {
+  #head-title {
+    display: none;
+  }
+  #head-div-a {
+    width: fit-content;
+  }
+  #div-iconos-header {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  header {
+    justify-content: space-between;
+  }
 }
