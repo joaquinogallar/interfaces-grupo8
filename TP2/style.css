@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  
 }
 
 /*
@@ -485,7 +484,6 @@ header div {
 /*        CARRUCEL       */
 /* ===================== */
 
-
 /* ===================== */
 /*     LOGIN/REGISTER    */
 /* ===================== */
@@ -777,14 +775,11 @@ header div {
   overflow: hidden;
 }
 
-
-
-
 .swiper-wrapper {
   display: flex;
   transition: transform 0.8s cubic-bezier(0.37, 0, 0.63, 1);
   /* transicion similar: transition: transform 0.8s cubic-bezier(0.37, 0, 0.63, 1); */
-  transform: translateX(0); 
+  transform: translateX(0);
 }
 
 .swiper-slide {
@@ -799,47 +794,47 @@ header div {
 
 .swiper-button-next,
 .swiper-button-prev {
-    width: 40px; 
-    height: 40px; 
-    background-color: rgba(0, 0, 0, 0.5); 
-    color: white; 
-    border-radius: 50%; 
-    display: flex; 
-    align-items: center;
-    justify-content: center; 
-    position: absolute; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    cursor: pointer; 
-    z-index: 10; 
-    transition: background-color 0.3s; 
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s;
 }
 
 .swiper-button-next {
-    right: 10px; 
+  right: 10px;
 }
 
 .swiper-button-prev {
-    left: 10px; 
+  left: 10px;
 }
 
 .swiper-button-next::before,
 .swiper-button-prev::before {
-    font-size: 20px; 
+  font-size: 20px;
 }
 
 /* Btns prev next */
 .swiper-button-next::before {
-    content: '>'; 
+  content: ">";
 }
 
 .swiper-button-prev::before {
-    content: '<'; 
+  content: "<";
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-    background-color: rgba(0, 0, 0, 0.7); 
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .boton-juego {
@@ -852,10 +847,28 @@ header div {
   background: var(--primario-300);
   color: var(--text-light);
   transition: background 100ms ease-in-out;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
 }
 
-.boton-juego:hover {
-  background: var(--primario-500);
+.boton-juego::before {
+  content: "";
+  background-color: var(--primario-500);
+  display: block;
+  height: 200%;
+  width: 150%;
+  position: absolute;
+  z-index: -1; /* Asegura que ::before esté por debajo del texto */
+  transition: top 0.8s, left 0.8s, margin 0.8s;
+  border-radius: 50%;
+  top: 100%;
+  left: -20%;
+}
+
+.boton-juego:hover::before {
+  top: -50%;
+  left: -20%;
 }
 
 .boton-juego:active {
@@ -866,8 +879,8 @@ header div {
   background: var(--acento-500);
 }
 
-.color-boton-pago:hover {
-  background: var(--acento-600);
+.color-boton-pago::before {
+  background-color: var(--acento-700);
 }
 
 .color-boton-pago:active {
@@ -1162,25 +1175,21 @@ canvas {
   opacity: 0.4;
 }
 
-
-
-.containerTitulo{
+.containerTitulo {
   width: 2000px;
   display: flex;
 }
 
-.share{
+.share {
   margin-top: 2px;
   width: 25px;
   height: 25px;
 }
-.shareIcon{
+.shareIcon {
   cursor: pointer;
- margin-left: 10px;
+  margin-left: 10px;
   border: none;
   background-color: var(--primario-700);
-  
-  
 }
 
 /* ===================== */
@@ -1217,7 +1226,6 @@ canvas {
   font-style: normal;
   font-size: 15px;
   margin-top: 7px;
-  
 }
 
 .itemFooter a {
@@ -1225,7 +1233,6 @@ canvas {
   text-decoration: none;
   color: white;
   opacity: 60%;
-
 }
 
 .containerFooter {
@@ -1292,65 +1299,62 @@ canvas {
 
 /* FIN FOOTER */
 
-
-.subtituloJuego{
-  color: white ;
+.subtituloJuego {
+  color: white;
   margin-bottom: 90px;
   margin-left: 180px;
   font-family: "Silkscreen", sans-serif;
 }
 .JuegosRecomendados {
   height: 450px;
-  
+
   background-color: var(--primario-700);
 }
 
-
-.comentarios-container{
+.comentarios-container {
   background-color: var(--primario-700);
   display: flex;
   flex-direction: column;
 }
-.horizontal-line-input{
+.horizontal-line-input {
   width: 1150px;
   height: 2px;
-  background-color: white; 
+  background-color: white;
   opacity: 60%;
   margin-left: 190px;
 }
-#comentario{
+#comentario {
   margin-left: 190px;
   color: white;
   outline: none;
   font-family: "Baloo 2", sans-serif;
   font-size: 15px;
   background-color: var(--primario-700);
-border: none;
-margin-right: 250px;
-width: 1056px;
+  border: none;
+  margin-right: 250px;
+  width: 1056px;
 }
-.enviarBtn{
+.enviarBtn {
   height: 30px;
   width: 98px;
   margin-left: 1250px;
   margin-top: 13px;
-  background-color: var(--primario-700); 
+  background-color: var(--primario-700);
   color: var(--primario-300);
   font-size: 14px;
   font-family: "Baloo 2", sans-serif;
-  border-radius: 29px; 
+  border-radius: 29px;
   border: 3px solid var(--primario-300);
   cursor: pointer;
-
 }
-.boxComentarios{
+.boxComentarios {
   height: 100vh;
   display: flex;
   flex-direction: column;
   margin-left: 190px;
 }
 
-.divComentario{
+.divComentario {
   font-family: "Baloo 2", sans-serif;
   color: rgb(224, 215, 215);
   height: 150px;
@@ -1358,15 +1362,12 @@ width: 1056px;
   margin-right: 90px;
 }
 
-.comentario-texto{
+.comentario-texto {
   color: white;
   font-family: "Baloo 2", sans-serif;
   font-size: 15px;
   opacity: 60%;
 }
-
-
-
 
 /* Estilo base del botón */
 .likeBtn {
@@ -1376,59 +1377,47 @@ width: 1056px;
   transition: transform 0.2s ease-in-out;
 }
 
-
 @keyframes jumpAndRotate {
   0% {
-    transform: translateY(0) rotate(0deg); 
+    transform: translateY(0) rotate(0deg);
   }
   50% {
-    transform: translateY(-30px) rotate(1080deg); 
+    transform: translateY(-30px) rotate(1080deg);
   }
   100% {
-    transform: translateY(0) rotate(0deg); 
+    transform: translateY(0) rotate(0deg);
   }
 }
 
-
 .likeBtn.active {
-  animation: jumpAndRotate 0.7s ease-out; 
+  animation: jumpAndRotate 0.7s ease-out;
 }
 
 .likeBtn.active img {
-  content: url('./assets/nuevoLike.png'); 
-} 
-
-
-
-
-
-.avatar{
- padding: 2px;
- border-radius: 340px;
- height: 30px;
- width: 30px;
+  content: url("./assets/nuevoLike.png");
 }
 
+.avatar {
+  padding: 2px;
+  border-radius: 340px;
+  height: 30px;
+  width: 30px;
+}
 
-.infoUsuario{
+.infoUsuario {
   display: flex;
 }
 
-.input-and-profile-pic-container{
+.input-and-profile-pic-container {
   display: flex;
 }
-
-
-
-
-
 
 .btn-comprar {
   height: 90px;
   width: 1580px;
   background-color: salmon;
   color: #480101;
-  transition: .6s;
+  transition: 0.6s;
   font-size: 15px;
   border-radius: 50px;
   display: flex;
@@ -1440,16 +1429,11 @@ width: 1056px;
 
 .btn-comprar span {
   transform: translateX(10px);
-  transition: .5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
-
-
 
 .btn-comprar.clicked {
   width: 60px;
-  
+
   transform: scale(1.4);
 }
-
-
-
