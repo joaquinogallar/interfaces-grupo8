@@ -767,6 +767,10 @@ header div {
 /* FIN LOGIN */
 
 /* ESTILOS GENERALES DE LOS CARRUSELES */
+#content {
+  margin-bottom: 40px;
+}
+
 .swiper {
   margin: 10px 0;
 
@@ -780,6 +784,7 @@ header div {
   transition: transform 0.8s cubic-bezier(0.37, 0, 0.63, 1);
   /* transicion similar: transition: transform 0.8s cubic-bezier(0.37, 0, 0.63, 1); */
   transform: translateX(0);
+  gap: 10px;
 }
 
 .swiper-slide {
@@ -789,7 +794,6 @@ header div {
   justify-content: center;
   align-items: center;
   width: fit-content;
-  padding: 0px 15px;
 }
 
 .swiper-button-next,
@@ -871,6 +875,10 @@ header div {
   left: -20%;
 }
 
+.boton-juego:active::before {
+  background-color: var(--primario-400);
+}
+
 .boton-juego:active {
   background: var(--primario-400);
 }
@@ -881,6 +889,11 @@ header div {
 
 .color-boton-pago::before {
   background-color: var(--acento-700);
+}
+
+.color-boton-pago:active::before,
+.color-boton-pago:active {
+  background-color: var(--acento-300);
 }
 
 .color-boton-pago:active {

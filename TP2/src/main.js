@@ -17,6 +17,24 @@ await newSwiper(
   "categoria"
 );
 
+await newSwiper(
+  ".carrusel-categoria2-div",
+  "tarjeta-categorias-container",
+  "categoria"
+);
+
+await newSwiper(
+  ".carrusel-categoria3-div",
+  "tarjeta-categorias-container",
+  "categoria"
+);
+
+await newSwiper(
+  ".carrusel-categoria4-div",
+  "tarjeta-categorias-container",
+  "categoria"
+);
+
 // lógica sidebar
 const sidebar = document.getElementById("sidebar");
 const btnHamburguesa = document.getElementById("btn-hamburguesa");
