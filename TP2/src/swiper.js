@@ -46,6 +46,7 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
         tipoBoton.push("color-boton-pago");
         if (juego.enCarrito) {
           tipoBoton.push("enCarrito");
+          tipoBoton.push("btn-comprar");
           textoBoton =
             "<img class='imagencs' src='https://github.com/joaquinogallar/interfaces-grupo8/blob/main/TP2/assets/il--cart.png?raw=true' alt='' >";
         } else {
