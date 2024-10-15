@@ -956,7 +956,7 @@ header div {
 }
 
 .enCarrito {
-  height: 300px;
+  opacity: 0.7;
 }
 
 /* INICIO CARRUSEL DESTACADOS */
