@@ -40,14 +40,6 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
       let add = "<div class='swiper-slide' id='" + i + "'>";
       let tipoBoton = "";
       let textoBoton = "Jugar";
-
-      add +=
-        "<div class='tarjeta-juego " +
-        tarjeta +
-        "' style='background-image:url(\"" +
-        juego.imagen +
-        "\")';>";
-
       if (juego.precio <= 0) {
         juego.precio = null;
       } else {
@@ -56,8 +48,19 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
         if (juego.enCarrito) {
           tipoBoton += " enCarrito";
           textoBoton = "En Carrito";
+        } else {
+          tipoBoton += " noCarrito";
         }
       }
+
+      add +=
+        "<div class='tarjeta-juego " +
+        tarjeta +
+        " " +
+        tipoBoton +
+        "' style='background-image:url(\"" +
+        juego.imagen +
+        "\")';>";
 
       add +=
         "<div class='juego-precio-container precio-" +
@@ -69,7 +72,7 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
       add += `
         <div class="juego-nombre-container">
           <h1 class="titulo-${titulo} h1alt">${juego.nombre}</h1>
-          <button class="boton-juego boton-${titulo} body1 ${tipoBoton} boton-juego" data-id="${juego.id}">${textoBoton}</button>
+          <button class="boton-juego boton-${titulo} ${tipoBoton} body1 boton-juego" data-id="${juego.id}">${textoBoton}</button>
         </div>`;
 
       carrusel.innerHTML += add;
@@ -83,6 +86,10 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
             ) {
               const id = event.target.getAttribute("data-id");
               window.location.href = `./juego.html?id=${id}`;
+            } else if (event.target.classList.contains("noCarrito")) {
+              event.target.classList.add("enCarrito");
+              event.target.classList.remove("noCarrito");
+              event.target.innerHTML = "En Carrito";
             }
           });
         }
@@ -105,32 +112,54 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
 
       const maxSlidesVisible = Math.floor(carrusel.offsetWidth / slideWidth);
 
-      console.log(slideWidth);
-
-      /* Verifica que no se pase del total de slides visibles */
       if (currentSlide < totalSlides - maxSlidesVisible) {
         currentSlide++;
         carrusel.style.transform = `translateX(-${
           currentSlide * slideWidth
-        }px)`; /* Tamaño de slide*/
+        }px)`; // Tamaño de slide
+      }
+
+      // Ocultar btnNext si llegamos al final
+      if (currentSlide >= totalSlides - maxSlidesVisible) {
+        btnNext.style.display = "none";
       } else {
-        //console.log("No hay más slides a la derecha");
+        btnNext.style.display = "flex";
+      }
+
+      // Mostrar btnPrev si ya no estamos en el primer slide
+      if (currentSlide > 0) {
+        btnPrev.style.display = "flex";
       }
     });
+
     btnPrev.addEventListener("click", function () {
       let slide = carrusel.querySelector(".swiper-slide");
       let slideWidth = slide.offsetWidth;
 
-      /* Verifica que no se pase del primer slide */
       if (currentSlide > 0) {
         currentSlide--;
         carrusel.style.transform = `translateX(-${
           currentSlide * slideWidth
         }px)`; // Tamaño de slide
+      }
+
+      // Ocultar btnPrev si llegamos al primer slide
+      if (currentSlide <= 0) {
+        btnPrev.style.display = "none";
       } else {
-        //console.log("No hay más slides a la izquierda");
+        btnPrev.style.display = "flex";
+      }
+
+      // Mostrar btnNext si no estamos en el último slide
+      if (currentSlide < totalSlides - maxSlidesVisible) {
+        btnNext.style.display = "flex";
       }
     });
+
+    // Configuración inicial: ocultar btnPrev si estamos en el primer slide
+    if (currentSlide === 0) {
+      btnPrev.style.display = "none";
+    }
   }
 
   console.log(juegos);
