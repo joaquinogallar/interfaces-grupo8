@@ -802,6 +802,11 @@ header div {
   gap: 10px;
 }
 
+.swiper-container {
+  position: relative;
+  width: 100%;
+}
+
 .swiper-slide {
   text-align: center;
   font-size: 18px;
@@ -816,30 +821,28 @@ header div {
   width: 12px;
   height: 12px;
   background: none;
-  color: white;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: absolute;
   top: 50%;
   cursor: pointer;
-  z-index: 10;
+  z-index: 100000;
   transition: border-color 0.3s;
   opacity: 0.8;
-  transform:translateY(-50%) rotate(45deg);
+  transform:translateY(-50%) ;
 }
 
 .swiper-button-next {
-  right: 10px;
+  right: -20px;
   border-right:solid var(--bg-light) 4px;
   border-top:solid var(--bg-light) 4px;
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .swiper-button-prev {
-  left: 10px;
+  left: -20px;
   border-bottom:solid var(--bg-light) 4px;
   border-left:solid var(--bg-light) 4px;
+  transform: translateY(-50%) rotate(45deg);
 }
 
 

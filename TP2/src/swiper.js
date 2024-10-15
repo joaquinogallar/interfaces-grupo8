@@ -91,8 +91,10 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
 
     let slides = document.querySelectorAll(idCarrusel + " .swiper-slide");
 
-    let btnNext = carrusel.nextElementSibling;
-    let btnPrev = btnNext.nextElementSibling;
+    let padre = carrusel.parentElement.parentElement;
+
+    let btnNext = padre.querySelector(".swiper-button-next");
+    let btnPrev = padre.querySelector(".swiper-button-prev");
 
     let currentSlide = 0;
     let totalSlides = slides.length;
