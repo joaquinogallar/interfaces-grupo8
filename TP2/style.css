@@ -183,7 +183,7 @@ body {
   flex-direction: column;
 
   /*
-  animation-name: example;
+  animation-name: loading;
   animation-duration: 5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -210,57 +210,57 @@ body {
 
 #supizq {
   border-radius: 30px 0px 0px 0px;
-  animation: example 3s infinite; /* primero no delay */
+  animation: loading 3s infinite; /* primero no delay */
   animation-iteration-count: 3;
 }
 
 #midizq {
-  animation: example 3s infinite;
+  animation: loading 3s infinite;
   animation-delay: 0.5s; /* segundo delay */
   animation-iteration-count: 3;
 }
 
 #infizq {
   border-radius: 0px 0px 0px 30px;
-  animation: example 3s infinite;
+  animation: loading 3s infinite;
   animation-delay: 1s; /* tercer delay */
   animation-iteration-count: 3;
 }
 
 #infmid {
-  animation: example 3s infinite;
+  animation: loading 3s infinite;
   animation-delay: 1.5s; /* cuarto delay */
   animation-iteration-count: 3;
 }
 
 #infder {
   border-radius: 0px 0px 30px 0px;
-  animation: example 3s infinite;
+  animation: loading 3s infinite;
   animation-delay: 2s; /* quinto delay */
   animation-iteration-count: 3;
 }
 
 #midder {
-  animation: example 3s infinite;
+  animation: loading 3s infinite;
   animation-delay: 2.5s; /* sexto delay */
   animation-iteration-count: 3;
 }
 
 #supder {
   border-radius: 0px 15px 0px 0px;
-  animation: example 3s infinite;
+  animation: loading 3s infinite;
   animation-delay: 3s; /* septimo delay */
   animation-iteration-count: 3;
 }
 
 #supmid {
-  animation: example 3s infinite;
+  animation: loading 3s infinite;
   animation-delay: 3.5s; /* septimo delay */
   animation-iteration-count: 3;
 }
 
 #midmid {
-  animation: example 3s infinite;
+  animation: loading 3s infinite;
   animation-delay: 4s; /* septimo delay */
   animation-iteration-count: 3;
 }
@@ -277,7 +277,7 @@ body {
   z-index: 1;
 }
 
-@keyframes example {
+@keyframes loading {
   0% {
     background-color: var(--acento-300);
   }
@@ -854,7 +854,7 @@ header div {
 .boton-juego {
   border: none;
   border-radius: 50px;
-  min-width: 100px;
+ 
   height: 25px;
   padding: 0 10px;
   cursor: pointer;
@@ -1515,20 +1515,12 @@ canvas {
   
   
 .btn-comprar {
-  font-family:  "Baloo 2", sans-serif;;
-  height: 40px;
-  width: 158px;
   background-color:var(--acento-500);
   border: none ;
   color: var(--text-light);
   transition: .6s;
-  font-size: 15px;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  font-weight: 600 ;
+  height: 30px;
+  padding: 0 20px;
 }
 
 .btn-comprar span {
@@ -1536,12 +1528,17 @@ canvas {
   transition: .8s ease-in-out;
 }
 
+.imagencs {
+  margin-top: 7px;
+  height: 20px;
+}
 
+.enCarrito {
+  min-width: 0px;
+}
 
-.btn-comprar.clicked {
-  width: 60px;
+.btn-comprar .clicked {
   background-color: var(--acento-500);
-  box-shadow: 15px 15px 70px #bebebe, -20px -20px 96px rgb(210, 205, 205);
   cursor: pointer;
 }
 .btn-comprar:active{

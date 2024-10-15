@@ -47,7 +47,7 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
         tipoBoton = "color-boton-pago";
         if (juego.enCarrito) {
           tipoBoton += " enCarrito";
-          textoBoton = "En Carrito";
+          textoBoton = "<img class='imagencs' src='/interfaces-grupo8/TP2/assets/il--cart.png' alt='' >";
         } else {
           tipoBoton += " noCarrito btn-comprar";
         }
@@ -56,8 +56,7 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
       add +=
         "<div class='tarjeta-juego " +
         tarjeta +
-        " " +
-        tipoBoton +
+       
         "' style='background-image:url(\"" +
         juego.imagen +
         "\")';>";
@@ -72,7 +71,7 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
       add += `
         <div class="juego-nombre-container">
           <h1 class="titulo-${titulo} h1alt">${juego.nombre}</h1>
-          <button class="boton-juego boton-${titulo} ${tipoBoton} body1 boton-juego" data-id="${juego.id}">${textoBoton}</button>
+          <button class="boton-juego boton-${titulo} ${tipoBoton} body1" data-id="${juego.id}">${textoBoton}</button>
         </div>`;
 
       carrusel.innerHTML += add;
@@ -89,7 +88,8 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
             } else if (event.target.classList.contains("noCarrito")) {
               event.target.classList.add("enCarrito");
               event.target.classList.remove("noCarrito");
-              event.target.innerHTML = "En Carrito";
+              event.target.classList.remove("btn-comprar");
+              event.target.innerHTML = "<img class='imagencs' src='/interfaces-grupo8/TP2/assets/il--cart.png' alt='' >";
             }
           });
         }
