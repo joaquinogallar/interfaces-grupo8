@@ -34,3 +34,19 @@ btnHamburguesa.addEventListener("click", () => {
   sidebar.classList.toggle("desplegado");
 });
 
+
+// logica btn favorito //
+document.querySelectorAll(".favoriteBtn").forEach(function (button) {
+  console.log(button);
+  button.addEventListener("click", function () {
+    console.log("click");
+    this.classList.toggle("clicked");
+
+    if (this.classList.contains("clicked")) {
+      this.innerHTML = '<img class="imagencs" src="/interfaces-grupo8/TP2/assets/corazon.png" alt="" >';
+    } else {
+      this.innerHTML = '<i class="material-symbols-outlined">favorite</i>';
+    }
+  });
+});
+

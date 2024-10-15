@@ -14,7 +14,7 @@ document.querySelectorAll(".btn-comprar").forEach(function (button) {
 
     if (this.classList.contains("clicked")) {
       this.innerHTML =
-        '<img class"imagencs" src="/interfaces-grupo8/TP2/assets/il--cart.png" alt="" >';
+        '<img class"imagencs" src="/interfaces-grupo8/TP2/assets/facebookicon.png" alt="" >';
     } else {
       this.innerHTML = "Agregar al carrito";
     }
@@ -37,75 +37,101 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
   if (juegos) {
     for (const juego of juegos) {
       i++;
-      let add = "<div class='swiper-slide' id='" + i + "'>";
-      let tipoBoton = "";
+      let tipoBoton = [];
       let textoBoton = "Jugar";
       if (juego.precio <= 0) {
         juego.precio = null;
       } else {
         textoBoton = "Agregar al Carrito";
-        tipoBoton = "color-boton-pago";
+        tipoBoton.push("color-boton-pago");
         if (juego.enCarrito) {
-          tipoBoton += " enCarrito";
-          textoBoton = "<img class='imagencs' src='/interfaces-grupo8/TP2/assets/il--cart.png' alt='' >";
+          tipoBoton.push("enCarrito");
+          textoBoton =
+            "<img class='imagencs' src='https://github.com/joaquinogallar/interfaces-grupo8/blob/main/TP2/assets/il--cart.png?raw=true' alt='' >";
         } else {
-          tipoBoton += " noCarrito btn-comprar";
+          tipoBoton.push("noCarrito");
         }
       }
 
-      add +=
-        "<div class='tarjeta-juego " +
-        tarjeta +
-       
-        "' style='background-image:url(\"" +
-        juego.imagen +
-        "\")';>";
+      // swiper
+      let swiper = document.createElement("div");
+      swiper.classList.add("swiper-slide");
+      swiper.id = juego.id; 
 
-      add +=
-        "<div class='juego-precio-container precio-" +
-        titulo +
-        "'><span class='body0'>" +
-        (juego.precio != null ? `$${juego.precio}` : "") +
-        "</span> </div>";
-
-      add += `
-        <div class="juego-nombre-container">
-          <h1 class="titulo-${titulo} h1alt">${juego.nombre}</h1>
-          <button class="boton-juego boton-${titulo} ${tipoBoton} body1" data-id="${juego.id}">${textoBoton}</button>
-        </div>`;
-
-      carrusel.innerHTML += add;
-
+      // containerTarjeta
+      let tarjetaJuego = document.createElement("div");
+      tarjetaJuego.classList.add("tarjeta-juego", tarjeta);
       
+      tarjetaJuego.style.backgroundImage = `url(${juego.imagen})`;
+
+      // precio
+      let juegoPrecio = document.createElement("div");
+      juegoPrecio.classList.add("juego-precio-container", `precio-${titulo}`);
+      let spanPrecio = document.createElement("span");
+      spanPrecio.classList.add("body0");
+      spanPrecio.innerHTML = juego.precio != null ? `$${juego.precio}` : "";
+
+      let juegoNombre = document.createElement("div");
+      juegoNombre.classList.add("juego-nombre-container");
+      let tituloJuego = document.createElement("h1");
+      tituloJuego.classList.add("h1alt", `titulo-${titulo}`);
+      tituloJuego.innerHTML = juego.nombre;
+      let botonJuego = document.createElement("button");
+      botonJuego.classList.add("boton-juego", `boton-${titulo}`, "body1");
+      tipoBoton.forEach((tb) => botonJuego.classList.add(tb));
+      botonJuego.setAttribute("data-id", juego.id);
+      botonJuego.innerHTML = textoBoton;
+
+      botonJuego.addEventListener("click", () => {
+        if (juego.precio <= 0)
+          window.location.href = `./juego.html?id=${juego.id}`;
+        else{
+          if (botonJuego.classList.contains("noCarrito")) {
+          botonJuego.classList.add("enCarrito");
+          botonJuego.classList.remove("noCarrito");
+          botonJuego.classList.add("btn-comprar");
+          console.log("a");
+          
+          botonJuego.innerHTML =
+            "<img class='imagencs' src='https://github.com/joaquinogallar/interfaces-grupo8/blob/main/TP2/assets/il--cart.png?raw=true' alt='' >";
+        } else {
+          
+          botonJuego.classList.remove("enCarrito");
+          botonJuego.classList.add("noCarrito");
+          
+          botonJuego.innerHTML = "Agregar al Carrito";
+        }}
+      });
+
+      juegoNombre.appendChild(tituloJuego);
+      juegoNombre.appendChild(botonJuego);
+
+      juegoPrecio.appendChild(spanPrecio);
+      tarjetaJuego.appendChild(juegoPrecio);
+      tarjetaJuego.appendChild(juegoNombre);
+      swiper.appendChild(tarjetaJuego);
+
+      carrusel.appendChild(swiper);
     }
-    carrusel.addEventListener("click", function (event) {
-      let btn = event.target;
-      
-      if(event.target.classList.contains("imagencs")){
-        btn = event.target.parentElement;
-      }
 
-      if (
-        btn.classList.contains("boton-juego") &&
-        !btn.classList.contains("color-boton-pago")
-      ) {
-        const id = btn.getAttribute("data-id");
-        window.location.href = `./juego.html?id=${id}`;
-      } else if (btn.classList.contains("noCarrito")) {
-        btn.classList.add("enCarrito");
-        btn.classList.remove("noCarrito");
-        btn.classList.remove("btn-comprar");
-        btn.innerHTML = "<img class='imagencs' src='/interfaces-grupo8/TP2/assets/il--cart.png' alt='' >";
-      } 
-      else {
-        btn.classList.remove("enCarrito");
-        btn.classList.add("noCarrito");
-        btn.classList.add("btn-comprar");
-        btn.innerHTML = "Agregar al Carrito";
-      }
-        
-      
-    });
+    /* 
+          carrusel.addEventListener("click", function (event) {
+            if (juego.precio == null) {
+              carrusel.addEventListener("click", function (event) {
+                if (
+                  event.target.classList.contains("boton-juego") &&
+                  event.target.getAttribute("data-id") == juego.id
+                ) {
+                  const id = event.target.getAttribute("data-id");
+                  window.location.href = `./juego.html?id=${id}`;
+                } else if (event.target.classList.contains("noCarrito")) {
+                  event.target.classList.add("enCarrito");
+                  event.target.classList.remove("noCarrito");
+                  event.target.innerHTML = "En Carrito";
+                }
+              });
+            }
+          }); */
 
     let slides = document.querySelectorAll(idCarrusel + " .swiper-slide");
 
@@ -172,8 +198,6 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
       btnPrev.style.display = "none";
     }
   }
-
-  console.log(juegos);
 }
 
 async function get(url) {
