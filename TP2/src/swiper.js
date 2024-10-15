@@ -14,7 +14,7 @@ document.querySelectorAll(".btn-comprar").forEach(function (button) {
 
     if (this.classList.contains("clicked")) {
       this.innerHTML =
-        '<img class"imagencs" src="/interfaces-grupo8/TP2/assets/facebookicon.png" alt="" >';
+        '<img class"imagencs" src="/interfaces-grupo8/TP2/assets/il--cart.png" alt="" >';
     } else {
       this.innerHTML = "Agregar al carrito";
     }

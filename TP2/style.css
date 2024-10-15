@@ -1505,3 +1505,51 @@ canvas {
     justify-content: space-between;
   }
 }
+
+  
+  
+  
+  
+  
+  
+  
+  
+.btn-comprar {
+  font-family:  "Baloo 2", sans-serif;;
+  height: 40px;
+  width: 158px;
+  background-color:var(--acento-500);
+  border: none ;
+  color: var(--text-light);
+  transition: .6s;
+  font-size: 15px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-weight: 600 ;
+}
+
+.btn-comprar span {
+  transform: translateX(10px);
+  transition: .8s ease-in-out;
+}
+
+
+
+.btn-comprar.clicked {
+  width: 60px;
+  background-color: var(--acento-500);
+  box-shadow: 15px 15px 70px #bebebe, -20px -20px 96px rgb(210, 205, 205);
+  cursor: pointer;
+}
+.btn-comprar:active{
+  transform: scale(1.2);
+}
+
+
+.btn-comprar:active span {
+  transform: translateY(70px);
+  font-size: .1rem;
+}
