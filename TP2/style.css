@@ -1358,6 +1358,18 @@ canvas {
   display: flex;
   flex-direction: column;
 }
+
+.input-container {
+  position: relative;
+  padding-top: 10px;
+}
+
+.input-container img {
+  position: absolute;
+  top:0;
+  left: 140px;
+}
+
 .horizontal-line-input {
   width: 1150px;
   height: 2px;
@@ -1365,6 +1377,7 @@ canvas {
   opacity: 60%;
   margin-left: 190px;
 }
+
 #comentario {
   margin-left: 190px;
   color: white;
@@ -1393,7 +1406,7 @@ canvas {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  margin-left: 190px;
+  margin-left: 170px;
 }
 
 .divComentario {
@@ -1404,11 +1417,20 @@ canvas {
   margin-right: 90px;
 }
 
+.divComentario img {
+  padding-right: 10px;
+}
+
+.divComentario .nombreUsuario{
+  margin-top: 5px;
+}
+
 .comentario-texto {
   color: white;
   font-family: "Baloo 2", sans-serif;
   font-size: 15px;
   opacity: 60%;
+  margin-left: 45px;
 }
 
 /* Estilo base del botón */
@@ -1416,7 +1438,8 @@ canvas {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 1s ease-in-out;
+  margin-left: 45px;
 }
 
 @keyframes jumpAndRotate {
