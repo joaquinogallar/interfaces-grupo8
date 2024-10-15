@@ -49,7 +49,7 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
           tipoBoton += " enCarrito";
           textoBoton = "En Carrito";
         } else {
-          tipoBoton += " noCarrito";
+          tipoBoton += " noCarrito btn-comprar";
         }
       }
 
