@@ -265,6 +265,18 @@ body {
   animation-iteration-count: 3;
 }
 
+#loading-percentage {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--acento-500);
+  opacity: 0.9;
+  z-index: 1;
+}
+
 @keyframes example {
   0% {
     background-color: var(--acento-300);
@@ -945,7 +957,6 @@ header div {
 
 .enCarrito {
   height: 300px;
- 
 }
 
 /* INICIO CARRUSEL DESTACADOS */
@@ -1432,30 +1443,29 @@ canvas {
 
 @media (max-width: 768px) {
   .fatFooter {
-    height: auto; 
+    height: auto;
   }
 
   .containerFooter {
-    flex-direction: column; 
-    
+    flex-direction: column;
+
     gap: 20px;
-    margin: 0 auto; 
-   
+    margin: 0 auto;
   }
 
   .itemFooter {
     margin-left: 0;
-    text-align: center; 
+    text-align: center;
   }
 
   .tituloContainer {
     margin-right: 0;
-    margin-left: 0; 
+    margin-left: 0;
   }
 
   .redesSociales {
-    margin-right: 0; 
-    justify-content: center; 
+    margin-right: 0;
+    justify-content: center;
   }
 
   .textFooter {
@@ -1467,14 +1477,12 @@ canvas {
 
   .h2Footer {
     text-align: center;
-    margin-inline: 0; 
+    margin-inline: 0;
   }
-  .listFooter{
+  .listFooter {
     margin-left: 0;
     margin-right: 40px;
   }
-
-  
 }
 
 /* Reponsive */
