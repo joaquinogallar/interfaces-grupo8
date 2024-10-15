@@ -48,6 +48,8 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
         if (juego.enCarrito) {
           tipoBoton += " enCarrito";
           textoBoton = "En Carrito";
+        } else {
+          tipoBoton += " noCarrito";
         }
       }
 
@@ -84,6 +86,10 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
             ) {
               const id = event.target.getAttribute("data-id");
               window.location.href = `./juego.html?id=${id}`;
+            } else if (event.target.classList.contains("noCarrito")) {
+              event.target.classList.add("enCarrito");
+              event.target.classList.remove("noCarrito");
+              event.target.innerHTML = "En Carrito";
             }
           });
         }
