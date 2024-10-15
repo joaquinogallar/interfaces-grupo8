@@ -1685,3 +1685,7 @@ canvas {
   background-color: var(--bg-dark);
   opacity: 0.6;
 }
+
+.no-scroll {
+  overflow: hidden;
+}
