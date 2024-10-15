@@ -76,25 +76,36 @@ async function newSwiper(idCarrusel, tarjeta, titulo) {
 
       carrusel.innerHTML += add;
 
-      carrusel.addEventListener("click", function (event) {
-        if (juego.precio == null) {
-          carrusel.addEventListener("click", function (event) {
-            if (
-              event.target.classList.contains("boton-juego") &&
-              event.target.getAttribute("data-id") == juego.id
-            ) {
-              const id = event.target.getAttribute("data-id");
-              window.location.href = `./juego.html?id=${id}`;
-            } else if (event.target.classList.contains("noCarrito")) {
-              event.target.classList.add("enCarrito");
-              event.target.classList.remove("noCarrito");
-              event.target.classList.remove("btn-comprar");
-              event.target.innerHTML = "<img class='imagencs' src='/interfaces-grupo8/TP2/assets/il--cart.png' alt='' >";
-            }
-          });
-        }
-      });
+      
     }
+    carrusel.addEventListener("click", function (event) {
+      let btn = event.target;
+      
+      if(event.target.classList.contains("imagencs")){
+        btn = event.target.parentElement;
+      }
+
+      if (
+        btn.classList.contains("boton-juego") &&
+        !btn.classList.contains("color-boton-pago")
+      ) {
+        const id = btn.getAttribute("data-id");
+        window.location.href = `./juego.html?id=${id}`;
+      } else if (btn.classList.contains("noCarrito")) {
+        btn.classList.add("enCarrito");
+        btn.classList.remove("noCarrito");
+        btn.classList.remove("btn-comprar");
+        btn.innerHTML = "<img class='imagencs' src='/interfaces-grupo8/TP2/assets/il--cart.png' alt='' >";
+      } 
+      else {
+        btn.classList.remove("enCarrito");
+        btn.classList.add("noCarrito");
+        btn.classList.add("btn-comprar");
+        btn.innerHTML = "Agregar al Carrito";
+      }
+        
+      
+    });
 
     let slides = document.querySelectorAll(idCarrusel + " .swiper-slide");
 

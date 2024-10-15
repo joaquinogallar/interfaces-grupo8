@@ -1055,7 +1055,7 @@ header div {
 .ubicacion {
   color: var(--acento-500);
   text-decoration: none;
-  padding: 20px 0;
+  padding: 0px 0;  
 }
 
 .ubicacion a {
@@ -1063,9 +1063,13 @@ header div {
   text-decoration: none;
 }
 
+.ubicacion a:hover {
+  text-decoration: underline;
+}
+
 .juego {
   display: flex;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 .instrucciones-juego {
@@ -1083,8 +1087,8 @@ header div {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50px;
+  width: 80%;
   height: 100%;
   background-color: var(--bg-dark);
   opacity: 0.5;
@@ -1191,11 +1195,26 @@ canvas {
 }
 
 .info-juego {
-  margin-top: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  position: relative;
 }
 
 .info-juego p {
   opacity: 0.4;
+}
+
+.info-juego::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-dark);
+  opacity: 0.2;
+  z-index: 1; /* Baja el z-index del before */
 }
 
 .containerTitulo {
@@ -1530,15 +1549,20 @@ canvas {
 
 .imagencs {
   margin-top: 7px;
+  margin-bottom: 0;
   height: 20px;
 }
 
 .enCarrito {
   min-width: 0px;
+  height: 30px;
 }
 
 .btn-comprar .clicked {
   background-color: var(--acento-500);
+  animation: buy 3s infinite;
+  animation-delay: 1s; /* tercer delay */
+  animation-iteration-count: 3;
   cursor: pointer;
 }
 .btn-comprar:active{
@@ -1549,4 +1573,16 @@ canvas {
 .btn-comprar:active span {
   transform: translateY(70px);
   font-size: .1rem;
+}
+
+@keyframes buy {
+  0% {
+    background-color: var(--acento-300);
+  }
+  50% {
+    background-color: var(--acento-700);
+  }
+  100% {
+    background-color: var(--acento-300);
+  }
 }

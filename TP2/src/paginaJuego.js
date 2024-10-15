@@ -17,3 +17,20 @@ tituloJuego.forEach((titulo) => {
 });
 
 descJuego.innerHTML = juego.descripcion;
+
+/* SE CREA UN SWIPER DE swiper.js CON LOS NOMBRES DE LAS CLASES  */
+await newSwiper(
+  ".carrusel-destacados-div",
+  "tarjeta-destacado-container",
+  "destacado"
+);
+
+
+// lógica sidebar
+const sidebar = document.getElementById("sidebar");
+const btnHamburguesa = document.getElementById("btn-hamburguesa");
+
+btnHamburguesa.addEventListener("click", () => {
+  sidebar.classList.toggle("desplegado");
+});
+
