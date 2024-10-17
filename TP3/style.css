@@ -1,0 +1,1691 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+body {
+}
+*/
+
+/* Variables de colores y fuentes */
+:root {
+  --bg-dark: #161e27;
+  --bg-dark-2: #141a21;
+  --bg-light: #f1f8ff;
+
+  /* Colores primarios */
+  --primario-300: #80aee0;
+  --primario-400: #5e8cbe;
+  --primario-500: #4e79a7;
+  --primario-600: #335375;
+  --primario-700: #223952;
+
+  /* Colores secundarios  */
+  --secundario-300: #2f4155;
+  --secundario-400: #253649;
+  --secundario-500: #1e2e41;
+  --secundario-600: #1c2733;
+  --secundario-700: #161e27;
+
+  /* Colores acento  */
+  --acento-300: #ffa5a5;
+  --acento-400: #ff8484;
+  --acento-500: #ff6b6b;
+  --acento-600: #ec5454;
+  --acento-700: #ce4747;
+
+  /* Colores texto */
+  --text-dark: #141414;
+  --text-light: #fafafa;
+}
+
+/* ESTILO TEXTOS */
+.text-dark {
+  color: var(--text-dark);
+}
+
+.text-light {
+  color: var(--text-light);
+}
+
+.silkscreen {
+  font-family: "Silkscreen", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.h1 {
+  /* Título H1 COPY PASTE DE FIGMA*/
+
+  /* Título-H1 */
+  font-family: "Silkscreen", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 41px;
+  /* identical to box height */
+  margin: 0;
+}
+
+.h1alt {
+  /* Título H1 ALTER*/
+
+  /* Titulo-H1 */
+  font-family: "Baloo 2", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 51px;
+}
+
+.h2 {
+  /* Título H2 COPY PASTE DE FIGMA, son todos copypaste*/
+
+  /* Título-H2 */
+  font-family: "Silkscreen", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  margin: 0;
+}
+
+.h3 {
+  /* Título H3 */
+
+  font-family: "Silkscreen", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 31px;
+  /* identical to box height */
+  margin: 0;
+}
+
+.h4 {
+  /* Título H4 */
+
+  font-family: "Silkscreen", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  /* identical to box height */
+  margin: 0;
+}
+
+.body0 {
+  /* Body 0 COPIADO FIGMA CSS*/
+
+  /* Body-0 */
+  font-family: "Baloo 2";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 35px;
+}
+
+.body1 {
+  /* Body-1 */
+
+  font-family: "Baloo 2", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 29px;
+  /* identical to box height */
+}
+
+.body2 {
+  /* Body-2 */
+
+  font-family: "Baloo 2", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  /* identical to box height */
+}
+
+.body3 {
+  /* Body-3 */
+
+  font-family: "Baloo 2", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  /* identical to box height */
+}
+
+.placeholder::placeholder {
+  color: var(--bg-dark);
+  font-family: "Silkscreen", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  opacity: 0.4;
+}
+
+/* FIN ESTILO TEXTOS */
+
+/* ===================== */
+/*        LOADING        */
+/* ===================== */
+
+#loading-div {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+
+  /*
+  animation-name: loading;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;*/
+}
+
+#superior,
+#inferior,
+#medio {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex: 1;
+}
+
+#superior div,
+#inferior div,
+#medio div {
+  margin: 2px;
+  width: 100%;
+
+  opacity: 0.5;
+}
+
+#supizq {
+  border-radius: 30px 0px 0px 0px;
+  animation: loading 3s infinite; /* primero no delay */
+  animation-iteration-count: 3;
+}
+
+#midizq {
+  animation: loading 3s infinite;
+  animation-delay: 0.5s; /* segundo delay */
+  animation-iteration-count: 3;
+}
+
+#infizq {
+  border-radius: 0px 0px 0px 30px;
+  animation: loading 3s infinite;
+  animation-delay: 1s; /* tercer delay */
+  animation-iteration-count: 3;
+}
+
+#infmid {
+  animation: loading 3s infinite;
+  animation-delay: 1.5s; /* cuarto delay */
+  animation-iteration-count: 3;
+}
+
+#infder {
+  border-radius: 0px 0px 30px 0px;
+  animation: loading 3s infinite;
+  animation-delay: 2s; /* quinto delay */
+  animation-iteration-count: 3;
+}
+
+#midder {
+  animation: loading 3s infinite;
+  animation-delay: 2.5s; /* sexto delay */
+  animation-iteration-count: 3;
+}
+
+#supder {
+  border-radius: 0px 15px 0px 0px;
+  animation: loading 3s infinite;
+  animation-delay: 3s; /* septimo delay */
+  animation-iteration-count: 3;
+}
+
+#supmid {
+  animation: loading 3s infinite;
+  animation-delay: 3.5s; /* septimo delay */
+  animation-iteration-count: 3;
+}
+
+#midmid {
+  animation: loading 3s infinite;
+  animation-delay: 4s; /* septimo delay */
+  animation-iteration-count: 3;
+}
+
+#loading-percentage {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--acento-500);
+  opacity: 0.9;
+  z-index: 1;
+}
+
+@keyframes loading {
+  0% {
+    background-color: var(--acento-300);
+  }
+  50% {
+    background-color: var(--acento-700);
+  }
+  100% {
+    background-color: var(--acento-300);
+  }
+}
+
+/* ===================== */
+/*        MAIN           */
+/* ===================== */
+
+main {
+  min-height: 100vh;
+  background-color: var(--primario-700);
+
+  /* Evita que el contenido sea tapado por el header agregandole un padding del mismo height que el header */
+  padding-top: 67px;
+  padding-left: 10%;
+  padding-right: 10%;
+
+  overflow: hidden;
+}
+
+/* FIN MAIN */
+
+/* SIDEBAR POPOVER */
+#sidebar {
+  background-color: var(--bg-dark-2);
+  padding: 0px;
+  margin: 0px;
+  margin-top: 65px;
+  padding-top: 20px;
+  height: 100%;
+  border: none;
+  width: 180px;
+  position: fixed;
+  left: -200px;
+  z-index: 10;
+  transition: all 100ms ease-in-out;
+}
+
+.desplegado {
+  left: 0 !important;
+}
+
+#sidebar a {
+  text-decoration: none;
+  opacity: 0.6;
+  margin-left: 10px;
+  text-align: justify;
+  display: flex;
+  align-items: center;
+}
+
+#sidebar i {
+  color: var(--text-light);
+  opacity: 0.6;
+  margin-right: 15px;
+}
+
+#sidebar ul {
+  list-style-type: none;
+}
+
+#sidebar li {
+  list-style-type: none;
+  margin-bottom: 25px;
+  margin-left: 15px;
+}
+
+/* FIN SIDEBAR POPOVER */
+
+/* ===================== */
+/*        HEADER         */
+/* ===================== */
+
+header {
+  width: 100%;
+  position: fixed;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  height: 55px;
+  max-height: 55px;
+  padding-top: 10px;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  border-bottom: solid 2px var(--bg-dark-2);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+header div {
+  /*border: solid red 1px;*/
+  height: 50px;
+  width: 100%;
+}
+
+/* DIV A */
+#head-div-a {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#head-div-a div {
+  display: flex;
+  flex-direction: row;
+  padding: 0px 15px;
+}
+
+#div-hamburguesa {
+  width: 30px;
+}
+
+#btn-hamburguesa {
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.6;
+  color: var(--text-light);
+  margin: 0;
+}
+
+#logo-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  margin-top: 5px;
+}
+
+#logo-header {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  cursor: pointer; /* SE PUEDE SACAR 8 */
+}
+
+/* FIN DIV A */
+
+/* DIV B */
+
+#head-div-b {
+  margin-left: 100px;
+}
+
+#div-buscar {
+  position: relative;
+  max-width: 400px;
+}
+
+#div-buscar input {
+  padding: 10px 15px;
+  width: 96%;
+  border: none;
+  border-radius: 50px;
+  background-color: var(--primario-600);
+  outline: none;
+}
+
+#div-buscar input::placeholder {
+  all: unset;
+  color: var(--text-light);
+  opacity: 0.4;
+}
+
+#div-buscar input:focus {
+  border: 1px solid #007bff; /* Cambia el color y el grosor del borde al hacer clic */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Opcional: agrega una sombra */
+}
+
+#div-buscar button {
+  border: none;
+  background: none;
+  display: inline-block;
+  position: absolute;
+  right: 0%;
+  top: 15%;
+  opacity: 0.4;
+  color: var(--text-light);
+  cursor: pointer;
+}
+
+/* FIN DIV B */
+
+/* DIV C */
+
+#head-div-c {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+  width: 50%;
+}
+
+#div-iconos-header {
+  float: right;
+  max-width: 200px;
+  padding: 15px 20px;
+}
+
+#div-iconos-header a {
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
+/* FIN DIV C */
+
+/* FIN HEADER */
+
+/* ===================== */
+/*        CARRUCEL       */
+/* ===================== */
+
+/* ===================== */
+/*     LOGIN/REGISTER    */
+/* ===================== */
+
+#section-login,
+#section-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #223952;
+  min-height: 100vh;
+  position: relative;
+}
+
+.img-back-login {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.div-login,
+.div-register {
+  z-index: 10;
+  background-color: #335375;
+  padding: 0 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Título */
+.div-title-login {
+  display: flex;
+  flex-direction: row;
+  padding: 50px 0;
+  justify-content: center;
+}
+
+/* Estilos del formulario */
+.formLogin,
+.formRegister {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* REGISTER FORM */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.formGroup label {
+  color: var(--text-light);
+  opacity: 0.6;
+}
+
+.formRegister input {
+  width: 90%;
+  display: flex;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+}
+
+/* FIN REGISTER FORM */
+
+.formLogin input {
+  width: 100%;
+  display: flex;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 16px;
+}
+
+.usuarioForm {
+  display: flex;
+  width: 100%;
+}
+
+.contraseñaForm {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.contraseñaForm button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  opacity: 0.4;
+}
+
+.optionsRowLogin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* ESTILO RECORDARME Y CHECKBOX */
+
+.recordarmeForm {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.recordarmeForm p {
+  color: var(--text-light);
+  opacity: 0.6;
+  margin: 0;
+}
+
+.recordarmeForm input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  height: 15px;
+  width: 15px;
+  background-color: none;
+  border: solid 2px var(--bg-light);
+  opacity: 0.4;
+  border-radius: 5px;
+}
+
+.recordarmeForm:hover input ~ .checkmark {
+  background-color: none;
+}
+
+.recordarmeForm input:checked ~ .checkmark {
+  background-color: var(--primario-300);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.recordarmeForm input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.recordarmeForm .checkmark:after {
+  left: 5px;
+  top: 3px;
+  width: 3px;
+  height: 6px;
+  border: solid var(--text-light);
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* FIN RECORDARME Y CHECKBOX */
+
+.olvideContraseña {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--acento-500);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px; /* Ajusta el espacio entre el texto y el subrayado */
+}
+
+.btnSubmitLogin {
+  border: none;
+  background: none;
+  background-color: var(--secundario-500);
+  color: var(--text-light);
+  border-radius: 50px;
+  padding: 5px 0px;
+  width: 80%;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.btns-login-redes {
+  display: flex;
+  flex-direction: row;
+
+  gap: 10px;
+  padding-top: 15px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.googleBtn {
+  background: none;
+  background-color: var(--bg-light);
+  border: solid black 1px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 50px;
+  height: 40px;
+  padding: 20px 10px;
+  width: 100%;
+}
+
+.facebookBtn {
+  background: none;
+  background-color: #3b5998;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 50px;
+  height: 40px;
+  padding: 20px 15px;
+  width: 100%;
+  gap: 5px;
+  color: #ffffff;
+}
+
+.googleBtn img {
+  height: 30px;
+}
+
+.facebookBtn img {
+  height: 20px;
+}
+
+.noAccount {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px 0;
+  color: rgba(168, 55, 55, 0.5);
+  font-size: 14px;
+}
+
+.noAccount p {
+  color: var(--text-light);
+  opacity: 0.4;
+}
+
+.noAccount a {
+  color: var(--text-light);
+  text-decoration: none;
+  opacity: 1;
+  padding-left: 5px;
+}
+
+.noAccount a:hover {
+  text-decoration: underline;
+}
+
+/* FIN LOGIN */
+
+/* ESTILOS GENERALES DE LOS CARRUSELES */
+#content {
+  margin-bottom: 40px;
+}
+
+#carrusel-enJuego {
+  padding: 0 10%;
+}
+
+.swiper {
+  margin: 10px 0;
+
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  display: flex;
+  transition: transform 0.8s cubic-bezier(0.37, 0, 0.63, 1);
+  /* transicion similar: transition: transform 0.8s cubic-bezier(0.37, 0, 0.63, 1); */
+  transform: translateX(0);
+  gap: 10px;
+}
+
+.swiper-container {
+  position: relative;
+  width: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  width: 12px;
+  height: 12px;
+  background: none;
+
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  z-index: 100000;
+  transition: border-color 0.3s;
+  opacity: 0.8;
+  transform:translateY(-50%) ;
+}
+
+.swiper-button-next {
+  right: -20px;
+  border-right:solid var(--bg-light) 4px;
+  border-top:solid var(--bg-light) 4px;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.swiper-button-prev {
+  left: -20px;
+  border-bottom:solid var(--bg-light) 4px;
+  border-left:solid var(--bg-light) 4px;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  border-color: rgba(0, 0, 0, 0.6);
+}
+
+.boton-juego {
+  border: none;
+  border-radius: 50px;
+ 
+  height: 25px;
+  padding: 0 10px;
+  cursor: pointer;
+  background: var(--primario-300);
+  color: var(--text-light);
+  transition: background 100ms ease-in-out;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.boton-juego::before {
+  content: "";
+  background-color: var(--primario-500);
+  display: block;
+  height: 200%;
+  width: 150%;
+  position: absolute;
+  z-index: -1; /* Asegura que ::before esté por debajo del texto */
+  transition: top 0.8s, left 0.8s, margin 0.8s;
+  border-radius: 50%;
+  top: 100%;
+  left: -20%;
+}
+
+.boton-juego:hover::before {
+  top: -50%;
+  left: -20%;
+}
+
+.boton-juego:active::before {
+  background-color: var(--primario-400);
+}
+
+.boton-juego:active {
+  background: var(--primario-400);
+}
+
+.color-boton-pago {
+  background: var(--acento-500);
+}
+
+.color-boton-pago::before {
+  background-color: var(--acento-700);
+}
+
+.color-boton-pago:active::before,
+.color-boton-pago:active {
+  background-color: var(--acento-300);
+}
+
+.color-boton-pago:active {
+  background: var(--acento-400);
+}
+
+.juego-precio-container {
+  display: flex;
+  justify-content: end;
+  margin-right: 10px;
+}
+
+.tarjeta-juego {
+  position: relative;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  width: 220px;
+  height: 130px;
+}
+
+.tarjeta-juego::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-dark);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.juego-nombre-container,
+.juego-precio-container {
+  z-index: 2;
+}
+
+.juego-nombre-container {
+  margin-bottom: 15px;
+}
+
+.enCarrito {
+  opacity: 0.7;
+}
+
+/* INICIO CARRUSEL DESTACADOS */
+
+.boton-destacado {
+  min-width: 120px;
+  height: 40px;
+  padding: 0 15px;
+}
+
+.carrusel-destacados-container {
+  margin-top: 60px;
+}
+
+.carrusel-destacados-container h2 {
+  margin-bottom: 10px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tarjeta-destacado-container {
+  width: 320px;
+  height: 180px;
+}
+
+.titulo-destacado {
+  margin: auto;
+  width: 80%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* FIN CARRUsEL DESTACADOS */
+
+/* INICIO CARRUsEL RECOMENDADOS */
+.carrusel-recomendados-container {
+  margin-top: 80px;
+}
+
+.titulo-recomendado {
+  margin: auto;
+  width: 60%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 24px;
+}
+
+.boton-recomendado {
+  min-width: 120px;
+  height: 30px;
+  padding: 0 15px;
+}
+
+.precio-recomendado {
+  font-size: 10px; /* intente hacer mas chico pero no pude */
+}
+
+/* FIN CARRUsEL RECOMENDADOS */
+
+/* INICIO CARRUsEL CATEGORIAS */
+.carrusel-categorias-container {
+  margin-top: 50px;
+}
+
+.titulo-categoria {
+  margin: auto;
+  width: 60%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 24px;
+}
+
+.boton-categoria {
+  min-width: 120px;
+  height: 30px;
+  padding: 0 15px;
+}
+
+.precio-categoria {
+  font-size: 10px; /* intente hacer mas chico pero no pude */
+}
+
+/* FIN CARRUsEL CATEGORIAS */
+
+/* ===================== */
+/*        JUEGO          */
+/* ===================== */
+#seccion-juego-container {
+  margin-top: 40px;
+}
+
+.ubicacion {
+  color: var(--acento-500);
+  text-decoration: none;
+  padding: 0px 0;  
+}
+
+.ubicacion a {
+  color: var(--acento-700);
+  text-decoration: none;
+}
+
+.ubicacion a:hover {
+  text-decoration: underline;
+}
+
+.juego {
+  display: flex;
+  margin-top: 10px;
+}
+
+.instrucciones-juego {
+  position: relative;
+  width: 30%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 0;
+}
+
+.instrucciones-juego::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 80%;
+  height: 100%;
+  background-color: var(--bg-dark);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.instrucciones-juego h3 {
+  text-decoration: underline;
+}
+
+.instruccion-grafica {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.instruccion-grafica img {
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+}
+
+.objetivo-juego {
+  max-width: 240px;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.objetivo-juego p {
+  opacity: 0.6;
+  margin-top: 5px;
+}
+
+.juego-container {
+  width: 70%;
+  height: 600px;
+  position: relative;
+}
+
+.inicio-juego {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Esto ya está bien */
+}
+
+.inicio-juego::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-dark);
+  opacity: 0.5;
+  z-index: 1; /* Baja el z-index del before */
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: beige;
+}
+
+.iniciar-juego {
+  position: relative; /* Añade position: relative */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  z-index: 3; /* Aumenta el z-index del contenedor del botón */
+}
+
+.iniciar-juego button {
+  width: 100px;
+  height: 40px;
+  margin-top: 10px;
+}
+
+.volver-home {
+  transition: color 100ms ease-in-out;
+}
+
+.volver-home:hover {
+  color: var(--acento-300);
+}
+
+.titulo-juego-span {
+  display: flex;
+  align-items: center;
+}
+
+.titulo-juego-span a {
+  height: 24px;
+  margin-left: 10px;
+  margin-top: 3px;
+  color: var(--acento-500);
+  cursor: pointer;
+}
+
+.info-juego {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.info-juego p {
+  opacity: 0.4;
+}
+
+.info-juego::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-dark);
+  opacity: 0.2;
+  z-index: 1; /* Baja el z-index del before */
+}
+
+.containerTitulo {
+  width: 2000px;
+  display: flex;
+}
+
+.share {
+  margin-top: 2px;
+  width: 25px;
+  height: 25px;
+}
+.shareIcon {
+  cursor: pointer;
+  margin-left: 10px;
+  border: none;
+  background-color: var(--primario-700);
+}
+
+/* ===================== */
+/*     FOOTER            */
+/* ===================== */
+
+.fatFooter {
+  background-color: #141a21;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+}
+
+.h2Footer {
+  font-family: "Baloo 2", sans-serif;
+  font-style: normal;
+  color: white;
+  font-size: 22;
+  padding: 5px;
+  margin-inline: 50px;
+  margin-top: 30px;
+}
+
+.listFooter {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.itemFooter {
+  list-style: none;
+  margin-left: 56px;
+  font-family: "Baloo 2", sans-serif;
+  font-style: normal;
+  font-size: 15px;
+  margin-top: 7px;
+}
+
+.itemFooter a {
+  font-style: normal;
+  text-decoration: none;
+  color: white;
+  opacity: 60%;
+}
+
+.containerFooter {
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+}
+
+.containerFooter:first-child {
+  margin-left: 40px; /* Agrega un margen al primer div */
+}
+
+.textFooter {
+  width: 96%;
+  margin-top: 80px;
+  margin-left: 30px;
+  font-family: "Baloo 2", sans-serif;
+  font-style: normal;
+  color: white;
+  opacity: 40%;
+  font-size: 13px;
+}
+.titleFooter {
+  font-family: "Silkscreen", sans-serif;
+  font-style: normal;
+  color: #fafafa;
+}
+.tituloContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+
+  margin-left: auto; /* Mueve para la derecha */
+  margin-right: 150px;
+}
+
+.iconosContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#logo-footer {
+  margin-right: 10px;
+  height: 50px;
+  width: 50px;
+}
+
+.titleFooter {
+  font-family: "Silkscreen", sans-serif;
+  font-style: normal;
+  color: #fafafa;
+  margin: 0;
+}
+
+.redesSociales {
+  height: 22px;
+  width: 22px;
+  display: flex;
+  gap: 8px;
+  margin-right: 200px;
+}
+
+/* FIN FOOTER */
+
+.subtituloJuego {
+  color: white;
+  margin-bottom: 90px;
+  margin-left: 180px;
+  font-family: "Silkscreen", sans-serif;
+}
+.JuegosRecomendados {
+  height: 400px;
+
+  background-color: var(--primario-700);
+}
+
+.comentarios-container {
+  background-color: var(--primario-700);
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  position: relative;
+  padding-top: 10px;
+}
+
+.input-container img {
+  position: absolute;
+  top:0;
+  left: 140px;
+}
+
+.horizontal-line-input {
+  width: 1150px;
+  height: 2px;
+  background-color: white;
+  opacity: 60%;
+  margin-left: 190px;
+}
+
+#comentario {
+  margin-left: 190px;
+  color: white;
+  outline: none;
+  font-family: "Baloo 2", sans-serif;
+  font-size: 15px;
+  background-color: var(--primario-700);
+  border: none;
+  margin-right: 250px;
+  width: 1056px;
+}
+.enviarBtn {
+  height: 30px;
+  width: 98px;
+  margin-left: 1250px;
+  margin-top: 13px;
+  background-color: var(--primario-700);
+  color: var(--primario-300);
+  font-size: 14px;
+  font-family: "Baloo 2", sans-serif;
+  border-radius: 29px;
+  border: 3px solid var(--primario-300);
+  cursor: pointer;
+}
+.boxComentarios {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-left: 170px;
+}
+
+.divComentario {
+  font-family: "Baloo 2", sans-serif;
+  color: rgb(224, 215, 215);
+  height: 150px;
+  width: 1220px;
+  margin-right: 90px;
+}
+
+.divComentario img {
+  padding-right: 10px;
+}
+
+.divComentario .nombreUsuario{
+  margin-top: 5px;
+}
+
+.comentario-texto {
+  color: white;
+  font-family: "Baloo 2", sans-serif;
+  font-size: 15px;
+  opacity: 60%;
+  margin-left: 45px;
+}
+
+/* Estilo base del botón */
+.likeBtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 1s ease-in-out;
+  margin-left: 45px;
+}
+
+@keyframes jumpAndRotate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(1080deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.likeBtn.active {
+  animation: jumpAndRotate 0.7s ease-out;
+}
+
+.likeBtn.active img {
+  content: url("./assets/nuevoLike.png");
+}
+
+.avatar {
+  padding: 2px;
+  border-radius: 340px;
+  height: 30px;
+  width: 30px;
+}
+
+.infoUsuario {
+  display: flex;
+}
+
+.input-and-profile-pic-container {
+  display: flex;
+}
+/*Responsive*/
+
+@media (max-width: 768px) {
+  .fatFooter {
+    height: auto;
+  }
+
+  .containerFooter {
+    flex-direction: column;
+
+    gap: 20px;
+    margin: 0 auto;
+  }
+
+  .itemFooter {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .tituloContainer {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .redesSociales {
+    margin-right: 0;
+    justify-content: center;
+  }
+
+  .textFooter {
+    text-align: center;
+    width: 88%;
+    margin-bottom: 20px;
+    font-size: 10px;
+  }
+
+  .h2Footer {
+    text-align: center;
+    margin-inline: 0;
+  }
+  .listFooter {
+    margin-left: 0;
+    margin-right: 40px;
+  }
+}
+
+/* Reponsive */
+@media (max-width: 1125px) {
+  #head-div-b {
+    display: none;
+  }
+}
+
+@media (max-width: 525px) {
+  #head-title {
+    display: none;
+  }
+  #head-div-a {
+    width: fit-content;
+  }
+  #div-iconos-header {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  header {
+    justify-content: space-between;
+  }
+}
+
+  
+  
+  
+  
+  
+  
+  
+  
+.btn-comprar {
+  background-color:var(--acento-500);
+  border: none ;
+  color: var(--text-light);
+  transition: .6s;
+  height: 30px;
+  padding: 0 20px;
+}
+
+.btn-comprar span {
+  transform: translateX(10px);
+  transition: .8s ease-in-out;
+}
+
+.btn-comprar .imagencs {
+  margin-top: 7px;
+  margin-bottom: 0;
+  height: 20px;
+}
+
+.enCarrito {
+  min-width: 0px;
+  height: 30px;
+}
+
+.btn-comprar .clicked {
+  background-color: var(--acento-500);
+  animation: buy 3s infinite;
+  animation-delay: 1s; /* tercer delay */
+  animation-iteration-count: 3;
+  cursor: pointer;
+}
+.btn-comprar:active{
+  transform: scale(1.2);
+}
+
+
+.btn-comprar:active span {
+  transform: translateY(70px);
+  font-size: .1rem;
+}
+
+.favoriteBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 5;
+  padding: 0;
+  margin: 0;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.favoriteBtn i  {
+  border: none;
+
+}
+
+.favoriteBtn:hover  {
+  border: none;
+  transform: scale(1.2);
+}
+
+
+
+.favoriteBtn.clicked  {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(229, 222, 222, 0.291) ;
+  margin-left: 20px;
+  transition: .8s ease-in-out;
+  box-shadow: 0px 1px 5px rgba(190, 190, 190, 0.4);
+  border-radius: 75%;
+  border-color: #bebebe ;
+  cursor: pointer;
+}
+  
+.favoriteBtn.clicked .imagencs {
+  height: 20px;
+}
+
+
+
+#loginSuccess {
+  
+  width: 340px;
+  margin: auto;
+  padding: 0;
+  border: solid var(--primario-700) 2px;
+  border-radius: 15px;
+  background-color: var(--primario-300);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: none;
+  background-color: rgb(36, 177, 125);
+}
+
+#loginSuccess img {
+  width: 80px;
+  height: 80px;
+}
+
+#loginSuccess #top {
+  padding: 15px 0; 
+  
+}
+
+#loginSuccess a {
+  text-decoration: none;
+  font-size: 18px;
+  color: var(--bg-light) ;
+ 
+}
+
+#loginSuccess #bottom {
+  background-color: var(--primario-300);
+  padding: 15px 0px;
+}
+
+#loginSuccess a:hover {
+  text-decoration: underline;
+}
+
+#loginSuccess::backdrop {
+  background-color: var(--bg-dark);
+  opacity: 0.6;
+}
+
+.no-scroll {
+  overflow: hidden;
+}

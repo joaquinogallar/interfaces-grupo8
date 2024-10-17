@@ -1,0 +1,17 @@
+[
+    {"nombre": "Acción"},
+    {"nombre": "Aventura"},
+    {"nombre": "RPG"},
+    {"nombre": "Estrategia"},
+    {"nombre": "Deportes"},
+    {"nombre": "Simulación"},
+    {"nombre": "Carreras"},
+    {"nombre": "Puzzle"},
+    {"nombre": "Terror"},
+    {"nombre": "Multijugador"},
+    {"nombre": "Plataforma"},
+    {"nombre": "Sandbox"},
+    {"nombre": "Educativo"},
+    {"nombre": "Casual"},
+    {"nombre": "Familiar"}
+]

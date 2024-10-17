@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Sphere</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+    <!-- ICONOS https://fonts.google.com/icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Baloo+2' rel='stylesheet'>
+    
+</head>
+<body>
+    <section id="section-login">
+        <img class="img-back-login" src="assets/patronhorizontal.png" alt=""/>
+        <div class="div-login">
+            
+            <div class="div-title-login">
+                
+                    <img id="logo-header" src="assets/logo.png">
+                    <h1 class="h1 text-light">GAME SPHERE</h1>
+                
+            </div>
+        
+            <form class="formLogin" action="home.html" method="POST">
+                <div class="usuarioForm">
+                    <input type="text" placeholder="Usuario" class="placeholder silkscreen">
+                </div>
+            
+                <div class="contraseñaForm">
+                    <input type="password" placeholder="Contraseña" class="placeholder silkscreen" minlength="4">
+                    <button type="button"> <i class="material-icons">visibility</i> </button>
+                </div>
+
+                <div class="optionsRowLogin">
+                    <label class="recordarmeForm">
+                        <input type="checkbox" id="recordarme">
+                        <span class="checkmark"></span>
+                        <p class="body2">Recordarme</p>
+                    </label>
+                    
+                    <a class="olvideContraseña body2">Recuperar Cuenta</a>
+                </div>
+
+                <button class="btnSubmitLogin body2" type="submit">Iniciar Sesión</button>
+            </form>
+
+            <div class="btns-login-redes"> 
+                <button class="googleBtn">
+                    <img src="assets/googleicon.png" class="googleicon" alt="googleicon"></img> <p class="body1">Google</p>
+                </button>
+
+                <button class="facebookBtn">
+                    <img src="assets/facebookicon.png" class="facebookicon" alt="facebookicon"></img> <p class="body1">Facebook</p>
+                </button>
+            </div>
+
+            <div style="display:flex; flex-direction: row; margin-top: 20px; justify-content: center;">
+                <div style="width: 220px; height: 1px; align-self: center; background-color: silver;"></div>
+            </div>
+            
+
+            <span class="noAccount"><p class="body2">No tienes cuenta? </p> <a href="register.html" class="body2"> Regístrate</a></span>
+        </div>
+
+        <div id="loginSuccess" class="logueadoCorrectamenteContainer" popover>
+          <div>
+            <div id="top">
+              <img src="assets/tick.png">
+            <h1>¡Te has logueado correctamente!</h1></div>
+            <div id="bottom">
+            <a href="home.html">Ir a la pagina principal</a></div>
+          </div>
+        </div>
+    </section>
+    <footer class="fatFooter">
+      <div class="containerFooter">
+        <div>
+          <ul class="listFooter">
+            <h2 class="h2Footer"> Link</h2>
+            <li class="itemFooter"><a href="#">Home</a></li>
+            <li class="itemFooter"><a href="#">Accion</a></li>
+            <li class="itemFooter"><a href="#">Terror</a></li>
+            <li class="itemFooter"><a href="#">Deporte</a></li>
+            <li class="itemFooter"><a href="#">Destacado</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <ul class="listFooter">
+            <h2 class="h2Footer">Sobre nosotros</h2>
+            <li class="itemFooter"><a href="#">Contactanos</a></li>
+            <li class="itemFooter"><a href="#">Redes Sociales</a></li>
+            <li class="itemFooter"><a href="#">Equipo</a></li>
+            <li class="itemFooter"><a href="#">Trabajos</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <ul  class="listFooter">
+            <h2 class="h2Footer">Unetenos</h2>
+            <li class="itemFooter"><a href="#">Registrate</a></li>
+            <li class="itemFooter"><a href="#">Moderadores</a></li>
+            <li class="itemFooter"><a href="#">Comunidad</a></li>
+            <li class="itemFooter"><a href="#">Promociones</a></li>
+            <li class="itemFooter"><a href="#">Conoce Personas</a></li>
+            <li class="itemFooter"><a href="#">Conoce Grupos</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <ul  class="listFooter">
+            <h2 class="h2Footer">Ayuda</h2>
+            <li class="itemFooter"> <a href="#">Preguntas Frecuentes</a></li>
+            <li class="itemFooter">  <a href="#">Soporte</a></li>
+            <li class="itemFooter"><a href="#">Guia De Usuario</a></li>
+            <li class="itemFooter"><a href="#">Anuncios</a></li>
+            <li class="itemFooter"><a href="#">Metodos De Pago</a></li>
+          </ul>
+        </div>
+
+        <div class="tituloContainer">
+          <div class="iconosContainer">
+              <img id="logo-footer" src="assets/logo.png" alt="Logo de Game Sphere" />
+              <h1 class="titleFooter">GAME SPHERE</h1>
+          </div> 
+          <div class="redesSociales">
+              <img class="iconesFooter" src="assets/facebookIcone.png" alt="Facebook" />
+              <img class="iconesFooter" src="assets/linkedinIcone.png" alt="LinkedIn" />
+              <img class="iconesFooter" src="assets/instagramIcone.png" alt="Instagram" />
+              <img class="iconesFooter" src="assets/twitter.png" alt="GitHub" />
+          </div>
+        </div>
+        
+      </div>
+
+      <p class="textFooter">
+        © 2024 Game Sphere. Todos los derechos reservados. Este sitio web y su contenido, incluyendo juegos, gráficos y texto, están protegidos por leyes de derechos de autor y propiedad intelectual.  Queda prohibida la reproducción, distribución o modificación sin permiso previo por escrito de Game Sphere. Todas las marcas comerciales mencionadas son propiedad de sus respectivos dueños. Para solicitudes de uso de contenido, contáctanos a gamesphere@gmail.com.      </p>
+    </footer>  
+    
+    <script src="src/login.js"></script>
+    </body>
+</html>
