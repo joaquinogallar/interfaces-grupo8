@@ -6,11 +6,13 @@ let canvasHeight = canvas.height;
 
 const CANT_FIG = 10;
 
-const sizeDisc = 50;
-const radiusDisc = sizeDisc * 0.35;
+const sizeDisc = 50;                    // Tamaño del cuadrado del tablero
+const radiusDisc = sizeDisc * 0.35;     // Radio de la ficha
 
 let discs = [];
 let holes = [];     // Board
+let board = [];
+let actualPlayer = "Arg";
 
 let figures = [];
 let lastClickedFigure = null;
@@ -86,15 +88,22 @@ function onMouseDown(e) {
 
     let clickFig = findClickedFigure(e.layerX, e.layerY);
     if (clickFig != null) {
-        clickFig.setResaltado(true);
-        console.log(clickFig.getJugador())
-        lastClickedFigure = clickFig;
+        if (clickFig.getJugador() === actualPlayer){
+            clickFig.setResaltado(true);
+
+            document.body.style.cursor = 'grab';     // Cursor modificado
+
+            lastClickedFigure = clickFig;
+        } else {
+            document.body.style.cursor = 'not-allowed';
+        }
     }
     //drawFigure();
 }
 
 function onMouseUp(e) {
     isMouseDown = false;
+    document.body.style.cursor = 'default';
     //console.log("Mouseup");
 }
 
@@ -103,6 +112,14 @@ function onMouseMove(e) {
     if (isMouseDown && lastClickedFigure != null) {
         lastClickedFigure.setPosition(e.layerX, e.layerY);
         drawGame();
+    }
+
+    // Cambiar style cursor para mostrar que no puede agarrar otra ficha si no es el turno del jugador actual
+    if (findClickedFigure(e.layerX, e.layerY) != null) {
+        if(findClickedFigure(e.layerX, e.layerY).getJugador() != actualPlayer )
+            document.body.style.cursor = 'not-allowed';
+    } else {
+        document.body.style.cursor = 'default';
     }
 }
 
@@ -122,17 +139,24 @@ function createBoard(columns, rows, color) {
     
     let yInicial = _posY;
     
+    
 
-    for (let i = 0 ; i < columns; i++) {
-        for(let j = 0; j < rows; j++) {
+    for (let c = 0 ; c < columns; c++) {
+        board[c] = [];
+        for(let r = 0; r < rows; r++) {
             let hole = createHole(size, size, color, _posX, _posY)
             holes.push(hole);
+            board[c][r] = hole;
             _posY += size;
         }
         _posY = yInicial;
         _posX += size;
     }
     
+    console.log(board[0][0]);
+    console.log(board[0][0].getPosX(), board[0][0].getPosY() - size)
+    let hole = createHole(size,size, "gray" , board[0][0].getPosX(), board[0][0].getPosY() - size)
+    holes.push(hole);
     drawBoard(holes); 
 
    
@@ -234,6 +258,7 @@ function findClickedFigure(x, y) {
             return element;
         }
     }
+    return null;
 }
 
 //

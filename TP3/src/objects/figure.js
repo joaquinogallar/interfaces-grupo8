@@ -70,4 +70,9 @@ class Figure {
     }
 
     isPointInside(x, y) {};
+
+
+    getJugador() {
+        return null;
+    }
 }
