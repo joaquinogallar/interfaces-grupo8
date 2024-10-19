@@ -98,12 +98,15 @@
         <div class="juego text-light">
           <div class="juego-container">
             <div class="inicio-juego">
+              
                 <div class="iniciar-juego">
                   <h1 class="h1 titulo-juego"></h1>
                   <button class="boton-juego body1">Jugar</button>
                 </div>
             </div>
-            <canvas></canvas>
+            
+            <canvas id="canvas-juego" width="1042"  height="596" style="border:1px solid #d3d3d3;z-index: 0;"></canvas>
+            
             <div class="info-juego">
               <div class="containerTitulo">
               <span class="titulo-juego-span">
@@ -278,5 +281,13 @@
     <script src="src/swiper.js"></script>
    
     <script type="module" src="src/paginaJuego.js"></script>
+
+     <!-- JUEGO JS -->
+     <script src="src/objects/figure.js"></script>
+     <script src="src/objects/circle.js"></script>
+     <script src="src/objects/rect.js"></script>
+     <script src="src/objects/hole.js"></script>
+     <script src="src/objects/disc.js"></script>
+     <script src="src/mainJuego.js"></script>
   </body>
 </html>

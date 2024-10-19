@@ -1148,13 +1148,13 @@ header div {
   z-index: 1; /* Baja el z-index del before */
 }
 
+
 canvas {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0;/*
   width: 100%;
-  height: 100%;
-  background: beige;
+  height: 100%;*/
 }
 
 .iniciar-juego {
@@ -1172,6 +1172,17 @@ canvas {
   height: 40px;
   margin-top: 10px;
 }
+
+#canvas-juego {
+  transition: opacity 0.5s ease; 
+  opacity: 0; 
+}
+
+#canvas-juego.visible {
+  opacity: 1; /* Aparece al ser visible */
+}
+
+
 
 .volver-home {
   transition: color 100ms ease-in-out;
@@ -1689,3 +1700,5 @@ canvas {
 .no-scroll {
   overflow: hidden;
 }
+
+

@@ -37,9 +37,9 @@ btnHamburguesa.addEventListener("click", () => {
 
 // logica btn favorito //
 document.querySelectorAll(".favoriteBtn").forEach(function (button) {
-  console.log(button);
+
   button.addEventListener("click", function () {
-    console.log("click");
+
     this.classList.toggle("clicked");
 
     if (this.classList.contains("clicked")) {
