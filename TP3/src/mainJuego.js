@@ -87,8 +87,8 @@ function onMouseDown(e) {
     let clickFig = findClickedFigure(e.layerX, e.layerY);
     if (clickFig != null) {
         clickFig.setResaltado(true);
+        console.log(clickFig.getJugador())
         lastClickedFigure = clickFig;
-        
     }
     //drawFigure();
 }
@@ -161,7 +161,7 @@ function createDiscs(imgName, cant, _posX, _posY) {
     // Asegúrate de dibujar el disco después de que la imagen se haya cargado
     img.onload = () => {
         for (let i = 0 ; i < cant; i++) {
-            let disc = createDisc(radius, img, _posX, _posY)
+            let disc = createDisc(radius, img, _posX, _posY, imgName)
             discs.push(disc);
             _posY += height /2;
         }
@@ -169,8 +169,8 @@ function createDiscs(imgName, cant, _posX, _posY) {
     }
 }
 
-function createDisc(radius, img, posX, posY) {
-    return new Disc(posX, posY, radius, img, ctx)
+function createDisc(radius, img, posX, posY, player) {
+    return new Disc(posX, posY, radius, img, ctx, player)
 }
 
 function drawDiscs(lastClicked) {
