@@ -1,9 +1,9 @@
 class Disc extends Circle {
-    constructor(posX, posY, radius, fill, ctx){
+    constructor(posX, posY, radius, fill, ctx, jugador){
         super(posX, posY, radius, fill, ctx);
 
         this.image = fill;
-
+        this.jugador = jugador;
     }
 
     draw() {
@@ -36,7 +36,11 @@ class Disc extends Circle {
         this.ctx.closePath();
     }
 
+    getJugador() {
+        return this.jugador;
+    }
+
     getInfo() {
-        return "Disco" ;
+        return "Disco, jugador: "+ jugador ;
     }
 }

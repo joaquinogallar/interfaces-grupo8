@@ -21,7 +21,8 @@ let isMouseDown = false;
 function play() {
     createBoard(7,6,"blue");
 
-    createDiscs("Arg", 5);
+    createDiscs("Arg", 5, 300, 250);
+    createDiscs("Bra", 5, 750, 250);
 }
 
 
@@ -111,19 +112,16 @@ function onMouseMove(e) {
 
 function createBoard(columns, rows, color) {
 
+    // Crea la tabla del juego, agujero por agujero
+
     let size = sizeDisc; // TAMAÑO DE AGUJERO//
 
-    let percentageOffset = 0.4; // % del tamaño
 
-    let offset = (size * columns) * percentageOffset; // tamaño total(width) - % del tamaño
-
-    let _posX = (canvasWidth / 2) - (size / 2) - offset;  // POSICION INICIAL //
+    let _posX = (canvasWidth / 2) - (size * columns/ 2) ;  // POSICION INICIAL //
     let _posY = (canvasHeight / 2) - (size / 2);
     
     let yInicial = _posY;
     
-
-    //let holes = [];
 
     for (let i = 0 ; i < columns; i++) {
         for(let j = 0; j < rows; j++) {
@@ -141,45 +139,32 @@ function createBoard(columns, rows, color) {
 }
 
 function createHole(rectHeight, rectWidth, color, posX, posY) {
-    return new Hole(posX, posY, rectWidth, rectHeight, color, ctx, radiusDisc);
-    
+    return new Hole(posX, posY, rectWidth, rectHeight, color, ctx, radiusDisc); 
 }
 
 function drawBoard() {
     for (let i= 0; i < holes.length; i++) {
         holes[i].draw();
     }
-   //drawImage();
 }
 
-function createDiscs(imgName, cant) {
+function createDiscs(imgName, cant, _posX, _posY) {
+
+    // Crea los discos para los jugadores
+
     let height = sizeDisc;
     let radius = radiusDisc;
-
-    let percentageOffset = 0.4; // % del tamaño
-
-    let offset = radius * percentageOffset; // tamaño total(width) - % del tamaño
-
-    let _posX = (canvasWidth / 3) - (radius / 2) - offset;  // POSICION INICIAL //
-    let _posY = (canvasHeight / 3) - (radius / 2);
-    
-
-    //let discs = [];
 
     const img = new Image();
     img.src = '././assets/juego/disc' + imgName +'.png'; // Cambia esto a la ruta de tu imagen
 
     // Asegúrate de dibujar el disco después de que la imagen se haya cargado
     img.onload = () => {
-
         for (let i = 0 ; i < cant; i++) {
-
             let disc = createDisc(radius, img, _posX, _posY)
             discs.push(disc);
-            _posY += height;
+            _posY += height /2;
         }
-        
-
         drawDiscs();
     }
 }
