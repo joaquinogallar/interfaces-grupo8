@@ -82,8 +82,7 @@ function onMouseDown(e) {
 
     if (lastClickedFigure != null) {
         lastClickedFigure.setResaltado(false);
-        lastClickedFigure = null;
-        
+        lastClickedFigure = null; 
     }
 
     let clickFig = findClickedFigure(e.layerX, e.layerY);
@@ -94,6 +93,7 @@ function onMouseDown(e) {
             document.body.style.cursor = 'grab';     // Cursor modificado
 
             lastClickedFigure = clickFig;
+            
         } else {
             document.body.style.cursor = 'not-allowed';
         }
@@ -104,6 +104,9 @@ function onMouseDown(e) {
 function onMouseUp(e) {
     isMouseDown = false;
     document.body.style.cursor = 'default';
+    if (lastClickedFigure != null) {
+        togglePlayer();                 // Cambio de turnos
+    }
     //console.log("Mouseup");
 }
 
@@ -261,7 +264,12 @@ function findClickedFigure(x, y) {
     return null;
 }
 
-//
+
+function togglePlayer() {
+    actualPlayer = (actualPlayer === "Arg") ? "Bra" : "Arg";
+}
+
+// Fin utils
 
 // BTN JUGAR //
 
