@@ -173,7 +173,7 @@ function createDisc(radius, img, posX, posY, player) {
     return new Disc(posX, posY, radius, img, ctx, player)
 }
 
-function drawDiscs(lastClicked) {
+function drawDiscs() {
     //clearCanvas();
     for (let i= 0; i < discs.length; i++) {
         discs[i].draw();
