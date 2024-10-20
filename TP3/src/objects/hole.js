@@ -20,4 +20,13 @@ class Hole extends Rect {
 
     }
 
+    isPointInside(x, y) {
+        const margin = 10; // margen de error en píxeles
+        return !(x < this.posX || x > this.posX + this.width || 
+                 y < this.posY - margin || y > this.posY + this.height + margin);
+    }
+
+    getInfo() {
+        return "agujero";
+    }
 }

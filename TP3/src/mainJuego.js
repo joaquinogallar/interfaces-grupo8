@@ -12,11 +12,16 @@ const radiusDisc = sizeDisc * 0.35;     // Radio de la ficha
 let discs = [];
 let holes = [];     // Board
 let board = [];
-let actualPlayer = "Arg";
+let holesInsert = [];
+
+const player1 = "Arg";
+const player2 = "Bra";
+let actualPlayer = player1;
 
 let figures = [];
 let lastClickedFigure = null;
 let isMouseDown = false;
+
 
 
 // Funcion que crea el juego
@@ -88,9 +93,9 @@ function onMouseDown(e) {
     let clickFig = findClickedFigure(e.layerX, e.layerY);
     if (clickFig != null) {
         if (clickFig.getJugador() === actualPlayer){
-            clickFig.setResaltado(true);
+            clickFig.setResaltado(true);     
 
-            document.body.style.cursor = 'grab';     // Cursor modificado
+            document.body.style.cursor = 'grabbing';
 
             lastClickedFigure = clickFig;
             
@@ -105,6 +110,7 @@ function onMouseUp(e) {
     isMouseDown = false;
     document.body.style.cursor = 'default';
     if (lastClickedFigure != null) {
+        putDisc(e.layerX, e.layerY);
         togglePlayer();                 // Cambio de turnos
     }
     //console.log("Mouseup");
@@ -117,10 +123,15 @@ function onMouseMove(e) {
         drawGame();
     }
 
-    // Cambiar style cursor para mostrar que no puede agarrar otra ficha si no es el turno del jugador actual
+    // Cambiar style cursor para mostrar que puede o no agarrar otra ficha si no es el turno del jugador actual
     if (findClickedFigure(e.layerX, e.layerY) != null) {
-        if(findClickedFigure(e.layerX, e.layerY).getJugador() != actualPlayer )
+        if(findClickedFigure(e.layerX, e.layerY).getJugador() === actualPlayer ) {
+            if (!(document.body.style.cursor === 'grabbing'))     // Para que no saque el "agarrando"
+                {document.body.style.cursor = 'grab';}     
+        } else {
             document.body.style.cursor = 'not-allowed';
+        }
+            
     } else {
         document.body.style.cursor = 'default';
     }
@@ -156,11 +167,15 @@ function createBoard(columns, rows, color) {
         _posX += size;
     }
     
-    console.log(board[0][0]);
-    console.log(board[0][0].getPosX(), board[0][0].getPosY() - size)
-    let hole = createHole(size,size, "gray" , board[0][0].getPosX(), board[0][0].getPosY() - size)
-    holes.push(hole);
-    drawBoard(holes); 
+    // Visual borrar
+
+    for (let c = 0; c < columns; c++) {
+        let holeI = createHole(size,size, "gray" , board[c][0].getPosX(), board[c][0].getPosY() - size); 
+        holesInsert.push(holeI);
+    }
+    
+
+    drawBoard(); 
 
    
 }
@@ -173,6 +188,9 @@ function drawBoard() {
     for (let i= 0; i < holes.length; i++) {
         holes[i].draw();
     }
+    for (let i= 0; i < holesInsert.length; i++) {
+        holesInsert[i].draw();
+    } 
 }
 
 function createDiscs(imgName, cant, _posX, _posY) {
@@ -214,6 +232,23 @@ function drawGame() {
 }
 
 // fin crear juego
+
+// Funciones Juego //
+
+function putDisc(posX, posY) {
+    for (let i = 0; i < holesInsert.length ; i++) {
+        if (holesInsert[i].isPointInside(posX, posY)) { 
+            alert("Insertado columna: " + i);
+        }
+    }
+    
+}
+
+
+function togglePlayer() {
+    actualPlayer = (actualPlayer === player1) ? player2 : player1;
+}
+//
 
 /*
 setTimeout(() => {
@@ -265,9 +300,7 @@ function findClickedFigure(x, y) {
 }
 
 
-function togglePlayer() {
-    actualPlayer = (actualPlayer === "Arg") ? "Bra" : "Arg";
-}
+
 
 // Fin utils
 

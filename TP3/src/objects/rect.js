@@ -29,6 +29,10 @@ class Rect extends Figure {
         return this.height;
     }
 
+    getFill() {
+        return this.fill;
+    }
+
     isPointInside(x, y) {
         return !(x < this.posX || x > this.posX + this.width || y < this.posY || y > this.posY + this.height);
     }
