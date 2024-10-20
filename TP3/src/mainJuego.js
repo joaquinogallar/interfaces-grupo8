@@ -26,7 +26,7 @@ let isMouseDown = false;
 
 // Funcion que crea el juego
 function play() {
-    createBoard(7,6,"blue");
+    createBoard(7,6,"blue");        // Crea y dibuja el tablero con columnas y filas variables y color //
 
     createDiscs("Arg", 5, 300, 250);
     createDiscs("Bra", 5, 750, 250);
@@ -126,8 +126,13 @@ function onMouseMove(e) {
     // Cambiar style cursor para mostrar que puede o no agarrar otra ficha si no es el turno del jugador actual
     if (findClickedFigure(e.layerX, e.layerY) != null) {
         if(findClickedFigure(e.layerX, e.layerY).getJugador() === actualPlayer ) {
-            if (!(document.body.style.cursor === 'grabbing'))     // Para que no saque el "agarrando"
-                {document.body.style.cursor = 'grab';}     
+            if (!(document.body.style.cursor === 'grabbing')) {     // Para que no saque el "agarrando"
+                document.body.style.cursor = 'grab';
+            } else {
+                if (canPutDisc(e.layerX, e.layerY)) {
+                    // Agregar Hint de se puede dropear 
+                }
+            }     
         } else {
             document.body.style.cursor = 'not-allowed';
         }
@@ -236,12 +241,20 @@ function drawGame() {
 // Funciones Juego //
 
 function putDisc(posX, posY) {
+    let columna = canPutDisc(posX, posY);
+    if (columna) {
+        alert("Insertado columna: " + columna);
+    } 
+    
+}
+
+function canPutDisc(posX, posY) {
     for (let i = 0; i < holesInsert.length ; i++) {
         if (holesInsert[i].isPointInside(posX, posY)) { 
-            alert("Insertado columna: " + i);
+            return i+1;
         }
     }
-    
+    return false;
 }
 
 
