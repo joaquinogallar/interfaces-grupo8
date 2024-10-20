@@ -1,6 +1,6 @@
 <h2>TP 3</h2>
 
-<p><a href="juego.html?id=1">Juego
+<h3><a href="juego.html?id=1">Juego
 <p>
 
 <p><a href="home.html">Home
