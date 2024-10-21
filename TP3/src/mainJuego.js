@@ -11,7 +11,7 @@ const radiusDisc = sizeDisc * 0.35;     // Radio de la ficha
 
 let discs = [];
 let holes = [];     // Board
-let board = [];
+const board = [];
 let holesInsert = [];
 
 const player1 = "Arg";
@@ -110,7 +110,7 @@ function onMouseUp(e) {
     isMouseDown = false;
     document.body.style.cursor = 'default';
     if (lastClickedFigure != null) {
-        putDisc(e.layerX, e.layerY);
+        putDisc(e.layerX, e.layerY, lastClickedFigure);
         togglePlayer();                 // Cambio de turnos
     }
     //console.log("Mouseup");
@@ -240,21 +240,55 @@ function drawGame() {
 
 // Funciones Juego //
 
-function putDisc(posX, posY) {
+function putDisc(posX, posY, disc) {
     let columna = canPutDisc(posX, posY);
-    if (columna) {
-        alert("Insertado columna: " + columna);
+    if (columna !== -1) {
+
+        insertDisc(posX, posY, columna, 0, disc);
     } 
+    
+}
+
+function insertDisc(x, y, c, i, disc) {
+
+    if (i === board[c].length) {
+        return true;
+    }
+  
+
+    let obj = board[c][i];
+
+    if(obj){
+        let isFilled = obj.isFilled();
+
+        if (!isFilled) { 
+            
+            if (insertDisc(x, y, c, i + 1, disc)) {
+                obj.markAsFilled(disc);
+                drawGame();
+                alert("puesto en colum: " + c + " fila: " + i);
+            }
+            else {
+                //alert("false: " + i);
+                return false;
+            }
+        } else {
+            if (i === 0) {
+                alert("no hay mas espacio "+ i);
+            }
+            return true;
+        }
+    }
     
 }
 
 function canPutDisc(posX, posY) {
     for (let i = 0; i < holesInsert.length ; i++) {
         if (holesInsert[i].isPointInside(posX, posY)) { 
-            return i+1;
+            return i;
         }
     }
-    return false;
+    return -1;
 }
 
 
