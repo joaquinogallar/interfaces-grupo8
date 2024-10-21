@@ -26,10 +26,17 @@ let isMouseDown = false;
 
 // Funcion que crea el juego
 function play() {
-    createBoard(7,6,"blue");        // Crea y dibuja el tablero con columnas y filas variables y color //
+    let columns = 7;
+    let rows = 6;
 
-    createDiscs(player1, 5, 300, 250);
-    createDiscs(player2, 5, 750, 250);
+    let total = columns * rows;
+    let discsForPlayer = total / 2;
+
+    createBoard(columns,rows,"blue");        // Crea y dibuja el tablero con columnas y filas variables y color //
+
+
+    createDiscs(player1, discsForPlayer, 300, 250);
+    createDiscs(player2, discsForPlayer, 750, 250);
 
     drawGame();
 }
@@ -218,7 +225,7 @@ function createDiscs(player, cant, _posX, _posY) {
         for (let i = 0 ; i < cant; i++) {
             let disc = createDisc(radius, img, _posX, _posY, player)
             discs.push(disc);
-            _posY += height /2;
+            _posY += height /3;
         }
         drawDiscs();
     }
