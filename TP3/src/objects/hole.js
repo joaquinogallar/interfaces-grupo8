@@ -37,6 +37,7 @@ class Hole extends Rect {
     markAsFilled(disc) {
         this.filled = true;
         this.disc = disc;
+        disc.setUsed(true);
     }
 
     markAsEmpty() {

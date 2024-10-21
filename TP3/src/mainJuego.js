@@ -124,8 +124,9 @@ function onMouseMove(e) {
     }
 
     // Cambiar style cursor para mostrar que puede o no agarrar otra ficha si no es el turno del jugador actual
-    if (findClickedFigure(e.layerX, e.layerY) != null) {
-        if(findClickedFigure(e.layerX, e.layerY).getJugador() === actualPlayer ) {
+    let fig = findClickedFigure(e.layerX, e.layerY);
+    if (fig != null) {
+        if(fig.getJugador() === actualPlayer && !fig.isUsed()) {
             if (!(document.body.style.cursor === 'grabbing')) {     // Para que no saque el "agarrando"
                 document.body.style.cursor = 'grab';
             } else {
@@ -234,6 +235,11 @@ function drawGame() {
     clearCanvas();
     drawBoard();
     drawDiscs();
+    drawUI();
+}
+
+function drawUI() {
+
 }
 
 // fin crear juego

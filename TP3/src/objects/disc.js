@@ -4,6 +4,7 @@ class Disc extends Circle {
 
         this.image = fill;
         this.jugador = jugador;
+        this.used = false;
     }
 
     draw() {
@@ -34,6 +35,14 @@ class Disc extends Circle {
 
         this.ctx.stroke();
         this.ctx.closePath();
+    }
+
+    isUsed() {
+        return this.used;
+    }
+
+    setUsed(b) {
+        this.used = b;
     }
 
     getJugador() {
