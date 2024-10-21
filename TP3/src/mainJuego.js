@@ -14,8 +14,8 @@ let holes = [];     // Board
 const board = [];
 let holesInsert = [];
 
-const player1 = "Arg";
-const player2 = "Bra";
+const player1 = "Argentina";
+const player2 = "Brasil";
 let actualPlayer = player1;
 
 let figures = [];
@@ -28,8 +28,10 @@ let isMouseDown = false;
 function play() {
     createBoard(7,6,"blue");        // Crea y dibuja el tablero con columnas y filas variables y color //
 
-    createDiscs("Arg", 5, 300, 250);
-    createDiscs("Bra", 5, 750, 250);
+    createDiscs(player1, 5, 300, 250);
+    createDiscs(player2, 5, 750, 250);
+
+    drawGame();
 }
 
 
@@ -199,7 +201,7 @@ function drawBoard() {
     } 
 }
 
-function createDiscs(imgName, cant, _posX, _posY) {
+function createDiscs(player, cant, _posX, _posY) {
 
     // Crea los discos para los jugadores
 
@@ -207,12 +209,14 @@ function createDiscs(imgName, cant, _posX, _posY) {
     let radius = radiusDisc;
 
     const img = new Image();
-    img.src = '././assets/juego/disc' + imgName +'.png'; // Cambia esto a la ruta de tu imagen
+
+    let name = (player === player1) ? "P1" : "P2";
+    img.src = '././assets/juego/disc' + name +'.png'; // Cambia esto a la ruta de tu imagen
 
     // Asegúrate de dibujar el disco después de que la imagen se haya cargado
     img.onload = () => {
         for (let i = 0 ; i < cant; i++) {
-            let disc = createDisc(radius, img, _posX, _posY, imgName)
+            let disc = createDisc(radius, img, _posX, _posY, player)
             discs.push(disc);
             _posY += height /2;
         }
@@ -239,7 +243,10 @@ function drawGame() {
 }
 
 function drawUI() {
+    // Configura el estilo del texto
+    let font = '30px Arial';   // Establece el tamaño y la fuente
 
+    drawText('Turno de: ' + actualPlayer, canvas.width / 2, 40, font)
 }
 
 // fin crear juego
@@ -272,7 +279,6 @@ function insertDisc(x, y, c, i, disc) {
             if (insertDisc(x, y, c, i + 1, disc)) {
                 obj.markAsFilled(disc);
                 drawGame();
-                alert("puesto en colum: " + c + " fila: " + i);
             }
             else {
                 //alert("false: " + i);
@@ -300,6 +306,7 @@ function canPutDisc(posX, posY) {
 
 function togglePlayer() {
     actualPlayer = (actualPlayer === player1) ? player2 : player1;
+    drawGame();
 }
 //
 
@@ -352,6 +359,16 @@ function findClickedFigure(x, y) {
     return null;
 }
 
+function drawText(text, posX, posY, font, color = 'black') {
+    // Configura el estilo del texto
+    ctx.font = font;   // Establece el tamaño y la fuente
+    ctx.fillStyle = color;   // Color del texto
+    ctx.textAlign = 'center';  // Alineación del texto
+    ctx.textBaseline = 'middle';  // Alineación vertical
+
+    // Dibuja el texto en el canvas
+    ctx.fillText(text, posX, posY);
+}
 
 
 
