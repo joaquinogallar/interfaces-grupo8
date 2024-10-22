@@ -119,8 +119,13 @@ function onMouseUp(e) {
     isMouseDown = false;
     document.body.style.cursor = 'default';
     if (lastClickedFigure != null) {
-        putDisc(e.layerX, e.layerY, lastClickedFigure);
-        togglePlayer();                 // Cambio de turnos
+        if( putDisc(e.layerX, e.layerY, lastClickedFigure)) {
+            togglePlayer();  
+        } else {
+            alert("No hay mas espacio");
+        }
+        
+                       // Cambio de turnos
     }
     //console.log("Mouseup");
 }
@@ -253,7 +258,7 @@ function drawUI() {
     // Configura el estilo del texto
     let font = '30px Arial';   // Establece el tamaño y la fuente
 
-    drawText('Turno de: ' + actualPlayer, canvas.width / 2, 40, font)
+    drawText('Turno de ' + actualPlayer, canvas.width / 2, 40, font)
 }
 
 // fin crear juego
@@ -264,41 +269,48 @@ function putDisc(posX, posY, disc) {
     let columna = canPutDisc(posX, posY);
     if (columna !== -1) {
 
-        insertDisc(posX, posY, columna, 0, disc);
+        return insertDisc(posX, posY, columna, 0, disc);
     } 
     
 }
 
+let z = 0;
+
+function get() {
+    z = z + 1;
+    return z;
+}
+
 function insertDisc(x, y, c, i, disc) {
 
-    if (i === board[c].length) {
-        return true;
-    }
-  
+    if (i === board[c].length ) {
+        return false;
+    } else {
 
-    let obj = board[c][i];
+        let obj = board[c][i];
+        if(obj) {
 
-    if(obj){
-        let isFilled = obj.isFilled();
-
-        if (!isFilled) { 
-            
-            if (insertDisc(x, y, c, i + 1, disc)) {
-                obj.markAsFilled(disc);
-                drawGame();
-            }
-            else {
-                //alert("false: " + i);
+            let isFilled = obj.isFilled();
+            if (isFilled) {
                 return false;
+            } else {
+
+                if (!insertDisc(x, y, c, i + 1, disc)) {
+
+                    obj.markAsFilled(disc);
+                    drawGame();
+                    return true;
+                }
+
+                
+                
             }
-        } else {
-            if (i === 0) {
-                alert("no hay mas espacio "+ i);
-            }
-            return true;
+
         }
+
     }
     
+    return true;
 }
 
 function canPutDisc(posX, posY) {
