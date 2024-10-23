@@ -37,7 +37,7 @@ class Disc extends Circle {
         this.ctx.stroke();
         this.ctx.closePath();
 
-        this.drawText(this.num, this.posX, this.posY, '20px Arial', 'black');
+        this.drawText(this.num, this.posX, this.posY, '20px Arial', 'white');
     }
 
 
@@ -58,13 +58,14 @@ class Disc extends Circle {
     }
 
     drawText(text, posX, posY, font, color = 'black') {
-        // Configura el estilo del texto
-        ctx.font = font;   // Establece el tamaño y la fuente
-        ctx.fillStyle = color;   // Color del texto
-        ctx.textAlign = 'center';  // Alineación del texto
-        ctx.textBaseline = 'middle';  // Alineación vertical
+
+        this.ctx.font = font;   
+        this.ctx.fillStyle = color;   
+        this.ctx.strokeStyle = "black";
+        this.ctx.textAlign = 'center';  
+        this.ctx.textBaseline = 'middle';  
     
-        // Dibuja el texto en el canvas
-        ctx.fillText(text, posX, posY);
+        this.ctx.strokeText(text, posX, posY);
+        this.ctx.fillText(text, posX, posY);
     }
 }

@@ -43,51 +43,6 @@ function play() {
 
 
 
-// Add Figures
-
-function addRect(rectWidth, rectHeight, posX, posY) {
-    /*let rectWidth = 20;
-    let rectHeight = 20;
-
-    let posX = Math.round(Math.random() * (canvasWidth - rectWidth));
-    let posY = Math.round(Math.random() * (canvasHeight - rectHeight));*/
-    let color = randomRGBA();
-
-    let rect = new Rect(posX, posY, rectWidth, rectHeight, color, ctx);
-    figures.push(rect);
-}
-
-function addCircle(radius, posX, posY) {
-    /*let radius = 10;
-
-    let posX = Math.round(Math.random() * (canvasWidth - 2 * radius) + radius);
-    let posY = Math.round(Math.random() * (canvasWidth - 2 * radius) + radius);*/
-    let color = randomRGBA();
-
-    let circle = new Circle(posX, posY, radius, color, ctx);
-    //console.log(figures);
-    figures.push(circle);
-}
-
-function addFigures() {
-    addFigure();
-    if (figures.length -1 < CANT_FIG) {
-        setTimeout(addFigures, 333);
-    }
-}
-
-function addFigure() {
-    if (Math.random() > 0.5) {
-        addRect(20, 20);
-    }
-    else {
-        addCircle(10);
-    }
-
-}
-
-// fin figuras
-
 // Mouse Functions
 
 function onMouseDown(e) {
@@ -232,9 +187,8 @@ function createDiscs(player, cant, _posX, _posY) {
     const img = new Image();
 
     let name = (player === player1) ? "P1" : "P2";
-    img.src = '././assets/juego/disc' + name +'.png'; // Cambia esto a la ruta de tu imagen
+    img.src = '././assets/juego/disc' + name +'.png'; 
 
-    // Asegúrate de dibujar el disco después de que la imagen se haya cargado
     img.onload = () => {
         for (let i = 0 ; i < cant; i++) {
             let disc = createDisc(radius, img, _posX, _posY, player, i)
@@ -264,8 +218,7 @@ function drawGame() {
 }
 
 function drawUI() {
-    // Configura el estilo del texto
-    let font = '30px Arial';   // Establece el tamaño y la fuente
+    let font = '30px Arial';   
 
     drawText('Turno de ' + actualPlayer, canvas.width / 2, 40, font)
 }
@@ -350,14 +303,13 @@ function clearCanvas() {
 }
 
 function drawImage() {
-    const img = new Image(); // Crea una nueva instancia de imagen
-    img.src = '././assets/juego/hole.png'; // Cambia esto por la ruta de tu imagen
-
+    const img = new Image(); 
+    img.src = '././assets/juego/hole.png'; 
     img.onload = function() {
-        const newWidth = 100;  // Establece el nuevo ancho que deseas
-        const newHeight = 100; // Establece la nueva altura que deseas
-        const x = 50; // Posición X en el canvas
-        const y = 50; // Posición Y en el canvas
+        const newWidth = 100;  
+        const newHeight = 100; 
+        const x = 50; 
+        const y = 50; 
         
         ctx.drawImage(img, x, y, newWidth, newHeight);
     };
@@ -385,13 +337,13 @@ function findClickedDisc(x, y) {
 }
 
 function drawText(text, posX, posY, font, color = 'black') {
-    // Configura el estilo del texto
-    ctx.font = font;   // Establece el tamaño y la fuente
-    ctx.fillStyle = color;   // Color del texto
-    ctx.textAlign = 'center';  // Alineación del texto
-    ctx.textBaseline = 'middle';  // Alineación vertical
+    
+    ctx.font = font;   
+    ctx.fillStyle = color;   
+    ctx.textAlign = 'center';  
+    ctx.textBaseline = 'middle';  
 
-    // Dibuja el texto en el canvas
+    
     ctx.fillText(text, posX, posY);
 }
 
