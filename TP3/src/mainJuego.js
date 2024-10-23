@@ -99,7 +99,7 @@ function onMouseDown(e) {
         lastClickedFigure = null; 
     }
 
-    let clickFig = findClickedFigure(e.layerX, e.layerY);
+    let clickFig = findClickedDisc(e.layerX, e.layerY);
     if (clickFig != null) {
         if (clickFig.getJugador() === actualPlayer){
             clickFig.setResaltado(true);     
@@ -140,7 +140,7 @@ function onMouseMove(e) {
 
 
     // Cambiar style cursor para mostrar que puede o no agarrar otra ficha si no es el turno del jugador actual
-    let fig = findClickedFigure(e.layerX, e.layerY);
+    let fig = findClickedDisc(e.layerX, e.layerY);
     if (fig != null) {
         if(fig.getJugador() === actualPlayer && !fig.isUsed()) {
             if (!(document.body.style.cursor === 'grabbing')) {     // Para que no saque el "agarrando"
@@ -171,16 +171,21 @@ function onMouseMove(e) {
 
 function createBoard(columns, rows, color) {
 
+    const maxBoardSize = 400;
+
     // Crea la tabla del juego, agujero por agujero
 
-    let size = sizeDisc; // TAMAÑO DE AGUJERO//
+    //let size = sizeDisc; // TAMAÑO DE AGUJERO//
 
+    let sizeX = maxBoardSize / columns; // Tamaño del hole (cuadrado)
+    let sizeY = maxBoardSize / rows; 
 
-    let _posX = (canvasWidth / 2) - (size * columns/ 2) ;  // POSICION INICIAL //
-    let _posY = (canvasHeight / 2) - (size / 2);
+    let size = Math.min(sizeX, sizeY);
+
+    let _posX = (canvasWidth / 2) - (size * columns / 2);  // POSICION INICIAL //
+    let _posY = (canvasHeight / 2) - (size * rows / 2);
     
     let yInicial = _posY;
-    
     
 
     for (let c = 0 ; c < columns; c++) {
@@ -196,16 +201,12 @@ function createBoard(columns, rows, color) {
     }
     
     // Visual borrar
-
     for (let c = 0; c < columns; c++) {
-        let holeI = createHole(size,size, "gray" , board[c][0].getPosX(), board[c][0].getPosY() - size); 
+        let holeI = createHole(size,size, "gray"/* Reemplazar por "" para que sea invisible */ , board[c][0].getPosX(), board[c][0].getPosY() - size); 
         holesInsert.push(holeI);
     }
     
-
     drawBoard(); 
-
-   
 }
 
 function createHole(rectHeight, rectWidth, color, posX, posY) {
@@ -236,16 +237,16 @@ function createDiscs(player, cant, _posX, _posY) {
     // Asegúrate de dibujar el disco después de que la imagen se haya cargado
     img.onload = () => {
         for (let i = 0 ; i < cant; i++) {
-            let disc = createDisc(radius, img, _posX, _posY, player)
+            let disc = createDisc(radius, img, _posX, _posY, player, i)
             discs.push(disc);
-            _posY += height /4;
+            _posY += height /3;
         }
         drawDiscs();
     }
 }
 
-function createDisc(radius, img, posX, posY, player) {
-    return new Disc(posX, posY, radius, img, ctx, player)
+function createDisc(radius, img, posX, posY, player, num) {
+    return new Disc(posX, posY, radius, img, ctx, player, num + 1)
 }
 
 function drawDiscs() {
@@ -372,7 +373,7 @@ function randomRGBA() {
     return `rgba(${r}, ${g}, ${b}, ${a})`;
 }
 
-function findClickedFigure(x, y) {
+function findClickedDisc(x, y) {
     for (let i = discs.length - 1; i >= 0; i--) {       // Esta al revez para que se agarre el que esta dibujado arriba, osea de los ultimos
         const element = discs[i];
 
