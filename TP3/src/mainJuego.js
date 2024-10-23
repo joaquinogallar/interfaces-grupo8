@@ -119,13 +119,14 @@ function onMouseUp(e) {
     isMouseDown = false;
     document.body.style.cursor = 'default';
     if (lastClickedFigure != null) {
-        if( putDisc(e.layerX, e.layerY, lastClickedFigure)) {
-            togglePlayer();  
+        if (putDisc(e.layerX, e.layerY, lastClickedFigure)){
+            togglePlayer();
+            // Animacion caida
         } else {
-            alert("No hay mas espacio");
+            // Hint error, no se puede poner la ficha ahi
         }
         
-                       // Cambio de turnos
+            
     }
     //console.log("Mouseup");
 }
@@ -137,24 +138,31 @@ function onMouseMove(e) {
         drawGame();
     }
 
+
     // Cambiar style cursor para mostrar que puede o no agarrar otra ficha si no es el turno del jugador actual
     let fig = findClickedFigure(e.layerX, e.layerY);
     if (fig != null) {
         if(fig.getJugador() === actualPlayer && !fig.isUsed()) {
             if (!(document.body.style.cursor === 'grabbing')) {     // Para que no saque el "agarrando"
+                //alert(fig.getInfo());
+                
                 document.body.style.cursor = 'grab';
             } else {
+                  
                 if (canPutDisc(e.layerX, e.layerY)) {
                     // Agregar Hint de se puede dropear 
                 }
-            }     
+            }  
+             
         } else {
             document.body.style.cursor = 'not-allowed';
         }
             
     } else {
+        
         document.body.style.cursor = 'default';
     }
+
 }
 
 // fin mouse function
@@ -230,7 +238,7 @@ function createDiscs(player, cant, _posX, _posY) {
         for (let i = 0 ; i < cant; i++) {
             let disc = createDisc(radius, img, _posX, _posY, player)
             discs.push(disc);
-            _posY += height /3;
+            _posY += height /4;
         }
         drawDiscs();
     }
@@ -268,17 +276,15 @@ function drawUI() {
 function putDisc(posX, posY, disc) {
     let columna = canPutDisc(posX, posY);
     if (columna !== -1) {
-
-        return insertDisc(posX, posY, columna, 0, disc);
+        if (insertDisc(posX, posY, columna, 0, disc)) {
+            return true;
+        } else {
+            //alert("No hay mas espacio"); 
+            return false;
+        }
     } 
-    
-}
-
-let z = 0;
-
-function get() {
-    z = z + 1;
-    return z;
+    return false;
+     
 }
 
 function insertDisc(x, y, c, i, disc) {
@@ -367,11 +373,10 @@ function randomRGBA() {
 }
 
 function findClickedFigure(x, y) {
-    for (let i = 0; i < discs.length; i++) {
+    for (let i = discs.length - 1; i >= 0; i--) {       // Esta al revez para que se agarre el que esta dibujado arriba, osea de los ultimos
         const element = discs[i];
-    
+
         if (element.isPointInside(x, y)) {
-            //console.log(figures[i]);
             return element;
         }
     }
