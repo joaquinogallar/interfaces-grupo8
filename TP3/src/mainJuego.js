@@ -232,13 +232,7 @@ function putDisc(posX, posY, disc) {
     if (columna !== -1) {
         if (insertDisc(posX, posY, columna, 0, disc)) {
             return true;
-        } else {
-            //alert("No hay mas espacio"); 
-            return false;
-        }
-    } else {
-        disc.returnToInitialPosition();
-        drawGame();
+        } 
     } 
     return false;
      
