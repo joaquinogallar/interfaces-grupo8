@@ -56,7 +56,7 @@ function onMouseDown(e) {
 
     let clickFig = findClickedDisc(e.layerX, e.layerY);
     if (clickFig != null) {
-        if (clickFig.getJugador() === actualPlayer){
+        if (clickFig.getPlayer() === actualPlayer){
             clickFig.setResaltado(true);     
 
             document.body.style.cursor = 'grabbing';
@@ -76,6 +76,11 @@ function onMouseUp(e) {
     if (lastClickedFigure != null) {
         if (putDisc(e.layerX, e.layerY, lastClickedFigure)){
             togglePlayer();
+            if (checkWinner(lastClickedFigure)) {
+                alert("Winner: " + lastClickedFigure.getPlayer())
+            } else {
+                
+            }
             // Animacion caida
         } else {
             // Hint error, no se puede poner la ficha ahi
@@ -97,7 +102,7 @@ function onMouseMove(e) {
     // Cambiar style cursor para mostrar que puede o no agarrar otra ficha si no es el turno del jugador actual
     let fig = findClickedDisc(e.layerX, e.layerY);
     if (fig != null) {
-        if(fig.getJugador() === actualPlayer && !fig.isUsed()) {
+        if(fig.getPlayer() === actualPlayer && !fig.isUsed()) {
             if (!(document.body.style.cursor === 'grabbing')) {     // Para que no saque el "agarrando"
                 //alert(fig.getInfo());
                 
@@ -231,11 +236,13 @@ function putDisc(posX, posY, disc) {
     let columna = canPutDisc(posX, posY);
     if (columna !== -1) {
         if (insertDisc(posX, posY, columna, 0, disc)) {
+            drawGame();
             return true;
         } 
     } 
+    disc.returnToInitialPosition();
+    drawGame();
     return false;
-     
 }
 
 function insertDisc(x, y, c, i, disc) {
@@ -253,8 +260,7 @@ function insertDisc(x, y, c, i, disc) {
             } else {
 
                 if (!insertDisc(x, y, c, i + 1, disc)) {
-
-                    obj.markAsFilled(disc);
+                    obj.markAsFilled(disc, c, i);
                     drawGame();
                     return true;
                 }
@@ -278,6 +284,54 @@ function canPutDisc(posX, posY) {
     }
     return -1;
 }
+
+function checkWinner(disc) {
+    let boardPosition = disc.getBoardPosition();
+    let col = boardPosition.c;
+    let row = boardPosition.r;
+    let player = disc.getPlayer();
+
+    const directions = [
+        { x: 1, y: 0},
+        { x: 0, y: 1},
+        { x: 1, y: 1},
+        { x: 1, y: -1}
+    ]
+
+    function countInDirection(dx, dy) {
+        let count = 0;
+        let c = col + dx;
+        let r = row + dy;
+        
+
+
+        while (c >= 0 && c < board.length && r >= 0 && r < board[c].length && board[c][r].getDisc() != null && board[c][r].getDisc().getPlayer() === player) {
+            count++;
+            c += dx;
+            r += dy;
+        }
+        return count;
+    }
+
+    // Revisa las cuatro direcciones
+    for (let dir of directions) {
+        let count = 1; // Inicia en 1 para contar la ficha que acaba de caer
+        
+        // Contar hacia una dirección (ejemplo: derecha) y la contraria (ejemplo: izquierda)
+        count += countInDirection(dir.x, dir.y);
+        count += countInDirection(-dir.x, -dir.y);
+
+        // Si hay 4 o más fichas consecutivas, se detecta victoria
+        if (count >= 4) {
+            return true; // Victoria
+        }
+    }
+
+    return false; // No hay victoria
+
+    alert(c + " " +r);
+}
+
 
 
 function togglePlayer() {

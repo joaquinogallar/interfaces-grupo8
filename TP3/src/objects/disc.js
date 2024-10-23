@@ -4,9 +4,12 @@ class Disc extends Circle {
 
         this.initialPos = {x: posX, y: posY};
         this.image = fill;
-        this.jugador = jugador;
+        this.player = jugador;
         this.used = false;
         this.num = num;
+
+        this.boardC = null;
+        this.boardR = null;
     }
 
     draw() {
@@ -53,12 +56,24 @@ class Disc extends Circle {
         this.used = b;
     }
 
-    getJugador() {
-        return this.jugador;
+    setBoardPosition(c, r) {
+        this.boardC = c;
+        this.boardR = r;
+    }
+
+    getBoardPosition() {
+        return {
+            c : this.boardC,
+            r : this.boardR
+        }
+    }
+
+    getPlayer() {
+        return this.player;
     }
 
     getInfo() {
-        return "Disco, jugador: "+ this.jugador ;
+        return "Disco, jugador: "+ this.player ;
     }
 
     drawText(text, posX, posY, font, color = 'black') {

@@ -34,10 +34,11 @@ class Hole extends Rect {
                  y < this.posY - margin || y > this.posY + this.height + margin);
     }
 
-    markAsFilled(disc) {
+    markAsFilled(disc, c, r) {
         this.filled = true;
         this.disc = disc;
         disc.setUsed(true);
+        disc.setBoardPosition(c, r);
     }
 
     markAsEmpty() {
@@ -52,6 +53,9 @@ class Hole extends Rect {
         return this.filled;
     }
     
+    getDisc() {
+        return this.disc;
+    }
     
     getInfo() {
         return "agujero";
