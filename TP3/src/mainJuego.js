@@ -236,6 +236,9 @@ function putDisc(posX, posY, disc) {
             //alert("No hay mas espacio"); 
             return false;
         }
+    } else {
+        disc.returnToInitialPosition();
+        drawGame();
     } 
     return false;
      

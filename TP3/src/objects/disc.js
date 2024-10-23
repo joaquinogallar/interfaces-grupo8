@@ -2,6 +2,7 @@ class Disc extends Circle {
     constructor(posX, posY, radius, fill, ctx, jugador, num){
         super(posX, posY, radius, fill, ctx);
 
+        this.initialPos = {x: posX, y: posY};
         this.image = fill;
         this.jugador = jugador;
         this.used = false;
@@ -40,6 +41,9 @@ class Disc extends Circle {
         this.drawText(this.num, this.posX, this.posY, '20px Arial', 'white');
     }
 
+    returnToInitialPosition() {
+        this.setPosition(this.initialPos.x, this.initialPos.y);
+    }
 
     isUsed() {
         return this.used;
