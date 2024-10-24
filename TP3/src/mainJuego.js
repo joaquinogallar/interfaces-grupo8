@@ -2,6 +2,8 @@ let canvas = document.querySelector("#canvas-juego");
 let ctx = canvas.getContext("2d");
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
+let bgImg = new Image();
+bgImg.src = "./../assets/juego/canchaArg.jpg";
 
 const CANT_FIG = 10;
 
@@ -23,15 +25,8 @@ let figures = [];
 let lastClickedFigure = null;
 let isMouseDown = false;
 
-// limpia el canvas
-function clearCanvas() {
-  const canvas = document.getElementById("myCanvas"); // Asegúrate de que el ID sea el correcto
-  const ctx = canvas.getContext("2d");
-  ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpia todo el canvas
-}
-
 function resetGame() {
-  clearCanvas();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   // reinicia las variables del juego
   discs = [];
@@ -193,9 +188,10 @@ function drawBoard() {
   for (let i = 0; i < holes.length; i++) {
     holes[i].draw();
   }
-  for (let i = 0; i < holesInsert.length; i++) {
-    holesInsert[i].draw();
-  }
+  // pinta los agujeros donde se sueltan las fichas
+  // for (let i = 0; i < holesInsert.length; i++) {
+  //   holesInsert[i].draw();
+  // }
 }
 
 function createDiscs(player, cant, _posX, _posY) {
@@ -238,10 +234,16 @@ function drawGame() {
 }
 
 function drawUI() {
-  let font = "30px Arial";
-  drawText(player1 + ": " + playerScore1, 60, 40);
-  drawText(player2 + ": " + playerScore2, canvasWidth - 60, 40);
-  drawText("Turno de " + actualPlayer, canvas.width / 2, 40, font);
+  let font = "bold 30px Arial";
+  drawText(player1 + ": " + playerScore1, 80, 40, undefined, "white");
+  drawText(
+    player2 + ": " + playerScore2,
+    canvasWidth - 70,
+    40,
+    undefined,
+    "white"
+  );
+  drawText("Turno de " + actualPlayer, canvas.width / 2, 40, font, "white");
 }
 
 // fin crear juego
@@ -358,7 +360,8 @@ setTimeout(() => {
 // #Region Utils
 
 function clearCanvas() {
-  ctx.fillStyle = "#F8F8FF";
+  ctx.drawImage(bgImg, 0, 0, canvasWidth, canvasHeight);
+  ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
   ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 }
 
@@ -397,7 +400,7 @@ function findClickedDisc(x, y) {
   return null;
 }
 
-function drawText(text, posX, posY, font = "20px Arial", color = "black") {
+function drawText(text, posX, posY, font = "bold 20px Arial", color = "black") {
   ctx.font = font;
   ctx.fillStyle = color;
   ctx.textAlign = "center";
