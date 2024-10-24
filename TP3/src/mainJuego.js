@@ -234,7 +234,7 @@ function drawGame() {
 }
 
 function drawUI() {
-  let font = "bold 30px Arial";
+  let font = "200 30px 'Baloo 2'";
   drawText(player1 + ": " + playerScore1, 80, 40, undefined, "white");
   drawText(
     player2 + ": " + playerScore2,
@@ -400,7 +400,13 @@ function findClickedDisc(x, y) {
   return null;
 }
 
-function drawText(text, posX, posY, font = "bold 20px Arial", color = "black") {
+function drawText(
+  text,
+  posX,
+  posY,
+  font = "bold 20px 'Baloo 2'",
+  color = "black"
+) {
   ctx.font = font;
   ctx.fillStyle = color;
   ctx.textAlign = "center";
