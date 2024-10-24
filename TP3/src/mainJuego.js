@@ -23,6 +23,27 @@ let figures = [];
 let lastClickedFigure = null;
 let isMouseDown = false;
 
+// limpia el canvas
+function clearCanvas() {
+  const canvas = document.getElementById("myCanvas"); // Asegúrate de que el ID sea el correcto
+  const ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpia todo el canvas
+}
+
+function resetGame() {
+  clearCanvas();
+
+  // reinicia las variables del juego
+  discs = [];
+  holes = [];
+  holesInsert = [];
+  actualPlayer = player1;
+  lastClickedFigure = null;
+
+  // reinicia el juego
+  play();
+}
+
 // Funcion que crea el juego
 function play() {
   let columns = 7;
@@ -72,13 +93,11 @@ function onMouseUp(e) {
     if (putDisc(e.layerX, e.layerY, lastClickedFigure)) {
       togglePlayer();
       if (checkWinner(lastClickedFigure)) {
-        alert("Winner: " + lastClickedFigure.getPlayer());
         lastClickedFigure.getPlayer() == player1
           ? playerScore1++
           : playerScore2++;
-
-        console.log(player1 + playerScore1);
-        console.log(player2 + playerScore2);
+        alert("Winner: " + lastClickedFigure.getPlayer());
+        resetGame();
       } else {
       }
       // Animacion caida
