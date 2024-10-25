@@ -100,7 +100,6 @@ function onMouseUp(e) {
       // Hint error, no se puede poner la ficha ahi
     }
   }
-  //console.log("Mouseup");
 }
 
 function onMouseMove(e) {
@@ -274,16 +273,50 @@ function insertDisc(x, y, c, i, disc) {
         return false;
       } else {
         if (!insertDisc(x, y, c, i + 1, disc)) {
+          // Aquí iniciamos la animación de caída
+          animateDiscDrop(disc, obj.getPosY(), function() {
+            console.log(disc);
+
+            console.log(disc.boardC);
+            console.log(disc.boardR);
+            
+            console.log(c);
+            console.log(i);
+            
+            console.log("Entraaaa");
+            console.log(obj.getPosY());
+            console.log(obj.getPosX());
+          
           obj.markAsFilled(disc, c, i);
           drawGame();
+          });
           return true;
         }
       }
     }
   }
-
   return true;
 }
+
+function animateDiscDrop(disc, targetY, onComplete) {
+  let speed = 10;
+  
+
+  function drop() {
+    if (disc.getPosition().y < targetY) {      
+      disc.setPosition(disc.getPosition().x, Math.min(disc.getPosition().y + speed, targetY));
+      drawGame();
+      requestAnimationFrame(drop); 
+    } else {
+      if (onComplete) onComplete(); 
+      // obj.markAsFilled(disc, disc.getPosition().x, targetY);
+
+    }
+  }
+
+  requestAnimationFrame(drop); 
+}
+
 
 function canPutDisc(posX, posY) {
   for (let i = 0; i < holesInsert.length; i++) {
@@ -294,11 +327,16 @@ function canPutDisc(posX, posY) {
   return -1;
 }
 
+
 function checkWinner(disc) {
   let boardPosition = disc.getBoardPosition();
   let col = boardPosition.c;
   let row = boardPosition.r;
   let player = disc.getPlayer();
+
+  console.log("CHECK WINNER LOGS");
+  console.log("Checking winner for player:", player);
+  console.log("Disc position: col =", col, "row =", row);
 
   const directions = [
     { x: 1, y: 0 },
