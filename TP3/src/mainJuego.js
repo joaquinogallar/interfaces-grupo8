@@ -2,58 +2,16 @@ let canvas = document.querySelector("#canvas-juego");
 let ctx = canvas.getContext("2d");
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
-let bgImg = new Image();
-bgImg.src = "./../assets/juego/canchaArg.jpg";
+
 
 const CANT_FIG = 10;
 
-const sizeDisc = 50; // Tamaño del cuadrado del tablero
-const radiusDisc = sizeDisc * 0.35; // Radio de la ficha
 
-let discs = [];
-let holes = []; // Board
-const board = [];
-let holesInsert = [];
-
-const player1 = "Argentina";
-const player2 = "Brasil";
-let playerScore1 = 0;
-let playerScore2 = 0;
-let actualPlayer = player1;
 
 let figures = [];
 let lastClickedFigure = null;
 let isMouseDown = false;
 
-function resetGame() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  // reinicia las variables del juego
-  discs = [];
-  holes = [];
-  holesInsert = [];
-  actualPlayer = player1;
-  lastClickedFigure = null;
-
-  // reinicia el juego
-  play();
-}
-
-// Funcion que crea el juego
-function play() {
-  let columns = 7;
-  let rows = 6;
-
-  let total = columns * rows;
-  let discsForPlayer = total / 2;
-
-  createBoard(columns, rows, "blue"); // Crea y dibuja el tablero con columnas y filas variables y color //
-
-  createDiscs(player1, discsForPlayer, 300, 250);
-  createDiscs(player2, discsForPlayer, 750, 250);
-
-  drawGame();
-}
 
 // Mouse Functions
 
@@ -81,7 +39,7 @@ function onMouseDown(e) {
   //drawFigure();
 }
 
-function onMouseUp(e) {
+function onMouseUp(e) {//////
   isMouseDown = false;
   document.body.style.cursor = "default";
   if (lastClickedFigure != null) {
@@ -119,7 +77,7 @@ function onMouseMove(e) {
 
         document.body.style.cursor = "grab";
       } else {
-        if (canPutDisc(e.layerX, e.layerY)) {
+        if (canPutDisc(e.layerX, e.layerY)) {///////
           // Agregar Hint de se puede dropear
         }
       }
