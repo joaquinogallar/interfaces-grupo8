@@ -55,9 +55,6 @@ class Game {
         
         // reinicia el juego
         await this.play(p1, p2, bg, this.columns, this.rows);
-
-        console.log(this.board);
-        console.log(this.discs)
     }
         
     // Funcion que crea el juego
@@ -70,7 +67,7 @@ class Game {
 
         await this.initGame(p1, p2, bgImg);
         
-        console.log("creando");
+
         this.createBoard(cols, rows, "blue"); // Crea y dibuja el tablero con columnas y filas variables y color //
         
         this.createDiscs(this.player1, discsForPlayer, 300, 250);
@@ -109,7 +106,6 @@ class Game {
                 _posY += size;
             }
             _posY = yInicial;
-            console.log(_posX);
             _posX += size;
         }
 
@@ -134,7 +130,6 @@ class Game {
     }
   
     drawBoard() {
-        console.log("board")
         for (let i = 0; i < this.holes.length; i++) {
             this.holes[i].draw();
         }
@@ -172,7 +167,6 @@ class Game {
     }
   
     drawDiscs() {
-        console.log("ds")
         //clearCanvas();
         for (let i = 0; i < this.discs.length; i++) {
             this.discs[i].draw();
@@ -188,7 +182,6 @@ class Game {
     }
       
     drawUI() {
-        console.log("ui")
         let font = "200 30px 'Baloo 2'";
         this.drawText(this.player1 + ": " + this.playerScore1, 80, 40, undefined, "white");
         this.drawText(
@@ -234,7 +227,7 @@ class Game {
                         this.animateDiscDrop(disc, obj.getPosY(), () => {
 
                             
-                            console.log("Col: " + disc.getBoardPosition().c + " Row: " + disc.getBoardPosition().r)
+                           //console.log("Col: " + disc.getBoardPosition().c + " Row: " + disc.getBoardPosition().r)
                             this.drawGame();
                         });
                         return true;
@@ -339,7 +332,6 @@ class Game {
     // #Region Utils
 
     clearCanvas() {
-        console.log("clear")
         this.ctx.drawImage(this.bgImg, 0, 0, this.width, this.height);
         this.ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
         this.ctx.fillRect(0, 0, this.width, this.height);

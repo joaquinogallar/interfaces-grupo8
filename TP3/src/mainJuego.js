@@ -59,12 +59,15 @@ function onMouseUp(e) {//////
     if (game.putDisc(e.layerX, e.layerY, lastClickedFigure)) {
       game.togglePlayer();
       if (game.checkWinner(lastClickedFigure)) {
-        console.log(game.getPlayer1())
-        lastClickedFigure.getPlayer() == game.getPlayer1()
-          ? game.addWinPlayer1()
-          : game.addWinPlayer2();
-        alert("Winner: " + lastClickedFigure.getPlayer());
-        game.resetGame();
+
+          lastClickedFigure.getPlayer() == game.getPlayer1()
+            ? game.addWinPlayer1()
+            : game.addWinPlayer2();
+
+          alert("Winner: " + lastClickedFigure.getPlayer());
+          
+          game.resetGame();
+          
       } else {
       }
       // Animacion caida
