@@ -104,6 +104,8 @@ function onMouseMove(e) {
 
 // fin mouse function
 
+
+// ### ELIMINAR ANTES DE SUBIR A MAIN #########/
 // Crear juego //
 
 /*

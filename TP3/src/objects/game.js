@@ -108,7 +108,6 @@ class Game {
             _posX += size;
         }
 
-        console.log(board);
 
         // Holes para inserta disco
         for (let c = 0; c < columns; c++) {
@@ -272,10 +271,11 @@ class Game {
         let row = boardPosition.r;
         let player = disc.getPlayer();
 
+        /*
         console.log("CHECK WINNER LOGS");
         console.log("Checking winner for player:", player);
         console.log("Disc position: col =", col, "row =", row);
-
+*/
         const directions = [
             { x: 1, y: 0 },
             { x: 0, y: 1 },
