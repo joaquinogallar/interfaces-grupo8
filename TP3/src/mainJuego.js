@@ -13,6 +13,13 @@ let lastClickedFigure = null;
 let isMouseDown = false;
 
 
+
+function createGame(p1 = "Argentina", p2 = "Brasil", bgImg = "./././assets/juego/canchaArg.jpg") {
+  const game = new Game(p1 , p2, ctx, canvasHeight, canvasWidth, bgImg);
+
+  game.play();
+}
+
 // Mouse Functions
 
 function onMouseDown(e) {
@@ -93,6 +100,7 @@ function onMouseMove(e) {
 
 // Crear juego //
 
+/*
 function createBoard(columns, rows, color) {
   const maxBoardSize = 400;
 
@@ -127,7 +135,7 @@ function createBoard(columns, rows, color) {
     let holeI = createHole(
       size,
       size,
-      "gray" /* Reemplazar por "" para que sea invisible */,
+      "gray" /* Reemplazar por "" para que sea invisible */,          /*
       board[c][0].getPosX(),
       board[c][0].getPosY() - size
     );
@@ -136,11 +144,15 @@ function createBoard(columns, rows, color) {
 
   drawBoard();
 }
+*/
 
+/*
 function createHole(rectHeight, rectWidth, color, posX, posY) {
   return new Hole(posX, posY, rectWidth, rectHeight, color, ctx, radiusDisc);
 }
+  */
 
+/*
 function drawBoard() {
   for (let i = 0; i < holes.length; i++) {
     holes[i].draw();
@@ -150,7 +162,8 @@ function drawBoard() {
   //   holesInsert[i].draw();
   // }
 }
-
+  */
+/*
 function createDiscs(player, cant, _posX, _posY) {
   // Crea los discos para los jugadores
 
@@ -170,26 +183,26 @@ function createDiscs(player, cant, _posX, _posY) {
     }
     drawDiscs();
   };
-}
-
+} */
+/*
 function createDisc(radius, img, posX, posY, player, num) {
   return new Disc(posX, posY, radius, img, ctx, player, num + 1);
-}
-
+}*/
+/*
 function drawDiscs() {
   //clearCanvas();
   for (let i = 0; i < discs.length; i++) {
     discs[i].draw();
   }
-}
-
+}*/
+/*
 function drawGame() {
   clearCanvas();
   drawBoard();
   drawDiscs();
   drawUI();
 }
-
+*//*
 function drawUI() {
   let font = "200 30px 'Baloo 2'";
   drawText(player1 + ": " + playerScore1, 80, 40, undefined, "white");
@@ -201,7 +214,7 @@ function drawUI() {
     "white"
   );
   drawText("Turno de " + actualPlayer, canvas.width / 2, 40, font, "white");
-}
+}*/
 
 // fin crear juego
 
