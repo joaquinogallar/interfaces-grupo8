@@ -4,6 +4,9 @@ class Game {
         this.ctx = ctx;
         this.height = canvasHeight;
         this.width = canvasWidth;
+
+        this.playerScore1 = 0;
+        this.playerScore2 = 0;
         
     }
 
@@ -19,10 +22,10 @@ class Game {
         this.board = [];
         this.holesInsert = [];
 
+        this.boardSize = 350; // Tamaño maximo del board (pixeles)
+
         this.player1 = p1;
-        this.player2 = p2;
-        this.playerScore1 = 0;      // Player
-        this.playerScore2 = 0;
+        this.player2 = p2;      // Player
         this.actualPlayer = this.player1;
 
 
@@ -47,18 +50,18 @@ class Game {
     }
 
     // Poder hacer reset con datos opcionalemente cambiables
-    resetGame(p1 = this.player1, p2 = this.player2, bg = this.bgImg.src) {
+    async resetGame(p1 = this.player1, p2 = this.player2, bg = this.bgImg.src) {
         this.ctx.clearRect(0, 0, this.width, this.height);
         
-        // reinicia las variables del juego
-        this.initGame(p1, p2, bg)
-        
         // reinicia el juego
-        this.play();
+        await this.play(p1, p2, bg, this.columns, this.rows);
+
+        console.log(this.board);
+        console.log(this.discs)
     }
         
     // Funcion que crea el juego
-    async play(p1 = "Argentina", p2 = "Brasil", bgImg = "", cols, rows) {
+    async play(p1 = "Argentina", p2 = "Brasil", bgImg = "", cols = 7, rows = 6) {
         this.columns = cols;
         this.rows = rows;
         
@@ -67,6 +70,7 @@ class Game {
 
         await this.initGame(p1, p2, bgImg);
         
+        console.log("creando");
         this.createBoard(cols, rows, "blue"); // Crea y dibuja el tablero con columnas y filas variables y color //
         
         this.createDiscs(this.player1, discsForPlayer, 300, 250);
@@ -82,19 +86,19 @@ class Game {
         const maxBoardSize = this.getBoardSize();
 
         // Crea la tabla del juego, agujero por agujero
-        const board = this.board;
-        //let size = sizeDisc; // TAMAÑO DE AGUJERO//
+        let board = this.board;
+        let size = this.sizeDisc; // TAMAÑO DE AGUJERO//
 
         let sizeX = maxBoardSize / columns; // Tamaño del hole (cuadrado)
         let sizeY = maxBoardSize / rows;
 
-        let size = Math.min(sizeX, sizeY);
+        
 
-        let _posX = canvasWidth / 2 - (size * columns) / 2; // POSICION INICIAL //
-        let _posY = canvasHeight / 2 - (size * rows) / 2;
+        let _posX = this.width / 2 - (size * columns) / 2; // POSICION INICIAL //
+        let _posY = this.height / 2 - (size * rows) / 2;
 
         let yInicial = _posY;
-
+        
         for (let c = 0; c < columns; c++) {
                 board[c] = [];
                 
@@ -105,6 +109,7 @@ class Game {
                 _posY += size;
             }
             _posY = yInicial;
+            console.log(_posX);
             _posX += size;
         }
 
@@ -129,6 +134,7 @@ class Game {
     }
   
     drawBoard() {
+        console.log("board")
         for (let i = 0; i < this.holes.length; i++) {
             this.holes[i].draw();
         }
@@ -144,6 +150,7 @@ class Game {
     
         let height = this.sizeDisc;
         let radius = this.radiusDisc;
+
     
         const img = new Image();
     
@@ -165,8 +172,9 @@ class Game {
     }
   
     drawDiscs() {
+        console.log("ds")
         //clearCanvas();
-        for (let i = 0; i < discs.length; i++) {
+        for (let i = 0; i < this.discs.length; i++) {
             this.discs[i].draw();
         }
     }
@@ -180,6 +188,7 @@ class Game {
     }
       
     drawUI() {
+        console.log("ui")
         let font = "200 30px 'Baloo 2'";
         this.drawText(this.player1 + ": " + this.playerScore1, 80, 40, undefined, "white");
         this.drawText(
@@ -225,7 +234,7 @@ class Game {
                         this.animateDiscDrop(disc, obj.getPosY(), () => {
 
                             
-                            //console.log("Col: " + disc.getBoardPosition().c + " Row: " + disc.getBoardPosition().r)
+                            console.log("Col: " + disc.getBoardPosition().c + " Row: " + disc.getBoardPosition().r)
                             this.drawGame();
                         });
                         return true;
@@ -312,7 +321,7 @@ class Game {
             count += countInDirection(-dir.x, -dir.y);
 
             // Si hay 4 o más fichas consecutivas, se detecta victoria
-            if (count >= 4) {
+            if (count >= 2) {
             return true; // Victoria
             }
         }
@@ -330,7 +339,7 @@ class Game {
     // #Region Utils
 
     clearCanvas() {
-
+        console.log("clear")
         this.ctx.drawImage(this.bgImg, 0, 0, this.width, this.height);
         this.ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
         this.ctx.fillRect(0, 0, this.width, this.height);
@@ -364,10 +373,10 @@ class Game {
     ///// GETTERS Y SETTER /////
 
     getBoardSize() {
-        return this.BoardSize;
+        return this.boardSize;
     }
     setBoardSize(value) {
-        this.BoardSize = value;
+        this.boardSize = value;
     }
 
     getDiscs() {
@@ -376,5 +385,26 @@ class Game {
 
     getActualPlayer() {
         return this.actualPlayer;
+    }
+
+    getPlayer1() {
+        return this.player1;
+    }
+
+    getPlayer2() {
+        return this.player2;
+    }
+
+    addWinPlayer1() {
+        this.playerScore1 = this.playerScore1 + 1;
+    }
+
+    addWinPlayer2() {
+        this.playerScore2 = this.playerScore2 + 1;
+    }
+
+    resetWins() {
+        this.playerScore1 = 0;
+        this.playerScore2 = 0;
     }
 }
