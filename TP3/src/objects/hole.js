@@ -8,21 +8,26 @@ class Hole extends Rect {
     }
 
     draw() {
-        const img = new Image();  // Crear una nueva instancia de imagen
-        img.src = '././assets/juego/hole.png';  // Asegúrate de poner la ruta correcta a tu imagen
 
-        
-            this.ctx.drawImage(
-                img, 
-                this.posX, this.posY, 
-                this.width, this.height
-            );
-            
-            if (this.resaltado === true) {
-                this.ctx.strokeStyle = this.resaltadoStyle;
-                this.ctx.lineWidth = this.resaltadoWidth;
-                this.ctx.strokeRect(this.posX, this.posY, this.width, this.height);
-            }
+
+        /*          PARA CUANDO TENGAMOS IMAGEN DEL HOLE
+        const img = new Image();  // Crear una nueva instancia de imagen
+        img.src = './././assets/juego/hole.png';  // Asegúrate de poner la ruta correcta a tu imagen
+
+        this.ctx.drawImage(
+            img, 
+            this.posX, this.posY, 
+            this.width, this.height
+        );
+        img.onerror = () => {
+            console.error('Error al cargar la imagen:', img.src);
+        };
+        /*
+        if (this.resaltado === true) {
+            this.ctx.strokeStyle = this.resaltadoStyle;
+            this.ctx.lineWidth = this.resaltadoWidth;
+            this.ctx.strokeRect(this.posX, this.posY, this.width, this.height);
+        }*/
         
         this.addCircle(this.radius);
     }
