@@ -390,7 +390,9 @@ setTimeout(() => {
 // #Region Utils
 
 function clearCanvas() {
-  ctx.drawImage(bgImg, 0, 0, canvasWidth, canvasHeight);
+  bgImg.onload = function() { 
+    ctx.drawImage(bgImg, 0, 0, canvasWidth, canvasHeight);
+  }
   ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
   ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 }
