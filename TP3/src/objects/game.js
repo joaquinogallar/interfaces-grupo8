@@ -314,7 +314,7 @@ class Game {
             count += countInDirection(-dir.x, -dir.y);
 
             // Si hay 4 o más fichas consecutivas, se detecta victoria
-            if (count >= 2) {
+            if (count >= 4) {
             return true; // Victoria
             }
         }
