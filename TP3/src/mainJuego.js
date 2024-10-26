@@ -274,21 +274,13 @@ function insertDisc(x, y, c, i, disc) {
       } else {
         if (!insertDisc(x, y, c, i + 1, disc)) {
           // Aquí iniciamos la animación de caída
-          animateDiscDrop(disc, obj.getPosY(), function() {
-            console.log(disc);
-
-            console.log(disc.boardC);
-            console.log(disc.boardR);
-            
-            console.log(c);
-            console.log(i);
-            
-            console.log("Entraaaa");
-            console.log(obj.getPosY());
-            console.log(obj.getPosX());
-          
           obj.markAsFilled(disc, c, i);
-          drawGame();
+          animateDiscDrop(disc, obj.getPosY(), function() {
+
+            
+            //console.log("Col: " + disc.getBoardPosition().c + " Row: " + disc.getBoardPosition().r)
+
+            drawGame();
           });
           return true;
         }
@@ -309,7 +301,7 @@ function animateDiscDrop(disc, targetY, onComplete) {
       requestAnimationFrame(drop); 
     } else {
       if (onComplete) onComplete(); 
-      // obj.markAsFilled(disc, disc.getPosition().x, targetY);
+       //obj.markAsFilled(disc, disc.getPosition().x, targetY);
 
     }
   }
