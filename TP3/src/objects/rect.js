@@ -9,7 +9,7 @@ class Rect extends Figure {
     draw() {
         super.draw();
         this.ctx.fillRect(this.posX, this.posY, this.width, this.height);
-
+        console.log("ad");
         if(this.resaltado === true) {
             this.ctx.strokeStyle = this.resaltadoStyle;
             this.ctx.lineWidth = this.resaltadoWidth;

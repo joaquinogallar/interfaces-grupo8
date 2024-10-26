@@ -1,19 +1,18 @@
 class Game {
     
-    constructor(p1, p2, ctx, canvasHeight, canvasWidth, srcImage) {
+    constructor(ctx, canvasHeight, canvasWidth) {
         this.ctx = ctx;
         this.height = canvasHeight;
         this.width = canvasWidth;
-        this.initGame(p1, p2, srcImage);
         
     }
 
 
     // Funciones init, reset, play, etc     //
 
-    initGame(p1, p2, srcImage) {
+    async initGame(p1, p2, srcImage) {
         this.sizeDisc = 50; // Tamaño del cuadrado del tablero
-        this.radiusDisc = sizeDisc * 0.35; // Radio de la ficha
+        this.radiusDisc = this.sizeDisc * 0.35; // Radio de la ficha
 
         this.discs = [];
         this.holes = []; // Board
@@ -24,12 +23,27 @@ class Game {
         this.player2 = p2;
         this.playerScore1 = 0;      // Player
         this.playerScore2 = 0;
-        this.actualPlayer = player1;
+        this.actualPlayer = this.player1;
 
 
         // Background
         this.bgImg = new Image();
+        
         this.bgImg.src = srcImage;
+
+        // Espera a que la imagen se cargue
+        await new Promise((resolve) => {
+            this.bgImg.onload = () => {
+                //console.log("Imagen cargada. Inicializando juego.");
+
+                resolve(); 
+            };
+
+            if (this.bgImg.complete) {
+                this.bgImg.onload(); 
+            }
+        });
+
     }
 
     // Poder hacer reset con datos opcionalemente cambiables
@@ -44,17 +58,20 @@ class Game {
     }
         
     // Funcion que crea el juego
-    play(cols, rows) {
+    async play(p1 = "Argentina", p2 = "Brasil", bgImg = "", cols, rows) {
         this.columns = cols;
         this.rows = rows;
         
-        let total = columns * rows;
+        let total = cols * rows;
         let discsForPlayer = total / 2;
+
+        await this.initGame(p1, p2, bgImg);
         
-        this.createBoard(this.columns, this.rows, "blue"); // Crea y dibuja el tablero con columnas y filas variables y color //
+        this.createBoard(cols, rows, "blue"); // Crea y dibuja el tablero con columnas y filas variables y color //
         
-        this.createDiscs(player1, discsForPlayer, 300, 250);
-        this.createDiscs(player2, discsForPlayer, 750, 250);
+        this.createDiscs(this.player1, discsForPlayer, 300, 250);
+        this.createDiscs(this.player2, discsForPlayer, 750, 250);
+        
         
         this.drawGame();
     }
@@ -65,7 +82,7 @@ class Game {
         const maxBoardSize = this.getBoardSize();
 
         // Crea la tabla del juego, agujero por agujero
-
+        const board = this.board;
         //let size = sizeDisc; // TAMAÑO DE AGUJERO//
 
         let sizeX = maxBoardSize / columns; // Tamaño del hole (cuadrado)
@@ -79,25 +96,28 @@ class Game {
         let yInicial = _posY;
 
         for (let c = 0; c < columns; c++) {
-            this.board[c] = [];
-            for (let r = 0; r < rows; r++) {
-            let hole = this.createHole(size, size, color, _posX, _posY);
-            this.holes.push(hole);
-            this.board[c][r] = hole;
-            _posY += size;
+                board[c] = [];
+                
+                for (let r = 0; r < rows; r++) {
+                let hole = this.createHole(size, size, color, _posX, _posY);
+                this.holes.push(hole);
+                board[c][r] = hole;
+                _posY += size;
             }
             _posY = yInicial;
             _posX += size;
         }
 
+        console.log(board);
+
         // Holes para inserta disco
         for (let c = 0; c < columns; c++) {
             let holeI = this.createHole(
-            size,
-            size,
-            "gray" /* Reemplazar por "" para que sea invisible */,
-            this.board[c][0].getPosX(),
-            this.board[c][0].getPosY() - size
+                size,
+                size,
+                "gray" /* Reemplazar por "" para que sea invisible */,
+                board[c][0].getPosX(),
+                board[c][0].getPosY() - size
             );
             this.holesInsert.push(holeI);
         }
@@ -128,7 +148,7 @@ class Game {
     
         const img = new Image();
     
-        let name = player === player1 ? "P1" : "P2";
+        let name = player === this.player1 ? "P1" : "P2";
         img.src = "./././assets/juego/disc" + name + ".png";
     
         img.onload = () => {
@@ -157,6 +177,7 @@ class Game {
         this.drawBoard();
         this.drawDiscs();
         this.drawUI();
+        
     }
       
     drawUI() {
@@ -190,32 +211,155 @@ class Game {
     }
 
     insertDisc(x, y, c, i, disc) {
-        if (i === board[c].length) {
-          return false;
+        if (i === this.board[c].length) {
+            return false;
         } else {
-          let obj = board[c][i];
-          if (obj) {
-            let isFilled = obj.isFilled();
-            if (isFilled) {
-              return false;
-            } else {
-              if (!insertDisc(x, y, c, i + 1, disc)) {
-                // Aquí iniciamos la animación de caída
-                obj.markAsFilled(disc, c, i);
-                animateDiscDrop(disc, obj.getPosY(), function() {
-      
-                  
-                  //console.log("Col: " + disc.getBoardPosition().c + " Row: " + disc.getBoardPosition().r)
-      
-                  drawGame();
-                });
-                return true;
-              }
+            let obj = this.board[c][i];
+            if (obj) {
+                let isFilled = obj.isFilled();
+                if (isFilled) {
+                    return false;
+                } else {
+                    if (!this.insertDisc(x, y, c, i + 1, disc)) {
+                        // Aquí iniciamos la animación de caída
+                        obj.markAsFilled(disc, c, i);
+                        this.animateDiscDrop(disc, obj.getPosY(), () => {
+
+                            
+                            //console.log("Col: " + disc.getBoardPosition().c + " Row: " + disc.getBoardPosition().r)
+                            this.drawGame();
+                        });
+                        return true;
+                    }
+                }
             }
-          }
         }
         return true;
-      }
+    }
+
+    animateDiscDrop(disc, targetY, onComplete) {
+        let speed = 10;
+
+
+        function drop() {
+            if (disc.getPosition().y < targetY) {      
+                disc.setPosition(disc.getPosition().x, Math.min(disc.getPosition().y + speed, targetY));
+                this.drawGame();
+                requestAnimationFrame(drop); 
+            } else {
+            if (onComplete) onComplete(); 
+                //obj.markAsFilled(disc, disc.getPosition().x, targetY);
+
+            }
+        }
+
+        requestAnimationFrame(drop); 
+    }
+
+    canPutDisc(posX, posY) {
+        for (let i = 0; i < this.holesInsert.length; i++) {
+            if (this.holesInsert[i].isPointInside(posX, posY)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    
+    checkWinner(disc) {
+        const board = this.board;
+        let boardPosition = disc.getBoardPosition();
+        let col = boardPosition.c;
+        let row = boardPosition.r;
+        let player = disc.getPlayer();
+
+        console.log("CHECK WINNER LOGS");
+        console.log("Checking winner for player:", player);
+        console.log("Disc position: col =", col, "row =", row);
+
+        const directions = [
+            { x: 1, y: 0 },
+            { x: 0, y: 1 },
+            { x: 1, y: 1 },
+            { x: 1, y: -1 },
+        ];
+
+        function countInDirection(dx, dy) {
+            let count = 0;
+            let c = col + dx;
+            let r = row + dy;
+
+            while (
+                c >= 0 &&
+                c < board.length &&
+                r >= 0 &&
+                r < board[c].length &&
+                board[c][r].getDisc() != null &&
+                board[c][r].getDisc().getPlayer() === player
+            ) {
+                count++;
+                c += dx;
+                r += dy;
+            }
+            return count;
+        }
+
+        // Revisa las cuatro direcciones
+        for (let dir of directions) {
+            let count = 1; // Inicia en 1 para contar la ficha que acaba de caer
+
+            // Contar hacia una dirección (ejemplo: derecha) y la contraria (ejemplo: izquierda)
+            count += countInDirection(dir.x, dir.y);
+            count += countInDirection(-dir.x, -dir.y);
+
+            // Si hay 4 o más fichas consecutivas, se detecta victoria
+            if (count >= 4) {
+            return true; // Victoria
+            }
+        }
+
+        return false; // No hay victoria
+    }
+      
+    togglePlayer() {
+        this.actualPlayer = this.actualPlayer === this.player1 ? this.player2 : this.player1;
+        this.drawGame();
+    }
+
+    // Fin funciones juego
+
+    // #Region Utils
+
+    clearCanvas() {
+
+        this.ctx.drawImage(this.bgImg, 0, 0, this.width, this.height);
+        this.ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+        this.ctx.fillRect(0, 0, this.width, this.height);
+    }
+  
+    drawImage(src, x, y, width, height) {
+        const img = new Image();
+        img.src = src;
+        img.onload = function () {
+        
+            this.ctx.drawImage(img, x, y, width, height);
+        };
+    }
+
+    drawText(
+        text,
+        posX,
+        posY,
+        font = "bold 20px 'Baloo 2'",
+        color = "black"
+    ) {
+        this.ctx.font = font;
+        this.ctx.fillStyle = color;
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+
+        this.ctx.fillText(text, posX, posY);
+    }
+    
 
     ///// GETTERS Y SETTER /////
 
@@ -224,5 +368,13 @@ class Game {
     }
     setBoardSize(value) {
         this.BoardSize = value;
+    }
+
+    getDiscs() {
+        return this.discs;
+    }
+
+    getActualPlayer() {
+        return this.actualPlayer;
     }
 }

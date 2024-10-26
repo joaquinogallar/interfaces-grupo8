@@ -6,18 +6,24 @@ let canvasHeight = canvas.height;
 
 const CANT_FIG = 10;
 
-
+let discs = [];
 
 let figures = [];
 let lastClickedFigure = null;
 let isMouseDown = false;
 
+let game = null;
+
 
 
 function createGame(p1 = "Argentina", p2 = "Brasil", bgImg = "./././assets/juego/canchaArg.jpg") {
-  const game = new Game(p1 , p2, ctx, canvasHeight, canvasWidth, bgImg);
+  game = new Game(ctx, canvasHeight, canvasWidth);
 
-  game.play();
+  game.play(p1, p2, bgImg, 7, 6);
+
+  discs = game.getDiscs();
+  
+  
 }
 
 // Mouse Functions
@@ -33,7 +39,7 @@ function onMouseDown(e) {
 
   let clickFig = findClickedDisc(e.layerX, e.layerY);
   if (clickFig != null) {
-    if (clickFig.getPlayer() === actualPlayer) {
+    if (clickFig.getPlayer() === game.getActualPlayer()) {
       clickFig.setResaltado(true);
 
       document.body.style.cursor = "grabbing";
@@ -50,14 +56,14 @@ function onMouseUp(e) {//////
   isMouseDown = false;
   document.body.style.cursor = "default";
   if (lastClickedFigure != null) {
-    if (putDisc(e.layerX, e.layerY, lastClickedFigure)) {
-      togglePlayer();
-      if (checkWinner(lastClickedFigure)) {
+    if (game.putDisc(e.layerX, e.layerY, lastClickedFigure)) {
+      game.togglePlayer();
+      if (game.checkWinner(lastClickedFigure)) {
         lastClickedFigure.getPlayer() == player1
           ? playerScore1++
           : playerScore2++;
         alert("Winner: " + lastClickedFigure.getPlayer());
-        resetGame();
+        game.resetGame();
       } else {
       }
       // Animacion caida
@@ -71,20 +77,20 @@ function onMouseMove(e) {
   //console.log("Mousemove");
   if (isMouseDown && lastClickedFigure != null) {
     lastClickedFigure.setPosition(e.layerX, e.layerY);
-    drawGame();
+    game.drawGame();
   }
 
   // Cambiar style cursor para mostrar que puede o no agarrar otra ficha si no es el turno del jugador actual
   let fig = findClickedDisc(e.layerX, e.layerY);
   if (fig != null) {
-    if (fig.getPlayer() === actualPlayer && !fig.isUsed()) {
+    if (fig.getPlayer() === game.getActualPlayer() && !fig.isUsed()) {
       if (!(document.body.style.cursor === "grabbing")) {
         // Para que no saque el "agarrando"
         //alert(fig.getInfo());
 
         document.body.style.cursor = "grab";
       } else {
-        if (canPutDisc(e.layerX, e.layerY)) {///////
+        if (game.canPutDisc(e.layerX, e.layerY)) {///////
           // Agregar Hint de se puede dropear
         }
       }
@@ -135,7 +141,7 @@ function createBoard(columns, rows, color) {
     let holeI = createHole(
       size,
       size,
-      "gray" /* Reemplazar por "" para que sea invisible */,          /*
+      "gray" /* Reemplazar por "" para que sea invisible *//*,          
       board[c][0].getPosX(),
       board[c][0].getPosY() - size
     );
@@ -219,7 +225,7 @@ function drawUI() {
 // fin crear juego
 
 // Funciones Juego //
-
+/*
 function putDisc(posX, posY, disc) {
   let columna = canPutDisc(posX, posY);
   if (columna !== -1) {
@@ -231,8 +237,8 @@ function putDisc(posX, posY, disc) {
   disc.returnToInitialPosition();
   drawGame();
   return false;
-}
-
+}*/
+/*
 function insertDisc(x, y, c, i, disc) {
   if (i === board[c].length) {
     return false;
@@ -259,8 +265,8 @@ function insertDisc(x, y, c, i, disc) {
     }
   }
   return true;
-}
-
+}*/
+/*
 function animateDiscDrop(disc, targetY, onComplete) {
   let speed = 10;
   
@@ -278,9 +284,9 @@ function animateDiscDrop(disc, targetY, onComplete) {
   }
 
   requestAnimationFrame(drop); 
-}
+}*/
 
-
+/*
 function canPutDisc(posX, posY) {
   for (let i = 0; i < holesInsert.length; i++) {
     if (holesInsert[i].isPointInside(posX, posY)) {
@@ -289,8 +295,8 @@ function canPutDisc(posX, posY) {
   }
   return -1;
 }
-
-
+*/
+/*
 function checkWinner(disc) {
   let boardPosition = disc.getBoardPosition();
   let col = boardPosition.c;
@@ -345,12 +351,12 @@ function checkWinner(disc) {
   return false; // No hay victoria
 
   alert(c + " " + r);
-}
-
+}*/
+/*
 function togglePlayer() {
   actualPlayer = actualPlayer === player1 ? player2 : player1;
   drawGame();
-}
+} */
 //
 
 /*
@@ -359,14 +365,14 @@ setTimeout(() => {
 }, 333);*/
 
 // #Region Utils
-
+/*
 function clearCanvas() {
   bgImg.onload = function() { 
     ctx.drawImage(bgImg, 0, 0, canvasWidth, canvasHeight);
   }
   ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
   ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-}
+}*/
 
 function drawImage() {
   const img = new Image();
@@ -392,6 +398,8 @@ function randomRGBA() {
 }
 
 function findClickedDisc(x, y) {
+  let discs = game.getDiscs();
+  if (!discs) return null;
   for (let i = discs.length - 1; i >= 0; i--) {
     // Esta al revez para que se agarre el que esta dibujado arriba, osea de los ultimos
     const element = discs[i];
@@ -425,7 +433,7 @@ function drawText(
 let btnJugar = document.querySelector(".iniciar-juego button");
 
 btnJugar.addEventListener("click", () => {
-  clearCanvas();
+  //clearCanvas();
   let container = document.querySelector(".juego-container");
   let inicioJuego = container.querySelector(".inicio-juego");
   let iniciarJuego = container.querySelector(".iniciar-juego");
@@ -439,7 +447,7 @@ btnJugar.addEventListener("click", () => {
   canvas.style.zIndex = 10;
   canvas.classList.add("visible");
 
-  play();
+  createGame();
 });
 
 canvas.addEventListener("mousedown", onMouseDown, false);
