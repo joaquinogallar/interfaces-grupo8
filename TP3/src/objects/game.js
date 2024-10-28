@@ -34,10 +34,8 @@ class Game {
 
         // Background
         this.bgImg = new Image();
-        
-        this.bgImgName = srcImage;
 
-        this.bgImg.src = `./././assets/juego/${this.bgImgName}`;
+        this.bgImg.src = srcImage;
 
         // Espera a que la imagen se cargue
         await new Promise((resolve) => {
