@@ -38,6 +38,10 @@ class Circle extends Figure {
         this.resaltado = b;
     }
 
+    getType() {
+        return "circle";
+    }
+
     getInfo() {
         return "circulo";
     }

@@ -65,6 +65,10 @@ class Figure {
         this.ctx.fillStyle = this.fill;
     }
 
+    getType() {
+        return "figure";
+    }
+
     getInfo() {
         return "figura";
     }

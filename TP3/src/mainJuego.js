@@ -14,16 +14,17 @@ let isMouseDown = false;
 
 let game = null;
 
-
+let buttons = [];
+const helper = new Helper(ctx);
 
 function createGame(p1 = "Argentina", p2 = "Brasil", bgImg = "./././assets/juego/canchaArg.jpg") {
   game = new Game(ctx, canvasHeight, canvasWidth);
 
-  game.play(p1, p2, bgImg, 7, 6);
+  game.start(p1, p2, bgImg, 7, 6);
 
   discs = game.getDiscs();
   
-  
+  buttons = game.getButtons();
 }
 
 // Mouse Functions
@@ -48,6 +49,7 @@ function onMouseDown(e) {
     } else {
       document.body.style.cursor = "not-allowed";
     }
+
   }
   //drawFigure();
 }
@@ -56,7 +58,8 @@ function onMouseUp(e) {//////
   isMouseDown = false;
   document.body.style.cursor = "default";
   if (lastClickedFigure != null) {
-    if (game.putDisc(e.layerX, e.layerY, lastClickedFigure)) {
+
+    if (lastClickedFigure.getType() === "disc" && game.putDisc(e.layerX, e.layerY, lastClickedFigure)) {
       game.togglePlayer();
       if (game.checkWinner(lastClickedFigure)) {
 
@@ -67,7 +70,7 @@ function onMouseUp(e) {//////
           alert("Winner: " + lastClickedFigure.getPlayer());
           
           game.resetGame();
-          
+
       } else {
       }
       // Animacion caida
@@ -108,277 +111,11 @@ function onMouseMove(e) {
 
 // fin mouse function
 
-
-// ### ELIMINAR ANTES DE SUBIR A MAIN #########/
-// Crear juego //
-
-/*
-function createBoard(columns, rows, color) {
-  const maxBoardSize = 400;
-
-  // Crea la tabla del juego, agujero por agujero
-
-  //let size = sizeDisc; // TAMAÑO DE AGUJERO//
-
-  let sizeX = maxBoardSize / columns; // Tamaño del hole (cuadrado)
-  let sizeY = maxBoardSize / rows;
-
-  let size = Math.min(sizeX, sizeY);
-
-  let _posX = canvasWidth / 2 - (size * columns) / 2; // POSICION INICIAL //
-  let _posY = canvasHeight / 2 - (size * rows) / 2;
-
-  let yInicial = _posY;
-
-  for (let c = 0; c < columns; c++) {
-    board[c] = [];
-    for (let r = 0; r < rows; r++) {
-      let hole = createHole(size, size, color, _posX, _posY);
-      holes.push(hole);
-      board[c][r] = hole;
-      _posY += size;
-    }
-    _posY = yInicial;
-    _posX += size;
-  }
-
-  // Visual borrar
-  for (let c = 0; c < columns; c++) {
-    let holeI = createHole(
-      size,
-      size,
-      "gray" /* Reemplazar por "" para que sea invisible *//*,          
-      board[c][0].getPosX(),
-      board[c][0].getPosY() - size
-    );
-    holesInsert.push(holeI);
-  }
-
-  drawBoard();
-}
-*/
-
-/*
-function createHole(rectHeight, rectWidth, color, posX, posY) {
-  return new Hole(posX, posY, rectWidth, rectHeight, color, ctx, radiusDisc);
-}
-  */
-
-/*
-function drawBoard() {
-  for (let i = 0; i < holes.length; i++) {
-    holes[i].draw();
-  }
-  // pinta los agujeros donde se sueltan las fichas
-  // for (let i = 0; i < holesInsert.length; i++) {
-  //   holesInsert[i].draw();
-  // }
-}
-  */
-/*
-function createDiscs(player, cant, _posX, _posY) {
-  // Crea los discos para los jugadores
-
-  let height = sizeDisc;
-  let radius = radiusDisc;
-
-  const img = new Image();
-
-  let name = player === player1 ? "P1" : "P2";
-  img.src = "././assets/juego/disc" + name + ".png";
-
-  img.onload = () => {
-    for (let i = 0; i < cant; i++) {
-      let disc = createDisc(radius, img, _posX, _posY, player, i);
-      discs.push(disc);
-      _posY += height / 3;
-    }
-    drawDiscs();
-  };
-} */
-/*
-function createDisc(radius, img, posX, posY, player, num) {
-  return new Disc(posX, posY, radius, img, ctx, player, num + 1);
-}*/
-/*
-function drawDiscs() {
-  //clearCanvas();
-  for (let i = 0; i < discs.length; i++) {
-    discs[i].draw();
-  }
-}*/
-/*
-function drawGame() {
-  clearCanvas();
-  drawBoard();
-  drawDiscs();
-  drawUI();
-}
-*//*
-function drawUI() {
-  let font = "200 30px 'Baloo 2'";
-  drawText(player1 + ": " + playerScore1, 80, 40, undefined, "white");
-  drawText(
-    player2 + ": " + playerScore2,
-    canvasWidth - 70,
-    40,
-    undefined,
-    "white"
-  );
-  drawText("Turno de " + actualPlayer, canvas.width / 2, 40, font, "white");
-}*/
-
-// fin crear juego
-
-// Funciones Juego //
-/*
-function putDisc(posX, posY, disc) {
-  let columna = canPutDisc(posX, posY);
-  if (columna !== -1) {
-    if (insertDisc(posX, posY, columna, 0, disc)) {
-      drawGame();
-      return true;
-    }
-  }
-  disc.returnToInitialPosition();
-  drawGame();
-  return false;
-}*/
-/*
-function insertDisc(x, y, c, i, disc) {
-  if (i === board[c].length) {
-    return false;
-  } else {
-    let obj = board[c][i];
-    if (obj) {
-      let isFilled = obj.isFilled();
-      if (isFilled) {
-        return false;
-      } else {
-        if (!insertDisc(x, y, c, i + 1, disc)) {
-          // Aquí iniciamos la animación de caída
-          obj.markAsFilled(disc, c, i);
-          animateDiscDrop(disc, obj.getPosY(), function() {
-
-            
-            //console.log("Col: " + disc.getBoardPosition().c + " Row: " + disc.getBoardPosition().r)
-
-            drawGame();
-          });
-          return true;
-        }
-      }
-    }
-  }
-  return true;
-}*/
-/*
-function animateDiscDrop(disc, targetY, onComplete) {
-  let speed = 10;
-  
-
-  function drop() {
-    if (disc.getPosition().y < targetY) {      
-      disc.setPosition(disc.getPosition().x, Math.min(disc.getPosition().y + speed, targetY));
-      drawGame();
-      requestAnimationFrame(drop); 
-    } else {
-      if (onComplete) onComplete(); 
-       //obj.markAsFilled(disc, disc.getPosition().x, targetY);
-
-    }
-  }
-
-  requestAnimationFrame(drop); 
-}*/
-
-/*
-function canPutDisc(posX, posY) {
-  for (let i = 0; i < holesInsert.length; i++) {
-    if (holesInsert[i].isPointInside(posX, posY)) {
-      return i;
-    }
-  }
-  return -1;
-}
-*/
-/*
-function checkWinner(disc) {
-  let boardPosition = disc.getBoardPosition();
-  let col = boardPosition.c;
-  let row = boardPosition.r;
-  let player = disc.getPlayer();
-
-  console.log("CHECK WINNER LOGS");
-  console.log("Checking winner for player:", player);
-  console.log("Disc position: col =", col, "row =", row);
-
-  const directions = [
-    { x: 1, y: 0 },
-    { x: 0, y: 1 },
-    { x: 1, y: 1 },
-    { x: 1, y: -1 },
-  ];
-
-  function countInDirection(dx, dy) {
-    let count = 0;
-    let c = col + dx;
-    let r = row + dy;
-
-    while (
-      c >= 0 &&
-      c < board.length &&
-      r >= 0 &&
-      r < board[c].length &&
-      board[c][r].getDisc() != null &&
-      board[c][r].getDisc().getPlayer() === player
-    ) {
-      count++;
-      c += dx;
-      r += dy;
-    }
-    return count;
-  }
-
-  // Revisa las cuatro direcciones
-  for (let dir of directions) {
-    let count = 1; // Inicia en 1 para contar la ficha que acaba de caer
-
-    // Contar hacia una dirección (ejemplo: derecha) y la contraria (ejemplo: izquierda)
-    count += countInDirection(dir.x, dir.y);
-    count += countInDirection(-dir.x, -dir.y);
-
-    // Si hay 4 o más fichas consecutivas, se detecta victoria
-    if (count >= 4) {
-      return true; // Victoria
-    }
-  }
-
-  return false; // No hay victoria
-
-  alert(c + " " + r);
-}*/
-/*
-function togglePlayer() {
-  actualPlayer = actualPlayer === player1 ? player2 : player1;
-  drawGame();
-} */
-//
-
 /*
 setTimeout(() => {
     ;
 }, 333);*/
 
-// #Region Utils
-/*
-function clearCanvas() {
-  bgImg.onload = function() { 
-    ctx.drawImage(bgImg, 0, 0, canvasWidth, canvasHeight);
-  }
-  ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
-  ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-}*/
 
 function drawImage() {
   const img = new Image();
@@ -415,21 +152,6 @@ function findClickedDisc(x, y) {
     }
   }
   return null;
-}
-
-function drawText(
-  text,
-  posX,
-  posY,
-  font = "bold 20px 'Baloo 2'",
-  color = "black"
-) {
-  ctx.font = font;
-  ctx.fillStyle = color;
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-
-  ctx.fillText(text, posX, posY);
 }
 
 // Fin utils

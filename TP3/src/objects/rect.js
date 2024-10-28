@@ -40,6 +40,10 @@ class Rect extends Figure {
         this.resaltado = b;
     }
 
+    getType() {
+        return "rect";
+    }
+
     getInfo() {
         return "rectangulo";
     }

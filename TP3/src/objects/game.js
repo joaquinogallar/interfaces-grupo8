@@ -7,7 +7,10 @@ class Game {
 
         this.playerScore1 = 0;
         this.playerScore2 = 0;
+
+        this.buttons = [];
         
+        this.helper = new Helper(ctx);
     }
 
 
@@ -57,6 +60,20 @@ class Game {
         await this.play(p1, p2, bg, this.columns, this.rows);
     }
         
+    start(p1 = "Argentina", p2 = "Brasil", bgImg = "././assets/juego/canchaArg.jpg", cols = 7, rows = 6) {
+        this.columns = cols;
+        this.rows = rows;
+        this.player1 = p1;
+        this.player2 = p2;
+        
+        // Background
+        this.bgImg = new Image();
+        
+        this.bgImg.src = bgImg;
+
+        this.drawStart();
+    }
+
     // Funcion que crea el juego
     async play(p1 = "Argentina", p2 = "Brasil", bgImg = "", cols = 7, rows = 6) {
         this.columns = cols;
@@ -73,8 +90,8 @@ class Game {
         this.createDiscs(this.player1, discsForPlayer, 300, 250);
         this.createDiscs(this.player2, discsForPlayer, 750, 250);
         
-        
-        this.drawGame();
+        this.drawStart();
+        //this.drawGame();
     }
 
     // Crear juego, funciones //
@@ -183,18 +200,44 @@ class Game {
       
     drawUI() {
         let font = "200 30px 'Baloo 2'";
-        this.drawText(this.player1 + ": " + this.playerScore1, 80, 40, undefined, "white");
-        this.drawText(
+        this.helper.drawText(this.player1 + ": " + this.playerScore1, 80, 40, undefined, "white");
+        this.helper.drawText(
             this.player2 + ": " + this.playerScore2,
             this.width - 70,
             40,
             undefined,
             "white"
         );
-        this.drawText("Turno de " + this.actualPlayer, this.width / 2, 40, font, "white");
+        this.helper.drawText("Turno de " + this.actualPlayer, this.width / 2, 40, font, "white");
     }
 
+
     // Fin crear juego
+
+    // Interfaz jugar,config,etc //
+
+    drawStart(width = 500, height = 400) {
+        this.clearCanvas();
+        this.ctx.fillStyle = "#3A66DE";
+
+        this.ctx.fillRect(
+            (this.width / 2) - (width / 2),  
+            (this.height / 2) - (height / 2), 
+            width,
+            height
+        );
+
+        this.drawButton("Jugar", this.width / 2, this.height / 3);
+    }
+
+    drawButton(text, x, y, width = 160, height = 50) {
+        let btn = new Button(this.ctx, text, x, y, width, height);
+
+        this.buttons.push(btn);
+
+        btn.draw();
+    }
+
 
     // Funciones Juego //
 
@@ -337,29 +380,6 @@ class Game {
         this.ctx.fillRect(0, 0, this.width, this.height);
     }
   
-    drawImage(src, x, y, width, height) {
-        const img = new Image();
-        img.src = src;
-        img.onload = function () {
-        
-            this.ctx.drawImage(img, x, y, width, height);
-        };
-    }
-
-    drawText(
-        text,
-        posX,
-        posY,
-        font = "bold 20px 'Baloo 2'",
-        color = "black"
-    ) {
-        this.ctx.font = font;
-        this.ctx.fillStyle = color;
-        this.ctx.textAlign = "center";
-        this.ctx.textBaseline = "middle";
-
-        this.ctx.fillText(text, posX, posY);
-    }
     
 
     ///// GETTERS Y SETTER /////
@@ -398,5 +418,9 @@ class Game {
     resetWins() {
         this.playerScore1 = 0;
         this.playerScore2 = 0;
+    }
+
+    getButtons() {
+        return this.buttons;
     }
 }

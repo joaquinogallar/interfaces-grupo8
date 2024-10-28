@@ -77,6 +77,10 @@ class Hole extends Rect {
         return this.disc;
     }
     
+    getType() {
+        return "hole";
+    }
+
     getInfo() {
         return "agujero";
     }

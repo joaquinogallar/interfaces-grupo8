@@ -72,6 +72,10 @@ class Disc extends Circle {
         return this.player;
     }
 
+    getType() {
+        return "disc";
+    }
+
     getInfo() {
         return "Disco, jugador: "+ this.player ;
     }
