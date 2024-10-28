@@ -38,20 +38,45 @@ function onMouseDown(e) {
     lastClickedFigure = null;
   }
 
-  let clickFig = findClickedDisc(e.layerX, e.layerY);
-  if (clickFig != null) {
-    if (clickFig.getPlayer() === game.getActualPlayer()) {
-      clickFig.setResaltado(true);
+  let clickDisc = findClickedDisc(e.layerX, e.layerY);
+  if (clickDisc != null) {
+    if (clickDisc.getPlayer() === game.getActualPlayer()) {
+      clickDisc.setResaltado(true);
 
       document.body.style.cursor = "grabbing";
 
-      lastClickedFigure = clickFig;
+      lastClickedFigure = clickDisc;
     } else {
       document.body.style.cursor = "not-allowed";
     }
-
+    return; // Corta la funcion
   }
-  //drawFigure();
+
+  let clickBtn = findClickedButton(e.layerX, e.layerY);
+
+  if (clickBtn != null) {
+
+    clickBtn.setResaltado(true);
+
+    let action = clickBtn.getAction();
+    switch (action) {
+      case "Jugar": 
+        game.play();
+        break;
+      case "Elegir equipo":
+        alert(action)
+        break;
+      case "Configuracion":
+        alert(action);
+        break;
+      default: 
+        alert(action);
+    }
+
+    lastClickedFigure = clickBtn;
+
+    game.drawButtons();
+  }
 }
 
 function onMouseUp(e) {//////
@@ -83,29 +108,53 @@ function onMouseUp(e) {//////
 function onMouseMove(e) {
   //console.log("Mousemove");
   if (isMouseDown && lastClickedFigure != null) {
-    lastClickedFigure.setPosition(e.layerX, e.layerY);
-    game.drawGame();
+    if (lastClickedFigure.getType() === "disc"){
+      lastClickedFigure.setPosition(e.layerX, e.layerY);
+      game.drawGame();
+    }
   }
 
   // Cambiar style cursor para mostrar que puede o no agarrar otra ficha si no es el turno del jugador actual
   let fig = findClickedDisc(e.layerX, e.layerY);
   if (fig != null) {
-    if (fig.getPlayer() === game.getActualPlayer() && !fig.isUsed()) {
-      if (!(document.body.style.cursor === "grabbing")) {
-        // Para que no saque el "agarrando"
-        //alert(fig.getInfo());
 
-        document.body.style.cursor = "grab";
-      } else {
-        if (game.canPutDisc(e.layerX, e.layerY)) {///////
-          // Agregar Hint de se puede dropear
+      if (fig.getPlayer() === game.getActualPlayer() && !fig.isUsed()) {
+        if (!(document.body.style.cursor === "grabbing")) {
+          // Para que no saque el "agarrando"
+          //alert(fig.getInfo());
+  
+          document.body.style.cursor = "grab";
+        } else {
+          if (game.canPutDisc(e.layerX, e.layerY)) {///////
+            // Agregar Hint de se puede dropear
+          }
         }
+      } else {
+        document.body.style.cursor = "not-allowed";
       }
-    } else {
-      document.body.style.cursor = "not-allowed";
-    }
+    return;
   } else {
     document.body.style.cursor = "default";
+  }
+
+  let btn = findClickedButton(e.layerX, e.layerY);
+
+  if (btn != null) {
+    //Hover
+    btn.setResaltado(true);
+    game.drawStart();
+    lastClickedFigure = btn;
+
+  } else {
+    if (game.getButtons().length > 0){
+      // Sacar hover
+      if (lastClickedFigure != null && lastClickedFigure.getType() === "button") {
+        lastClickedFigure.setResaltado(false);
+        game.drawStart();
+        lastClickedFigure = null;
+      }
+    }
+    
   }
 }
 
@@ -146,6 +195,21 @@ function findClickedDisc(x, y) {
   for (let i = discs.length - 1; i >= 0; i--) {
     // Esta al revez para que se agarre el que esta dibujado arriba, osea de los ultimos
     const element = discs[i];
+
+    if (element.isPointInside(x, y)) {
+      return element;
+    }
+  }
+  return null;
+}
+
+function findClickedButton(x, y) {
+  let btns = game.getButtons();
+  if (!btns) return null;
+  for (let i = btns.length - 1; i >= 0; i--) {
+    // Esto da igual xq los btns no estan uno arriba de los otros
+    // Esta al revez para que se agarre el que esta dibujado arriba, osea de los ultimos
+    const element = btns[i];
 
     if (element.isPointInside(x, y)) {
       return element;

@@ -3,8 +3,7 @@ class Button extends Figure{
         super(x, y, bgColor, ctx);
         this.ctx = ctx;
         this.text = text;
-        this.x = x;
-        this.y = y;
+        this.action = text;
         this.width = width;
         this.height = height;
         this.bgColor = bgColor;
@@ -21,35 +20,39 @@ class Button extends Figure{
         // Cambia el color de fondo si es hover
         super.draw();
         this.ctx.fillStyle = this.isHovered ? "#5A5FFF" : this.bgColor;
-        this.ctx.fillRect(this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
 
-        this.helper.drawText(this.text, this.x, this.y);
+        // Pos centrado:
+        let posX = this.posX - this.width / 2;
+        let posY = this.posY - this.height / 2;
+        this.ctx.fillRect(posX, posY, this.width, this.height);
+
+        this.helper.drawText(this.text, this.posX, this.posY);
+
+
+        //Resaltado borde
+        if(this.resaltado === true) {
+            this.ctx.strokeStyle = this.resaltadoStyle;
+            this.ctx.lineWidth = this.resaltadoWidth / 2;
+            this.ctx.strokeRect(posX, posY, this.width, this.height);
+        }else {
+            this.ctx.strokeStyle = "black";
+            this.ctx.lineWidth = this.resaltadoWidth / 2;
+            this.ctx.strokeRect(posX, posY, this.width, this.height);
+        }
     }
 
-    // Verifica si el mouse está sobre el botón
-    isMouseOver(mouseX, mouseY) {
-        return (
-            mouseX >= this.x - this.width / 2 &&
-            mouseX <= this.x + this.width / 2 &&
-            mouseY >= this.y - this.height / 2 &&
-            mouseY <= this.y + this.height / 2
+    isPointInside(x, y) {
+        // Centrado
+        return !(
+            x < this.posX - this.width / 2 ||
+            x > this.posX + this.width / 2 ||
+            y < this.posY - this.height / 2 ||
+            y > this.posY + this.height / 2
         );
     }
 
-    // Asigna la función que se ejecutará al hacer clic
-    setOnClick(callback) {
-        this.onClick = callback;
-    }
-
-    // Gestiona el hover y el clic
-    handleMouseMove(mouseX, mouseY) {
-        this.isHovered = this.isMouseOver(mouseX, mouseY);
-    }
-
-    handleClick(mouseX, mouseY) {
-        if (this.isMouseOver(mouseX, mouseY) && this.onClick) {
-            this.onClick();
-        }
+    getAction() {
+        return this.action;
     }
 
     getType() {

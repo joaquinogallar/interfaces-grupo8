@@ -71,11 +71,13 @@ class Game {
         
         this.bgImg.src = bgImg;
 
+        this.createBtnsStart();
         this.drawStart();
     }
 
     // Funcion que crea el juego
-    async play(p1 = "Argentina", p2 = "Brasil", bgImg = "", cols = 7, rows = 6) {
+    async play(p1 = this.player1, p2 = this.player2, bgImg = this.bgImg.src, cols = 7, rows = 6) {
+        this.buttons = [];
         this.columns = cols;
         this.rows = rows;
         
@@ -90,8 +92,8 @@ class Game {
         this.createDiscs(this.player1, discsForPlayer, 300, 250);
         this.createDiscs(this.player2, discsForPlayer, 750, 250);
         
-        this.drawStart();
-        //this.drawGame();
+
+        this.drawGame();
     }
 
     // Crear juego, funciones //
@@ -195,7 +197,6 @@ class Game {
         this.drawBoard();
         this.drawDiscs();
         this.drawUI();
-        
     }
       
     drawUI() {
@@ -226,16 +227,33 @@ class Game {
             width,
             height
         );
-
-        this.drawButton("Jugar", this.width / 2, this.height / 3);
+   
+        this.drawButtons();
     }
 
-    drawButton(text, x, y, width = 160, height = 50) {
-        let btn = new Button(this.ctx, text, x, y, width, height);
+    createBtnsStart() {
+        const buttonTexts = ["Jugar", "Elegir equipo", "Configuración"];
 
-        this.buttons.push(btn);
+        const buttonX = this.width / 2;
+        const startingY = this.height / 3;
+        const spacing = 100; // Distancia vertical entre botones
 
-        btn.draw();
+        buttonTexts.forEach((text, index) => {
+            const buttonY = startingY + index * spacing;
+            let btn = this.createButton(text, buttonX, buttonY);
+            this.buttons.push(btn);
+        });
+    }
+
+    createButton(text, x, y, width = 160, height = 50) {
+        return new Button(this.ctx, text, x, y, width, height);  
+    }
+
+    drawButtons() {
+        //clearCanvas();
+        for (let i = 0; i < this.buttons.length; i++) {
+            this.buttons[i].draw();
+        }
     }
 
 
