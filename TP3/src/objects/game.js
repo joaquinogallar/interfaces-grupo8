@@ -35,7 +35,9 @@ class Game {
         // Background
         this.bgImg = new Image();
         
-        this.bgImg.src = srcImage;
+        this.bgImgName = srcImage;
+
+        this.bgImg.src = `./././assets/juego/${this.bgImgName}`;
 
         // Espera a que la imagen se cargue
         await new Promise((resolve) => {
@@ -60,7 +62,7 @@ class Game {
         await this.play(p1, p2, bg, this.columns, this.rows);
     }
         
-    start(p1 = "Argentina", p2 = "Brasil", bgImg = "././assets/juego/canchaArg.jpg", cols = 7, rows = 6) {
+    start(p1 = "Argentina", p2 = "Brasil", bgImg = "canchaArg.jpg", cols = 7, rows = 6) {
         this.columns = cols;
         this.rows = rows;
         this.player1 = p1;
@@ -69,7 +71,9 @@ class Game {
         // Background
         this.bgImg = new Image();
         
-        this.bgImg.src = bgImg;
+        this.bgImgName = bgImg;
+
+        this.bgImg.src = `./././assets/juego/${this.bgImgName}`;
 
         this.createBtnsStart();
         this.drawStart();
@@ -232,7 +236,7 @@ class Game {
     }
 
     createBtnsStart() {
-        const buttonTexts = ["Jugar", "Elegir equipo", "Configuración"];
+        const buttonTexts = ["Jugar", "Cambiar fondo", "Configuración"];
 
         const buttonX = this.width / 2;
         const startingY = this.height / 3;
@@ -243,6 +247,12 @@ class Game {
             let btn = this.createButton(text, buttonX, buttonY);
             this.buttons.push(btn);
         });
+    }
+
+    changeBg() {
+        this.bgImgName = this.bgImgName === "canchaArg.jpg" ? "canchaBr.jpg" : "canchaArg.jpg";
+        this.bgImg.src = `./././assets/juego/${this.bgImgName}`;
+        this.drawStart();
     }
 
     createButton(text, x, y, width = 160, height = 50) {

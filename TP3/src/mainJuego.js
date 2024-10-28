@@ -17,10 +17,10 @@ let game = null;
 let buttons = [];
 const helper = new Helper(ctx);
 
-function createGame(p1 = "Argentina", p2 = "Brasil", bgImg = "./././assets/juego/canchaArg.jpg") {
+function createGame(p1 = "Argentina", p2 = "Brasil") {
   game = new Game(ctx, canvasHeight, canvasWidth);
 
-  game.start(p1, p2, bgImg, 7, 6);
+  game.start(p1, p2, undefined, 7, 6);
 
   discs = game.getDiscs();
   
@@ -63,8 +63,8 @@ function onMouseDown(e) {
       case "Jugar": 
         game.play();
         break;
-      case "Elegir equipo":
-        alert(action)
+      case "Cambiar fondo":
+        game.changeBg();
         break;
       case "Configuracion":
         alert(action);
