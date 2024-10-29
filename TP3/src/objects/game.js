@@ -53,18 +53,22 @@ class Game {
     }
 
     // Poder hacer reset con datos opcionalemente cambiables
-    async resetGame(p1 = this.player1, p2 = this.player2, bg = this.bgImg.src) {
+    async resetGame(p1 = this.player1, p2 = this.player2, bg = this.bgImg.src, bResetWins = true) {
         this.ctx.clearRect(0, 0, this.width, this.height);
         
+        if (bResetWins) this.resetWins();
         // reinicia el juego
         await this.play(p1, p2, bg, this.columns, this.rows);
     }
         
     start(p1 = "Argentina", p2 = "Brasil", bgImg = "canchaArg.jpg", cols = 7, rows = 6) {
+        this.buttons = [];
         this.columns = cols;
         this.rows = rows;
         this.player1 = p1;
         this.player2 = p2;
+
+        this.resetWins();       // Si al dar al boton salir quisieramos que se guarden las victorias comentar esto
         
         // Background
         this.bgImg = new Image();
@@ -94,7 +98,8 @@ class Game {
         this.createDiscs(this.player1, discsForPlayer, 300, 250);
         this.createDiscs(this.player2, discsForPlayer, 750, 250);
         
-
+        this.createBtnsGame();
+        
         this.drawGame();
     }
 
@@ -199,6 +204,7 @@ class Game {
         this.drawBoard();
         this.drawDiscs();
         this.drawUI();
+        this.drawButtons();
     }
       
     drawUI() {
@@ -212,6 +218,8 @@ class Game {
             "white"
         );
         this.helper.drawText("Turno de " + this.actualPlayer, this.width / 2, 40, font, "white");
+
+        
     }
 
 
@@ -242,7 +250,21 @@ class Game {
 
         buttonTexts.forEach((text, index) => {
             const buttonY = startingY + index * spacing;
-            let btn = this.createButton(text, buttonX, buttonY);
+            let btn = this.createButton(text, buttonX, buttonY, "start");
+            this.buttons.push(btn);
+        });
+    }
+
+    createBtnsGame() {
+        const buttonTexts = ["Reiniciar", "Salir"];
+
+        const buttonX = 150;
+        const startingY = this.height / 3;
+        const spacing = 100; // Distancia vertical entre botones
+
+        buttonTexts.forEach((text, index) => {
+            const buttonY = startingY + index * spacing;
+            let btn = this.createButton(text, buttonX, buttonY, "game");
             this.buttons.push(btn);
         });
     }
@@ -253,8 +275,8 @@ class Game {
         this.drawStart();
     }
 
-    createButton(text, x, y, width = 160, height = 50) {
-        return new Button(this.ctx, text, x, y, width, height);  
+    createButton(text, x, y, group, width = 160, height = 50, bgColor = undefined, colorText = undefined) {
+        return new Button(this.ctx, text, x, y, width, height, group);  
     }
 
     drawButtons() {
@@ -292,11 +314,23 @@ class Game {
                 } else {
                     if (!this.insertDisc(x, y, c, i + 1, disc)) {
                         // Aquí iniciamos la animación de caída
-                        obj.markAsFilled(disc, c, i);
-                        this.animateDiscDrop(disc, obj.getPosY(), () => {
 
-                            
-                           //console.log("Col: " + disc.getBoardPosition().c + " Row: " + disc.getBoardPosition().r)
+                        let objY = obj.getPosY() + obj.getHeight() / 2;
+                        this.animateDiscDrop(disc, objY, () => {
+
+                            obj.markAsFilled(disc, c, i);
+                            //this.drawGame();
+
+                            // Movida logica de cambio de turno y winner aca por problemas de sincronizacion
+                            this.togglePlayer();
+                            if (this.checkWinner(disc)) {
+                                disc.getPlayer() == game.getPlayer1()
+                                                                ? game.addWinPlayer1()
+                                                                : game.addWinPlayer2();
+
+                                alert("Winner: " + disc.getPlayer());
+                                this.resetGame(undefined, undefined, undefined, false);     // Para resetear las fichas pero no el score
+                            }
                             this.drawGame();
                         });
                         return true;
@@ -310,14 +344,17 @@ class Game {
     animateDiscDrop(disc, targetY, onComplete) {
         let speed = 10;
 
+        const self = this;
 
         function drop() {
-            if (disc.getPosition().y < targetY) {      
+            if (disc.getPosition().y < targetY) {  
+
                 disc.setPosition(disc.getPosition().x, Math.min(disc.getPosition().y + speed, targetY));
-                this.drawGame();
+                self.drawGame();
                 requestAnimationFrame(drop); 
             } else {
-            if (onComplete) onComplete(); 
+                if (onComplete) onComplete(); 
+
                 //obj.markAsFilled(disc, disc.getPosition().x, targetY);
 
             }
@@ -384,7 +421,7 @@ class Game {
 
             // Si hay 4 o más fichas consecutivas, se detecta victoria
             if (count >= 4) {
-            return true; // Victoria
+                return true; // Victoria
             }
         }
 
@@ -439,6 +476,11 @@ class Game {
 
     addWinPlayer2() {
         this.playerScore2 = this.playerScore2 + 1;
+    }
+
+    resetWins() {
+        this.playerScore1 = 0;
+        this.playerScore2 = 0;
     }
 
     resetWins() {

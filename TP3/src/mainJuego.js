@@ -4,8 +4,6 @@ let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
 
 
-const CANT_FIG = 10;
-
 let discs = [];
 
 let figures = [];
@@ -61,7 +59,7 @@ function onMouseDown(e) {
     let action = clickBtn.getAction();
     switch (action) {
       case "Jugar": 
-        game.play();
+        game.play(undefined, undefined, undefined);
         break;
       case "Cambiar fondo":
         game.changeBg();
@@ -69,11 +67,17 @@ function onMouseDown(e) {
       case "Configuracion":
         alert(action);
         break;
+      case "Reiniciar":
+        game.resetGame();
+        break;
+      case "Salir":
+        game.start();  
+        break;
       default: 
         alert(action);
     }
 
-    lastClickedFigure = clickBtn;
+    //lastClickedFigure = clickBtn;
 
     game.drawButtons();
   }
@@ -85,7 +89,7 @@ function onMouseUp(e) {//////
   if (lastClickedFigure != null) {
 
     if (lastClickedFigure.getType() === "disc" && game.putDisc(e.layerX, e.layerY, lastClickedFigure)) {
-      game.togglePlayer();
+      /*game.togglePlayer();
       if (game.checkWinner(lastClickedFigure)) {
 
           lastClickedFigure.getPlayer() == game.getPlayer1()
@@ -97,7 +101,7 @@ function onMouseUp(e) {//////
           game.resetGame();
 
       } else {
-      }
+      }*/
       // Animacion caida
     } else {
       // Hint error, no se puede poner la ficha ahi
@@ -142,17 +146,27 @@ function onMouseMove(e) {
   if (btn != null) {
     //Hover
     btn.setResaltado(true);
-    game.drawStart();
+    game.drawButtons();
     lastClickedFigure = btn;
 
   } else {
     if (game.getButtons().length > 0){
       // Sacar hover
       if (lastClickedFigure != null && lastClickedFigure.getType() === "button") {
-        lastClickedFigure.setResaltado(false);
-        game.drawStart();
-        lastClickedFigure = null;
+          if (lastClickedFigure.getGroup() === "start"){
+
+            lastClickedFigure.setResaltado(false);
+            game.drawStart();
+            
+          }
+          if (lastClickedFigure.getGroup() === "game"){
+            lastClickedFigure.setResaltado(false);
+            game.drawGame();
+          }
+
+          lastClickedFigure = null;
       }
+
     }
     
   }

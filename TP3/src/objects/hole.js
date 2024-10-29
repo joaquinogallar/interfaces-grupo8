@@ -3,6 +3,7 @@ class Hole extends Rect {
         super(posX, posY, width, height, fill, context);
         this.radius = radius;
 
+        
         this.filled = false;
         this.disc = null;
     }

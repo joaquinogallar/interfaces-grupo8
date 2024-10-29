@@ -1,5 +1,5 @@
 class Button extends Figure{
-    constructor(ctx, text, x, y, width = 160, height = 50, bgColor = "#423ADE", textColor = "black") {
+    constructor(ctx, text, x, y, width = 160, height = 50, group, bgColor = "#423ADE", textColor = "black") {
         super(x, y, bgColor, ctx);
         this.ctx = ctx;
         this.text = text;
@@ -9,6 +9,8 @@ class Button extends Figure{
         this.bgColor = bgColor;
         this.textColor = textColor;
 
+        this.group = group;
+        
         // Para gestionar el hover y los clics
         this.isHovered = false;
         this.onClick = null;
@@ -53,6 +55,10 @@ class Button extends Figure{
 
     getAction() {
         return this.action;
+    }
+
+    getGroup() {
+        return this.group;
     }
 
     getType() {
