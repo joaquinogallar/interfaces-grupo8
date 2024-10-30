@@ -12,7 +12,7 @@ class Game {
         
         this.helper = new Helper(ctx);
         
-        this.initialTimerValue = 300;
+        this.initialTimerValue = 120;
         this.timer = this.initialTimerValue; 
         this.timerInterval = null;
     }
@@ -86,6 +86,10 @@ class Game {
         this.ctx.clearRect(0, 0, this.width, this.height);
         
         if (bResetWins) this.resetWins();
+        
+        this.stopTimer();
+        this.resetTimer();
+        
         // reinicia el juego
         await this.play(p1, p2, bg, this.columns, this.rows);
     }
@@ -108,6 +112,9 @@ class Game {
 
         this.createBtnsStart();
         this.drawStart();
+
+        this.stopTimer();
+        this.resetTimer();
     }
 
     // Funcion que crea el juego
@@ -130,6 +137,8 @@ class Game {
         this.createBtnsGame();
         
         this.drawGame();
+
+        this.startTimer();
     }
 
     // Crear juego, funciones //
