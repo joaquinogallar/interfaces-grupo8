@@ -11,7 +11,36 @@ class Game {
         this.buttons = [];
         
         this.helper = new Helper(ctx);
+        
+        this.initialTimerValue = 300;
+        this.timer = this.initialTimerValue; 
+        this.timerInterval = null;
     }
+
+    startTimer() {
+        this.timerInterval = setInterval(() => {
+            if (this.timer > 0) {
+                this.timer--; // resta un segundo
+                this.helper.drawText(`${this.timer}`,  this.width / 2, this.height - 40, "400 30px Silkscreen", "white");
+                console.log(this.timer);
+                
+            } else {
+                clearInterval(this.timerInterval); // detiene el timer cuando llega a 0
+                this.stopTimer()
+            }
+        }, 1000);
+    }
+
+    stopTimer() {
+        clearInterval(this.timerInterval); 
+        this.timerInterval = null; 
+    }
+
+    resetTimer() {
+        this.stopTimer(); 
+        this.timer = this.initialTimerValue; 
+    }
+
 
 
     // Funciones init, reset, play, etc     //
