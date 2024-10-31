@@ -1,88 +1,106 @@
 class Hole extends Rect {
-    constructor(posX, posY, width, height, fill, context, radius){
-        super(posX, posY, width, height, fill, context);
-        this.radius = radius;
+  constructor(posX, posY, width, height, fill, context, radius) {
+    super(posX, posY, width, height, fill, context);
+    this.radius = radius;
 
-        
-        this.filled = false;
-        this.disc = null;
+    this.filled = false;
+    this.disc = null;
+  }
+
+  async draw() {
+    // super.draw();
+
+    /*          PARA CUANDO TENGAMOS IMAGEN DEL HOLE */
+    const img = new Image(); // Crear una nueva instancia de imagen
+
+    img.src = "./././assets/juego/hole.png"; // Asegúrate de poner la ruta correcta a tu imagen
+    await new Promise((resolve) => {
+      img.onload = () => {
+        //console.log("Imagen cargada. Inicializando juego.");
+
+        resolve();
+      };
+
+      if (img.complete) {
+        img.onload();
+      }
+    });
+
+    this.ctx.drawImage(img, this.posX, this.posY, this.width, this.height);
+    img.onerror = () => {
+      console.error("Error al cargar la imagen:", img.src);
+    };
+
+    if (this.resaltado === true) {
+      this.ctx.strokeStyle = this.resaltadoStyle;
+      this.ctx.lineWidth = this.resaltadoWidth;
+      this.ctx.strokeRect(this.posX, this.posY, this.width, this.height);
+    }
+    this.addCircle(this.radius);
+  }
+
+  addCircle(radius) {
+    if (this.disc != null) {
+      this.disc.setPosition(
+        this.posX + this.width / 2,
+        this.posY + this.height / 2
+      );
+      this.ctx.fillStyle = "rgba(0, 0, 0, 0.5)"; // transparente
+    } else {
+      this.ctx.fillStyle = "rgba(0, 0, 0, 0.5)"; // transparente
     }
 
-    draw() {
+    this.ctx.beginPath();
+    this.ctx.arc(
+      this.posX + this.width / 2,
+      this.posY + this.height / 2,
+      radius,
+      0,
+      Math.PI * 2,
+      false
+    );
+    this.ctx.fill();
+    this.ctx.closePath();
+  }
 
-        super.draw();
-        
-        /*          PARA CUANDO TENGAMOS IMAGEN DEL HOLE
-        const img = new Image();  // Crear una nueva instancia de imagen
-        img.src = './././assets/juego/hole.png';  // Asegúrate de poner la ruta correcta a tu imagen
+  isPointInside(x, y) {
+    const margin = 10; // margen de error en píxeles
+    return !(
+      x < this.posX ||
+      x > this.posX + this.width ||
+      y < this.posY - margin ||
+      y > this.posY + this.height + margin
+    );
+  }
 
-        this.ctx.drawImage(
-            img, 
-            this.posX, this.posY, 
-            this.width, this.height
-        );
-        img.onerror = () => {
-            console.error('Error al cargar la imagen:', img.src);
-        };
-        /*
-        if (this.resaltado === true) {
-            this.ctx.strokeStyle = this.resaltadoStyle;
-            this.ctx.lineWidth = this.resaltadoWidth;
-            this.ctx.strokeRect(this.posX, this.posY, this.width, this.height);
-        }*/
-        this.addCircle(this.radius);
-    }
+  markAsFilled(disc, c, r) {
+    this.filled = true;
+    this.disc = disc;
+    disc.setUsed(true);
+    disc.setBoardPosition(c, r);
+  }
 
-    addCircle(radius) {
+  markAsEmpty() {
+    this.filled = false;
+  }
 
-        if (this.disc != null) {
-            this.disc.setPosition(this.posX + this.width / 2, this.posY + this.height / 2);
-            this.ctx.fillStyle = 'rgba(255, 255, 255, 0.7)'; // transparente
-        } else {
-            this.ctx.fillStyle = 'rgba(255, 255, 255, 0.7)'; // transparente
-        }
-        
-        this.ctx.beginPath();
-        this.ctx.arc(this.posX + this.width / 2, this.posY + this.height / 2, radius, 0, Math.PI * 2, false);
-        this.ctx.fill(); 
-        this.ctx.closePath();
+  setFilled(isFilled) {
+    this.filled = isFilled;
+  }
 
-    }
+  isFilled() {
+    return this.filled;
+  }
 
-    isPointInside(x, y) {
-        const margin = 10; // margen de error en píxeles
-        return !(x < this.posX || x > this.posX + this.width || 
-                 y < this.posY - margin || y > this.posY + this.height + margin);
-    }
+  getDisc() {
+    return this.disc;
+  }
 
-    markAsFilled(disc, c, r) {
-        this.filled = true;
-        this.disc = disc;
-        disc.setUsed(true);
-        disc.setBoardPosition(c, r);
-    }
+  getType() {
+    return "hole";
+  }
 
-    markAsEmpty() {
-        this.filled = false;
-    }
-
-    setFilled(isFilled) {
-        this.filled = isFilled;
-    }
-
-    isFilled() {
-        return this.filled;
-    }
-    
-    getDisc() {
-        return this.disc;
-    }
-    
-    getType() {
-        return "hole";
-    }
-
-    getInfo() {
-        return "agujero";
-    }
+  getInfo() {
+    return "agujero";
+  }
 }

@@ -3,7 +3,6 @@ let ctx = canvas.getContext("2d");
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
 
-
 let discs = [];
 
 let figures = [];
@@ -21,7 +20,7 @@ function createGame(p1 = "Argentina", p2 = "Brasil") {
   game.start(p1, p2, undefined, 7, 6);
 
   discs = game.getDiscs();
-  
+
   buttons = game.getButtons();
 }
 
@@ -53,12 +52,11 @@ function onMouseDown(e) {
   let clickBtn = findClickedButton(e.layerX, e.layerY);
 
   if (clickBtn != null) {
-
     clickBtn.setResaltado(true);
 
     let action = clickBtn.getAction();
     switch (action) {
-      case "Jugar": 
+      case "Jugar":
         game.play(undefined, undefined, undefined);
         break;
       case "Cambiar fondo":
@@ -71,9 +69,9 @@ function onMouseDown(e) {
         game.resetGame();
         break;
       case "Salir":
-        game.start();  
+        game.start();
         break;
-      default: 
+      default:
         alert(action);
     }
 
@@ -83,12 +81,15 @@ function onMouseDown(e) {
   }
 }
 
-function onMouseUp(e) {//////
+function onMouseUp(e) {
+  //////
   isMouseDown = false;
   document.body.style.cursor = "default";
   if (lastClickedFigure != null) {
-
-    if (lastClickedFigure.getType() === "disc" && game.putDisc(e.layerX, e.layerY, lastClickedFigure)) {
+    if (
+      lastClickedFigure.getType() === "disc" &&
+      game.putDisc(e.layerX, e.layerY, lastClickedFigure)
+    ) {
       /*game.togglePlayer();
       if (game.checkWinner(lastClickedFigure)) {
 
@@ -112,7 +113,7 @@ function onMouseUp(e) {//////
 function onMouseMove(e) {
   //console.log("Mousemove");
   if (isMouseDown && lastClickedFigure != null) {
-    if (lastClickedFigure.getType() === "disc"){
+    if (lastClickedFigure.getType() === "disc") {
       lastClickedFigure.setPosition(e.layerX, e.layerY);
       game.drawGame();
     }
@@ -121,21 +122,21 @@ function onMouseMove(e) {
   // Cambiar style cursor para mostrar que puede o no agarrar otra ficha si no es el turno del jugador actual
   let fig = findClickedDisc(e.layerX, e.layerY);
   if (fig != null) {
+    if (fig.getPlayer() === game.getActualPlayer() && !fig.isUsed()) {
+      if (!(document.body.style.cursor === "grabbing")) {
+        // Para que no saque el "agarrando"
+        //alert(fig.getInfo());
 
-      if (fig.getPlayer() === game.getActualPlayer() && !fig.isUsed()) {
-        if (!(document.body.style.cursor === "grabbing")) {
-          // Para que no saque el "agarrando"
-          //alert(fig.getInfo());
-  
-          document.body.style.cursor = "grab";
-        } else {
-          if (game.canPutDisc(e.layerX, e.layerY)) {///////
-            // Agregar Hint de se puede dropear
-          }
-        }
+        document.body.style.cursor = "grab";
       } else {
-        document.body.style.cursor = "not-allowed";
+        if (game.canPutDisc(e.layerX, e.layerY)) {
+          ///////
+          // Agregar Hint de se puede dropear
+        }
       }
+    } else {
+      document.body.style.cursor = "not-allowed";
+    }
     return;
   } else {
     document.body.style.cursor = "default";
@@ -148,27 +149,25 @@ function onMouseMove(e) {
     btn.setResaltado(true);
     game.drawButtons();
     lastClickedFigure = btn;
-
   } else {
-    if (game.getButtons().length > 0){
+    if (game.getButtons().length > 0) {
       // Sacar hover
-      if (lastClickedFigure != null && lastClickedFigure.getType() === "button") {
-          if (lastClickedFigure.getGroup() === "start"){
+      if (
+        lastClickedFigure != null &&
+        lastClickedFigure.getType() === "button"
+      ) {
+        if (lastClickedFigure.getGroup() === "start") {
+          lastClickedFigure.setResaltado(false);
+          game.drawStart();
+        }
+        if (lastClickedFigure.getGroup() === "game") {
+          lastClickedFigure.setResaltado(false);
+          game.drawGame();
+        }
 
-            lastClickedFigure.setResaltado(false);
-            game.drawStart();
-            
-          }
-          if (lastClickedFigure.getGroup() === "game"){
-            lastClickedFigure.setResaltado(false);
-            game.drawGame();
-          }
-
-          lastClickedFigure = null;
+        lastClickedFigure = null;
       }
-
     }
-    
   }
 }
 
@@ -178,7 +177,6 @@ function onMouseMove(e) {
 setTimeout(() => {
     ;
 }, 333);*/
-
 
 function drawImage() {
   const img = new Image();
