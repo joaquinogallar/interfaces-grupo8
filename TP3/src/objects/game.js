@@ -146,12 +146,17 @@ class Game {
         let _posY = this.height / 2 - (size * rows) / 2;
 
         let yInicial = _posY;
+
+        let teamImg = "argentina";
+        if (this.bgImgName != "canchaArg.jpg") {
+            teamImg = "brasil";
+        }
         
         for (let c = 0; c < columns; c++) {
                 board[c] = [];
                 
                 for (let r = 0; r < rows; r++) {
-                let hole = this.createHole(size, size, color, _posX, _posY);
+                let hole = this.createHole(size, size, color, _posX, _posY, teamImg);
                 this.holes.push(hole);
                 board[c][r] = hole;
                 _posY += size;
@@ -176,8 +181,9 @@ class Game {
         this.drawBoard();
     }
 
-    createHole(rectHeight, rectWidth, color, posX, posY) {
-        return new Hole(posX, posY, rectWidth, rectHeight, color, this.ctx, this.radiusDisc);
+    createHole(rectHeight, rectWidth, color, posX, posY, teamImg) {
+        let randomNum = Math.floor(Math.random() * 4) + 1;  // para que se ponga uno de los 4 holes
+        return new Hole(posX, posY, rectWidth, rectHeight, color, this.ctx, this.radiusDisc, teamImg, randomNum);
     }
   
     drawBoard() {

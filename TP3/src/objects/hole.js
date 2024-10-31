@@ -1,35 +1,38 @@
 class Hole extends Rect {
-    constructor(posX, posY, width, height, fill, context, radius){
+    constructor(posX, posY, width, height, fill, context, radius, teamImg = "argentina", imgNum = 1){
         super(posX, posY, width, height, fill, context);
         this.radius = radius;
 
-        
+        this.teamImg = teamImg;
+        this.imgNum = imgNum;
         this.filled = false;
         this.disc = null;
     }
 
-    draw() {
+    async draw() {
 
-        super.draw();
+        //super.draw();
         
-        /*          PARA CUANDO TENGAMOS IMAGEN DEL HOLE
-        const img = new Image();  // Crear una nueva instancia de imagen
-        img.src = './././assets/juego/hole.png';  // Asegúrate de poner la ruta correcta a tu imagen
+        const img = new Image(); // Crear una nueva instancia de imagen
 
-        this.ctx.drawImage(
-            img, 
-            this.posX, this.posY, 
-            this.width, this.height
-        );
+        img.src = "./././assets/juego/"+ this.teamImg + "Hole" + this.imgNum +".png"; // Asegúrate de poner la ruta correcta a tu imagen
+        await new Promise((resolve) => {
+          img.onload = () => {
+            //console.log("Imagen cargada. Inicializando juego.");
+
+            resolve();
+          };
+
+          if (img.complete) {
+            img.onload();
+          }
+        });
+
+        this.ctx.drawImage(img, this.posX, this.posY, this.width, this.height);
         img.onerror = () => {
-            console.error('Error al cargar la imagen:', img.src);
+          console.error("Error al cargar la imagen:", img.src);
         };
-        /*
-        if (this.resaltado === true) {
-            this.ctx.strokeStyle = this.resaltadoStyle;
-            this.ctx.lineWidth = this.resaltadoWidth;
-            this.ctx.strokeRect(this.posX, this.posY, this.width, this.height);
-        }*/
+        
         this.addCircle(this.radius);
     }
 
@@ -37,9 +40,9 @@ class Hole extends Rect {
 
         if (this.disc != null) {
             this.disc.setPosition(this.posX + this.width / 2, this.posY + this.height / 2);
-            this.ctx.fillStyle = 'rgba(255, 255, 255, 0.7)'; // transparente
+            this.ctx.fillStyle = 'rgba(255, 255, 255, 0.2)'; // transparente
         } else {
-            this.ctx.fillStyle = 'rgba(255, 255, 255, 0.7)'; // transparente
+            this.ctx.fillStyle = 'rgba(255, 255, 255, 0.2)'; // transparente
         }
         
         this.ctx.beginPath();
