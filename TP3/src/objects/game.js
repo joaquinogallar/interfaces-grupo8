@@ -205,7 +205,7 @@ class Game {
     
         img.onload = () => {
             for (let i = 0; i < cant; i++) {
-                let disc = this.createDisc(radius, img, _posX, _posY, player, i);
+                let disc = this.createDisc(radius, img, _posX, _posY, player, i +1);
                 this.discs.push(disc);
                 _posY += height / 3;
         }
@@ -213,8 +213,8 @@ class Game {
         };
     }
     
-    createDisc(radius, img, posX, posY, player, num = -1) {
-        return new Disc(posX, posY, radius, img, ctx, player, num + 1);
+    createDisc(radius, img, posX, posY, player, num ="" ) {
+        return new Disc(posX, posY, radius, img, ctx, player, num );
     }
   
     async drawDiscs() {
@@ -254,7 +254,6 @@ class Game {
     // Interfaz jugar,config,etc //
 
     async drawStart(width = 500, height = 400) {
-        console.log("DrawStart")
         await this.clearCanvas();
         this.ctx.fillStyle = "#3A66DE";
 
@@ -315,8 +314,6 @@ class Game {
         let disc = this.createDisc(radius, img, 50 * 2, 50, this.player1);
         this.discs.push(disc);
         
-
-        console.log("DP1 creado");
     }
 
     createBtnsPlayer2() {
@@ -435,7 +432,6 @@ class Game {
         else {
             if (this.player2 === "Peru") this.changeP2("Francia");
         }
-        console.log(this.player2);
         this.drawStart();
         
     }
@@ -445,9 +441,8 @@ class Game {
         else {
             if (this.player2 === "Francia") this.changeP2("Peru");
         }
-        console.log(this.player2);
-        this.drawStart();
-        
+
+        this.drawStart();  
     }
 
     changeP1(p1) {
@@ -482,7 +477,6 @@ class Game {
                     return false;
                 } else {
                     if (!this.insertDisc(x, y, c, i + 1, disc)) {
-                        // Aquí iniciamos la animación de caída
 
                         let objY = obj.getPosY() + obj.getHeight() / 2;
                         this.animateDiscDrop(disc, objY, () => {

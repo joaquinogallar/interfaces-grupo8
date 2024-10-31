@@ -1,5 +1,5 @@
 class Disc extends Circle {
-    constructor(posX, posY, radius, fill, ctx, jugador, num){
+    constructor(posX, posY, radius, fill, ctx, jugador, num = " "){
         super(posX, posY, radius, fill, ctx);
 
         this.initialPos = {x: posX, y: posY};
