@@ -1,12 +1,23 @@
 class Game {
     
     constructor(ctx, canvasHeight, canvasWidth) {
+        this.sizeDisc = 50; // Tamaño del cuadrado del tablero
+        this.radiusDisc = this.sizeDisc * 0.35; // Radio de la ficha
         this.ctx = ctx;
         this.height = canvasHeight;
         this.width = canvasWidth;
 
         this.playerScore1 = 0;
         this.playerScore2 = 0;
+
+        this.players = {
+            p1 : "P1",
+            p2 : "P2",
+            p3 : "P3",
+            p4 : "P4",
+            p5 : "P5",
+            p6 : "P6"
+        }
 
         this.buttons = [];
         
@@ -17,43 +28,12 @@ class Game {
         this.timerInterval = null;
     }
 
-    startTimer() {
-        this.timerInterval = setInterval(() => {
-            if (this.timer > 0) {
-                this.timer--; // resta un segundo
-                this.drawGame();
-                //console.log(this.timer);
-                
-            } else {
-                clearInterval(this.timerInterval); // detiene el timer cuando llega a 0
-                this.stopTimer()
-            }
-        }, 1000);
-    }
-
-    stopTimer() {
-        clearInterval(this.timerInterval); 
-        this.timerInterval = null; 
-    }
-
-    resetTimer() {
-        this.stopTimer(); 
-        this.timer = this.initialTimerValue; 
-    }
-
-    drawTimer() {
-        let posX = this.width / 2;
-        let posY = this.height - (this.height - 80);
-        this.helper.drawText(`${this.timer}`,  posX, posY, "400 30px Silkscreen", "white");
-    }
-
 
 
     // Funciones init, reset, play, etc     //
 
     async initGame(p1, p2, srcImage) {
-        this.sizeDisc = 50; // Tamaño del cuadrado del tablero
-        this.radiusDisc = this.sizeDisc * 0.35; // Radio de la ficha
+        
 
         this.discs = [];
         this.holes = []; // Board
@@ -102,6 +82,7 @@ class Game {
         
     start(p1 = "Argentina", p2 = "Brasil", bgImg = "canchaArg.jpg", cols = 7, rows = 6) {
         this.buttons = [];
+        this.discs = [];
         this.columns = cols;
         this.rows = rows;
         this.player1 = p1;
@@ -219,7 +200,7 @@ class Game {
     
         const img = new Image();
     
-        let name = player === this.player1 ? "P1" : "P2";
+        let name = player === this.player1 ? this.player1 : this.player2;
         img.src = "./././assets/juego/disc" + name + ".png";
     
         img.onload = () => {
@@ -232,7 +213,7 @@ class Game {
         };
     }
     
-    createDisc(radius, img, posX, posY, player, num) {
+    createDisc(radius, img, posX, posY, player, num = -1) {
         return new Disc(posX, posY, radius, img, ctx, player, num + 1);
     }
   
@@ -273,6 +254,7 @@ class Game {
     // Interfaz jugar,config,etc //
 
     drawStart(width = 500, height = 400) {
+        console.log("DrawStart")
         this.clearCanvas();
         this.ctx.fillStyle = "#3A66DE";
 
@@ -284,6 +266,77 @@ class Game {
         );
    
         this.drawButtons();
+        this.createBtnDiscP1(this.player1);
+        this.createBtnDiscP2(this.player2);
+        this.drawDiscs();
+    }
+
+    createBtnsPlayer1() {
+        let posX = 50;
+        let posY = 50;
+
+        let btnIzq = this.createButton(" < ", posX, posY, "start", 30, 30);
+        btnIzq.setAction("backp1");
+
+        
+        let btnDer = this.createButton(" > ", posX * 3, posY, "start", 30, 30);
+        btnDer.setAction("nextp1");  
+
+        this.buttons.push(btnIzq);
+        this.buttons.push(btnDer);
+    }
+
+    createBtnDiscP1() {
+        // Disco visualizar
+        let height = this.sizeDisc;
+        let radius = this.radiusDisc;
+
+    
+        const img = new Image();
+    
+        let name = this.player1;
+    
+        img.src = "./././assets/juego/disc" + name + ".png";
+
+        //console.log(img.src);
+    
+        img.onload = () => {
+  
+            let disc = this.createDisc(radius, img, 50 * 2, 50, this.player1);
+            this.discs.push(disc);
+        };
+    }
+
+    createBtnsPlayer2() {
+        let btnIzq = this.createButton(" < ", this.width - 150, 50, "start", 30, 30);
+        btnIzq.setAction("backp2");
+
+        let btnDer = this.createButton(" > ", this.width - 50, 50, "start", 30, 30);
+        btnDer.setAction("nextp2");  
+
+        this.buttons.push(btnIzq);
+        this.buttons.push(btnDer);
+    }
+
+    createBtnDiscP2() {
+        // Disco visualizar
+        let height = this.sizeDisc;
+        let radius = this.radiusDisc;
+
+    
+        const img = new Image();
+    
+        let name = this.player2;
+    
+        img.src = "./././assets/juego/disc" + name + ".png";
+
+        //console.log(img.src);
+    
+        img.onload = () => {
+  
+            let disc = this.createDisc(radius, img, this.width - 100, 50, this.player2);
+            this.discs.push(disc);
+        };
     }
 
     createBtnsStart() {
@@ -298,6 +351,9 @@ class Game {
             let btn = this.createButton(text, buttonX, buttonY, "start");
             this.buttons.push(btn);
         });
+
+        this.createBtnsPlayer1();
+        this.createBtnsPlayer2();
     }
 
     createBtnsGame() {
@@ -333,6 +389,54 @@ class Game {
 
 
     // Funciones Juego //
+
+    nextP1() {
+        if (this.player1 === "Argentina") {this.changeP1("Chile")}
+        else {
+            if (this.player1 === "Chile") this.changeP1("Italia");
+        }
+        
+        this.drawStart();
+        //console.log(this.player1);
+    }
+
+    backP1() {
+        if (this.player1 === "Chile") {this.changeP1("Argentina")}
+        else {
+            if (this.player1 === "Italia") this.changeP1("Chile");
+        }
+        
+        this.drawStart();
+        //console.log(this.player1);
+    }
+
+    nextP2() {
+        if (this.player2 === "Brasil") {this.changeP2("Peru")}
+        else {
+            if (this.player2 === "Peru") this.changeP2("Francia");
+        }
+        console.log(this.player2);
+        this.drawStart();
+        
+    }
+
+    backP2() {
+        if (this.player2 === "Peru") {this.changeP2("Brasil")}
+        else {
+            if (this.player2 === "Francia") this.changeP2("Peru");
+        }
+        console.log(this.player2);
+        this.drawStart();
+        
+    }
+
+    changeP1(p1) {
+        this.player1 = p1;
+    }
+
+    changeP2(p2) {
+        this.player2 = p2;
+    }
 
     putDisc(posX, posY, disc) {
         let columna = this.canPutDisc(posX, posY);
@@ -428,7 +532,7 @@ class Game {
         console.log("CHECK WINNER LOGS");
         console.log("Checking winner for player:", player);
         console.log("Disc position: col =", col, "row =", row);
-*/
+        */
         const directions = [
             { x: 1, y: 0 },
             { x: 0, y: 1 },
@@ -460,13 +564,13 @@ class Game {
         for (let dir of directions) {
             let count = 1; // Inicia en 1 para contar la ficha que acaba de caer
 
-            // Contar hacia una dirección (ejemplo: derecha) y la contraria (ejemplo: izquierda)
+            // Contar hacia una dirección (derecha) y la contraria (izquierda)
             count += countInDirection(dir.x, dir.y);
             count += countInDirection(-dir.x, -dir.y);
 
             // Si hay 4 o más fichas consecutivas, se detecta victoria
             if (count >= 4) {
-                return true; // Victoria
+                return true;
             }
         }
 
@@ -476,6 +580,36 @@ class Game {
     togglePlayer() {
         this.actualPlayer = this.actualPlayer === this.player1 ? this.player2 : this.player1;
         this.drawGame();
+    }
+
+    startTimer() {
+        this.timerInterval = setInterval(() => {
+            if (this.timer > 0) {
+                this.timer--; // resta un segundo
+                this.drawGame();
+                //console.log(this.timer);
+                
+            } else {
+                clearInterval(this.timerInterval); // detiene el timer cuando llega a 0
+                this.stopTimer()
+            }
+        }, 1000);
+    }
+
+    stopTimer() {
+        clearInterval(this.timerInterval); 
+        this.timerInterval = null; 
+    }
+
+    resetTimer() {
+        this.stopTimer(); 
+        this.timer = this.initialTimerValue; 
+    }
+
+    drawTimer() {
+        let posX = this.width / 2;
+        let posY = this.height - (this.height - 80);
+        this.helper.drawText(`${this.timer}`,  posX, posY, "400 30px Silkscreen", "white");
     }
 
     // Fin funciones juego

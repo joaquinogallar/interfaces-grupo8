@@ -73,6 +73,18 @@ function onMouseDown(e) {
       case "Salir":
         game.start();  
         break;
+      case "nextp1":
+        game.nextP1();
+        break;
+      case "backp1":
+        game.backP1();
+        break;
+      case "nextp2":
+        game.nextP2();
+        break;
+      case "backp2":
+        game.backP2();
+        break;
       default: 
         alert(action);
     }
@@ -146,30 +158,34 @@ function onMouseMove(e) {
   if (btn != null) {
     //Hover
     btn.setResaltado(true);
-    game.drawButtons();
+    //game.drawButtons();
     lastClickedFigure = btn;
 
   } else {
-    if (game.getButtons().length > 0){
-      // Sacar hover
-      if (lastClickedFigure != null && lastClickedFigure.getType() === "button") {
-          if (lastClickedFigure.getGroup() === "start"){
+      if (game.getButtons().length > 0){
+        // Sacar hover
+        if (lastClickedFigure != null && lastClickedFigure.getType() === "button") {
 
-            lastClickedFigure.setResaltado(false);
-            game.drawStart();
-            
-          }
-          if (lastClickedFigure.getGroup() === "game"){
-            lastClickedFigure.setResaltado(false);
-            game.drawGame();
-          }
+          lastClickedFigure.setResaltado(false);
+            if (lastClickedFigure.getGroup() === "start"){
 
-          lastClickedFigure = null;
+              
+              game.drawStart();
+              
+            } else {
+              if (lastClickedFigure.getGroup() === "game"){
+                lastClickedFigure.setResaltado(false);
+                game.drawGame();
+              }
+            }
+
+            lastClickedFigure = null;
+        }
+
       }
-
+      
     }
-    
-  }
+    game.drawButtons();
 }
 
 // fin mouse function

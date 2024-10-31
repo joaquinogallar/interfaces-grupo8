@@ -28,7 +28,11 @@ class Button extends Figure{
         let posY = this.posY - this.height / 2;
         this.ctx.fillRect(posX, posY, this.width, this.height);
 
-        this.helper.drawText(this.text, this.posX, this.posY);
+        const textMetrics = this.ctx.measureText(this.text);
+        const textY = this.posY + textMetrics.actualBoundingBoxAscent / 2;
+
+        // Dibujar texto centrado
+        this.helper.drawText(this.text, this.posX, textY, undefined, "white");
 
 
         //Resaltado borde
@@ -51,6 +55,10 @@ class Button extends Figure{
             y < this.posY - this.height / 2 ||
             y > this.posY + this.height / 2
         );
+    }
+
+    setAction(act) {
+        this.action =  act;
     }
 
     getAction() {
