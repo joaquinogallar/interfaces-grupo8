@@ -7,10 +7,46 @@ class Game {
     this.playerScore1 = 0;
     this.playerScore2 = 0;
 
-    this.buttons = [];
+        this.buttons = [];
+        
+        this.helper = new Helper(ctx);
+        
+        this.initialTimerValue = 120;
+        this.timer = this.initialTimerValue; 
+        this.timerInterval = null;
+    }
 
-    this.helper = new Helper(ctx);
-  }
+    startTimer() {
+        this.timerInterval = setInterval(() => {
+            if (this.timer > 0) {
+                this.timer--; // resta un segundo
+                this.drawGame();
+                //console.log(this.timer);
+                
+            } else {
+                clearInterval(this.timerInterval); // detiene el timer cuando llega a 0
+                this.stopTimer()
+            }
+        }, 1000);
+    }
+
+    stopTimer() {
+        clearInterval(this.timerInterval); 
+        this.timerInterval = null; 
+    }
+
+    resetTimer() {
+        this.stopTimer(); 
+        this.timer = this.initialTimerValue; 
+    }
+
+    drawTimer() {
+        let posX = this.width / 2;
+        let posY = this.height - (this.height - 80);
+        this.helper.drawText(`${this.timer}`,  posX, posY, "400 30px Silkscreen", "white");
+    }
+
+
 
   // Funciones init, reset, play, etc     //
 
@@ -48,32 +84,25 @@ class Game {
     });
   }
 
-  // Poder hacer reset con datos opcionalemente cambiables
-  async resetGame(
-    p1 = this.player1,
-    p2 = this.player2,
-    bg = this.bgImg.src,
-    bResetWins = true
-  ) {
-    this.ctx.clearRect(0, 0, this.width, this.height);
-
-    if (bResetWins) this.resetWins();
-    // reinicia el juego
-    await this.play(p1, p2, bg, this.columns, this.rows);
-  }
-
-  async start(
-    p1 = "Argentina",
-    p2 = "Brasil",
-    bgImg = "canchaArg.jpg",
-    cols = 7,
-    rows = 6
-  ) {
-    this.buttons = [];
-    this.columns = cols;
-    this.rows = rows;
-    this.player1 = p1;
-    this.player2 = p2;
+    // Poder hacer reset con datos opcionalemente cambiables
+    async resetGame(p1 = this.player1, p2 = this.player2, bg = this.bgImg.src, bResetWins = true) {
+        this.ctx.clearRect(0, 0, this.width, this.height);
+        
+        if (bResetWins) this.resetWins();
+        
+        this.stopTimer();
+        this.resetTimer();
+        
+        // reinicia el juego
+        await this.play(p1, p2, bg, this.columns, this.rows);
+    }
+        
+    start(p1 = "Argentina", p2 = "Brasil", bgImg = "canchaArg.jpg", cols = 7, rows = 6) {
+        this.buttons = [];
+        this.columns = cols;
+        this.rows = rows;
+        this.player1 = p1;
+        this.player2 = p2;
 
     this.resetWins(); // Si al dar al boton salir quisieramos que se guarden las victorias comentar esto
 
@@ -115,15 +144,17 @@ class Game {
 
     await this.initGame(p1, p2, bgImg);
 
-    this.createBoard(cols, rows, "blue"); // Crea y dibuja el tablero con columnas y filas variables y color //
+        this.createBoard(cols, rows, "blue"); // Crea y dibuja el tablero con columnas y filas variables y color //
+        
+        this.createDiscs(this.player1, discsForPlayer, 300, 250);
+        this.createDiscs(this.player2, discsForPlayer, 750, 250);
+        
+        this.createBtnsGame();
+        
+        this.drawGame();
 
-    this.createDiscs(this.player1, discsForPlayer, 300, 250);
-    this.createDiscs(this.player2, discsForPlayer, 750, 250);
-
-    this.createBtnsGame();
-
-    this.drawGame();
-  }
+        this.startTimer();
+    }
 
   // Crear juego, funciones //
 
