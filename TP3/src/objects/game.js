@@ -21,8 +21,8 @@ class Game {
         this.timerInterval = setInterval(() => {
             if (this.timer > 0) {
                 this.timer--; // resta un segundo
-                this.helper.drawText(`${this.timer}`,  this.width / 2, this.height - 40, "400 30px Silkscreen", "white");
-                console.log(this.timer);
+                this.drawGame();
+                //console.log(this.timer);
                 
             } else {
                 clearInterval(this.timerInterval); // detiene el timer cuando llega a 0
@@ -39,6 +39,12 @@ class Game {
     resetTimer() {
         this.stopTimer(); 
         this.timer = this.initialTimerValue; 
+    }
+
+    drawTimer() {
+        let posX = this.width / 2;
+        let posY = this.height - (this.height - 80);
+        this.helper.drawText(`${this.timer}`,  posX, posY, "400 30px Silkscreen", "white");
     }
 
 
@@ -243,6 +249,7 @@ class Game {
         this.drawDiscs();
         this.drawUI();
         this.drawButtons();
+        this.drawTimer();
     }
       
     drawUI() {
