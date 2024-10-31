@@ -217,15 +217,15 @@ class Game {
         return new Disc(posX, posY, radius, img, ctx, player, num + 1);
     }
   
-    drawDiscs() {
+    async drawDiscs() {
         //clearCanvas();
         for (let i = 0; i < this.discs.length; i++) {
-            this.discs[i].draw();
+            await this.discs[i].draw();
         }
     }
 
-    drawGame() {
-        this.clearCanvas();
+    async drawGame() {
+        await this.clearCanvas();
         this.drawBoard();
         this.drawDiscs();
         this.drawUI();
@@ -253,9 +253,9 @@ class Game {
 
     // Interfaz jugar,config,etc //
 
-    drawStart(width = 500, height = 400) {
+    async drawStart(width = 500, height = 400) {
         console.log("DrawStart")
-        this.clearCanvas();
+        await this.clearCanvas();
         this.ctx.fillStyle = "#3A66DE";
 
         this.ctx.fillRect(
@@ -266,9 +266,9 @@ class Game {
         );
    
         this.drawButtons();
-        this.createBtnDiscP1(this.player1);
-        this.createBtnDiscP2(this.player2);
-        this.drawDiscs();
+        await this.createBtnDiscP1(this.player1);
+        await this.createBtnDiscP2(this.player2);
+        await this.drawDiscs();
     }
 
     createBtnsPlayer1() {
@@ -286,12 +286,12 @@ class Game {
         this.buttons.push(btnDer);
     }
 
-    createBtnDiscP1() {
+    async createBtnDiscP1() {
         // Disco visualizar
         let height = this.sizeDisc;
         let radius = this.radiusDisc;
 
-    
+        
         const img = new Image();
     
         let name = this.player1;
@@ -299,12 +299,24 @@ class Game {
         img.src = "./././assets/juego/disc" + name + ".png";
 
         //console.log(img.src);
-    
-        img.onload = () => {
+        
+        await new Promise((resolve) => {
+            img.onload = () => {
+              //console.log("Imagen cargada. Inicializando juego.");
+      
+              resolve();
+            };
+      
+            if (img.complete) {
+              img.onload();
+            }
+          });
   
-            let disc = this.createDisc(radius, img, 50 * 2, 50, this.player1);
-            this.discs.push(disc);
-        };
+        let disc = this.createDisc(radius, img, 50 * 2, 50, this.player1);
+        this.discs.push(disc);
+        
+
+        console.log("DP1 creado");
     }
 
     createBtnsPlayer2() {
@@ -318,7 +330,7 @@ class Game {
         this.buttons.push(btnDer);
     }
 
-    createBtnDiscP2() {
+    async createBtnDiscP2() {
         // Disco visualizar
         let height = this.sizeDisc;
         let radius = this.radiusDisc;
@@ -330,13 +342,21 @@ class Game {
     
         img.src = "./././assets/juego/disc" + name + ".png";
 
-        //console.log(img.src);
-    
-        img.onload = () => {
+        await new Promise((resolve) => {
+            img.onload = () => {
+              //console.log("Imagen cargada. Inicializando juego.");
+      
+              resolve();
+            };
+      
+            if (img.complete) {
+              img.onload();
+            }
+          });
   
-            let disc = this.createDisc(radius, img, this.width - 100, 50, this.player2);
-            this.discs.push(disc);
-        };
+        let disc = this.createDisc(radius, img, this.width - 100, 50, this.player2);
+        this.discs.push(disc);
+        
     }
 
     createBtnsStart() {
@@ -616,7 +636,18 @@ class Game {
 
     // #Region Utils
 
-    clearCanvas() {
+    async clearCanvas() {
+        await new Promise((resolve) => {
+            this.bgImg.onload = () => {
+              //console.log("Imagen cargada. Inicializando juego.");
+      
+              resolve();
+            };
+      
+            if (this.bgImg.complete) {
+                this.bgImg.onload();
+            }
+          });
         this.ctx.drawImage(this.bgImg, 0, 0, this.width, this.height);
         this.ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
         this.ctx.fillRect(0, 0, this.width, this.height);

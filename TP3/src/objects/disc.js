@@ -10,10 +10,26 @@ class Disc extends Circle {
 
         this.boardC = null;
         this.boardR = null;
+
+        this.helper = new Helper(ctx);
     }
 
-    draw() {
+    async draw() {
+
+        
         if (this.image) {
+            await new Promise((resolve) => {// creo que no funciona de nada
+                this.image.onload = () => {
+                  //console.log("Imagen cargada. Inicializando juego.");
+          
+                  resolve();
+                };
+          
+                if (this.image.complete) {
+                  this.image.onload();
+                }
+              });
+  
             this.ctx.drawImage(
                 this.image,
                 this.posX - this.radius,  
