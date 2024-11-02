@@ -18,7 +18,7 @@ const helper = new Helper(ctx);
 function createGame(p1 = "Argentina", p2 = "Brasil") {
   game = new Game(ctx, canvasHeight, canvasWidth);
 
-  game.start(p1, p2, undefined, 7, 6);
+  game.start(p1, p2, undefined, game.mode.getColumns(), game.mode.getRows());
 
   discs = game.getDiscs();
   
@@ -87,6 +87,12 @@ function onMouseDown(e) {
         break;
       case "backp2":
         game.backP2();
+        break;
+      case "nextmode":
+        game.nextMode();
+        break;
+      case "backmode":
+        game.backMode();
         break;
       default: 
         alert(action);

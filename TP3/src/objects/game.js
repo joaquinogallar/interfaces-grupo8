@@ -1,3 +1,35 @@
+class Mode {
+  constructor(columns = 7, rows = 6, cantWins = 4, name = `${cantWins} en linea`) {
+      this.columns = columns;
+      this.rows = rows;
+      this.cantWins = cantWins;
+  }
+  
+  getColumns() {
+      return this.columns;
+  }
+
+  getRows() {
+      return this.rows;
+  }
+
+  getCantWins() {
+    return this.cantWins;
+  }
+
+  setColumns(columns) {
+      this.columns = columns; 
+  }
+
+  setRows(rows) {
+      this.rows = rows;
+  }
+
+  setCantWins(cantWins) {
+    this.cantWins = cantWins;
+  }
+}
+
 class Game {
   constructor(ctx, canvasHeight, canvasWidth) {
     this.sizeDisc = 50; // Tamaño del cuadrado del tablero
@@ -5,6 +37,8 @@ class Game {
     this.ctx = ctx;
     this.height = canvasHeight;
     this.width = canvasWidth;
+
+    this.mode = new Mode(7, 6, 4);
 
     this.playerScore1 = 0;
     this.playerScore2 = 0;
@@ -77,8 +111,8 @@ class Game {
     p1 = "Argentina",
     p2 = "Brasil",
     bgImg = "canchaArg.jpg",
-    cols = 7,
-    rows = 6
+    cols = this.mode.getColumns,
+    rows = this.mode.getRows
   ) {
     this.buttons = [];
     this.discs = [];
@@ -108,8 +142,8 @@ class Game {
     p1 = this.player1,
     p2 = this.player2,
     bgImg = this.bgImg.src,
-    cols = 7,
-    rows = 6
+    cols = this.mode.getColumns(),
+    rows = this.mode.getRows()
   ) {
     this.buttons = [];
     this.columns = cols;
@@ -413,10 +447,10 @@ class Game {
     let posY = this.height / 2 + 120;
 
     let btnIzq = this.createButton(" < ", posX, posY, "start", 30, 30);
-    btnIzq.setAction("backp1");
+    btnIzq.setAction("backmode");
 
-    let btnDer = this.createButton(" > ", posX * 3, posY, "start", 30, 30);
-    btnDer.setAction("nextp1");
+    let btnDer = this.createButton(" > ", posX * 1.2, posY, "start", 30, 30);
+    btnDer.setAction("nextmode");
 
     this.buttons.push(btnIzq);
     this.buttons.push(btnDer);
@@ -464,6 +498,28 @@ class Game {
   }
 
   // Funciones Juego //
+  nextMode() {
+    let rows = this.mode.getRows();
+    let columns = this.mode.getColumns();
+    let cantWins = this.mode.getCantWins();
+    if(cantWins < 6) {
+      this.mode.setRows(rows + 1);
+      this.mode.setColumns(columns + 1);
+      this.mode.setCantWins(cantWins + 1);
+    }
+  }
+
+  backMode() {
+    let rows = this.mode.getRows();
+    let columns = this.mode.getColumns();
+    let cantWins = this.mode.getCantWins();
+
+    if(cantWins > 3) {
+      this.mode.setCantWins(cantWins - 1);
+      this.mode.setRows(rows - 1);
+      this.mode.setColumns(columns - 1)
+    };
+  }
 
   nextP1() {
     if (this.player1 === "Argentina") {
@@ -514,6 +570,9 @@ class Game {
     this.player2 = p2;
   }
 
+  changeMode(mode) {
+  }
+
   putDisc(posX, posY, disc) {
     let columna = this.canPutDisc(posX, posY);
     
@@ -548,7 +607,7 @@ class Game {
 
               // Movida logica de cambio de turno y winner aca por problemas de sincronizacion
               this.togglePlayer();
-              if (this.checkWinner(disc)) {
+              if (this.checkWinner(disc, this.cantWin)) {
                 disc.getPlayer() == game.getPlayer1()
                   ? game.addWinPlayer1()
                   : game.addWinPlayer2();
@@ -666,7 +725,7 @@ class Game {
       count += countInDirection(-dir.x, -dir.y);
 
       // Si hay 4 o más fichas consecutivas, se detecta victoria
-      if (count >= 4) {
+      if (count >= this.mode.getCantWins()) {
         return true;
       }
     }
@@ -714,6 +773,8 @@ class Game {
     }, 1000);
   }
 
+  // TODO: hacer que el mensaje del drawText sea configurable para poder personalizar el mensaje de un ganador
+  // TROUBLE: esta funcion se llama en drawGame que esta constantemente llamandose, por lo que pasar por parametro el ganador en la funcion drawGame no funcionaria tan facil
   drawRestart() {
     this.ctx.fillStyle = "#3A66DE";
 
