@@ -15,7 +15,7 @@ class Game {
 
     this.helper = new Helper(ctx);
 
-    this.initialTimerValue = 10;
+    this.initialTimerValue = 120;
     this.timer = this.initialTimerValue;
     this.timerInterval = null;
   }
@@ -284,6 +284,7 @@ class Game {
   // Interfaz jugar,config,etc //
 
   async drawStart(width = 500, height = 400) {
+    this.restart = false;
     await this.clearCanvas();
     this.ctx.fillStyle = "#3A66DE";
 
@@ -389,7 +390,7 @@ class Game {
   }
 
   createBtnsStart() {
-    const buttonTexts = ["Jugar", "Cambiar fondo", "Configuración"];
+    const buttonTexts = ["Jugar", "Cambiar fondo"];
 
     const buttonX = this.width / 2;
     const startingY = this.height / 3;
@@ -401,8 +402,24 @@ class Game {
       this.buttons.push(btn);
     });
 
+    this.createModes()
+
     this.createBtnsPlayer1();
     this.createBtnsPlayer2();
+  }
+
+  createModes() {
+    let posX = this.width / 2;
+    let posY = this.height / 2 + 120;
+
+    let btnIzq = this.createButton(" < ", posX, posY, "start", 30, 30);
+    btnIzq.setAction("backp1");
+
+    let btnDer = this.createButton(" > ", posX * 3, posY, "start", 30, 30);
+    btnDer.setAction("nextp1");
+
+    this.buttons.push(btnIzq);
+    this.buttons.push(btnDer);
   }
 
   createBtnsGame() {
@@ -499,6 +516,7 @@ class Game {
 
   putDisc(posX, posY, disc) {
     let columna = this.canPutDisc(posX, posY);
+    
     if (columna !== -1) {
       if (this.insertDisc(posX, posY, columna, 0, disc)) {
         this.drawGame();
@@ -521,6 +539,8 @@ class Game {
           return false;
         } else {
           if (!this.insertDisc(x, y, c, i + 1, disc)) {
+            console.log(c, i);
+
             let objY = obj.getPosY() + obj.getHeight() / 2;
             this.animateDiscDrop(disc, objY, () => {
               obj.markAsFilled(disc, c, i);
@@ -532,9 +552,29 @@ class Game {
                 disc.getPlayer() == game.getPlayer1()
                   ? game.addWinPlayer1()
                   : game.addWinPlayer2();
+                
+                let btn = this.createButton(
+                  "Revancha",
+                  this.width / 2,
+                  this.height / 2,
+                  "game"
+                );
 
-                alert("Winner: " + disc.getPlayer());
-                this.resetGame(undefined, undefined, undefined, false); // Para resetear las fichas pero no el score
+                let btn2 = this.createButton(
+                  "Salir",
+                  this.width / 2,
+                  this.height / 2 + 60,
+                  "game"
+                );
+
+                this.buttons = [];
+                this.buttons.push(btn);
+                this.buttons.push(btn2);
+                this.restart = true;
+                this.drawGame();
+
+                this.stopTimer();
+                // this.resetGame(undefined, undefined, undefined, false); // Para resetear las fichas pero no el score
               }
               this.drawGame();
             });
@@ -656,8 +696,16 @@ class Game {
           "game"
         );
 
+        let btn2 = this.createButton(
+          "Salir",
+          this.width / 2,
+          this.height / 2 + 60,
+          "game"
+        );
+
         this.buttons = [];
         this.buttons.push(btn);
+        this.buttons.push(btn2);
         this.restart = true;
         this.drawGame();
 
@@ -679,7 +727,9 @@ class Game {
     this.helper.drawText(
       "Se termino el tiempo!",
       this.width / 2,
-      this.height / 2 - 60
+      this.height / 2 - 60,
+      undefined,
+      "white"
     );
     this.drawButtons();
   }

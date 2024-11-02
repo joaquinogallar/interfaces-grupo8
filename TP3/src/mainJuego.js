@@ -70,6 +70,9 @@ function onMouseDown(e) {
       case "Reiniciar":
         game.resetGame();
         break;
+      case "Revancha":
+        game.resetGame(undefined, undefined, undefined, false);
+        break;
       case "Salir":
         game.start();  
         break;
@@ -234,7 +237,7 @@ function findClickedDisc(x, y) {
 }
 
 function findClickedButton(x, y) {
-  let btns = game.getButtons();
+  let btns = game.getButtons();  
   if (!btns) return null;
   for (let i = btns.length - 1; i >= 0; i--) {
     // Esto da igual xq los btns no estan uno arriba de los otros
