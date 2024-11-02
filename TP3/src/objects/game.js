@@ -42,6 +42,7 @@ class Game {
 
     this.playerScore1 = 0;
     this.playerScore2 = 0;
+    this.lastWinner = null;
 
     this.buttons = [];
 
@@ -49,7 +50,7 @@ class Game {
 
     this.helper = new Helper(ctx);
 
-    this.initialTimerValue = 120;
+    this.initialTimerValue = 10;
     this.timer = this.initialTimerValue;
     this.timerInterval = null;
   }
@@ -102,6 +103,7 @@ class Game {
     this.resetTimer();
 
     this.restart = false;
+    this.lastWinner = null;
 
     // reinicia el juego
     await this.play(p1, p2, bg, this.columns, this.rows);
@@ -235,10 +237,6 @@ class Game {
     for (let i = 0; i < this.holes.length; i++) {
       this.holes[i].draw();
     }
-    // pinta los agujeros donde se sueltan las fichas
-    // for (let i = 0; i < holesInsert.length; i++) {
-    //   holesInsert[i].draw();
-    // }
   }
 
   createDiscs(player, cant, _posX, _posY) {
@@ -284,7 +282,11 @@ class Game {
     }
 
     if (this.restart) {
-      this.drawRestart();
+      if(this.lastWinner != null) {
+        this.drawRestart("Ganador! " + this.lastWinner.getPlayer());
+      } else {
+        this.drawRestart();
+      }
     }
   }
 
@@ -319,6 +321,7 @@ class Game {
 
   async drawStart(width = 500, height = 400) {
     this.restart = false;
+    this.lastWinner = null;
     await this.clearCanvas();
     this.ctx.fillStyle = "#3A66DE";
 
@@ -443,12 +446,12 @@ class Game {
   }
 
   createModes() {
-    let posX = this.width / 2;
+    let posX = this.width / 2.2;
     let posY = this.height / 2 + 120;
-
+    
     let btnIzq = this.createButton(" < ", posX, posY, "start", 30, 30);
     btnIzq.setAction("backmode");
-
+    
     let btnDer = this.createButton(" > ", posX * 1.2, posY, "start", 30, 30);
     btnDer.setAction("nextmode");
 
@@ -612,6 +615,8 @@ class Game {
                   ? game.addWinPlayer1()
                   : game.addWinPlayer2();
                 
+                this.lastWinner = disc;
+
                 let btn = this.createButton(
                   "Revancha",
                   this.width / 2,
@@ -773,9 +778,7 @@ class Game {
     }, 1000);
   }
 
-  // TODO: hacer que el mensaje del drawText sea configurable para poder personalizar el mensaje de un ganador
-  // TROUBLE: esta funcion se llama en drawGame que esta constantemente llamandose, por lo que pasar por parametro el ganador en la funcion drawGame no funcionaria tan facil
-  drawRestart() {
+  drawRestart(text = "Se termino el tiempo!") {
     this.ctx.fillStyle = "#3A66DE";
 
     this.ctx.fillRect(
@@ -786,7 +789,7 @@ class Game {
     );
 
     this.helper.drawText(
-      "Se termino el tiempo!",
+      text,
       this.width / 2,
       this.height / 2 - 60,
       undefined,
