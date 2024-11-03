@@ -50,7 +50,7 @@ class Game {
 
     this.helper = new Helper(ctx);
 
-    this.initialTimerValue = 10;
+    this.initialTimerValue = 120;
     this.timer = this.initialTimerValue;
     this.timerInterval = null;
   }
