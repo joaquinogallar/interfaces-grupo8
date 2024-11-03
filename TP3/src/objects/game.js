@@ -332,6 +332,22 @@ class Game {
       height
     );
 
+    this.helper.drawText(
+      `CANTIDAD DE LINEAS`,
+      this.width / 2,
+      380,
+      undefined,
+      "white"
+    );
+
+    this.helper.drawText(
+      `${this.mode.getCantWins()}`,
+      this.width / 2,
+      420,
+      undefined,
+      "white"
+    );
+
     this.drawButtons();
     await this.createBtnDiscP1(this.player1);
     await this.createBtnDiscP2(this.player2);
@@ -462,8 +478,8 @@ class Game {
   createBtnsGame() {
     const buttonTexts = ["Reiniciar", "Salir"];
 
-    const buttonX = 150;
-    const startingY = this.height / 3;
+    const buttonX = 100;
+    const startingY = this.height / 2.5;
     const spacing = 100; // Distancia vertical entre botones
 
     buttonTexts.forEach((text, index) => {
