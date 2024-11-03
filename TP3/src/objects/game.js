@@ -526,6 +526,7 @@ class Game {
       this.mode.setColumns(columns + 1);
       this.mode.setCantWins(cantWins + 1);
     }
+    this.drawStart()
   }
 
   backMode() {
@@ -538,6 +539,8 @@ class Game {
       this.mode.setRows(rows - 1);
       this.mode.setColumns(columns - 1)
     };
+    this.drawStart()
+
   }
 
   nextP1() {
