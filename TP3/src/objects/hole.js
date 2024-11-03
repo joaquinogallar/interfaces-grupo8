@@ -88,4 +88,8 @@ class Hole extends Rect {
     getInfo() {
         return "agujero";
     }
+
+    setTeamImg(teamImg) {
+        this.teamImg = teamImg;
+    }
 }

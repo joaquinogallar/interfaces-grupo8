@@ -156,7 +156,7 @@ class Game {
 
     await this.initGame(p1, p2, bgImg);
 
-    this.createBoard(cols, rows, "blue"); // Crea y dibuja el tablero con columnas y filas variables y color //
+    this.createBoard(cols, rows, "white"); // Crea y dibuja el tablero con columnas y filas variables y color //
 
     this.createDiscs(this.player1, discsForPlayer, 260, 200);
     this.createDiscs(this.player2, discsForPlayer, 800, 200);
@@ -208,9 +208,10 @@ class Game {
       let holeI = this.createHole(
         size,
         size,
-        "gray" /* Reemplazar por "" para que sea invisible */,
+        color /* Reemplazar por "" para que sea invisible */,
         board[c][0].getPosX(),
-        board[c][0].getPosY() - size
+        board[c][0].getPosY() - size,
+        "insert",
       );
       this.holesInsert.push(holeI);
     }
@@ -220,6 +221,8 @@ class Game {
 
   createHole(rectHeight, rectWidth, color, posX, posY, teamImg) {
     let randomNum = Math.floor(Math.random() * 4) + 1; // para que se ponga uno de los 4 holes
+    if(teamImg == "insert" || teamImg == "inserting")
+      randomNum = 1
     return new Hole(
       posX,
       posY,
@@ -236,6 +239,9 @@ class Game {
   drawBoard() {
     for (let i = 0; i < this.holes.length; i++) {
       this.holes[i].draw();
+    }
+    for (let i = 0; i < this.holesInsert.length; i++) {
+      this.holesInsert[i].draw();
     }
   }
 
@@ -692,12 +698,26 @@ class Game {
     requestAnimationFrame(drop);
   }
 
+  // TODO: solo funciona de izquierda a derecha, de derecha a izquierda quedan marcados con la imagen inserting por que el for se corta antes
   canPutDisc(posX, posY) {
+    
     for (let i = 0; i < this.holesInsert.length; i++) {
+      
       if (this.holesInsert[i].isPointInside(posX, posY)) {
+        
+        // console.log(posX, posY, i);
+        this.holesInsert[i].setTeamImg("inserting")
+
         return i;
       }
+      else {
+        this.holesInsert[i].setTeamImg("insert")
+
+      }
     }
+
+
+    
     return -1;
   }
 
