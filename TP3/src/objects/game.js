@@ -158,8 +158,8 @@ class Game {
 
     this.createBoard(cols, rows, "blue"); // Crea y dibuja el tablero con columnas y filas variables y color //
 
-    this.createDiscs(this.player1, discsForPlayer, 300, 250);
-    this.createDiscs(this.player2, discsForPlayer, 750, 250);
+    this.createDiscs(this.player1, discsForPlayer, 260, 200);
+    this.createDiscs(this.player2, discsForPlayer, 800, 200);
 
     this.createBtnsGame();
 
@@ -254,7 +254,7 @@ class Game {
       for (let i = 0; i < cant; i++) {
         let disc = this.createDisc(radius, img, _posX, _posY, player, i + 1);
         this.discs.push(disc);
-        _posY += height / 3;
+        _posY += height / 5;
       }
       this.drawDiscs();
     };
@@ -651,7 +651,7 @@ class Game {
   }
 
   animateDiscDrop(disc, targetY, onComplete) {
-    let speed = 10;
+    let speed = 25;
 
     const self = this;
 
