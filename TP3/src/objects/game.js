@@ -700,7 +700,7 @@ class Game {
 
   // TODO: solo funciona de izquierda a derecha, de derecha a izquierda quedan marcados con la imagen inserting por que el for se corta antes
   canPutDisc(posX, posY) {
-    
+    let b = true;
     for (let i = 0; i < this.holesInsert.length; i++) {
       
       if (this.holesInsert[i].isPointInside(posX, posY)) {
@@ -710,15 +710,22 @@ class Game {
 
         return i;
       }
-      else {
-        this.holesInsert[i].setTeamImg("insert")
-
+      if(b){
+        this.eraseTeamImg();
+        b = false;
       }
     }
 
 
     
     return -1;
+  }
+
+  eraseTeamImg() {
+    for (let i = 0; i < this.holesInsert.length; i++) {
+      this.holesInsert[i].setTeamImg("insert")
+    }
+    
   }
 
   checkWinner(disc) {
