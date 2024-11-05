@@ -181,7 +181,7 @@ class Game {
     let sizeY = maxBoardSize / rows;
 
     let _posX = this.width / 2 - (size * columns) / 2; // POSICION INICIAL //
-    let _posY = this.height / 2 - (size * rows) / 2;
+    let _posY = this.height / 2 - (size * rows) / 2 + 50;
 
     let yInicial = _posY;
 
