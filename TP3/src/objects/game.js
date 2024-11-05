@@ -329,7 +329,7 @@ class Game {
     this.restart = false;
     this.lastWinner = null;
     await this.clearCanvas();
-    this.ctx.fillStyle = "#3A66DE";
+    this.ctx.fillStyle = "#1A2D3B";
 
     this.ctx.fillRect(
       this.width / 2 - width / 2,

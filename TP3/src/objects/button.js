@@ -1,5 +1,5 @@
 class Button extends Figure{
-    constructor(ctx, text, x, y, width = 160, height = 50, group, bgColor = "#423ADE", textColor = "black") {
+    constructor(ctx, text, x, y, width = 160, height = 50, group, bgColor = "lightblue", textColor = "black") {
         super(x, y, bgColor, ctx);
         this.ctx = ctx;
         this.text = text;
@@ -21,7 +21,7 @@ class Button extends Figure{
     draw() {
         // Cambia el color de fondo si es hover
         super.draw();
-        this.ctx.fillStyle = this.isHovered ? "#5A5FFF" : this.bgColor;
+        this.ctx.fillStyle = this.isHovered ? "lightblue" : this.bgColor;
 
         // Pos centrado:
         let posX = this.posX - this.width / 2;
@@ -32,7 +32,7 @@ class Button extends Figure{
         const textY = this.posY + textMetrics.actualBoundingBoxAscent / 2;
 
         // Dibujar texto centrado
-        this.helper.drawText(this.text, this.posX, textY, undefined, "white");
+        this.helper.drawText(this.text, this.posX, textY, undefined, this.textColor);
 
 
         //Resaltado borde
