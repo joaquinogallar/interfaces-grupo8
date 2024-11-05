@@ -325,11 +325,11 @@ class Game {
 
   // Interfaz jugar,config,etc //
 
-  async drawStart(width = 500, height = 400) {
+  async drawStart(width = 400, height = 400) {
     this.restart = false;
     this.lastWinner = null;
     await this.clearCanvas();
-    this.ctx.fillStyle = "#1A2D3B";
+    this.ctx.fillStyle = "rgba(26, 45, 59, 0.95)";
 
     this.ctx.fillRect(
       this.width / 2 - width / 2,
