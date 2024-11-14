@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Sphere</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Icono de la página -->
+    <link rel="icon" href="assets/logo.png" type="image/x-icon" />
+
+    <!-- ICONOS https://fonts.google.com/icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Baloo+2"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="header">
+      <div id="head-div-a">
+        <div id="div-hamburguesa">
+          <button popovertarget="sidebar" id="btn-hamburguesa">
+            <i class="material-symbols-outlined">menu</i>
+          </button>
+        </div>
+
+        <div id="logo-container">
+          <img id="logo-header" src="assets/logo.png" />
+          <h2 id="head-title" class="text-light h2">Game Sphere</h2>
+        </div>
+      </div>
+      <img class="imagencs" src="/interfaces-grupo8/TP2/assets/li--cart.png" alt="" >
+
+      <div id="head-div-b">
+        <div id="div-buscar">
+          <input type="text" placeholder="Buscar..." class="text-light body2" />
+          <button><i class="material-symbols-outlined">search</i></button>
+        </div>
+      </div>
+
+      <div id="head-div-c">
+        <div id="div-iconos-header">
+          <a><i class="material-symbols-outlined">favorite</i></a>
+          <a><i class="material-symbols-outlined">shopping_cart</i></a>
+          <a><span class="material-symbols-outlined">account_circle</span></a>
+        </div>
+      </div>
+    </header>
+    <aside id="sidebar" popover>
+      <ul>
+        <li>
+          <a href="home.html">
+            <!--<img>--><i class="material-symbols-outlined">home</i>
+            <p class="text-light body2">Inicio</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <!--<img>--><i class="material-symbols-outlined">schedule</i>
+            <p class="text-light body2">Recientes</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <!--<img>--><i class="material-symbols-outlined">swords</i>
+            <p class="text-light body2">Accion</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <!--<img>--><i class="material-symbols-outlined">sports_esports</i>
+            <p class="text-light body2">Mando</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="login">
+            <!--<img>--><i class="material-symbols-outlined">login</i>
+            <p class="text-light body2">Iniciar Sesion</p>
+          </a>
+        </li>
+      </ul>
+    </aside>
+    
+    <main>
+      <section id="seccion-juego-container">
+        <span class="h3 ubicacion"><a class="volver-home" href="./home.html">Home</a> / Puzzle / <span class="titulo-juego"></span></span>
+        <div class="juego text-light">
+          <div class="juego-container">
+            <div class="inicio-juego">
+              
+                <div class="iniciar-juego">
+                  <h1 class="h1 titulo-juego"></h1>
+                  <button class="boton-juego body1">Jugar</button>
+                </div>
+            </div>
+            
+            <canvas id="canvas-juego" width="1064"  height="596" style="border:1px solid #d3d3d3;z-index: 0;"></canvas>
+            
+            <div class="info-juego">
+              <div class="containerTitulo">
+              <span class="titulo-juego-span">
+                <h3 class="h3 titulo-juego"></h3><button class="favoriteBtn" ><i class="material-symbols-outlined">favorite</i></button></span>
+              <button class="shareIcon"> <img class="share" src="assets/material-symbols--share.png" alt=""></button>
+                
+              </div> 
+              
+
+              <p class="body2 descripcion-juego">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum, nesciunt. Tenetur harum, dolore placeat consequuntur at excepturi sunt ipsa voluptatibus, dolor praesentium, quia repudiandae maiores? Incidunt sed voluptas ipsum vel!</p>
+            </div>
+          </div>
+          <div class="instrucciones-juego">
+            <div>
+              <h3 class="h3">Instrucciones</h3>
+              <div class="instruccion-grafica">
+                <h4 class="h4">Saltar</h4>
+                <img src="./assets/instruccionMouse.png" alt="">
+              </div>
+            </div>
+            <div class="objetivo-juego">
+              <h4 class="h4">Objetivo</h4>
+              <p class="body2">El objetivo de este juego consiste en colocar cuatro fichas en una fila continua vertical, horizontal o diagonalmente.  Se juega sobre un tablero de 8x8 casillas que al empezar está vacío.  Ambos jugadores sitúan sus fichas (una por movimiento) en el tablero.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+    </main>
+    <div class="JuegosRecomendados text-light" id="carrusel-enJuego">
+      <section class="text-light">
+        <h2 class="h2"> Otros...</h2>
+        
+        <div class="swiper-container">
+          <div class="swiper" id="swiper-destacados">
+            <div class="carrusel-destacados-div swiper-wrapper">
+              <!-- CARGA DE JUEGOS DESTACADOS -->
+              
+            </div>        
+          </div>
+
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+        </section>
+    </div>
+    
+    <section class="comentarios-container">
+          
+          <div class="input-container">
+            <img src="assets/ImagenUsuario.png">
+              <input id="comentario" type="text" placeholder="Añade un comentario...">
+              <div class="horizontal-line-input"></div>
+       
+                  <button class="enviarBtn">Enviar</button>
+          </div>
+      </div>
+      <div class="boxComentarios">
+            <div class="divComentario">
+              <div class="infoUsuario"> 
+                <img src="assets/ImagenUsuarioPred.png">
+                <h3 class="nombreUsuario">Alejo Rau</h3>
+              </div>
+                <p class="comentario-texto">Muy divertido el juego!!</p>
+            <button class="likeBtn"><img src="./assets/mdi_like.png" alt=""></button>
+              </div>
+            <div class="divComentario">
+              <div class="infoUsuario"> 
+                <img src="assets/ImagenUsuarioPred.png">
+                <h3 class="nombreUsuario">Juancito Perez33</h3>
+              </div>
+              
+              <p class="comentario-texto">De los mejores que juge!</p>
+              <!-- Esto es un comentario en HTML<img class="avatar" src="assets/facebookIcone.png" alt=""> --><button class="likeBtn"><img src="./assets/mdi_like.png" alt=""></button>
+            </div>
+          <div class="divComentario">
+            <div class="infoUsuario"> 
+              <img src="assets/ImagenUsuarioPred.png">
+              <h3 class="nombreUsuario">Juanceto01</h3>
+            </div>
+           
+            
+            <p class="comentario-texto">Increiblemente malo :/</p>           
+            <button class="likeBtn"><img src="./assets/mdi_like.png" alt=""></button>
+          </div>
+          <div class="divComentario">
+            <div class="infoUsuario"> 
+              <img src="assets/ImagenUsuarioPred.png">
+              <h3 class="nombreUsuario">Ocho8_8</h3>
+            </div>
+             <p class="comentario-texto">Buenardo, recomendado!</p>
+         <button class="likeBtn"><img src="./assets/mdi_like.png" alt=""></button>
+           </div>
+           <div class="divComentario">
+              <div class="infoUsuario"> 
+                <img src="assets/ImagenUsuarioPred.png">
+                <h3 class="nombreUsuario">Goga</h3>
+              </div>
+              <p class="comentario-texto">Entretenido pero medio mediocre</p>
+            <button class="likeBtn"><img src="./assets/mdi_like.png" alt=""></button>
+           </div>
+          
+        </div>
+      </section>
+     
+   
+      <footer class="fatFooter">
+        <div class="containerFooter">
+          <div>
+            <ul class="listFooter">
+              <h2 class="h2Footer"> Link</h2>
+              <li class="itemFooter"><a href="#">Home</a></li>
+              <li class="itemFooter"><a href="#">Accion</a></li>
+              <li class="itemFooter"><a href="#">Terror</a></li>
+              <li class="itemFooter"><a href="#">Deporte</a></li>
+              <li class="itemFooter"><a href="#">Destacado</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <ul class="listFooter">
+              <h2 class="h2Footer">Sobre nosotros</h2>
+              <li class="itemFooter"><a href="#">Contactanos</a></li>
+              <li class="itemFooter"><a href="#">Redes Sociales</a></li>
+              <li class="itemFooter"><a href="#">Equipo</a></li>
+              <li class="itemFooter"><a href="#">Trabajos</a></li>
+            </ul>
+          </div>
+  
+          <div>
+            <ul  class="listFooter">
+              <h2 class="h2Footer">Unetenos</h2>
+              <li class="itemFooter"><a href="#">Registrate</a></li>
+              <li class="itemFooter"><a href="#">Moderadores</a></li>
+              <li class="itemFooter"><a href="#">Comunidad</a></li>
+              <li class="itemFooter"><a href="#">Promociones</a></li>
+              <li class="itemFooter"><a href="#">Conoce Personas</a></li>
+              <li class="itemFooter"><a href="#">Conoce Grupos</a></li>
+            </ul>
+          </div>
+  
+          <div>
+            <ul  class="listFooter">
+              <h2 class="h2Footer">Ayuda</h2>
+              <li class="itemFooter"> <a href="#">Preguntas Frecuentes</a></li>
+              <li class="itemFooter">  <a href="#">Soporte</a></li>
+              <li class="itemFooter"><a href="#">Guia De Usuario</a></li>
+              <li class="itemFooter"><a href="#">Anuncios</a></li>
+              <li class="itemFooter"><a href="#">Metodos De Pago</a></li>
+            </ul>
+          </div>
+  
+          <div class="tituloContainer">
+            <div class="iconosContainer">
+                <img id="logo-footer" src="assets/logo.png" alt="Logo de Game Sphere" />
+                <h1 class="titleFooter">GAME SPHERE</h1>
+            </div> 
+            <div class="redesSociales">
+                <img class="iconesFooter" src="assets/facebookIcone.png" alt="Facebook" />
+                <img class="iconesFooter" src="assets/linkedinIcone.png" alt="LinkedIn" />
+                <img class="iconesFooter" src="assets/instagramIcone.png" alt="Instagram" />
+                <img class="iconesFooter" src="assets/twitter.png" alt="GitHub" />
+            </div>
+          </div>
+          
+        </div>
+  
+        <p class="textFooter">
+          © 2024 Game Sphere. Todos los derechos reservados. Este sitio web y su contenido, incluyendo juegos, gráficos y texto, están protegidos por leyes de derechos de autor y propiedad intelectual.  Queda prohibida la reproducción, distribución o modificación sin permiso previo por escrito de Game Sphere. Todas las marcas comerciales mencionadas son propiedad de sus respectivos dueños. Para solicitudes de uso de contenido, contáctanos a gamesphere@gmail.com.      </p>
+      </footer>  
+    <script src="src/swiper.js"></script>
+   
+    <script type="module" src="src/paginaJuego.js"></script>
+
+     <!-- JUEGO JS -->
+     <script src="src/objects/figure.js"></script>
+     <script src="src/objects/circle.js"></script>
+     <script src="src/objects/rect.js"></script>
+     <script src="src/objects/hole.js"></script>
+     <script src="src/objects/disc.js"></script>
+     <script src="src/objects/helper.js"></script>
+     <script src="src/objects/button.js"></script>
+     <script src="src/objects/game.js"></script>
+     <script src="src/mainJuego.js"></script>
+  </body>
+</html>
