@@ -1,7 +1,7 @@
-<h2>TP 3</h2>
+<h2>TP 4</h2>
 
-<h3><a href="juego.html?id=1">Juego
-<p>
+<h3><a href="numberblocks.html"></a>Pagina number blocks</h3>
+<p></p>
 
 <p><a href="home.html">Home
 <p><a href="login.html">Login
