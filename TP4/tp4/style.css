@@ -1,0 +1,261 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/*########################*/
+/*##      Header        ##*/
+/*########################*/
+
+#logo1 {
+    background-image: url("./section1/logo1.svg");
+
+    width: 560px;
+    height: 320px;
+
+    z-index: 2;
+    margin: 0 auto;
+}
+
+
+/*########################*/
+/*##      Section1      ##*/
+/*########################*/
+
+#section1{
+    background-image: url("./section1/background.svg");
+    width: 1279px;
+    height: 959px;
+    
+    
+    z-index: 0;
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+
+/* Faltan sombras figuras*/
+#section1 #figure1 {
+    z-index: 4;
+    background-image: url("./section1/figure1.svg");
+
+    width: 240px;
+    height: 314px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 420px;
+    top: 527px;
+    transform: rotate(-6.51deg);
+}
+
+#section1 #figure2 {
+    z-index: 3;
+    background-image: url("./section1/figure2.svg");
+
+    width: 197px;
+    height: 270px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 520px;
+    top: 426px;
+    transform: rotate(-6.72deg);
+}
+
+#section1 #figure3 {
+    z-index: 2;
+    background-image: url("./section1/figure3.svg");
+
+    width: 174px;
+    height: 300px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 680px;
+    top: 410px;
+    transform: rotate(8.73deg);
+}
+
+#section1 #arbol1 {
+    z-index: 3;
+    background-image: url("./section1/arbol1.svg");
+
+    width: 560px;
+    height: 868px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: -153px;
+    top: 0px;
+}
+
+/*    Arbol Izquierdo    */
+
+#section1 #piedra1 {
+    z-index: 4;
+    background-image: url("./section1/piedra1.svg");
+
+    width: 145.41px;
+    height: 78.09px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 129.07px;
+    top: 793.37px;
+}
+
+
+#section1 #arbusto1 {
+    z-index: 5;
+    background-image: url("./section1/arbusto1.svg");
+
+    width: 155.51px;
+    height: 102.33px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 197.06px;
+    top: 821.65px;
+}
+
+#section1 #arbusto2 {
+    z-index: 2;
+    background-image: url("./section1/arbusto2.svg");
+
+    width: 249.76px;
+    height: 114.44px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 161.38px;
+    top: 717.97px;
+}
+
+/*    Primer Arbol derecha    */
+
+#section1 #arbol2 {
+    z-index: 4;
+    background-image: url("./section1/arbol2.svg");
+
+    width: 434.21px;
+    height: 672.52px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 881.03px;
+    top: 106.71px;
+}
+
+
+#section1 #piedra2 {
+    z-index: 4;
+    background-image: url("./section1/piedra2.svg");
+
+    width: 66.65px;
+    height: 56.55px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 1034px;
+    top: 737.5px;
+}
+
+#section1 #piedra3 {
+    z-index: 5;
+    background-image: url("./section1/piedra3.svg");
+
+    width: 113.77px;
+    height: 737.5px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 1072.22px;
+    top: 737.5px;
+}
+
+#section1 #piedra4 {
+    z-index: 6;
+    background-image: url("./section1/piedra4.svg");
+
+    width: 59.24px;
+    height: 35.01px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 1040px;
+    top: 786.64px;
+}
+
+
+/*    Segundo Arbol derecha    */
+
+#section1 #arbol3 {
+    z-index: 3;
+    background-image: url("./section1/arbol3.svg");
+
+    width: 278.03px;
+    height: 430.85px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 1080.97px;
+    top: 278.38px;
+}
+
+#section1 #arbusto3 {
+    z-index: 3;
+    background-image: url("./section1/arbusto3.svg");
+
+    width: 244.37px;
+    height: 107.71px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 1080.97px;
+    top: 662.1px;
+}
+
+
+#section1 #arbusto4 {
+    z-index: 2;
+    background-image: url("./section1/arbusto4.svg");
+
+    width: 191.19px;
+    height: 63.28px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 1028.46px;
+    top: 630.46px;
+}
