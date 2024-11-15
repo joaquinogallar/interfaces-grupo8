@@ -7,7 +7,108 @@
 /*##      Header        ##*/
 /*########################*/
 
-#logo1 {
+#header {
+    width: 1280px;
+    height: 103px;
+
+    background-image: linear-gradient(to bottom, #00D1D5 0%, #00D1D512 88%);
+    
+    display: flex;
+
+    justify-content: space-between;
+    /*align-items: center;*/
+}
+
+#header #btn-hamburguesa {
+    display: block;
+    width: 34px;
+    height: 26px;
+
+    background: none;
+    border: none;
+
+    margin-left: 60px;
+    margin-top: 20px;
+}
+
+#header #btn-hamburgesa #line-top {
+    background-image: url("./section1/btnHamTop.svg");
+
+    width: 34px;
+    height: 4px;
+
+    border: 2px black solid;
+}
+
+#header #btn-hamburgesa #line-mid {
+
+
+    width: 34px;
+    height: 4px;
+
+    border: 2px white solid;
+}
+
+#header #btn-hamburgesa #line-bot {
+
+
+    width: 34px;
+    height: 4px;
+
+    border: 2px white solid;
+}
+
+
+
+
+#header #logo img{
+    width: 150px;
+    height: 86px;
+    z-index: 2;
+
+    flex-grow: 1; 
+    text-align: center; 
+    
+
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#header #btn-comprar {
+    background-color: #83C252;
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    border-radius: 111px;
+
+    font-family: 'Lato', sans-serif;
+
+    font-size: 20px;
+    font-weight: 900;
+
+    color:white;
+
+    border: solid 8px #FFFFFF;
+
+
+    line-height: 94.5%;
+    letter-spacing: 0.6px; 
+
+    cursor: pointer;
+
+    margin-right: 60px;
+    margin-top: 20px;
+}
+
+
+
+
+
+/*########################*/
+/*##      Section1      ##*/
+/*########################*/
+
+#section1 #logo1 {
     background-image: url("./section1/logo1.svg");
 
     width: 560px;
@@ -17,11 +118,6 @@
     margin: 0 auto;
 }
 
-
-/*########################*/
-/*##      Section1      ##*/
-/*########################*/
-
 #section1{
     background-image: url("./section1/background.svg");
     width: 1279px;
@@ -29,6 +125,7 @@
     
     
     z-index: 0;
+    
 
     position: relative;
     overflow: hidden;
