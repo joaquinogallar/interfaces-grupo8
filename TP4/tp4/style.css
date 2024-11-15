@@ -3,6 +3,16 @@
     margin: 0;
 }
 
+body {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    justify-content: center; /* Centra todo el contenido verticalmente */
+    align-items: center; /* Centra todo el contenido horizontalmente */
+    min-height: 100vh; /* Asegura que el body ocupe todo el alto de la pantalla */
+    margin: 0;
+    background-color: #fff; /* Fondo blanco */
+}
+
 /*########################*/
 /*##      Header        ##*/
 /*########################*/
@@ -17,6 +27,8 @@
 
     justify-content: space-between;
     /*align-items: center;*/
+    
+
 }
 
 #header #btn-hamburguesa {
@@ -98,9 +110,8 @@
 
     margin-right: 60px;
     margin-top: 20px;
+    
 }
-
-
 
 
 
