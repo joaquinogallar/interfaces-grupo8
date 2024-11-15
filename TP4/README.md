@@ -1,6 +1,6 @@
 <h2>TP 4</h2>
 
-<h3><a href="numberblocks.html"></a>Pagina number blocks</h3>
+<h3><a href="numberblocks.html">Pagina number blocks</a></h3>
 <p></p>
 
 <p><a href="home.html">Home
