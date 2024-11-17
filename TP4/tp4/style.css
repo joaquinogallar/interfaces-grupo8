@@ -457,7 +457,7 @@ body section {
     
 }
 
-
+#section2 #div-figures {}
 
 #section2 #figure4 {
     z-index: 4;
@@ -490,5 +490,60 @@ body section {
     right: -80px;
     top: -50px;
 
+    overflow-x: hidden;     /* FIX: arreglar mano de la figura */
+
 
 }
+
+#section2 #div-cards {
+    margin-top: 400px;
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+#card1 .imagen{
+    background-image: url("./section2/card1.svg");
+
+    width: 333px;
+    height: 303px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+#section2 .texto {
+    width: 333px;
+    height: 218px;
+
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+
+    margin-top: 20px;
+}
+
+#section2 #card2 .imagen{
+    background-image: url("./section2/card2.svg");
+
+    width: 333px;
+    height: 303px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+#section2 #card3 .imagen{
+    background-image: url("./section2/card3.svg");
+
+    width: 333px;
+    height: 303px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
