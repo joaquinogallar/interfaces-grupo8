@@ -12,6 +12,15 @@ body {
     background-color: #fff; /* Fondo blanco */
 }
 
+p,
+h1,
+h2,
+h3,
+button {
+    font-family: 'Lato', sans-serif;
+}
+
+
 /* borrar */
 body section {
     border-left: black 1px solid;
@@ -98,8 +107,6 @@ body section {
     width: 200px;
     height: 50px;
     border-radius: 111px;
-
-    font-family: 'Lato', sans-serif;
 
     font-size: 20px;
     font-weight: 900;
@@ -420,7 +427,6 @@ body section {
     height: 150px;
 
     font-size: 47px;
-    font-family: 'Lato', sans-serif;
 
     line-height: 94.5%;
 
@@ -433,7 +439,6 @@ body section {
     height: 130px;
 
     font-size: 20px;
-    font-family: 'Lato', sans-serif;
 
     
 }
@@ -516,7 +521,6 @@ body section {
     width: 333px;
     height: 218px;
 
-    font-family: 'Lato', sans-serif;
     font-size: 20px;
 
     margin-top: 20px;
@@ -580,7 +584,6 @@ body section {
     width: 900px;
     height: 150px;
 
-    font-family: 'Lato', sans-serif;
     font-size: 61px;
     font-weight: 500;
 
@@ -615,7 +618,6 @@ body section {
 
     color: #FFFFFF;
 
-    font-family: 'Lato', sans-serif;
     font-size: 31px;
 
     font-weight: 600;
@@ -641,3 +643,76 @@ body section {
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+/*########################*/
+/*##      Section4      ##*/
+/*########################*/
+
+#section4 {
+    width: 1280px;
+    height: 6600px;
+}
+
+#section4 #titulo {
+    margin-top: 160px;
+    margin-left: 60px;
+
+    font-size: 60px;
+    font-weight: 600;
+}
+
+
+#section4 #container {
+    display: flex;
+}
+
+
+#section4 #div-imagen {
+    width: 485px;
+    height: 514px;
+
+    align-items: center;
+
+    margin-left: 180px;
+    margin-top: 40px;
+
+}
+
+#section4 #imagen {
+ 
+
+    width: 291px;
+    height: 436px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    
+}
+
+#section4 #container-textos {
+    width: 500px;
+    margin-top: 60px;
+}
+
+#section4 .div-texto {
+    padding: 20px ;
+
+    margin-bottom: 350px;
+}
+
+#section4 .titulo {
+    font-size: 40px ;
+
+    line-height: 94.5%;
+    font-weight: 500;
+}
+
+#section4 .texto {
+    margin-top: 10px;
+    font-size: 20px ;
+
+    line-height: 94.5%;
+    font-weight: 500;
+}
+
