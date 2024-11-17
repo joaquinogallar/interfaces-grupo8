@@ -5,12 +5,17 @@
 
 body {
     display: flex;
-    flex-direction: column; /* Alinea los elementos verticalmente */
-    justify-content: center; /* Centra todo el contenido verticalmente */
-    align-items: center; /* Centra todo el contenido horizontalmente */
-    min-height: 100vh; /* Asegura que el body ocupe todo el alto de la pantalla */
+    flex-direction: column; 
+    align-items: center; 
+    min-height: 100vh; 
     margin: 0;
     background-color: #fff; /* Fondo blanco */
+}
+
+/* borrar */
+body section {
+    border-left: black 1px solid;
+    border-right: black 1px solid;
 }
 
 /*########################*/
@@ -20,6 +25,7 @@ body {
 #header {
     width: 1280px;
     height: 103px;
+
 
     background-image: linear-gradient(to bottom, #00D1D5 0%, #00D1D512 88%);
     
@@ -366,4 +372,123 @@ body {
     position: absolute;
     left: 1028.46px;
     top: 630.46px;
+}
+
+
+/*########################*/
+/*##      Section2      ##*/
+/*########################*/
+
+#section2 {
+
+}
+
+#section2 #background1 {
+    background-image: url("./section2/section2top.svg");
+
+    width: 1280px;
+    height: 894px;
+    
+    
+    z-index: 1;     /* para mantener figuras visibles mantener en 1 */
+    
+
+    position: relative;
+
+}
+
+#section2 #background2 {
+    background-image: url("./section2/section2bot.svg");
+
+    width: 1280px;
+    height: 1334px;
+
+    z-index: 0;
+
+    position: relative;
+}
+
+#section2 #div-texto {
+
+    padding-left: 100px;
+
+    padding-top: 40px;
+
+    color: #1B428F;
+}
+
+#section2 #div-texto #texto1{
+    width: 500px;
+
+    height: 150px;
+
+    font-size: 47px;
+    font-family: 'Lato', sans-serif;
+
+    line-height: 94.5%;
+
+    font-weight: 600;
+}
+
+#section2 #div-texto #texto2{
+    width: 710px;
+
+    height: 130px;
+
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+
+    
+}
+
+#section2 #div-contenedor-imagenes {
+    margin-left: 230px;
+    
+    width: 510px;       /* creo que hay q ajustar el tamaño, lo veo raro */
+    height: 288px;
+
+    border-radius: 110px;
+    border: solid #1B5F99 30px;
+
+    background-image: url("./section2/img0.svg");       /* ir cambiando por otra */
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+}
+
+
+
+#section2 #figure4 {
+    z-index: 4;
+    background-image: url("./section2/figure4.svg");
+
+    width: 600px;
+    height: 600px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    margin-left: 60px;
+    margin-top: -120px;
+
+
+}
+
+#section2 #figure5 {
+    z-index: 4;
+    background-image: url("./section2/figure5.svg");
+
+    width: 572px;
+    height: 1260px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+
+    right: -80px;
+    top: -50px;
+
+
 }
