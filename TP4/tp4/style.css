@@ -379,9 +379,6 @@ body section {
 /*##      Section2      ##*/
 /*########################*/
 
-#section2 {
-
-}
 
 #section2 #background1 {
     background-image: url("./section2/section2top.svg");
@@ -401,7 +398,7 @@ body section {
     background-image: url("./section2/section2bot.svg");
 
     width: 1280px;
-    height: 1334px;
+    height: 700px;
 
     z-index: 0;
 
@@ -457,8 +454,6 @@ body section {
     
 }
 
-#section2 #div-figures {}
-
 #section2 #figure4 {
     z-index: 4;
     background-image: url("./section2/figure4.svg");
@@ -503,6 +498,7 @@ body section {
 
     margin-left: 100px;
     margin-right: 100px;
+
 }
 
 #card1 .imagen{
@@ -524,6 +520,8 @@ body section {
     font-size: 20px;
 
     margin-top: 20px;
+
+    font-weight: 600;
 }
 
 #section2 #card2 .imagen{
@@ -547,3 +545,99 @@ body section {
     background-repeat: no-repeat;
 }
 
+
+/*########################*/
+/*##      Section3      ##*/
+/*########################*/
+
+#section3 {
+    background-image: url("./section3/background.svg") ;
+
+    width: 1280px;
+    height: 1157px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    display: block;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+#section3 #div-texto {
+    display: flex;
+
+    text-align: center; 
+    justify-content: center;
+
+}
+
+#section3 #texto {
+    margin-top: 200px;
+
+    width: 900px;
+    height: 150px;
+
+    font-family: 'Lato', sans-serif;
+    font-size: 61px;
+    font-weight: 500;
+
+    line-height: 110%;
+
+    color: #FFFFFF;
+
+}
+
+#section3 #span {
+    font-style:italic;
+}
+
+#section3 #div-boton {
+    display: flex;
+
+    text-align: center; 
+    justify-content: center;
+
+}
+
+#section3 #div-boton button {
+    margin-top: 40px;
+
+    border: none;
+    background: none;
+
+    width: 540px;
+    height: 66px;
+
+    background-color: #83C252;
+
+    color: #FFFFFF;
+
+    font-family: 'Lato', sans-serif;
+    font-size: 31px;
+
+    font-weight: 600;
+
+    border: solid white 5px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+}
+
+#section3 #div-figura #figuras {
+    background: url("./section3/figures.svg");
+
+    width: 1424px;
+    height: 831px;
+
+    position: absolute;
+
+    top: 330px;
+    left: -50px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+}
