@@ -839,3 +839,178 @@ body section {
     width: 700px;
     height: 700px;
 }
+
+
+
+/*########################*/
+/*##      Section7      ##*/
+/*########################*/
+
+#section7 {
+
+}
+
+#section7 #background {
+    display: block;
+
+    width: 1280px;
+    height: 750px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+
+    background-image: url("./section7/allfiguresnobg2.png");
+
+    display: block;
+    position: relative;
+}
+
+#section7 #div-top,
+#section7 #div-bot {
+    width: 1280px;
+    height: 380px;
+
+    display: flex;
+
+    position: relative;
+}
+
+#section7 .div {
+    width: 100%;
+    height: 100%;
+}
+
+#section7 #figura1 {
+    background-image: url("./section7/figure1.png");
+
+    width:85%;
+    height: 85%;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    margin-top: 185px;
+    margin-left: 15px;
+}
+
+#section7 #figura2 {
+    background-image: url("./section7/figure2.png");
+
+    width: 85%;
+    height: 85%;
+
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    margin-top: 125px;
+    margin-left: 25px;
+}
+
+#section7 #figura3 {
+    background-image: url("./section7/figure3.png");
+
+    width: 90%;
+    height: 90%;
+
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    margin-top: 60px;
+    margin-left: 40px;
+}
+
+#section7 #figura4 {
+    background-image: url("./section7/figure4.png");
+
+    width: 90%;
+    height: 90%;
+
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    margin-top: 140px;
+    margin-left: 40px;
+}
+
+#section7 #figura5 {
+    background-image: url("./section7/figure5.png");
+
+    width: 85%;
+    height: 85%;
+
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    margin-top: 55px;
+    margin-left: 40px;
+}
+
+#section7 #figura6 {
+    background-image: url("./section7/figure6.png");
+
+    width: 95%;
+    height: 95%;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    margin-top: 75px;
+    margin-left: 5px;
+}
+
+#section7 #figura7 {
+    background-image: url("./section7/figure7.png");
+
+    width: 70%;
+    height: 70%;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    margin-top: 82px;
+    margin-left: 55px;
+}
+
+#section7 #figura8 {
+    background-image: url("./section7/figure8.png");
+
+    width: 95%;
+    height: 95%;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    margin-top: 75px;
+    margin-left: 30px;
+}
+
+#section7 #figura9 {
+    background-image: url("./section7/figure9.png");
+
+    width: 87%;
+    height: 87%;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    margin-top: 89px;
+    margin-left: 43px;
+}
+
+#section7 #figura10 {
+    background-image: url("./section7/figure10.png");
+
+    width: 85%;
+    height: 85%;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    margin-top: 65px;
+    margin-left: 40px;
+}
