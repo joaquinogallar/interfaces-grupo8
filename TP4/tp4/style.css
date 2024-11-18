@@ -716,3 +716,64 @@ body section {
     font-weight: 500;
 }
 
+
+/*########################*/
+/*##      Section5      ##*/
+/*########################*/
+
+#section5 {
+    background-image: url("./section5/background.svg");
+
+    width: 1278px;
+    height: 1443px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position:relative;
+}
+
+#section5 #texto {
+    margin-top: 300px;
+
+    width: 802px;
+    height: 171px;
+
+    margin-left: 100px;
+
+    line-height: 56px;
+    font-size: 60px;
+
+    font-weight: 600;
+    color: white;
+}
+
+#section5 #div-video {
+    margin-top: 40px;
+    margin-left: 100px;
+    
+    width: 760px;
+    height: 440px;
+
+    border: white 29px solid;
+    border-radius: 50px;
+    padding: 0;
+}
+
+#section5 #video {
+    border-radius: 20px;
+    
+    width: 100%;
+    height: 100%;
+}
+
+#section5 #figura {
+    background-image: url("./section5/figura5.svg");
+
+    width: 638px;
+    height: 989px;
+
+    position: absolute;
+    top: 300px;
+    right: -120px;
+}
