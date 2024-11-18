@@ -777,3 +777,61 @@ body section {
     top: 300px;
     right: -120px;
 }
+
+
+/*########################*/
+/*##      Section6      ##*/
+/*########################*/
+
+
+#section6 {
+    width: 1280px;
+    height: 1000px;
+
+    background-color: white;
+
+    display: flex;
+
+    position: relative;
+}
+
+#section6 #titulo {
+    margin-top: 200px;
+    
+    width: 746px;
+    height: 285px;
+
+    margin-left: 100px;
+
+    line-height: 56.7px;
+    font-weight: 600;
+    font-size: 60px;
+
+    color:#9D2121;
+}
+
+#section6 #texto {
+    margin-top: 40px;
+
+    width: 467px;
+    height: 190px;
+
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 18.9px;
+
+    margin-left: 100px;
+}
+
+#section6 #div-figura3d {
+    margin-top: 200px;
+
+    position: absolute;
+    
+    right: 0;
+}
+
+#section6 #figura3d {
+    width: 700px;
+    height: 700px;
+}

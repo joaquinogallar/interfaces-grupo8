@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
     <header id="header">
         <div>
             <button id="btn-hamburguesa">
@@ -257,6 +259,29 @@
             </video>
         </div>
         <div id="figura">
+
+        </div>
+    </section>
+
+    <section id="section6">
+        <div id="div-texto">
+            <h2 id="titulo">
+                ¡Experimenta Efectos 3D Asombrosos en NumberBlocks: Una Aventura Matemática Inmersiva!
+            </h2>
+            <p id="texto">
+                En NumberBlocks, la aventura no solo está en el aprendizaje, ¡sino también en la experiencia visual! 
+                Disfruta de efectos 3D asombrosos que dan vida a cada número y desafío, haciendo que las matemáticas cobren 
+                una nueva dimensión. A medida que los niños interactúan con los personajes y los bloques, verán cómo sus acciones 
+                tienen un impacto real en el entorno, creando un aprendizaje dinámico y emocionante. ¡Cada sesión de juego se 
+                convierte en una experiencia inolvidable llena de color y diversión!
+            </p>
+        </div>
+        
+        <div id="div-figura3d">
+            <model-viewer id="figura3d" loading="eager" camera-controls touch-action="pan-y" 
+                auto-rotate poster="" tone-mapping="aces" 
+                src="./tp4/section6/figura3d.glb" shadow-intensity="1" alt="Figura 3D">
+            </model-viewer>
 
         </div>
     </section>
