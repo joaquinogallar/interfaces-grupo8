@@ -1,9 +1,3 @@
-try {
-    const data = localStorage.getItem('clave'); // Intento de lectura
-    console.log(data);
-} catch (error) {
-    console.error("Error al acceder al almacenamiento local:", error);
-}
 
 
 let lineTop = document.getElementById('lin1');
@@ -33,13 +27,13 @@ let arbusto4 = document.querySelector('#arbusto4');
 let logo = document.querySelector('#logo1');
 
 
-let personaje5 = document.getElementById('personaje-5');
-let personaje4 = document.getElementById('personaje-4');
+let personaje5 = document.getElementById('personaje5');
+let personaje4 = document.getElementById('personaje4');
 let texto = document.getElementById('div-texto');
 let contenedorImagenes = document.getElementById('div-contenedor-imagenes');
 let seccion1 = document.getElementById('section1');
-let seccion4 = document.querySelector('.section4');
-let seccion7 = document.getElementById('section7');
+
+
 
 
 btnHamburguesa.addEventListener('click', () => {
@@ -77,5 +71,42 @@ btnHamburguesa.addEventListener('click', () => {
       logo.style.position = "absolute";
       header.style.backgroundColor = 'transparent';
     }
+    moverSection1(scrollTop);
+    moverSection2(scrollTop);
   }
   ) 
+  function moverSection1(scrollTop) {
+    
+   
+  arbusto1.style.transform = `translateX(${scrollTop * -0.2}px)`;
+  arbusto2.style.transform = `translateX(${scrollTop * -0.15}px)`;
+  arbusto3.style.transform = `translateX(${scrollTop * 0.1}px)`;
+  arbusto4.style.transform = `translateX(${scrollTop * 0.2}px)`;
+
+  arbusto1.style.transform = `translateY(${scrollTop * -0.3}px)`;
+  
+  arbusto4.style.transform = `translateY(${scrollTop * 0.1}px)`;
+
+  arbol1.style.transform = `translateX(${scrollTop * -0.5}px)`;
+  arbol2.style.transform = `translateX(${scrollTop * 0.5}px)`;
+  arbol3.style.transform = `translateX(${scrollTop * 0.5}px)`;
+  arbol3.style.transform = `translateY(${scrollTop * -0.5}px)`;
+
+  piedra1.style.transform = `translateX(${scrollTop * -0.1}px)`;
+  piedra2.style.transform = `translateX(${scrollTop * 0.1}px)`;
+  piedra3.style.transform = `translateX(${scrollTop * -0.2}px)`;
+  piedra4.style.transform = `translateX(${scrollTop * 0.2}px)`;
+
+  personaje1.style.transform = `translateY(${scrollTop * -0.2}px)`;
+personaje2.style.transform = `translateY(${scrollTop * -0.15}px)`;
+personaje3.style.transform = `translateY(${scrollTop * -0.1}px)`;
+  
+  }
+  
+  function moverSection2(scrollTop) {
+    console.log(personaje4);
+    personaje4.style.transform = `translateY(${scrollTop * 0.07}px)`;
+    personaje5.style.transform = `translateY(${scrollTop * -0.5}px)`;
+    texto.style.transform = `translateY(${scrollTop * -0.05}px)`;
+    
+  }
