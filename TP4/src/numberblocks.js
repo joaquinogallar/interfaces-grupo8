@@ -56,3 +56,26 @@ btnHamburguesa.addEventListener('click', () => {
       nav.style.display = 'block';
     }
   });
+
+  document.addEventListener('scroll', function (e) {
+    const scrollTop = window.scrollY; // cantidad de píxeles que se scrollearon
+    console.log(scrollTop);
+  
+    // Cambiar tamaño del logo y el fondo al hacer scroll
+    if (scrollTop > 15) {
+      logo.style.height = "86px";
+      logo.style.width = "150px";
+      logo.style.top = "20px";
+      logo.style.left = "600px";
+      logo.style.position = "fixed";
+      header.style.backgroundColor = 'white';
+    } else {
+      logo.style.height = "320px";
+      logo.style.width = "560px";
+      logo.style.top = "55px";
+      logo.style.left = "360px";
+      logo.style.position = "absolute";
+      header.style.backgroundColor = 'transparent';
+    }
+  }
+  ) 
