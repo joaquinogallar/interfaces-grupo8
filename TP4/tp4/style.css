@@ -986,7 +986,17 @@ nav ul li:nth-child(5) {
     background-repeat: no-repeat;
 
     margin-top: 185px;
-    margin-left: 15px;
+    margin-left: 15px; 
+
+}
+
+#section7 .figura {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#section7 .figura:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2); 
 }
 
 #section7 #figura2 {
