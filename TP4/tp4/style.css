@@ -1208,6 +1208,27 @@ nav ul li:nth-child(5) {
     background-repeat: no-repeat;
 }
 
+#section8 #nube1 {
+    background-image: url("./section8/nube1.svg");
+
+    width: 387px;
+    height: 181px;
+}
+
+#section8 #nube2 {
+    background-image: url("./section8/nube2.svg");
+
+    width: 265px;
+    height: 124px;
+}
+
+#section8 #nube3 {
+    background-image: url("./section8/nube3.svg");
+
+    width: 387px;
+    height: 181px;
+}
+
 
 /*########################*/
 /*##      Footer        ##*/
