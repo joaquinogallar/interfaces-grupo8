@@ -1303,7 +1303,7 @@ nav ul li:nth-child(5) {
 
     background-position-x: -387px;
 
-    animation: move 15s infinite linear;
+    animation: move 10s infinite linear;
 }
 
 #section8 #nube3 {
@@ -1317,7 +1317,7 @@ nav ul li:nth-child(5) {
     background-size: contain;
     background-repeat: no-repeat;
 
-    animation: move 15s infinite linear;
+    animation: move 17s infinite linear;
     animation-delay: 10s;
 }
 
