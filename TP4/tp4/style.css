@@ -1134,6 +1134,64 @@ nav ul li:nth-child(5) {
     line-height: 56.7px;
 }
 
+#section8 form {
+    width: 700px;
+    height: 100px;
+
+    border:solid #FFFFFF 10px;
+    border-radius: 50px;
+
+    margin-left: 100px;
+
+    box-shadow: 4px 5px 0px 0px #02187E;
+
+    display: flex;
+    align-items: center;
+
+}
+
+#section8 input {
+    margin-left: 10px;
+    flex:2;
+    height: 100%;
+
+    background-color: #ECECEC;
+    border: none;
+    padding-left: 30px;
+    border-radius: 50px 0 0px 50px;
+    margin: 0;
+
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    line-height: 18.9px;
+}
+
+#section8 button {
+    flex: 1;
+    height: 100%;
+  
+    background-color: #83C252;
+    border: none;
+
+    border-radius: 0px 50px 50px 0px;
+    cursor: pointer;
+
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 18.9px;
+
+
+    letter-spacing: 0.11em;
+
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+    color: #FFFFFF;
+
+    border-left: 15px #FFFFFF solid;
+}
+
 #section8 #div-background {
     background-image: url("./section8/background.svg");
 
@@ -1213,25 +1271,54 @@ nav ul li:nth-child(5) {
     transform-origin: top left;
 }
 
+@keyframes move {
+    0% {background-position-x: -387px;}
+    100% {background-position-x: 1280px;}
+}
+
 #section8 #nube1 {
     background-image: url("./section8/nube1.svg");
 
-    width: 387px;
+    width: 1280px;
     height: 181px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    background-position-x: -387px;
+
+    animation: move 15s infinite linear;
+
+    animation-delay: 6s;
 }
 
 #section8 #nube2 {
     background-image: url("./section8/nube2.svg");
 
-    width: 265px;
+    width: 1280px;
     height: 124px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    background-position-x: -387px;
+
+    animation: move 15s infinite linear;
 }
 
 #section8 #nube3 {
     background-image: url("./section8/nube3.svg");
 
-    width: 387px;
+    width: 1280px;
     height: 181px;
+
+    background-position-x: -387px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    animation: move 15s infinite linear;
+    animation-delay: 10s;
 }
 
 
