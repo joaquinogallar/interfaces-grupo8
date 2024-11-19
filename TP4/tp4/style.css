@@ -995,6 +995,7 @@ nav ul li:nth-child(5) {
 }
 
 #section7 .figura:hover {
+    transform-origin: bottom 5px;
     transform: scale(1.1);
     filter: brightness(1.2); 
 }
