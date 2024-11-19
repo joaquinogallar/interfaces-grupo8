@@ -1159,7 +1159,7 @@ nav ul li:nth-child(5) {
 }
 
 #section8 #figura2 {
-    background-image: url("./section8/figura2.svg");
+    /*background-image: url("./section8/figura2.svg");*/
 
     width: 480px;
     height: 480px;
@@ -1176,7 +1176,7 @@ nav ul li:nth-child(5) {
 }
 
 #section8 #figura3 {
-    background-image: url("./section8/figura3.svg");
+    /*background-image: url("./section8/figura3.svg");*/
 
     width: 509px;
     height: 509px;
@@ -1193,19 +1193,24 @@ nav ul li:nth-child(5) {
 }
 
 #section8 #figura7 {
-    background-image: url("./section8/figura7.svg");
+    /*background-image: url("./section8/figura7.svg");*/
 
     width: 561px;
     height: 997px;
 
     position: absolute;
-    bottom: -70px;
-    right: -30px;
+    bottom: 120px;
+    right: -10px;
 
     z-index: 2;
 
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+#section8 #figura7 iframe {
+    transform: scale(2.5);
+    transform-origin: top left;
 }
 
 #section8 #nube1 {
