@@ -1192,6 +1192,29 @@ nav ul li:nth-child(5) {
     border-left: 15px #FFFFFF solid;
 }
 
+#section8 #texto {
+    margin-top: 30px;
+    width: 578px;
+    height: 95px;
+
+    margin-left: 100px;
+
+    line-height: 94.5%;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#section8 #texto span {
+    text-decoration: underline;
+}
+
+#section8 #imagen {
+    background-image: url("./section8/politica.svg");
+    width: 231px;
+    height: 145px;
+    margin-left: 100px;
+}
+
 #section8 #div-background {
     background-image: url("./section8/background.svg");
 
@@ -1282,6 +1305,9 @@ nav ul li:nth-child(5) {
     width: 1280px;
     height: 181px;
 
+    position: absolute;
+    top: 170px;
+
     background-size: contain;
     background-repeat: no-repeat;
     
@@ -1300,6 +1326,9 @@ nav ul li:nth-child(5) {
 
     background-size: contain;
     background-repeat: no-repeat;
+
+    position: absolute;
+    top: 150px;
 
     background-position-x: -387px;
 
