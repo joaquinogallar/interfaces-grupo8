@@ -612,7 +612,7 @@ nav ul li:nth-child(5) {
 
 #section2 {
     position: relative;
-    overflow:hidden;
+
 }
 
 #section2 #background1 {
@@ -708,7 +708,7 @@ nav ul li:nth-child(5) {
 
 #section2 #personaje5 {
     z-index: 4;
-    background-image: url("./section2/figure5.svg");
+    background-image: url("./section2/figure5.png");
 
     width: 572px;
     height: 1260px;
