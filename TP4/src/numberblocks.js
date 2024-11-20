@@ -3,7 +3,7 @@ const imagenes = ["./tp4/section2/img0.svg", "./tp4/section2/img1.svg", "./tp4/s
 let lineTop = document.getElementById('lin1');
 let btnHamburguesa = document.getElementById('btn-hamburguesa');
 let currentIndex = 0;
-const imagenRota = document.getElementById("div-contenedor-imagenes");
+const imagenRota = document.getElementById("div-imagen");
 let lineMid = document.getElementById('lin2');
 let lineBot = document.getElementById('lin3');
 let nav = document.getElementById('nav');
@@ -36,7 +36,7 @@ let personaje4 = document.getElementById('personaje4');
 let texto = document.getElementById('div-texto');
 let contenedorImagenes = document.getElementById('div-contenedor-imagenes');
 let seccion1 = document.getElementById('section1');
-
+let seccion33 = document.getElementById('section3')
 
 
 
@@ -93,27 +93,27 @@ btnHamburguesa.addEventListener('click', () => {
   arbusto4.style.transform = `translateY(${scrollTop * 0.1}px)`;
 
   arbol1.style.transform = `translateX(${scrollTop * -0.5}px)`;
-  arbol2.style.transform = `translateX(${scrollTop * 0.5}px)`;
-  arbol3.style.transform = `translateX(${scrollTop * 0.5}px)`;
-  arbol3.style.transform = `translateY(${scrollTop * -0.5}px)`;
+  arbol2.style.transform = `translateX(${scrollTop * 0.3}px)`;
+  arbol3.style.transform = `translateX(${scrollTop * 0.2}px)`;
+  arbol3.style.transform = `translateY(${scrollTop * -0.15}px)`;
 
-  piedra1.style.transform = `translateX(${scrollTop * -0.1}px)`;
+  piedra1.style.transform = `translateX(${scrollTop * -0.10}px)`;
   piedra2.style.transform = `translateX(${scrollTop * 0.1}px)`;
-  piedra3.style.transform = `translateX(${scrollTop * -0.2}px)`;
+  piedra3.style.transform = `translateX(${scrollTop * 0.2}px)`;
   piedra4.style.transform = `translateX(${scrollTop * 0.2}px)`;
 
   personaje1.style.transform = `translateY(${scrollTop * -0.4}px)`;
 personaje2.style.transform = `translateY(${scrollTop * -0.2}px)`;
-personaje3.style.transform = `translateY(${scrollTop * -0.3}px)`;
+personaje3.style.transform = `translateY(${scrollTop * -0.6}px)`;
   
   }
   
   function moverSection2(scrollTop) {
     
    
-    personaje4.style.transform = `translateY(${scrollTop * 0.076}px)`;
-    personaje5.style.transform = `translateY(${scrollTop * -0.2}px)`;
-    texto.style.transform = `translateY(${scrollTop * -0.05}px)`;
+    personaje4.style.transform = `translateY(${scrollTop * -0.076}px)`;
+    personaje5.style.transform = `translateY(${scrollTop * -0.1856154345|456434256}px)`;
+    texto.style.transform = `translateY(${scrollTop * -0.08}px)`;
     
   }
 
@@ -132,13 +132,19 @@ function rotarImagen() {
   console.log("ENTRESSESES");
   imagenRota.style.opacity = 0;
   setTimeout(() => {
-    currentIndex = (currentIndex + 1) % imagenes.length;
+    
+    if(currentIndex == imagenes.length -1 ){
+      currentIndex = 0;
+    } else{
+      currentIndex++;
+    }
+     console.log(currentIndex); 
+    
     imagenRota.style.backgroundImage = `url(${imagenes[currentIndex]})`;
     
     imagenRota.style.opacity = 1;
   }, 900);
 
 }
-
-
 setInterval(rotarImagen, 3000);
+
