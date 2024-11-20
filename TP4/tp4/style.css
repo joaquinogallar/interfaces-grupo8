@@ -734,15 +734,25 @@ nav ul li:nth-child(5) {
 
 }
 
-#card1 .imagen{
-    background-image: url("./section2/card1.svg");
+#card1 {
+    opacity: 0;
+}
+#card2 {
+    opacity: 0;
+}
+#card3 {
+    opacity: 0;
+}
 
-    width: 333px;
-    height: 303px;
-
-    background-size: contain;
-    background-repeat: no-repeat;
-
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translateY(330px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
 
 #section2 .texto {
@@ -755,7 +765,16 @@ nav ul li:nth-child(5) {
 
     font-weight: 600;
 }
+#card1 .imagen{
+    background-image: url("./section2/card1.svg");
 
+    width: 333px;
+    height: 303px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
 #section2 #card2 .imagen{
     background-image: url("./section2/card2.svg");
 

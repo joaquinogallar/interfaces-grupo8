@@ -9,6 +9,10 @@ let lineBot = document.getElementById('lin3');
 let nav = document.getElementById('nav');
 let header = document.getElementById('header');
 
+let card1 = document.getElementById('card1');
+let card2 = document.getElementById('card2');
+let card3 = document.getElementById('card3');
+
 
 let arbol3 = document.querySelector('#arbol3');
 let arbol2 = document.querySelector('#arbol2');
@@ -52,10 +56,10 @@ btnHamburguesa.addEventListener('click', () => {
   });
 
   document.addEventListener('scroll', function (e) {
-    const scrollTop = window.scrollY; // cantidad de píxeles que se scrollearon
-    console.log(scrollTop);
+    const scrollTop = window.scrollY; 
+    
   
-    // Cambiar tamaño del logo y el fondo al hacer scroll
+    
     if (scrollTop > 15) {
       logo.style.height = "86px";
       logo.style.width = "150px";
@@ -73,6 +77,7 @@ btnHamburguesa.addEventListener('click', () => {
     }
     moverSection1(scrollTop);
     moverSection2(scrollTop);
+    seccion3(scrollTop);
   }
   ) 
   function moverSection1(scrollTop) {
@@ -104,9 +109,21 @@ personaje3.style.transform = `translateY(${scrollTop * -0.1}px)`;
   }
   
   function moverSection2(scrollTop) {
-    console.log(personaje4);
+    
+   
     personaje4.style.transform = `translateY(${scrollTop * 0.07}px)`;
     personaje5.style.transform = `translateY(${scrollTop * -0.5}px)`;
     texto.style.transform = `translateY(${scrollTop * -0.05}px)`;
     
   }
+
+  function seccion3(scrollTop){
+console.log(scrollTop);
+if(scrollTop>1400){
+  console.log("entre");
+  card1.style.animation = 'appear 1.3s ease-in-out forwards';
+  card2.style.animation = 'appear 1.6s ease-in-out forwards';
+  card3.style.animation = 'appear 2.1s ease-in-out forwards';
+}
+}
+  
