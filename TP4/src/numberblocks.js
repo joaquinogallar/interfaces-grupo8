@@ -1,9 +1,9 @@
 
-
+const imagenes = ["./tp4/section2/img0.svg", "./tp4/section2/img1.svg", "./tp4/section2/img2.svg", "./tp4/section2/img3.svg"];
 let lineTop = document.getElementById('lin1');
 let btnHamburguesa = document.getElementById('btn-hamburguesa');
-
-
+let currentIndex = 0;
+const imagenRota = document.getElementById("div-contenedor-imagenes");
 let lineMid = document.getElementById('lin2');
 let lineBot = document.getElementById('lin3');
 let nav = document.getElementById('nav');
@@ -102,17 +102,17 @@ btnHamburguesa.addEventListener('click', () => {
   piedra3.style.transform = `translateX(${scrollTop * -0.2}px)`;
   piedra4.style.transform = `translateX(${scrollTop * 0.2}px)`;
 
-  personaje1.style.transform = `translateY(${scrollTop * -0.2}px)`;
-personaje2.style.transform = `translateY(${scrollTop * -0.15}px)`;
-personaje3.style.transform = `translateY(${scrollTop * -0.1}px)`;
+  personaje1.style.transform = `translateY(${scrollTop * -0.4}px)`;
+personaje2.style.transform = `translateY(${scrollTop * -0.2}px)`;
+personaje3.style.transform = `translateY(${scrollTop * -0.3}px)`;
   
   }
   
   function moverSection2(scrollTop) {
     
    
-    personaje4.style.transform = `translateY(${scrollTop * 0.07}px)`;
-    personaje5.style.transform = `translateY(${scrollTop * -0.5}px)`;
+    personaje4.style.transform = `translateY(${scrollTop * 0.076}px)`;
+    personaje5.style.transform = `translateY(${scrollTop * -0.2}px)`;
     texto.style.transform = `translateY(${scrollTop * -0.05}px)`;
     
   }
@@ -127,3 +127,18 @@ if(scrollTop>1400){
 }
 }
   
+function rotarImagen() {
+
+  console.log("ENTRESSESES");
+  imagenRota.style.opacity = 0;
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % imagenes.length;
+    imagenRota.style.backgroundImage = `url(${imagenes[currentIndex]})`;
+    
+    imagenRota.style.opacity = 1;
+  }, 900);
+
+}
+
+
+setInterval(rotarImagen, 3000);

@@ -684,7 +684,7 @@ nav ul li:nth-child(5) {
     border: solid #1B5F99 30px;
 
     background-image: url("./section2/img0.svg");       /* ir cambiando por otra */
-
+    transition: opacity 1s ease-in-out; 
     background-size: contain;
     background-repeat: no-repeat;
     
