@@ -241,3 +241,28 @@ function moverSeccion5(scrollTop) {
       
   }
 }
+
+/* Figura 3D */
+
+// Mueve la camara del model viewer dependiendo del mouse   //
+// se ejecuta todo el tiempo aun que no este visible, se podria activar solo cuando este visible, usando un observer //
+
+
+const modelViewer = document.getElementById("figura3d");
+
+// Detecta el movimiento del mouse
+document.addEventListener("mousemove", (event) => {
+  const { clientX, clientY } = event;
+  const { innerWidth, innerHeight } = window;
+
+  const xPercent = (clientX / innerWidth) * 2 - 1; // -1 a 1
+  const yPercent = (clientY / innerHeight) * 2 - 1; 
+
+
+  const xOrbit = (xPercent * 30) - 90; // Rango horizontal: -30 a 30 grados, resto 90 para que se vea de frente
+  let yOrbit = (yPercent * 30) + 80;  
+
+
+  // Actualiza el orbit de la cámara
+  modelViewer.cameraOrbit = `${xOrbit}deg ${yOrbit}deg 100m`;
+});
