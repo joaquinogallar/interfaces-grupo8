@@ -174,29 +174,40 @@ header #btn-hamburguesa .barras{
     transform: rotate(-45deg) translateY(-17px);
 }
 
+
+
 .nav {
     margin-left: 316px;
     display: none;
     position: fixed;
     top: 80px; 
     left: 100px;
-    width: 15%;
+    width: 15%; 
     z-index: 1000000;
-    padding: 10px 0;
+    padding: 10px 20px; 
+    border-radius: 12px; 
+    margin-top: 10px;
+    
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; 
 }
+
 nav ul {
     list-style: none; 
     padding: 0;
     margin: 0; 
-    display: block; 
+    display: flex;
+    flex-direction: column; 
     justify-content: center; 
 }
+
 nav ul li {
-    opacity: 0;
-    background-color: rgb(30, 134, 46);
+    opacity: 0; 
+    background-color: #F39E46; 
+    margin-bottom: 10px; 
+    padding: 10px;
+    border-radius: 8px; 
     animation: animarEntradaSeccionesNav 0.5s ease forwards;
 }
-
 
 nav ul li:nth-child(1) {
     animation-delay: 0s; 
@@ -220,13 +231,16 @@ nav ul li:nth-child(5) {
 
 .nav a {
     text-decoration: none; 
-    color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255); 
     padding: 10px 20px; 
-    font-size: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease; 
 }
 
 .nav a:hover {
-    color:#1B5F99
+    color: #1B5F99; 
+    transform: scale(1.1); 
 }
 
 @keyframes animarEntradaSeccionesNav {
@@ -235,7 +249,7 @@ nav ul li:nth-child(5) {
         opacity: 0;
     }
     to {
-        transform: translateY(0); 
+        transform: translateX(0); 
         opacity: 1; 
     }
 }
@@ -1002,7 +1016,7 @@ nav ul li:nth-child(5) {
 }
 
 #section5 #div-video {
-    margin-top: 50px;
+    margin-top: 40px;
     margin-left: 100px;
     
     width: 760px;
@@ -1018,7 +1032,6 @@ nav ul li:nth-child(5) {
     
     width: 100%;
     height: 100%;
-    
 }
 
 #section5 #figura {
