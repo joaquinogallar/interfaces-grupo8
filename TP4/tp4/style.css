@@ -905,7 +905,7 @@ nav ul li:nth-child(5) {
     width: 1424px;
     height: 831px;
     background: url("./section3/figures.svg");
-    background-size: contain;
+    background-size: 101%;
     background-repeat: no-repeat;
   
   

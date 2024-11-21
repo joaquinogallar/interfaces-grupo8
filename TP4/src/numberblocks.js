@@ -139,7 +139,7 @@ personaje3.style.transform = `translateY(${scrollTop * -0.6}px)`;
     card3.style.animation = 'appear 2.1s ease-in-out forwards';
   }
 }
-   //esta funcion utiliza un arreglo de imagenes, al principio define el style opacity en 0   
+  //esta funcion utiliza un arreglo de imagenes, al principio define el style opacity en 0   
  // luego utiliza un setTimeout para que la imagen desaparezca y a los 900 ms aparezca la otra
  //, esto se combina con el transition en css, a su vez utiliza un setInterval para que la funcion se ejecute cada 3 segundos.
  //El current index se itera hasta que este en el limite del arreglo y vuelve a la primer imagen
@@ -155,7 +155,7 @@ function rotarImagen() {
     } else{
       currentIndex++;
     }
-     console.log(currentIndex); 
+  // console.log(currentIndex); 
     
     imagenRota.style.backgroundImage = `url(${imagenes[currentIndex]})`;
     
@@ -164,6 +164,24 @@ function rotarImagen() {
 
 }
 setInterval(rotarImagen, 3000);
+
+/* Sección 3 */
+const figuras = document.getElementById("figuras");
+
+figuras.addEventListener("mousemove", (e) => {
+  const rect = figuras.getBoundingClientRect();
+  const x = e.clientX - rect.left; // Coordenada x dentro del contenedor
+  const y = e.clientY - rect.top; // Coordenada y dentro del contenedor  
+
+  const moveX = (x / rect.width - 0.8) * -10;
+  const moveY = (y / rect.height - 0.8) * -10;
+  figuras.style.backgroundPosition = `calc(50% + ${moveX}px) calc(50% + ${moveY}px)`;
+})
+
+// figuras.addEventListener('mouseleave', () => {
+//    figuras.style.backgroundPosition = 'center';
+// });
+
 
 /* Codigo para la seccion4, observa todos los divs y cuando uno esta en el campo de vision(medio) se cambia la
  imagen por su respectiva */
@@ -201,7 +219,7 @@ const imagen = document.querySelector("#section4 #imagen-section4");
           let index = entry.target.dataset.columnaid - 1;
           
           if(index != ultimaImagen){
-            console.log(imagen);
+            // console.log(imagen);
             imagen.classList.add('hidden'); // Ocultar con animacion
             setTimeout(() => {  // Espera a que la animacion de la otra imagen termine
               imagen.src = preloadedImages[index].src; 
