@@ -33,18 +33,25 @@ body section {
 /*########################*/
 
 #header {
-    width: 1280px;
+    /*width: 1280px;
     height: 103px;
 
-
-    background-image: linear-gradient(to bottom, #00D1D5 0%, #00D1D512 88%);
+    top: 0 ;
     
+    position: sticky;
     display: flex;
 
     justify-content: space-between;
     /*align-items: center;*/
     
-
+    width: 1280px;
+    height: 100px;
+    display: flex;
+    top: 0;
+   justify-content: space-between;
+    z-index: 1000;
+    position: sticky;
+    background-image: linear-gradient(to bottom, #00D1D5 0%, #00D1D512 88%);
 }
 
 #header #btn-hamburguesa {
@@ -100,6 +107,8 @@ body section {
 
     background-size: contain;
     background-repeat: no-repeat;
+    transition: ease 0.4s;
+   
 }
 
 #header #btn-comprar {
@@ -111,11 +120,9 @@ body section {
 
     font-size: 20px;
     font-weight: 900;
-
-    color:white;
+    color: white;
 
     border: solid 8px #FFFFFF;
-
 
     line-height: 94.5%;
     letter-spacing: 0.6px; 
@@ -124,9 +131,14 @@ body section {
 
     margin-right: 60px;
     margin-top: 20px;
+
     
+    transition: transform 0.6s ease-in-out;
 }
 
+#header #btn-comprar:hover {
+    transform: scale(1.2); 
+}
 header #btn-hamburguesa {
     position: sticky;
     width: 34px;
@@ -152,7 +164,7 @@ header #btn-hamburguesa .barras{
 }
 
 .lin1.active {
-    transform: rotate(45deg) translateY(17px);
+    transform: rotate(45deg) translateY(16px);
 }
 .lin2.active {
     opacity: 0;
@@ -162,28 +174,40 @@ header #btn-hamburguesa .barras{
     transform: rotate(-45deg) translateY(-17px);
 }
 
+
+
 .nav {
+    margin-left: 316px;
     display: none;
     position: fixed;
     top: 80px; 
     left: 100px;
-    width: 15%;
+    width: 15%; 
     z-index: 1000000;
-    padding: 10px 0;
+    padding: 10px 20px; 
+    border-radius: 12px; 
+    margin-top: 10px;
+    
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; 
 }
+
 nav ul {
     list-style: none; 
     padding: 0;
     margin: 0; 
-    display: block; 
+    display: flex;
+    flex-direction: column; 
     justify-content: center; 
 }
+
 nav ul li {
-    opacity: 0;
-    background-color: rgba(13, 129, 230);
+    opacity: 0; 
+    background-color: #F39E46; 
+    margin-bottom: 10px; 
+    padding: 10px;
+    border-radius: 8px; 
     animation: animarEntradaSeccionesNav 0.5s ease forwards;
 }
-
 
 nav ul li:nth-child(1) {
     animation-delay: 0s; 
@@ -207,13 +231,16 @@ nav ul li:nth-child(5) {
 
 .nav a {
     text-decoration: none; 
-    color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255); 
     padding: 10px 20px; 
-    font-size: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease; 
 }
 
 .nav a:hover {
-    color:#1B5F99
+    color: #1B5F99; 
+    transform: scale(1.1); 
 }
 
 @keyframes animarEntradaSeccionesNav {
@@ -222,7 +249,7 @@ nav ul li:nth-child(5) {
         opacity: 0;
     }
     to {
-        transform: translateY(0); 
+        transform: translateX(0); 
         opacity: 1; 
     }
 }
@@ -239,6 +266,7 @@ nav ul li:nth-child(5) {
 
     z-index: 2;
     margin: 0 auto;
+    transition: ease 0.4s;
 }
 
 #section1{
@@ -256,8 +284,8 @@ nav ul li:nth-child(5) {
 }
 
 
-/* Faltan sombras figuras*/
-#section1 #figure1 {
+
+#section1 #personaje1 {
     z-index: 4;
     background-image: url("./section1/figure1.svg");
 
@@ -271,9 +299,10 @@ nav ul li:nth-child(5) {
     left: 420px;
     top: 527px;
     transform: rotate(-6.51deg);
+    animation: animarPersonajes 3s ease;
 }
 
-#section1 #figure2 {
+#section1 #personaje2 {
     z-index: 3;
     background-image: url("./section1/figure2.svg");
 
@@ -287,14 +316,15 @@ nav ul li:nth-child(5) {
     left: 520px;
     top: 426px;
     transform: rotate(-6.72deg);
+    animation: animarPersonajes 3s ease;
 }
 
-#section1 #figure3 {
+#section1 #personaje3 {
     z-index: 2;
     background-image: url("./section1/figure3.svg");
 
     width: 174px;
-    height: 300px;
+    height: 384px;
     
     background-size: contain;
     background-repeat: no-repeat;
@@ -303,6 +333,7 @@ nav ul li:nth-child(5) {
     left: 680px;
     top: 410px;
     transform: rotate(8.73deg);
+    animation: animarPersonajes 3s ease;
 }
 
 #section1 #arbol1 {
@@ -318,6 +349,7 @@ nav ul li:nth-child(5) {
     position: absolute;
     left: -153px;
     top: 0px;
+    animation: animarArbolIzq 1s ease;
 }
 
 /*    Arbol Izquierdo    */
@@ -335,6 +367,8 @@ nav ul li:nth-child(5) {
     position: absolute;
     left: 129.07px;
     top: 793.37px;
+    animation: animarPiedraDer 3s ease;
+
 }
 
 
@@ -351,6 +385,7 @@ nav ul li:nth-child(5) {
     position: absolute;
     left: 197.06px;
     top: 821.65px;
+    animation: animarArbusto 1s ease;
 }
 
 #section1 #arbusto2 {
@@ -366,6 +401,7 @@ nav ul li:nth-child(5) {
     position: absolute;
     left: 161.38px;
     top: 717.97px;
+    animation: animarArbusto 1s ease;
 }
 
 /*    Primer Arbol derecha    */
@@ -383,6 +419,7 @@ nav ul li:nth-child(5) {
     position: absolute;
     left: 881.03px;
     top: 106.71px;
+    animation: animarArbolDer 1s ease;
 }
 
 
@@ -399,6 +436,7 @@ nav ul li:nth-child(5) {
     position: absolute;
     left: 1034px;
     top: 737.5px;
+    animation: animarPiedraIzq 1.8s;
 }
 
 #section1 #piedra3 {
@@ -414,6 +452,7 @@ nav ul li:nth-child(5) {
     position: absolute;
     left: 1072.22px;
     top: 737.5px;
+    animation: animarPiedraDer 2.2s ease;
 }
 
 #section1 #piedra4 {
@@ -429,6 +468,7 @@ nav ul li:nth-child(5) {
     position: absolute;
     left: 1040px;
     top: 786.64px;
+    animation: animarPiedraDer 1.2s ease;
 }
 
 
@@ -447,6 +487,7 @@ nav ul li:nth-child(5) {
     position: absolute;
     left: 1080.97px;
     top: 278.38px;
+    animation: animarArbolDer 2.2s ease;
 }
 
 #section1 #arbusto3 {
@@ -462,6 +503,7 @@ nav ul li:nth-child(5) {
     position: absolute;
     left: 1080.97px;
     top: 662.1px;
+    animation: animarArbusto 1s ease;
 }
 
 
@@ -478,7 +520,110 @@ nav ul li:nth-child(5) {
     position: absolute;
     left: 1028.46px;
     top: 630.46px;
+    animation: animarArbusto 1.5s ease;
 }
+
+/*SOMBRAS DE DERECHA A IZQUIERDA 
+*/
+
+#section1 #sombra3 {
+   z-index: 1;
+    position: absolute;
+    width: 129px;
+    height: 33px;
+    left: 684px;
+    top: 677px;
+    background: rgba(68, 104, 63, 0.61);
+    filter: blur(13.5px);
+    
+
+}
+
+#section1 #sombra2 {
+    z-index: 1;
+    position: absolute;
+    width: 140px;
+    height: 33px;
+    top: 727px;
+    left: 608px;
+    background: rgba(68, 104, 63, 0.61);
+    filter: blur(13.5px);
+
+}
+
+
+#section1 #sombra1 {
+    z-index: 1;
+    position: absolute;
+    width: 140px;
+    height: 33px;
+    top: 762px;
+    left: 494px;
+    background: rgba(68, 104, 63, 0.61);
+    filter: blur(13.5px);
+
+}
+
+@keyframes animarArbusto {
+    from {
+        transform: translateY(460px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes animarArbolIzq {
+    from {
+        transform: translateX(-460px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes animarArbolDer {
+    from {
+        transform: translateX(460px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes animarPersonajes {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes animarPiedraIzq {
+    from {
+        transform: translateX(-460px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes animarPiedraDer {
+    from {
+        transform: translateX(460px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
 
 
 /*########################*/
@@ -487,7 +632,7 @@ nav ul li:nth-child(5) {
 
 #section2 {
     position: relative;
-    overflow:hidden;
+
 }
 
 #section2 #background1 {
@@ -551,21 +696,24 @@ nav ul li:nth-child(5) {
 
 #section2 #div-contenedor-imagenes {
     margin-left: 230px;
-    
-    width: 510px;       /* creo que hay q ajustar el tamaño, lo veo raro */
+    width: 510px;
     height: 288px;
-
     border-radius: 110px;
     border: solid #1B5F99 30px;
-
-    background-image: url("./section2/img0.svg");       /* ir cambiando por otra */
-
-    background-size: contain;
-    background-repeat: no-repeat;
-    
+    overflow: hidden; 
+          
 }
 
-#section2 #figure4 {
+#section2 #div-imagen{
+    width: 100%;
+    height: 100%;
+    background-image: url("./section2/img0.svg"); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: opacity 1s ease-in-out; 
+}
+
+#section2 #personaje4 {
     z-index: 4;
     background-image: url("./section2/figure4.svg");
 
@@ -581,9 +729,9 @@ nav ul li:nth-child(5) {
 
 }
 
-#section2 #figure5 {
+#section2 #personaje5 {
     z-index: 4;
-    background-image: url("./section2/figure5.svg");
+    background-image: url("./section2/figure5.png");
 
     width: 572px;
     height: 1260px;
@@ -609,15 +757,25 @@ nav ul li:nth-child(5) {
 
 }
 
-#card1 .imagen{
-    background-image: url("./section2/card1.svg");
+#card1 {
+    opacity: 0;
+}
+#card2 {
+    opacity: 0;
+}
+#card3 {
+    opacity: 0;
+}
 
-    width: 333px;
-    height: 303px;
-
-    background-size: contain;
-    background-repeat: no-repeat;
-
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translateY(330px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
 
 #section2 .texto {
@@ -630,7 +788,16 @@ nav ul li:nth-child(5) {
 
     font-weight: 600;
 }
+#card1 .imagen{
+    background-image: url("./section2/card1.svg");
 
+    width: 333px;
+    height: 303px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
 #section2 #card2 .imagen{
     background-image: url("./section2/card2.svg");
 
@@ -733,18 +900,15 @@ nav ul li:nth-child(5) {
 }
 
 #section3 #div-figura #figuras {
-    background: url("./section3/figures.svg");
-
+    position: absolute;
     width: 1424px;
     height: 831px;
-
-    position: absolute;
-
-    top: 330px;
-    left: -50px;
-
+    background: url("./section3/figures.svg");
     background-size: contain;
     background-repeat: no-repeat;
+  
+  
+    transition: left 0.3s ease-in-out, top 0.3s ease-in-out;
 }
 
 /*########################*/
