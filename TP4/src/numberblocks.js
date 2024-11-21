@@ -65,8 +65,9 @@ btnHamburguesa.addEventListener('click', () => {
     if (scrollTop > 15) {
      
       logo.style.opacity = 0 ;
-      header.style.backgroundColor = 'white';
+      header.style.display = "flex";
       logoHeader.style.opacity = 1 ;
+      header.style.backgroundImage = "url('./tp4/section1/header.png')";
     } else {
       logo.style.opacity = 1 ;
       logo.style.height = "320px";
@@ -75,6 +76,7 @@ btnHamburguesa.addEventListener('click', () => {
       logo.style.left = "360px";
       logo.style.position = "absolute";
       header.style.backgroundColor = 'transparent';
+      header.style.backgroundImage = "linear-gradient(to bottom, #00D1D5 0%, #00D1D5 88%)";
       logoHeader.style.opacity = 0;
     }
     moverSection1(scrollTop);
@@ -189,8 +191,8 @@ const imagen = document.querySelector("#section4 #imagen-section4");
           if(index != ultimaImagen){
             console.log(imagen);
             imagen.classList.add('hidden'); // Ocultar con animacion
-            setTimeout(() => {
-              imagen.src = preloadedImages[index].src; // Cambiar la imagen
+            setTimeout(() => {  // Espera a que la animacion de la otra imagen termine
+              imagen.src = preloadedImages[index].src; 
               imagen.classList.remove('hidden'); // Mostrar con animación
             }, 200); 
             ultimaImagen = index;

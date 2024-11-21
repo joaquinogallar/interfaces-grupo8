@@ -51,7 +51,8 @@ body section {
    justify-content: space-between;
     z-index: 1000;
     position: sticky;
-    background-image: linear-gradient(to bottom, #00D1D5 0%, #00D1D512 88%);
+    background-image: linear-gradient(to bottom, #00D1D5 0%, #00D1D5 88%);
+    transition: ease 0.4s;;
 }
 
 #header #btn-hamburguesa {
