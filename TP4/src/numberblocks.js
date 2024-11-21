@@ -22,6 +22,7 @@ let piedra4 = document.querySelector('#piedra4');
 let personaje3 = document.querySelector('#personaje3');
 let personaje2 = document.querySelector('#personaje2');
 let personaje1 = document.querySelector('#personaje1');
+
 let arbol1 = document.querySelector('#arbol1');
 let piedra2 = document.querySelector('#piedra2');
 let arbusto1 = document.querySelector('#arbusto1');
@@ -29,8 +30,9 @@ let arbusto2 = document.querySelector('#arbusto2');
 let arbusto3 = document.querySelector('#arbusto3');
 let arbusto4 = document.querySelector('#arbusto4');
 let logo = document.querySelector('#logo1');
-
-
+let section5 = document.getElementById('#section5')
+let figura = document.getElementById('figura')
+let logoHeader = document.getElementById('logo')
 let personaje5 = document.getElementById('personaje5');
 let personaje4 = document.getElementById('personaje4');
 let texto = document.getElementById('div-texto');
@@ -61,23 +63,24 @@ btnHamburguesa.addEventListener('click', () => {
   
     
     if (scrollTop > 15) {
-      logo.style.height = "86px";
-      logo.style.width = "150px";
-      logo.style.top = "20px";
-      logo.style.left = "600px";
-      logo.style.position = "fixed";
+     
+      logo.style.opacity = 0 ;
       header.style.backgroundColor = 'white';
+      logoHeader.style.opacity = 1 ;
     } else {
+      logo.style.opacity = 1 ;
       logo.style.height = "320px";
       logo.style.width = "560px";
       logo.style.top = "55px";
       logo.style.left = "360px";
       logo.style.position = "absolute";
       header.style.backgroundColor = 'transparent';
+      logoHeader.style.opacity = 0;
     }
     moverSection1(scrollTop);
     moverSection2(scrollTop);
     seccion3(scrollTop);
+    
   }
   ) 
   function moverSection1(scrollTop) {
@@ -112,7 +115,7 @@ personaje3.style.transform = `translateY(${scrollTop * -0.6}px)`;
     
    
     personaje4.style.transform = `translateY(${scrollTop * -0.076}px)`;
-    personaje5.style.transform = `translateY(${scrollTop * -0.1856154345|456434256}px)`;
+    personaje5.style.transform = `translateY(${scrollTop * -0.18}px)`;
     texto.style.transform = `translateY(${scrollTop * -0.08}px)`;
     
   }
