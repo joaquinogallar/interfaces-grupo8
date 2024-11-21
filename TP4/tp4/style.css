@@ -800,7 +800,7 @@ nav ul li:nth-child(5) {
 
 #section4 #imagen.hidden {
     opacity: 0;
-    transform: scale(0.95); /* Leve reducción al desaparecer */
+    transform: scale(0.95);
   }
 
 #section4 #container-textos {
