@@ -30,9 +30,8 @@ let arbusto2 = document.querySelector('#arbusto2');
 let arbusto3 = document.querySelector('#arbusto3');
 let arbusto4 = document.querySelector('#arbusto4');
 let logo = document.querySelector('#logo1');
-let section5 = document.getElementById('#section5')
-let figura = document.getElementById('figura')
-let logoHeader = document.getElementById('logo')
+let figura = document.getElementById('figura');
+let logoHeader = document.getElementById('logo');
 let personaje5 = document.getElementById('personaje5');
 let personaje4 = document.getElementById('personaje4');
 let texto = document.getElementById('div-texto');
@@ -40,6 +39,7 @@ let contenedorImagenes = document.getElementById('div-contenedor-imagenes');
 let seccion1 = document.getElementById('section1');
 let seccion33 = document.getElementById('section3')
 
+let video = document.getElementById('div-video');
 
 
 btnHamburguesa.addEventListener('click', () => {
@@ -82,7 +82,7 @@ btnHamburguesa.addEventListener('click', () => {
     moverSection1(scrollTop);
     moverSection2(scrollTop);
     seccion3(scrollTop);
-    
+    moverSeccion5(scrollTop);
   }
   ) 
   function moverSection1(scrollTop) {
@@ -212,3 +212,20 @@ const imagen = document.querySelector("#section4 #imagen-section4");
   document.querySelectorAll('#section4 .div-texto').forEach(div => {
     observer.observe(div);
   })
+
+
+function moverSeccion5(scrollTop) {
+  const inicioSeccion5 = 10900; 
+  const rangoVisible = 2000;   
+
+  if (scrollTop > inicioSeccion5) {
+      
+      const desplazamiento = (scrollTop - inicioSeccion5) / rangoVisible;
+
+      if (desplazamiento <= 1) {
+          
+          figura.style.transform = `translateY(${desplazamiento * 350}px)`;
+          video.style.transform = `translateY(${desplazamiento * 200}px)`;
+      }
+  }
+}
