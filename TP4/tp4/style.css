@@ -704,7 +704,7 @@ nav ul li:nth-child(5) {
           
 }
 
-#div-imagen{
+#section2 #div-imagen{
     width: 100%;
     height: 100%;
     background-image: url("./section2/img0.svg"); 
