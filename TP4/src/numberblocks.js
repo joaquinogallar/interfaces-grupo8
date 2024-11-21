@@ -41,7 +41,8 @@ let seccion33 = document.getElementById('section3')
 
 let video = document.getElementById('div-video');
 
-
+//Este metodo hace que cuando se cliquea el menu hamburguesa 
+//se le cambia la clase para que 2 de las lineas cambien su angulo y una desaparezca a su vez despliega el nav.
 btnHamburguesa.addEventListener('click', () => {
     //console.log("ENTRE");
     if (lineTop.classList.contains('active')) {
@@ -56,7 +57,9 @@ btnHamburguesa.addEventListener('click', () => {
       nav.style.display = 'block';
     }
   });
-
+//Esta funcion se activa cada que vez que se scrollea y lo que hace es primero ver cuanto se scrolleo, 
+//a partir de los 15 pixeles se saca el logo de la primer seccion para colocarlo en el header.
+// tambien usamos un else para que cuando vuelva hacia arriba cambie a su estado original.
   document.addEventListener('scroll', function (e) {
     const scrollTop = window.scrollY; 
     
@@ -85,6 +88,8 @@ btnHamburguesa.addEventListener('click', () => {
     moverSeccion5(scrollTop);
   }
   ) 
+  //La funcion utiliza la variable scrollTop que indica cuanto se scrolleo, lo que hace es utilizar este valor 
+  //para trasladar los objetos en x e y generando movimientos a partir del scroll.
   function moverSection1(scrollTop) {
     
    
@@ -113,6 +118,7 @@ personaje3.style.transform = `translateY(${scrollTop * -0.6}px)`;
   
   }
   
+  //Realiza lo mismo que la funcion moverSection1 .
   function moverSection2(scrollTop) {
     
    
@@ -121,17 +127,23 @@ personaje3.style.transform = `translateY(${scrollTop * -0.6}px)`;
     texto.style.transform = `translateY(${scrollTop * -0.08}px)`;
     
   }
-
+//Esta funcion se fija que haya llegado a una parte de la pagina donde sean visibles
+// las cards y activa una animacion ya declarada en el css. 
+//Lo unico que hace esta funcion es indicar la diferencia de tiempo en las que aparecen las cards en segundos.
   function seccion3(scrollTop){
   //console.log(scrollTop);
   if(scrollTop>1400){
-    //console.log("entre");
+    
     card1.style.animation = 'appear 1.3s ease-in-out forwards';
     card2.style.animation = 'appear 1.6s ease-in-out forwards';
     card3.style.animation = 'appear 2.1s ease-in-out forwards';
   }
 }
-  
+   //esta funcion utiliza un arreglo de imagenes, al principio define el style opacity en 0   
+ // luego utiliza un setTimeout para que la imagen desaparezca y a los 900 ms aparezca la otra
+ //, esto se combina con el transition en css, a su vez utiliza un setInterval para que la funcion se ejecute cada 3 segundos.
+ //El current index se itera hasta que este en el limite del arreglo y vuelve a la primer imagen
+
 function rotarImagen() {
 
   //console.log("ENTRESSESES");
@@ -213,7 +225,9 @@ const imagen = document.querySelector("#section4 #imagen-section4");
     observer.observe(div);
   })
 
-
+//Primero necesitamos saber cuanto es necesario scrollear para alcanzar esa seccion, 
+//luego definimos un rango visible, si se scrolleo lo suficiente para llegar a la seccion 5
+//se hace un calculo utilizando lo scrolleado - el inicio de la seccion sobre el rango visible para con eso modificar el traslado de las figuras 
 function moverSeccion5(scrollTop) {
   const inicioSeccion5 = 10900; 
   const rangoVisible = 2000;   
@@ -222,10 +236,8 @@ function moverSeccion5(scrollTop) {
       
       const desplazamiento = (scrollTop - inicioSeccion5) / rangoVisible;
 
-      if (desplazamiento <= 1) {
-          
           figura.style.transform = `translateY(${desplazamiento * 350}px)`;
-          video.style.transform = `translateY(${desplazamiento * 200}px)`;
-      }
+          video.style.transform = `translateY(${desplazamiento * 240}px)`;
+      
   }
 }
