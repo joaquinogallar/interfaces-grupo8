@@ -3,7 +3,7 @@ const imagenes = ["./tp4/section2/img0.svg", "./tp4/section2/img1.svg", "./tp4/s
 let lineTop = document.getElementById('lin1');
 let btnHamburguesa = document.getElementById('btn-hamburguesa');
 let currentIndex = 0;
-const imagenRota = document.getElementById("div-imagen");
+const imagenRota = document.querySelector("#section2 #div-imagen");
 let lineMid = document.getElementById('lin2');
 let lineBot = document.getElementById('lin3');
 let nav = document.getElementById('nav');
@@ -43,7 +43,7 @@ let seccion33 = document.getElementById('section3')
 
 
 btnHamburguesa.addEventListener('click', () => {
-    console.log("ENTRE");
+    //console.log("ENTRE");
     if (lineTop.classList.contains('active')) {
       lineTop.classList.remove('active');
       lineMid.classList.remove('active');
@@ -121,18 +121,18 @@ personaje3.style.transform = `translateY(${scrollTop * -0.6}px)`;
   }
 
   function seccion3(scrollTop){
-console.log(scrollTop);
-if(scrollTop>1400){
-  console.log("entre");
-  card1.style.animation = 'appear 1.3s ease-in-out forwards';
-  card2.style.animation = 'appear 1.6s ease-in-out forwards';
-  card3.style.animation = 'appear 2.1s ease-in-out forwards';
-}
+  //console.log(scrollTop);
+  if(scrollTop>1400){
+    //console.log("entre");
+    card1.style.animation = 'appear 1.3s ease-in-out forwards';
+    card2.style.animation = 'appear 1.6s ease-in-out forwards';
+    card3.style.animation = 'appear 2.1s ease-in-out forwards';
+  }
 }
   
 function rotarImagen() {
 
-  console.log("ENTRESSESES");
+  //console.log("ENTRESSESES");
   imagenRota.style.opacity = 0;
   setTimeout(() => {
     
@@ -178,7 +178,7 @@ images.forEach(src => {
 
 let ultimaImagen = 0;
 
-const imagen = document.querySelector("#div-imagen #imagen");
+const imagen = document.querySelector("#section4 #imagen-section4");
 
 
   const alert = (entries, observer) => {
@@ -187,6 +187,7 @@ const imagen = document.querySelector("#div-imagen #imagen");
           let index = entry.target.dataset.columnaid - 1;
           
           if(index != ultimaImagen){
+            console.log(imagen);
             imagen.classList.add('hidden'); // Ocultar con animacion
             setTimeout(() => {
               imagen.src = preloadedImages[index].src; // Cambiar la imagen
