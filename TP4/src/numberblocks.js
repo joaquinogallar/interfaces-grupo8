@@ -56,3 +56,57 @@ btnHamburguesa.addEventListener('click', () => {
       nav.style.display = 'block';
     }
   });
+
+
+/* Codigo para la seccion4, observa todos los divs y cuando uno esta en el campo de vision(medio) se cambia la imagen por su respectiva */
+
+const images = [
+  "./tp4/section4/figure0.svg",
+  "./tp4/section4/figure1.svg",
+  "./tp4/section4/figure2.svg",
+  "./tp4/section4/figure3.svg",
+  "./tp4/section4/figure4.svg",
+  "./tp4/section4/figure5.svg",
+  "./tp4/section4/figure6.svg",
+  "./tp4/section4/figure7.svg",
+  "./tp4/section4/figure8.svg",
+  "./tp4/section4/figure9.svg",
+  "./tp4/section4/figure10.svg",
+];
+
+// Precargar las imágenes
+const preloadedImages = [];
+images.forEach(src => {
+  const img = new Image();
+  img.src = src;
+  preloadedImages.push(img);
+});
+
+const imagen = document.querySelector("#div-imagen #imagen");
+
+
+  const alert = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          let index = entry.target.dataset.columnaid - 1;
+          
+          imagen.classList.add('hidden'); // Ocultar con animación
+          setTimeout(() => {
+            imagen.src = preloadedImages[index].src; // Cambiar la imagen
+            imagen.classList.remove('hidden'); // Mostrar con animación
+          }, 200); // Tiempo suficiente para la animación de salida
+        }
+      });
+  };
+
+  const options = {
+    root: null, 
+    rootMargin: '-300px 0px', 
+    threshold: 1
+  };
+
+  const observer = new IntersectionObserver(alert, options);
+
+  document.querySelectorAll('#section4 .div-texto').forEach(div => {
+    observer.observe(div);
+  })

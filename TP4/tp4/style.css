@@ -754,6 +754,8 @@ nav ul li:nth-child(5) {
 #section4 {
     width: 1280px;
     height: 6600px;
+
+    overflow: visible;
 }
 
 #section4 #titulo {
@@ -779,6 +781,9 @@ nav ul li:nth-child(5) {
     margin-left: 180px;
     margin-top: 40px;
 
+    position: sticky;
+    top: 200px;
+
 }
 
 #section4 #imagen {
@@ -790,8 +795,13 @@ nav ul li:nth-child(5) {
     background-size: contain;
     background-repeat: no-repeat;
 
-    
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
+#section4 #imagen.hidden {
+    opacity: 0;
+    transform: scale(0.95); /* Leve reducción al desaparecer */
+  }
 
 #section4 #container-textos {
     width: 500px;
