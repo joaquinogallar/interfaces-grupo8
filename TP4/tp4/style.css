@@ -44,7 +44,7 @@ body section {
     justify-content: space-between;
     /*align-items: center;*/
     
-    width: 1280px;
+    width: 1279px;
     height: 100px;
     display: flex;
     top: 0;
@@ -52,7 +52,10 @@ body section {
     z-index: 1000;
     position: sticky;
     background-image: linear-gradient(to bottom, #00D1D5 0%, #00D1D5 88%);
-    transition: ease 0.4s;;
+    transition: ease 0.4s;
+
+    border-left: black 1px solid;
+    border-right: black 1px solid;
 }
 
 #header #btn-hamburguesa {
