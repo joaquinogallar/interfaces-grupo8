@@ -261,7 +261,7 @@ function moverSeccion5(scrollTop) {
   }
 }
 
-<<<<<<< HEAD
+
 // Cambia el src de un image constantenmente con un intervalo para que se genere un efecto de movimiento (sprite sheets)
 const spriteImage1 = document.getElementById('sprite-image1');
 const imagesSprite1 = ['ss01.png', 'ss02.png', 'ss03.png', 'ss04.png', 'ss05.png'];
@@ -282,7 +282,7 @@ const imagesSprite3 = ['ss11.png', 'ss12.png', 'ss13.png', 'ss14.png', 'ss15.png
 let currentIndexSprite3 = 0; setInterval(() => { currentIndexSprite3 = (currentIndexSprite3 + 1) % imagesSprite3.length;
   spriteImage3.src = "./tp4/section9/" + imagesSprite3[currentIndexSprite3]; 
 }, 150);
-=======
+
 /* Figura 3D */
 
 // Mueve la camara del model viewer dependiendo del mouse   //
@@ -307,4 +307,4 @@ document.addEventListener("mousemove", (event) => {
   // Actualiza el orbit de la cámara
   modelViewer.cameraOrbit = `${xOrbit}deg ${yOrbit}deg 100m`;
 });
->>>>>>> 64b38fb948cd9d75c1bd568fe5df4ddc9143d243
+
