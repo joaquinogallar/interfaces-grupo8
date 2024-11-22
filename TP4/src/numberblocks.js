@@ -165,7 +165,7 @@ function rotarImagen() {
 }
 setInterval(rotarImagen, 3000);
 
-/* Sección 3 */
+/* Modifíca la posición la x e y de la imagen si se tiene el cursor arriba de la misma */
 const figuras = document.getElementById("figuras");
 
 figuras.addEventListener("mousemove", (e) => {
@@ -178,6 +178,7 @@ figuras.addEventListener("mousemove", (e) => {
   figuras.style.backgroundPosition = `calc(50% + ${moveX}px) calc(50% + ${moveY}px)`;
 })
 
+// Si se quiere que cuando el mouse salga de la imagen esta vuelva al centro
 // figuras.addEventListener('mouseleave', () => {
 //    figuras.style.backgroundPosition = 'center';
 // });
@@ -260,9 +261,23 @@ function moverSeccion5(scrollTop) {
   }
 }
 
-// Sección 9
-const spriteImage = document.getElementById('sprite-image');
-imagesS9 = ['ss01.png', 'ss02.png', 'ss03.png', 'ss04.png', 'ss05.png'];
-let currentIndexS9 = 0; setInterval(() => { currentIndexS9 = (currentIndexS9 + 1) % imagesS9.length;
-  spriteImage.src = "./tp4/section9/" + imagesS9[currentIndexS9]; 
-}, 100);
+// Cambia el src de un image constantenmente con un intervalo para que se genere un efecto de movimiento (sprite sheets)
+const spriteImage1 = document.getElementById('sprite-image1');
+const imagesSprite1 = ['ss01.png', 'ss02.png', 'ss03.png', 'ss04.png', 'ss05.png'];
+let currentIndexSprite1 = 0; setInterval(() => { currentIndexSprite1 = (currentIndexSprite1 + 1) % imagesSprite1.length;
+  spriteImage1.src = "./tp4/section9/" + imagesSprite1[currentIndexSprite1]; 
+}, 120);
+
+// Cambia el src de un image constantenmente con un intervalo para que se genere un efecto de movimiento (sprite sheets)
+const spriteImage2 = document.getElementById('sprite-image2');
+const imagesSprite2 = ['ss06.png', 'ss07.png', 'ss08.png', 'ss09.png', 'ss10.png'];
+let currentIndexSprite2 = 0; setInterval(() => { currentIndexSprite2 = (currentIndexSprite2 + 1) % imagesSprite2.length;
+  spriteImage2.src = "./tp4/section9/" + imagesSprite2[currentIndexSprite2]; 
+}, 80);
+
+// Cambia el src de un image constantenmente con un intervalo para que se genere un efecto de movimiento (sprite sheets)
+const spriteImage3 = document.getElementById('sprite-image3');
+const imagesSprite3 = ['ss11.png', 'ss12.png', 'ss13.png', 'ss14.png', 'ss15.png'];
+let currentIndexSprite3 = 0; setInterval(() => { currentIndexSprite3 = (currentIndexSprite3 + 1) % imagesSprite3.length;
+  spriteImage3.src = "./tp4/section9/" + imagesSprite3[currentIndexSprite3]; 
+}, 150);

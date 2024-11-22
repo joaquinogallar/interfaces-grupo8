@@ -1535,15 +1535,28 @@ nav ul li:nth-child(5) {
     animation-delay: 10s;
 }
 
-#section8 #sprite-image {
+#section8 #sprite-image1, #section8 #sprite-image2, #section8 #sprite-image3 {
     width: 200px;
     height: 200px;
-    border-radius: none;
-    image-rendering: pixelated; /* Mantiene los píxeles nítidos */
+    image-rendering: pixelated; /* Mantiene los pixeles nítidos */
+    object-fit: contain;
     position: absolute;
-    top: -200px;
-    right: 50px;
 }
+
+#section8 #sprite-image1 {
+    top: -200px;
+    right: 100px;
+}
+
+#section8 #sprite-image2 {
+    top: 0;
+    right: 100px;
+}
+
+#section8 #sprite-image3 {
+    left: 50px;
+}
+
 
 /*########################*/
 /*##      Footer        ##*/
