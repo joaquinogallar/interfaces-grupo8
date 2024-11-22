@@ -1535,6 +1535,15 @@ nav ul li:nth-child(5) {
     animation-delay: 10s;
 }
 
+#section8 #sprite-image {
+    width: 200px;
+    height: 200px;
+    border-radius: none;
+    image-rendering: pixelated; /* Mantiene los píxeles nítidos */
+    position: absolute;
+    top: -200px;
+    right: 50px;
+}
 
 /*########################*/
 /*##      Footer        ##*/

@@ -259,3 +259,10 @@ function moverSeccion5(scrollTop) {
       
   }
 }
+
+// Sección 9
+const spriteImage = document.getElementById('sprite-image');
+imagesS9 = ['ss01.png', 'ss02.png', 'ss03.png', 'ss04.png', 'ss05.png'];
+let currentIndexS9 = 0; setInterval(() => { currentIndexS9 = (currentIndexS9 + 1) % imagesS9.length;
+  spriteImage.src = "./tp4/section9/" + imagesS9[currentIndexS9]; 
+}, 100);
